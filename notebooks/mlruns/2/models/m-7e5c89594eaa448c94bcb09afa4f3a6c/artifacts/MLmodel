@@ -1,0 +1,15 @@
+artifact_path: file:///D:/Project/production-recommendation-system/notebooks/mlruns/2/models/m-7e5c89594eaa448c94bcb09afa4f3a6c/artifacts
+flavors:
+  sklearn:
+    code: null
+    pickled_model: model.skops
+    serialization_format: skops
+    sklearn_version: 1.9.0
+    skops_trusted_types: null
+mlflow_version: 3.16.0
+model_id: m-7e5c89594eaa448c94bcb09afa4f3a6c
+model_size_bytes: 265570
+model_uuid: m-7e5c89594eaa448c94bcb09afa4f3a6c
+prompts: null
+run_id: 55e712db98614c33acbd5fa12e51fae6
+utc_time_created: '2026-09-05 12:07:34.502653'
