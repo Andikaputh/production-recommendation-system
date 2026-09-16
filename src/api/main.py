@@ -1,53 +1,47 @@
-from fastapi import FastAPI, HTTPException
-from sqlalchemy import create_engine, Column, Integer, Float
-from sqlalchemy.orm import declarative_base, sessionmaker
-import os
+import random
 
-app = FastAPI(title="Production Recommendation API")
-
-# 1. Setup Koneksi Database (Sama seperti di Notebook)
-DB_PATH = os.path.abspath(os.path.join(os.path.dirname(__file__), '../../data/recommendations.db'))
-DATABASE_URL = f"sqlite:///{DB_PATH}"
-
-engine = create_engine(DATABASE_URL, connect_args={"check_same_thread": False})
-SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
-Base = declarative_base()
-
-# 2. Skema Tabel (Harus sama persis dengan yang dibuat di Notebook)
-class PopularItem(Base):
-    __tablename__ = 'popular_items'
-    id = Column(Integer, primary_key=True, autoincrement=True)
-    item_id = Column(Integer, unique=True, index=True)
-    score = Column(Float)
-
-@app.get("/")
-def root():
-    return {"message": "API is running with Database Serving!"}
-
-@app.get("/recommendations/{user_id}")
-def get_recommendations(user_id: int, top_k: int = 5):
+@app.get("/items/universe")
+def get_latent_universe():
     """
-    Endpoint ini sekarang membaca dari Database SQL, bukan dari file CSV di RAM.
+    Mengekspos 500 data film beserta koordinat SVD-nya ke Frontend Vite.
+    Ini adalah bahan bakar utama untuk visualisasi 'Latent Galaxy'.
     """
-    session = SessionLocal()
-    try:
-        # Mengambil data dari database dengan query SQL (diurutkan berdasarkan skor tertinggi)
-        results = session.query(PopularItem).order_by(PopularItem.score.desc()).limit(top_k).all()
+    # Daftar genre untuk simulasi pengelompokan SVD
+    genres = ["Action", "Sci-Fi", "Romance", "Comedy", "Drama", "Animation", "Thriller", "Adventure"]
+    
+    universe_data = []
+    
+    # Kita hasilkan 500 titik data masif
+    for i in range(1, 501):
+        genre = random.choice(genres)
         
-        if not results:
-            raise HTTPException(status_code=404, detail="Data rekomendasi tidak ditemukan")
-        
-        recommendations = []
-        for row in results:
-            recommendations.append({
-                "item_id": row.item_id,
-                "score": row.score
-            })
+        # ---------------------------------------------------------
+        # THE SVD SIMULATION (Ruang Laten)
+        # Di dunia nyata, nilai x dan y ini diambil langsung dari:
+        # x = model.components_[0, i]
+        # y = model.components_[1, i]
+        # Di sini kita simulasikan pengelompokan (clustering) agar 
+        # visualisasinya terlihat logis (genre sejenis saling berdekatan).
+        # ---------------------------------------------------------
+        if genre in ["Action", "Adventure", "Thriller"]:
+            x, y = random.uniform(1.0, 5.0), random.uniform(-5.0, -1.0)
+        elif genre in ["Sci-Fi", "Animation"]:
+            x, y = random.uniform(1.0, 6.0), random.uniform(1.0, 6.0)
+        else: # Romance, Comedy, Drama
+            x, y = random.uniform(-5.0, 0.0), random.uniform(-3.0, 4.0)
             
-        return {
-            "user_id": user_id,
-            "recommendation_type": "popularity_from_db",
-            "recommendations": recommendations
-        }
-    finally:
-        session.close() # Wajib menutup sesi database agar memori tidak bocor
+        universe_data.append({
+            "id": i,
+            "title": f"Movie Title #{i}", 
+            "genre": genre,
+            # Menghasilkan poster gambar secara otomatis
+            "image": f"https://dummyimage.com/300x450/1e1e2f/60a5fa.png&text={genre}+{i}",
+            "x": round(x, 3),
+            "y": round(y, 3)
+        })
+        
+    return {
+        "status": "success",
+        "total_items": len(universe_data),
+        "universe": universe_data
+    }
