@@ -1,0 +1,39 @@
+{
+  "dataset_name": "rasa-synthetic-commerce",
+  "dataset_version": "rasa-synth-1.0.0",
+  "generated_at": "2026-10-24T02:03:44Z",
+  "seed": 42,
+  "synthetic": true,
+  "n_categories": 10,
+  "n_merchants": 30,
+  "n_products": 600,
+  "n_users": 500,
+  "n_events": 52174,
+  "n_positive_events": 13129,
+  "interaction_window_days": 120,
+  "anchor_date": "2026-08-01",
+  "files": {
+    "categories.csv": {
+      "rows": 10,
+      "sha256": "a3558645684fbf6d24afaefbe68a66b0ef758a6353183a2505dbe8dd389b661d"
+    },
+    "merchants.csv": {
+      "rows": 30,
+      "sha256": "b28f95662a85d10603e37799597551a7ee773bece04a5ebf99c137754c6ff821"
+    },
+    "products.csv": {
+      "rows": 600,
+      "sha256": "8b09a3f0973397235a03d7a7d555124374f87eb915cab9be3c9eda97d1ce23c4"
+    },
+    "users.csv": {
+      "rows": 500,
+      "sha256": "902b4b69551eab34889a2a4837522148707676a46573025b18a3841f28d6a554"
+    },
+    "interactions.csv": {
+      "rows": 52174,
+      "sha256": "60426311b6896f975ed990daafb3ca14f5308860037062964ef3ecc7e074746f"
+    }
+  },
+  "license": "CC-BY-4.0 (data sintetis, bukan data marketplace nyata)",
+  "warning": "Seluruh produk, merchant, harga, stok, dan interaksi adalah data simulasi. Tidak merepresentasikan marketplace atau pengguna nyata."
+}

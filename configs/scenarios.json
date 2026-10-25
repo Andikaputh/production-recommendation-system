@@ -1,0 +1,114 @@
+{
+  "version": "1.0.0",
+  "note": "Skenario demo bawaan. Harga, stok, dan merchant adalah data simulasi.",
+  "scenarios": [
+    {
+      "scenario_id": "kuliah-hemat",
+      "title": "Perlengkapan kuliah hemat",
+      "description": "Tas, alat tulis, dan botol minum untuk penggunaan harian dengan anggaran Rp250.000 dan maksimal 2 toko.",
+      "mission": {
+        "goal": "Menyiapkan perlengkapan kuliah harian yang minimalis",
+        "required_categories": ["bag", "stationery", "drinkware"],
+        "optional_categories": ["organizer"],
+        "max_budget": 250000,
+        "max_merchants": 2
+      },
+      "preferences": {
+        "style": ["minimalist", "natural"],
+        "colors": ["hitam", "abu", "krem"],
+        "brands": [],
+        "minimum_rating": 4.2
+      }
+    },
+    {
+      "scenario_id": "kerja-remote",
+      "title": "Meja kerja remote",
+      "description": "Perlengkapan meja, elektronik pendukung, dan botol minum untuk bekerja dari rumah dengan anggaran Rp750.000.",
+      "mission": {
+        "goal": "Menyiapkan meja kerja remote yang nyaman dan rapi",
+        "required_categories": ["desk", "electronics", "drinkware"],
+        "optional_categories": ["organizer"],
+        "max_budget": 750000,
+        "max_merchants": 3
+      },
+      "preferences": {
+        "style": ["minimalist", "klasik"],
+        "colors": ["hitam", "putih", "abu"],
+        "brands": ["Volta", "Karsa"],
+        "minimum_rating": 4.3
+      }
+    },
+    {
+      "scenario_id": "bekal-hemat",
+      "title": "Bekal harian hemat",
+      "description": "Camilan, botol minum, dan perawatan diri untuk aktivitas harian dengan anggaran Rp100.000.",
+      "mission": {
+        "goal": "Menyiapkan bekal dan perlengkapan harian yang hemat",
+        "required_categories": ["snack", "drinkware", "personal_care"],
+        "optional_categories": [],
+        "max_budget": 100000,
+        "max_merchants": 2
+      },
+      "preferences": {
+        "style": ["natural", "playful"],
+        "colors": ["hijau", "krem", "biru"],
+        "brands": [],
+        "minimum_rating": 4.0
+      }
+    },
+    {
+      "scenario_id": "hadiah-wisuda",
+      "title": "Hadiah wisuda",
+      "description": "Hadiah sederhana berupa alat tulis dan organizer, dengan opsi buku, anggaran Rp200.000.",
+      "mission": {
+        "goal": "Memilih hadiah wisuda yang rapi dan berguna",
+        "required_categories": ["stationery", "organizer"],
+        "optional_categories": ["book"],
+        "max_budget": 200000,
+        "max_merchants": 2
+      },
+      "preferences": {
+        "style": ["klasik", "minimalist"],
+        "colors": ["navy", "krem", "cokelat"],
+        "brands": ["Aksara", "Cendana"],
+        "minimum_rating": 4.4
+      }
+    },
+    {
+      "scenario_id": "semester-baru",
+      "title": "Persiapan semester baru",
+      "description": "Tas, buku, elektronik, dan perlengkapan meja dengan anggaran Rp1.000.000 dari maksimal 3 toko.",
+      "mission": {
+        "goal": "Menyiapkan seluruh kebutuhan semester baru",
+        "required_categories": ["bag", "book", "electronics", "desk"],
+        "optional_categories": ["stationery"],
+        "max_budget": 1000000,
+        "max_merchants": 3
+      },
+      "preferences": {
+        "style": ["minimalist", "sporty"],
+        "colors": ["hitam", "navy", "abu"],
+        "brands": [],
+        "minimum_rating": 4.2
+      }
+    },
+    {
+      "scenario_id": "tanpa-solusi",
+      "title": "Contoh misi tanpa solusi",
+      "description": "Misi dengan anggaran yang sengaja terlalu kecil untuk menunjukkan penanganan infeasible dan saran pelonggaran batasan.",
+      "mission": {
+        "goal": "Membeli power bank dengan anggaran sangat terbatas",
+        "required_categories": ["electronics"],
+        "optional_categories": [],
+        "max_budget": 25000,
+        "max_merchants": 1
+      },
+      "preferences": {
+        "style": [],
+        "colors": [],
+        "brands": [],
+        "minimum_rating": 4.5
+      }
+    }
+  ]
+}

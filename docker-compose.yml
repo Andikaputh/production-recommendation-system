@@ -1,0 +1,15 @@
+services:
+  rasa:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      RASA_ENV: production
+      RASA_DATABASE_URL: sqlite:////app/data/rasa.db
+      RASA_CORS_ORIGINS: http://localhost:8000
+    volumes:
+      - rasa-data:/app/data
+    restart: unless-stopped
+
+volumes:
+  rasa-data:

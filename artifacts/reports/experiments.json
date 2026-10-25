@@ -1,0 +1,335 @@
+{
+  "generated_at": "2026-10-25T04:44:45Z",
+  "dataset_version": "rasa-synth-1.0.0",
+  "model_version": "hybrid-v1",
+  "seed": 42,
+  "results": {
+    "EXP-001": {
+      "experiment_id": "EXP-001",
+      "name": "Global Popularity",
+      "model": "popularity_global",
+      "strategy": "popularity_global",
+      "scope": "ranking",
+      "status": "completed",
+      "ranking_metrics": {
+        "precision@10": 0.029017857142857144,
+        "recall@10": 0.0762170493197279,
+        "ndcg@10": 0.050527042061110174,
+        "map@10": 0.02210798729213908,
+        "mrr": 0.07414877409297052,
+        "hit_rate@10": 0.2544642857142857
+      },
+      "catalog_metrics": {
+        "catalog_coverage": 0.16666666666666666,
+        "user_coverage": 1.0,
+        "intra_list_diversity": 0.7940612809200372,
+        "novelty": 8.493673984135311,
+        "long_tail_exposure": 0.0,
+        "exposure_gini": 0.6213794642857142,
+        "distinct_items_exposed": 100.0
+      },
+      "n_users": 448
+    },
+    "EXP-002": {
+      "experiment_id": "EXP-002",
+      "name": "Category Popularity",
+      "model": "popularity_category",
+      "strategy": "popularity_category",
+      "scope": "ranking_and_basket",
+      "status": "completed",
+      "ranking_metrics": {
+        "precision@10": 0.02879464285714286,
+        "recall@10": 0.0790391156462585,
+        "ndcg@10": 0.051982778539266535,
+        "map@10": 0.02273375074236043,
+        "mrr": 0.07855194160997733,
+        "hit_rate@10": 0.2544642857142857
+      },
+      "catalog_metrics": {
+        "catalog_coverage": 0.145,
+        "user_coverage": 1.0,
+        "intra_list_diversity": 0.8258046145950045,
+        "novelty": 8.596523349343196,
+        "long_tail_exposure": 0.034482758620689655,
+        "exposure_gini": 0.5078509852216748,
+        "distinct_items_exposed": 87.0
+      },
+      "n_users": 448,
+      "basket_metrics": {
+        "n_missions": 120,
+        "budget_feasibility_rate": 0.5833,
+        "infeasible_mission_rate": 0.4167,
+        "required_category_coverage": 1.0,
+        "availability_feasibility": 1.0,
+        "avg_merchant_count": 1.6,
+        "merchant_count_distribution": {
+          "1": 37,
+          "3": 9,
+          "2": 24
+        },
+        "budget_utilization": 0.6595,
+        "avg_basket_total": 88535.71,
+        "basket_relevance": 0.9476,
+        "substitution_success": null,
+        "infeasibility_explanation_rate": 0.0,
+        "solver_latency_ms": {
+          "mean": 0.0,
+          "p95": 0.0
+        },
+        "solver_usage": {
+          "independent_top1": 120
+        },
+        "all_feasible_constraints_valid": true,
+        "label": "Baseline popularitas kategori tanpa optimasi",
+        "strategy": "popularity_category",
+        "basket_mode": "independent",
+        "evaluated_missions": 120
+      }
+    },
+    "EXP-003": {
+      "experiment_id": "EXP-003",
+      "name": "Content-Based",
+      "model": "content",
+      "strategy": "content",
+      "scope": "ranking",
+      "status": "completed",
+      "ranking_metrics": {
+        "precision@10": 0.035937500000000004,
+        "recall@10": 0.09093856292517007,
+        "ndcg@10": 0.06394287348391796,
+        "map@10": 0.029858508631627256,
+        "mrr": 0.09460654053287983,
+        "hit_rate@10": 0.30357142857142855
+      },
+      "catalog_metrics": {
+        "catalog_coverage": 0.7316666666666667,
+        "user_coverage": 1.0,
+        "intra_list_diversity": 0.6783443288877606,
+        "novelty": 9.375216927950849,
+        "long_tail_exposure": 0.5398633257403189,
+        "exposure_gini": 0.31397758704848666,
+        "distinct_items_exposed": 439.0
+      },
+      "n_users": 448
+    },
+    "EXP-004": {
+      "experiment_id": "EXP-004",
+      "name": "Collaborative Filtering",
+      "model": "collaborative",
+      "strategy": "collaborative",
+      "scope": "ranking",
+      "status": "completed",
+      "ranking_metrics": {
+        "precision@10": 0.03035714285714286,
+        "recall@10": 0.07611607142857142,
+        "ndcg@10": 0.053929640360035745,
+        "map@10": 0.024487577272972683,
+        "mrr": 0.08228015164399093,
+        "hit_rate@10": 0.26339285714285715
+      },
+      "catalog_metrics": {
+        "catalog_coverage": 0.59,
+        "user_coverage": 1.0,
+        "intra_list_diversity": 0.825993563713772,
+        "novelty": 8.935232743739633,
+        "long_tail_exposure": 0.4435028248587571,
+        "exposure_gini": 0.46556194511702986,
+        "distinct_items_exposed": 354.0
+      },
+      "n_users": 448
+    },
+    "EXP-005": {
+      "experiment_id": "EXP-005",
+      "name": "Hybrid",
+      "model": "hybrid",
+      "strategy": "hybrid",
+      "scope": "ranking",
+      "status": "completed",
+      "ranking_metrics": {
+        "precision@10": 0.03482142857142857,
+        "recall@10": 0.08942920918367346,
+        "ndcg@10": 0.06296576437561105,
+        "map@10": 0.028805662269868266,
+        "mrr": 0.0960282029478458,
+        "hit_rate@10": 0.3013392857142857
+      },
+      "catalog_metrics": {
+        "catalog_coverage": 0.7116666666666667,
+        "user_coverage": 1.0,
+        "intra_list_diversity": 0.7135940176833954,
+        "novelty": 9.235495600619087,
+        "long_tail_exposure": 0.531615925058548,
+        "exposure_gini": 0.4244960689193711,
+        "distinct_items_exposed": 427.0
+      },
+      "n_users": 448
+    },
+    "EXP-006": {
+      "experiment_id": "EXP-006",
+      "name": "Hybrid + Mission Ranking",
+      "model": "hybrid_mission",
+      "strategy": "hybrid_mission",
+      "scope": "ranking_and_basket",
+      "status": "completed",
+      "ranking_metrics": {
+        "precision@10": 0.04196428571428572,
+        "recall@10": 0.11271789965986392,
+        "ndcg@10": 0.0757575018179001,
+        "map@10": 0.03397937672092647,
+        "mrr": 0.11152122307256236,
+        "hit_rate@10": 0.36607142857142855
+      },
+      "catalog_metrics": {
+        "catalog_coverage": 0.6466666666666666,
+        "user_coverage": 1.0,
+        "intra_list_diversity": 0.7603850950087819,
+        "novelty": 9.226145634117687,
+        "long_tail_exposure": 0.5180412371134021,
+        "exposure_gini": 0.5173773472017673,
+        "distinct_items_exposed": 388.0
+      },
+      "n_users": 448,
+      "basket_metrics": {
+        "n_missions": 120,
+        "budget_feasibility_rate": 0.5667,
+        "infeasible_mission_rate": 0.4333,
+        "required_category_coverage": 1.0,
+        "availability_feasibility": 1.0,
+        "avg_merchant_count": 1.54,
+        "merchant_count_distribution": {
+          "1": 38,
+          "3": 7,
+          "2": 23
+        },
+        "budget_utilization": 0.6558,
+        "avg_basket_total": 87205.88,
+        "basket_relevance": 0.7096,
+        "substitution_success": null,
+        "infeasibility_explanation_rate": 0.0,
+        "solver_latency_ms": {
+          "mean": 0.0,
+          "p95": 0.0
+        },
+        "solver_usage": {
+          "independent_top1": 120
+        },
+        "all_feasible_constraints_valid": true,
+        "label": "Hybrid + misi tanpa optimasi keranjang",
+        "strategy": "hybrid_mission",
+        "basket_mode": "independent",
+        "evaluated_missions": 120
+      }
+    },
+    "EXP-007": {
+      "experiment_id": "EXP-007",
+      "name": "Hybrid + Basket Optimization",
+      "model": "hybrid_basket",
+      "strategy": "hybrid_basket",
+      "scope": "basket",
+      "status": "completed",
+      "basket_metrics": {
+        "n_missions": 120,
+        "budget_feasibility_rate": 0.9833,
+        "infeasible_mission_rate": 0.0167,
+        "required_category_coverage": 1.0,
+        "availability_feasibility": 1.0,
+        "avg_merchant_count": 1.61,
+        "merchant_count_distribution": {
+          "1": 60,
+          "3": 14,
+          "2": 44
+        },
+        "budget_utilization": 0.7485,
+        "avg_basket_total": 122245.76,
+        "basket_relevance": 0.6216,
+        "substitution_success": 0.9091,
+        "infeasibility_explanation_rate": 1.0,
+        "solver_latency_ms": {
+          "mean": 65.36,
+          "p95": 88.41
+        },
+        "solver_usage": {
+          "ilp_cbc": 118,
+          "ilp_infeasible": 2
+        },
+        "all_feasible_constraints_valid": true,
+        "label": "Hybrid + optimasi keranjang (ILP)",
+        "strategy": "hybrid_mission",
+        "basket_mode": "optimized",
+        "evaluated_missions": 120
+      }
+    },
+    "EXP-008": {
+      "experiment_id": "EXP-008",
+      "name": "Hybrid + Controlled Exposure",
+      "model": "hybrid_exposure",
+      "strategy": "hybrid_exposure",
+      "scope": "ranking_and_basket",
+      "status": "completed",
+      "ranking_metrics": {
+        "precision@10": 0.04062500000000001,
+        "recall@10": 0.10741390306122447,
+        "ndcg@10": 0.07007055318060493,
+        "map@10": 0.03019635644436346,
+        "mrr": 0.10097700538548751,
+        "hit_rate@10": 0.3549107142857143
+      },
+      "catalog_metrics": {
+        "catalog_coverage": 0.6283333333333333,
+        "user_coverage": 1.0,
+        "intra_list_diversity": 0.7738339346168297,
+        "novelty": 9.155513977654449,
+        "long_tail_exposure": 0.493368700265252,
+        "exposure_gini": 0.5270047840090943,
+        "distinct_items_exposed": 377.0
+      },
+      "n_users": 448,
+      "basket_metrics": {
+        "n_missions": 120,
+        "budget_feasibility_rate": 0.9833,
+        "infeasible_mission_rate": 0.0167,
+        "required_category_coverage": 1.0,
+        "availability_feasibility": 1.0,
+        "avg_merchant_count": 1.64,
+        "merchant_count_distribution": {
+          "1": 59,
+          "3": 16,
+          "2": 43
+        },
+        "budget_utilization": 0.7526,
+        "avg_basket_total": 120754.24,
+        "basket_relevance": 0.6457,
+        "substitution_success": null,
+        "infeasibility_explanation_rate": 1.0,
+        "solver_latency_ms": {
+          "mean": 64.61,
+          "p95": 88.22
+        },
+        "solver_usage": {
+          "ilp_cbc": 118,
+          "ilp_infeasible": 2
+        },
+        "all_feasible_constraints_valid": true,
+        "label": "Hybrid + eksposur terkontrol + optimasi",
+        "strategy": "hybrid_exposure",
+        "basket_mode": "optimized",
+        "evaluated_missions": 120
+      }
+    }
+  },
+  "ab_simulation": {
+    "status": "simulation_only",
+    "experiment_id": "AB-001",
+    "unit": "simulated_user",
+    "n_per_group": 448,
+    "control_mean_ndcg": 0.06296574330357142,
+    "treatment_mean_ndcg": 0.07575747098214285,
+    "absolute_lift": 0.012791727678571424,
+    "bootstrap_95_ci": [
+      0.003906005580357141,
+      0.021790013895089277
+    ],
+    "label": "SIMULASI OFFLINE. Pembagian bukan randomisasi sesi live dan tidak membuktikan kausalitas."
+  },
+  "note": "Hasil offline; bukan bukti dampak bisnis nyata."
+}

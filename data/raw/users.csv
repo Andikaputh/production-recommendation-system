@@ -1,0 +1,501 @@
+user_id,preferred_categories,preferred_brands,preferred_styles,preferred_colors,price_sensitivity,is_cold_start,created_at
+u0001,"[""bag"", ""personal_care"", ""electronics""]","[""Rimba"", ""Volta""]","[""sporty"", ""playful""]","[""biru"", ""navy""]",rendah,False,2025-06-04T00:00:00+00:00
+u0002,"[""stationery"", ""drinkware"", ""bag"", ""electronics""]","[""Kanaya"", ""Nusakita""]","[""klasik""]","[""navy"", ""merah"", ""transparan""]",rendah,False,2024-04-06T00:00:00+00:00
+u0003,"[""bag"", ""desk"", ""stationery"", ""organizer""]","[""Cendana"", ""Karsa"", ""Kanaya""]","[""playful"", ""minimalist""]","[""biru"", ""hijau""]",tinggi,False,2024-08-25T00:00:00+00:00
+u0004,"[""drinkware"", ""bag"", ""book""]","[""Nusakita"", ""Lentera""]","[""minimalist"", ""playful""]","[""merah"", ""abu"", ""putih""]",tinggi,False,2026-01-29T00:00:00+00:00
+u0005,"[""electronics"", ""stationery""]","[""Karsa"", ""Kanaya""]","[""minimalist""]","[""abu"", ""navy"", ""krem"", ""merah""]",rendah,False,2024-08-16T00:00:00+00:00
+u0006,"[""stationery"", ""bag"", ""drinkware""]","[""Lentera"", ""Cendana"", ""Nusakita""]","[""klasik"", ""natural""]","[""putih"", ""merah"", ""hijau"", ""krem""]",rendah,False,2026-02-03T00:00:00+00:00
+u0007,"[""book"", ""personal_care"", ""organizer"", ""drinkware""]","[""Lentera"", ""Tirta"", ""Sagara""]","[""playful"", ""sporty""]","[""krem"", ""merah"", ""navy"", ""hijau""]",sedang,False,2025-03-07T00:00:00+00:00
+u0008,"[""snack"", ""stationery""]","[""Bumi"", ""Kanaya""]","[""playful"", ""sporty""]","[""biru"", ""cokelat"", ""krem"", ""abu""]",sedang,False,2024-03-24T00:00:00+00:00
+u0009,"[""snack"", ""umbrella"", ""stationery""]","[""Bumi"", ""Kanaya"", ""Lentera""]","[""playful""]","[""cokelat"", ""merah""]",sedang,False,2024-03-27T00:00:00+00:00
+u0010,"[""stationery"", ""organizer"", ""electronics""]","[""Lentera"", ""Aksara"", ""Nusakita""]","[""playful""]","[""transparan"", ""merah"", ""biru""]",rendah,False,2025-01-28T00:00:00+00:00
+u0011,"[""organizer"", ""book"", ""desk""]","[""Lentera"", ""Pustaka Nusa"", ""Cendana""]","[""minimalist""]","[""putih"", ""hijau"", ""hitam"", ""krem""]",sedang,False,2024-03-15T00:00:00+00:00
+u0012,"[""stationery"", ""bag"", ""drinkware"", ""snack""]","[""Lentera"", ""Sagara"", ""Tirta""]","[""minimalist""]","[""putih"", ""krem"", ""hitam""]",rendah,False,2025-12-25T00:00:00+00:00
+u0013,"[""snack"", ""stationery"", ""personal_care"", ""electronics""]","[""Bumi"", ""Lentera"", ""Rimba"", ""Volta""]","[""playful""]","[""merah"", ""biru""]",sedang,False,2025-03-26T00:00:00+00:00
+u0014,"[""personal_care"", ""electronics"", ""umbrella"", ""snack""]","[""Rimba"", ""Volta"", ""Nusakita"", ""Sagara""]","[""sporty""]","[""abu"", ""transparan"", ""biru"", ""cokelat""]",sedang,False,2025-11-18T00:00:00+00:00
+u0015,"[""bag"", ""umbrella"", ""drinkware"", ""stationery""]","[""Sagara"", ""Nusakita"", ""Tirta"", ""Bumi""]","[""playful"", ""klasik""]","[""putih"", ""cokelat"", ""navy"", ""merah""]",sedang,False,2026-03-29T00:00:00+00:00
+u0016,"[""stationery"", ""drinkware"", ""book"", ""umbrella""]","[""Aksara"", ""Sagara"", ""Pustaka Nusa"", ""Kanaya""]","[""natural"", ""playful""]","[""merah"", ""hitam"", ""biru""]",sedang,False,2024-06-15T00:00:00+00:00
+u0017,"[""desk"", ""bag"", ""snack""]","[""Cendana"", ""Sagara""]","[""klasik""]","[""cokelat"", ""krem"", ""transparan""]",sedang,False,2025-12-07T00:00:00+00:00
+u0018,"[""book"", ""umbrella""]","[""Aksara"", ""Nusakita""]","[""minimalist""]","[""biru"", ""krem""]",tinggi,False,2024-06-03T00:00:00+00:00
+u0019,"[""stationery"", ""personal_care"", ""organizer""]","[""Lentera"", ""Rimba""]","[""minimalist""]","[""cokelat"", ""putih""]",sedang,False,2025-04-29T00:00:00+00:00
+u0020,"[""stationery"", ""snack"", ""bag"", ""organizer""]","[""Aksara"", ""Rimba"", ""Sagara"", ""Cendana""]","[""sporty""]","[""cokelat"", ""biru""]",tinggi,False,2026-02-25T00:00:00+00:00
+u0021,"[""umbrella"", ""snack"", ""organizer""]","[""Nusakita"", ""Sagara"", ""Lentera""]","[""natural"", ""sporty""]","[""putih"", ""cokelat"", ""transparan"", ""hitam""]",tinggi,False,2025-07-19T00:00:00+00:00
+u0022,"[""organizer"", ""stationery"", ""snack""]","[""Cendana"", ""Lentera"", ""Rimba""]","[""playful""]","[""abu"", ""hijau"", ""krem""]",sedang,False,2024-09-18T00:00:00+00:00
+u0023,"[""snack"", ""book"", ""stationery"", ""drinkware""]","[""Rimba"", ""Lentera"", ""Kanaya"", ""Sagara""]","[""playful"", ""sporty""]","[""transparan"", ""merah"", ""navy"", ""hijau""]",sedang,False,2025-12-01T00:00:00+00:00
+u0024,"[""drinkware"", ""stationery""]","[""Sagara"", ""Bumi""]","[""klasik"", ""natural""]","[""navy"", ""abu"", ""hitam"", ""cokelat""]",sedang,False,2025-09-25T00:00:00+00:00
+u0025,"[""stationery"", ""bag"", ""electronics"", ""personal_care""]","[""Bumi"", ""Sagara"", ""Karsa"", ""Tirta""]","[""sporty""]","[""merah"", ""abu"", ""hijau"", ""hitam""]",sedang,False,2024-02-26T00:00:00+00:00
+u0026,"[""personal_care"", ""drinkware"", ""organizer""]","[""Rimba"", ""Tirta"", ""Lentera""]","[""klasik"", ""minimalist""]","[""navy"", ""hitam"", ""cokelat"", ""biru""]",sedang,False,2024-07-21T00:00:00+00:00
+u0027,"[""electronics"", ""desk"", ""bag""]","[""Volta"", ""Cendana""]","[""sporty"", ""minimalist""]","[""hijau"", ""putih"", ""cokelat""]",sedang,False,2024-10-07T00:00:00+00:00
+u0028,"[""organizer"", ""electronics""]","[""Lentera"", ""Bumi""]","[""klasik"", ""minimalist""]","[""hijau"", ""abu""]",tinggi,False,2025-05-21T00:00:00+00:00
+u0029,"[""organizer"", ""electronics""]","[""Aksara"", ""Bumi""]","[""sporty"", ""klasik""]","[""krem"", ""hitam"", ""abu""]",sedang,False,2025-09-20T00:00:00+00:00
+u0030,"[""snack"", ""bag"", ""electronics""]","[""Rimba"", ""Sagara"", ""Bumi""]","[""sporty""]","[""krem"", ""merah""]",sedang,False,2025-10-07T00:00:00+00:00
+u0031,"[""desk"", ""snack""]","[""Karsa"", ""Rimba""]","[""sporty"", ""playful""]","[""merah"", ""abu""]",rendah,False,2024-06-13T00:00:00+00:00
+u0032,"[""drinkware"", ""snack"", ""personal_care"", ""electronics""]","[""Kanaya"", ""Sagara"", ""Rimba"", ""Bumi""]","[""klasik""]","[""abu"", ""merah""]",tinggi,False,2025-09-10T00:00:00+00:00
+u0033,"[""personal_care"", ""stationery"", ""drinkware"", ""bag""]","[""Kanaya"", ""Lentera"", ""Sagara""]","[""playful"", ""natural""]","[""merah"", ""cokelat"", ""hijau"", ""abu""]",sedang,False,2024-04-09T00:00:00+00:00
+u0034,"[""umbrella"", ""stationery""]","[""Kanaya"", ""Lentera""]","[""natural"", ""playful""]","[""merah"", ""cokelat"", ""hitam""]",rendah,False,2024-08-23T00:00:00+00:00
+u0035,"[""personal_care"", ""snack"", ""stationery""]","[""Rimba"", ""Lentera""]","[""playful""]","[""krem"", ""hijau"", ""navy"", ""biru""]",rendah,False,2024-12-16T00:00:00+00:00
+u0036,"[""bag"", ""drinkware""]","[""Cendana"", ""Sagara""]","[""minimalist""]","[""cokelat"", ""putih"", ""biru""]",tinggi,False,2024-10-03T00:00:00+00:00
+u0037,"[""electronics"", ""organizer"", ""stationery"", ""bag""]","[""Karsa"", ""Aksara"", ""Bumi"", ""Cendana""]","[""klasik""]","[""hijau"", ""navy"", ""krem""]",tinggi,False,2024-03-10T00:00:00+00:00
+u0038,"[""organizer"", ""book"", ""drinkware"", ""stationery""]","[""Aksara"", ""Nusakita"", ""Kanaya""]","[""minimalist"", ""klasik""]","[""hijau"", ""transparan"", ""krem"", ""abu""]",tinggi,False,2025-01-31T00:00:00+00:00
+u0039,"[""personal_care"", ""snack""]","[""Kanaya"", ""Rimba""]","[""sporty""]","[""putih"", ""abu""]",tinggi,False,2024-09-19T00:00:00+00:00
+u0040,"[""organizer"", ""snack"", ""desk""]","[""Cendana"", ""Rimba""]","[""playful""]","[""hitam"", ""putih""]",sedang,False,2025-08-03T00:00:00+00:00
+u0041,"[""drinkware"", ""book"", ""snack""]","[""Sagara"", ""Aksara"", ""Rimba""]","[""sporty""]","[""hijau"", ""abu""]",sedang,False,2025-09-03T00:00:00+00:00
+u0042,"[""bag"", ""drinkware""]","[""Cendana"", ""Kanaya""]","[""playful""]","[""navy"", ""hijau""]",rendah,False,2025-09-17T00:00:00+00:00
+u0043,"[""drinkware"", ""organizer"", ""personal_care""]","[""Sagara"", ""Aksara"", ""Kanaya""]","[""playful"", ""klasik""]","[""krem"", ""navy"", ""transparan""]",sedang,False,2025-11-06T00:00:00+00:00
+u0044,"[""desk"", ""stationery"", ""organizer""]","[""Volta"", ""Aksara"", ""Cendana""]","[""minimalist"", ""natural""]","[""navy"", ""abu"", ""krem""]",rendah,False,2024-06-27T00:00:00+00:00
+u0045,"[""stationery"", ""drinkware"", ""desk"", ""umbrella""]","[""Bumi"", ""Sagara"", ""Cendana"", ""Kanaya""]","[""minimalist"", ""playful""]","[""krem"", ""hitam"", ""navy""]",tinggi,False,2024-09-13T00:00:00+00:00
+u0046,"[""drinkware"", ""organizer"", ""personal_care""]","[""Tirta"", ""Aksara""]","[""sporty""]","[""hijau"", ""hitam"", ""abu"", ""merah""]",tinggi,False,2024-02-22T00:00:00+00:00
+u0047,"[""book"", ""organizer""]","[""Pustaka Nusa"", ""Aksara""]","[""playful"", ""klasik""]","[""hijau"", ""abu""]",rendah,False,2025-09-12T00:00:00+00:00
+u0048,"[""desk"", ""electronics""]","[""Cendana"", ""Volta""]","[""minimalist""]","[""abu"", ""biru""]",rendah,False,2025-08-01T00:00:00+00:00
+u0049,"[""snack"", ""electronics"", ""umbrella"", ""bag""]","[""Rimba"", ""Bumi"", ""Nusakita"", ""Sagara""]","[""sporty"", ""playful""]","[""putih"", ""biru"", ""hijau"", ""abu""]",tinggi,False,2025-09-19T00:00:00+00:00
+u0050,"[""personal_care"", ""drinkware""]","[""Rimba"", ""Tirta""]","[""sporty"", ""minimalist""]","[""krem"", ""transparan""]",sedang,False,2025-12-03T00:00:00+00:00
+u0051,"[""bag"", ""snack"", ""book"", ""desk""]","[""Nusakita"", ""Bumi"", ""Pustaka Nusa"", ""Karsa""]","[""sporty"", ""natural""]","[""biru"", ""navy"", ""cokelat""]",sedang,False,2024-12-07T00:00:00+00:00
+u0052,"[""drinkware"", ""electronics"", ""organizer""]","[""Tirta"", ""Volta"", ""Cendana""]","[""natural"", ""sporty""]","[""putih"", ""biru""]",sedang,False,2025-06-03T00:00:00+00:00
+u0053,"[""stationery"", ""drinkware"", ""electronics"", ""desk""]","[""Kanaya"", ""Karsa"", ""Cendana""]","[""natural""]","[""putih"", ""navy""]",sedang,False,2025-06-23T00:00:00+00:00
+u0054,"[""drinkware"", ""desk"", ""snack""]","[""Tirta"", ""Cendana"", ""Rimba""]","[""klasik"", ""sporty""]","[""transparan"", ""merah"", ""krem"", ""cokelat""]",tinggi,False,2024-04-03T00:00:00+00:00
+u0055,"[""snack"", ""stationery"", ""organizer"", ""book""]","[""Sagara"", ""Kanaya"", ""Lentera"", ""Aksara""]","[""klasik""]","[""cokelat"", ""navy"", ""hitam""]",sedang,False,2024-04-25T00:00:00+00:00
+u0056,"[""umbrella"", ""drinkware"", ""bag"", ""book""]","[""Sagara"", ""Nusakita"", ""Cendana"", ""Aksara""]","[""playful""]","[""cokelat"", ""hijau""]",tinggi,False,2025-11-08T00:00:00+00:00
+u0057,"[""drinkware"", ""bag"", ""personal_care""]","[""Sagara"", ""Nusakita"", ""Rimba""]","[""sporty"", ""klasik""]","[""navy"", ""cokelat"", ""hitam"", ""krem""]",rendah,False,2024-12-02T00:00:00+00:00
+u0058,"[""snack"", ""drinkware"", ""desk"", ""bag""]","[""Rimba"", ""Tirta"", ""Cendana""]","[""klasik"", ""sporty""]","[""putih"", ""hitam"", ""transparan"", ""krem""]",rendah,False,2024-09-08T00:00:00+00:00
+u0059,"[""stationery"", ""drinkware"", ""personal_care"", ""electronics""]","[""Kanaya"", ""Nusakita"", ""Rimba""]","[""playful""]","[""biru"", ""cokelat"", ""putih""]",sedang,False,2025-10-03T00:00:00+00:00
+u0060,"[""drinkware"", ""bag"", ""stationery""]","[""Tirta"", ""Rimba"", ""Kanaya""]","[""klasik"", ""minimalist""]","[""biru"", ""hijau"", ""abu"", ""putih""]",sedang,False,2025-07-02T00:00:00+00:00
+u0061,"[""stationery"", ""book"", ""drinkware"", ""organizer""]","[""Lentera"", ""Aksara"", ""Tirta"", ""Cendana""]","[""sporty""]","[""navy"", ""cokelat"", ""krem"", ""putih""]",rendah,False,2025-05-01T00:00:00+00:00
+u0062,"[""snack"", ""organizer"", ""book""]","[""Rimba"", ""Lentera""]","[""klasik""]","[""hitam"", ""cokelat"", ""abu"", ""putih""]",sedang,False,2026-03-04T00:00:00+00:00
+u0063,"[""umbrella"", ""book"", ""personal_care"", ""desk""]","[""Nusakita"", ""Pustaka Nusa"", ""Rimba"", ""Volta""]","[""minimalist""]","[""krem"", ""transparan"", ""putih"", ""cokelat""]",tinggi,False,2024-05-18T00:00:00+00:00
+u0064,"[""desk"", ""book""]","[""Cendana"", ""Aksara""]","[""natural""]","[""navy"", ""hijau""]",tinggi,False,2024-12-03T00:00:00+00:00
+u0065,"[""drinkware"", ""stationery""]","[""Sagara"", ""Kanaya""]","[""playful"", ""klasik""]","[""biru"", ""abu"", ""transparan""]",tinggi,False,2024-06-07T00:00:00+00:00
+u0066,"[""organizer"", ""stationery"", ""snack"", ""desk""]","[""Lentera"", ""Aksara"", ""Bumi"", ""Cendana""]","[""minimalist"", ""klasik""]","[""navy"", ""cokelat""]",sedang,False,2024-08-27T00:00:00+00:00
+u0067,"[""book"", ""electronics""]","[""Pustaka Nusa"", ""Volta""]","[""sporty""]","[""krem"", ""navy"", ""hijau"", ""transparan""]",tinggi,False,2024-03-02T00:00:00+00:00
+u0068,"[""stationery"", ""electronics"", ""bag"", ""snack""]","[""Kanaya"", ""Nusakita"", ""Cendana"", ""Sagara""]","[""klasik"", ""sporty""]","[""putih"", ""transparan"", ""navy""]",tinggi,False,2024-04-30T00:00:00+00:00
+u0069,"[""personal_care"", ""book"", ""drinkware"", ""bag""]","[""Rimba"", ""Pustaka Nusa"", ""Nusakita"", ""Sagara""]","[""natural"", ""playful""]","[""hitam"", ""merah"", ""putih""]",rendah,False,2024-04-11T00:00:00+00:00
+u0070,"[""electronics"", ""drinkware"", ""umbrella"", ""bag""]","[""Bumi"", ""Nusakita"", ""Sagara"", ""Cendana""]","[""minimalist"", ""klasik""]","[""merah"", ""krem""]",tinggi,False,2025-08-21T00:00:00+00:00
+u0071,"[""drinkware"", ""stationery"", ""electronics"", ""snack""]","[""Nusakita"", ""Bumi"", ""Sagara""]","[""minimalist"", ""klasik""]","[""navy"", ""hitam"", ""merah""]",sedang,False,2026-02-28T00:00:00+00:00
+u0072,"[""bag"", ""umbrella"", ""stationery"", ""electronics""]","[""Nusakita"", ""Kanaya"", ""Karsa""]","[""natural""]","[""abu"", ""biru"", ""putih""]",sedang,False,2024-12-01T00:00:00+00:00
+u0073,"[""organizer"", ""drinkware"", ""stationery""]","[""Aksara"", ""Sagara"", ""Lentera""]","[""sporty""]","[""abu"", ""cokelat""]",tinggi,False,2025-01-21T00:00:00+00:00
+u0074,"[""drinkware"", ""stationery""]","[""Nusakita"", ""Aksara""]","[""klasik""]","[""cokelat"", ""hitam"", ""navy""]",sedang,False,2024-03-28T00:00:00+00:00
+u0075,"[""electronics"", ""umbrella"", ""bag"", ""organizer""]","[""Karsa"", ""Nusakita"", ""Cendana"", ""Lentera""]","[""natural""]","[""putih"", ""transparan"", ""navy"", ""cokelat""]",tinggi,False,2025-01-18T00:00:00+00:00
+u0076,"[""book"", ""stationery"", ""electronics"", ""bag""]","[""Lentera"", ""Nusakita"", ""Rimba""]","[""klasik"", ""natural""]","[""putih"", ""transparan""]",rendah,False,2026-03-11T00:00:00+00:00
+u0077,"[""stationery"", ""snack""]","[""Lentera"", ""Rimba""]","[""playful"", ""natural""]","[""krem"", ""navy""]",tinggi,False,2025-10-02T00:00:00+00:00
+u0078,"[""stationery"", ""electronics"", ""personal_care""]","[""Bumi"", ""Volta"", ""Rimba""]","[""natural"", ""klasik""]","[""krem"", ""hitam"", ""biru""]",tinggi,False,2024-08-06T00:00:00+00:00
+u0079,"[""bag"", ""organizer""]","[""Nusakita"", ""Cendana""]","[""playful"", ""minimalist""]","[""putih"", ""biru"", ""hijau"", ""hitam""]",tinggi,False,2025-02-25T00:00:00+00:00
+u0080,"[""book"", ""organizer"", ""bag""]","[""Pustaka Nusa"", ""Aksara"", ""Cendana""]","[""playful""]","[""biru"", ""krem""]",sedang,False,2025-02-18T00:00:00+00:00
+u0081,"[""bag"", ""stationery"", ""electronics""]","[""Sagara"", ""Kanaya"", ""Bumi""]","[""minimalist""]","[""cokelat"", ""biru"", ""transparan""]",sedang,False,2025-02-15T00:00:00+00:00
+u0082,"[""bag"", ""desk"", ""personal_care"", ""snack""]","[""Cendana"", ""Volta"", ""Tirta"", ""Bumi""]","[""playful""]","[""biru"", ""hijau"", ""putih""]",tinggi,False,2025-09-12T00:00:00+00:00
+u0083,"[""snack"", ""umbrella"", ""bag"", ""drinkware""]","[""Bumi"", ""Sagara"", ""Rimba"", ""Kanaya""]","[""klasik""]","[""biru"", ""hijau""]",sedang,False,2025-05-16T00:00:00+00:00
+u0084,"[""book"", ""snack""]","[""Aksara"", ""Rimba""]","[""playful"", ""minimalist""]","[""krem"", ""cokelat""]",tinggi,False,2024-12-09T00:00:00+00:00
+u0085,"[""book"", ""organizer"", ""personal_care"", ""electronics""]","[""Pustaka Nusa"", ""Cendana"", ""Rimba"", ""Bumi""]","[""sporty""]","[""navy"", ""biru""]",rendah,False,2025-04-27T00:00:00+00:00
+u0086,"[""personal_care"", ""bag"", ""umbrella""]","[""Rimba"", ""Nusakita"", ""Sagara""]","[""minimalist""]","[""putih"", ""krem"", ""hijau""]",sedang,False,2024-07-04T00:00:00+00:00
+u0087,"[""drinkware"", ""snack"", ""desk""]","[""Sagara"", ""Cendana""]","[""playful""]","[""putih"", ""navy"", ""abu"", ""transparan""]",rendah,False,2026-02-25T00:00:00+00:00
+u0088,"[""drinkware"", ""snack""]","[""Kanaya"", ""Sagara""]","[""playful"", ""klasik""]","[""biru"", ""cokelat"", ""hitam""]",tinggi,False,2024-12-02T00:00:00+00:00
+u0089,"[""stationery"", ""snack"", ""organizer"", ""electronics""]","[""Lentera"", ""Rimba"", ""Volta""]","[""klasik""]","[""hitam"", ""cokelat"", ""transparan""]",sedang,False,2025-09-04T00:00:00+00:00
+u0090,"[""electronics"", ""organizer"", ""stationery""]","[""Bumi"", ""Aksara"", ""Kanaya""]","[""playful"", ""klasik""]","[""putih"", ""hijau"", ""cokelat"", ""merah""]",rendah,False,2026-03-10T00:00:00+00:00
+u0091,"[""stationery"", ""electronics""]","[""Kanaya"", ""Volta""]","[""playful""]","[""navy"", ""cokelat"", ""krem"", ""hitam""]",sedang,False,2025-07-28T00:00:00+00:00
+u0092,"[""bag"", ""stationery"", ""umbrella"", ""organizer""]","[""Rimba"", ""Aksara"", ""Sagara""]","[""minimalist""]","[""abu"", ""krem"", ""biru"", ""hitam""]",rendah,False,2025-03-31T00:00:00+00:00
+u0093,"[""stationery"", ""desk"", ""electronics""]","[""Aksara"", ""Volta"", ""Nusakita""]","[""minimalist""]","[""biru"", ""hitam""]",sedang,False,2026-01-03T00:00:00+00:00
+u0094,"[""snack"", ""book"", ""organizer""]","[""Sagara"", ""Lentera""]","[""sporty"", ""klasik""]","[""krem"", ""hitam""]",sedang,False,2024-09-10T00:00:00+00:00
+u0095,"[""desk"", ""umbrella""]","[""Cendana"", ""Kanaya""]","[""minimalist"", ""natural""]","[""putih"", ""hijau""]",rendah,False,2026-01-05T00:00:00+00:00
+u0096,"[""drinkware"", ""desk""]","[""Sagara"", ""Cendana""]","[""minimalist""]","[""putih"", ""hitam"", ""hijau"", ""biru""]",rendah,False,2024-05-26T00:00:00+00:00
+u0097,"[""stationery"", ""desk""]","[""Aksara"", ""Volta""]","[""playful""]","[""putih"", ""krem"", ""hijau"", ""hitam""]",tinggi,False,2024-04-04T00:00:00+00:00
+u0098,"[""organizer"", ""electronics"", ""drinkware"", ""bag""]","[""Lentera"", ""Volta"", ""Tirta"", ""Rimba""]","[""klasik"", ""minimalist""]","[""navy"", ""hitam""]",sedang,False,2024-05-07T00:00:00+00:00
+u0099,"[""drinkware"", ""personal_care""]","[""Sagara"", ""Kanaya""]","[""minimalist""]","[""biru"", ""krem""]",rendah,False,2025-03-09T00:00:00+00:00
+u0100,"[""bag"", ""book"", ""umbrella"", ""drinkware""]","[""Nusakita"", ""Aksara"", ""Sagara""]","[""natural""]","[""biru"", ""merah"", ""hijau""]",sedang,False,2025-12-14T00:00:00+00:00
+u0101,"[""desk"", ""drinkware"", ""book""]","[""Volta"", ""Tirta"", ""Lentera""]","[""klasik""]","[""putih"", ""hitam"", ""merah"", ""abu""]",sedang,False,2024-08-30T00:00:00+00:00
+u0102,"[""book"", ""organizer"", ""bag"", ""snack""]","[""Aksara"", ""Cendana"", ""Nusakita"", ""Sagara""]","[""minimalist"", ""natural""]","[""biru"", ""krem""]",sedang,False,2024-04-02T00:00:00+00:00
+u0103,"[""snack"", ""organizer"", ""bag""]","[""Sagara"", ""Aksara"", ""Nusakita""]","[""klasik"", ""playful""]","[""hitam"", ""transparan""]",tinggi,False,2024-09-24T00:00:00+00:00
+u0104,"[""electronics"", ""desk""]","[""Bumi"", ""Volta""]","[""klasik"", ""sporty""]","[""cokelat"", ""krem"", ""abu"", ""putih""]",sedang,False,2025-01-11T00:00:00+00:00
+u0105,"[""book"", ""snack"", ""organizer""]","[""Lentera"", ""Sagara""]","[""natural"", ""playful""]","[""krem"", ""cokelat"", ""merah""]",sedang,False,2025-04-01T00:00:00+00:00
+u0106,"[""bag"", ""personal_care""]","[""Nusakita"", ""Tirta""]","[""playful"", ""sporty""]","[""hitam"", ""hijau"", ""biru"", ""putih""]",tinggi,False,2026-02-04T00:00:00+00:00
+u0107,"[""drinkware"", ""stationery"", ""bag"", ""personal_care""]","[""Kanaya"", ""Nusakita"", ""Rimba""]","[""klasik"", ""minimalist""]","[""cokelat"", ""hitam"", ""merah""]",sedang,False,2025-07-23T00:00:00+00:00
+u0108,"[""drinkware"", ""bag"", ""umbrella"", ""stationery""]","[""Nusakita"", ""Rimba"", ""Sagara"", ""Bumi""]","[""klasik"", ""sporty""]","[""abu"", ""cokelat"", ""biru""]",sedang,False,2025-01-08T00:00:00+00:00
+u0109,"[""drinkware"", ""bag"", ""stationery"", ""desk""]","[""Nusakita"", ""Kanaya"", ""Volta""]","[""sporty"", ""minimalist""]","[""biru"", ""krem"", ""merah""]",tinggi,False,2024-09-30T00:00:00+00:00
+u0110,"[""personal_care"", ""electronics"", ""stationery"", ""umbrella""]","[""Kanaya"", ""Bumi""]","[""playful""]","[""putih"", ""krem"", ""abu"", ""cokelat""]",sedang,False,2024-11-09T00:00:00+00:00
+u0111,"[""electronics"", ""bag"", ""snack""]","[""Nusakita"", ""Cendana"", ""Bumi""]","[""natural""]","[""biru"", ""abu"", ""navy""]",rendah,False,2024-10-19T00:00:00+00:00
+u0112,"[""umbrella"", ""bag""]","[""Nusakita"", ""Sagara""]","[""playful""]","[""cokelat"", ""putih"", ""navy"", ""merah""]",tinggi,False,2024-09-10T00:00:00+00:00
+u0113,"[""bag"", ""drinkware"", ""stationery""]","[""Rimba"", ""Kanaya"", ""Bumi""]","[""minimalist""]","[""navy"", ""biru"", ""cokelat"", ""transparan""]",tinggi,False,2024-10-05T00:00:00+00:00
+u0114,"[""personal_care"", ""snack""]","[""Rimba""]","[""sporty"", ""playful""]","[""navy"", ""merah""]",rendah,False,2025-02-28T00:00:00+00:00
+u0115,"[""snack"", ""stationery"", ""desk""]","[""Rimba"", ""Kanaya"", ""Volta""]","[""natural""]","[""navy"", ""krem"", ""merah""]",rendah,False,2025-04-26T00:00:00+00:00
+u0116,"[""drinkware"", ""personal_care"", ""desk"", ""bag""]","[""Nusakita"", ""Rimba"", ""Cendana""]","[""klasik"", ""minimalist""]","[""abu"", ""transparan""]",rendah,False,2024-04-15T00:00:00+00:00
+u0117,"[""stationery"", ""bag"", ""book""]","[""Kanaya"", ""Rimba"", ""Aksara""]","[""natural""]","[""abu"", ""biru""]",sedang,False,2024-08-11T00:00:00+00:00
+u0118,"[""drinkware"", ""organizer"", ""electronics""]","[""Nusakita"", ""Aksara"", ""Bumi""]","[""klasik"", ""sporty""]","[""hijau"", ""putih"", ""abu""]",sedang,False,2024-12-10T00:00:00+00:00
+u0119,"[""snack"", ""stationery""]","[""Sagara"", ""Kanaya""]","[""playful"", ""klasik""]","[""putih"", ""hitam""]",tinggi,False,2026-03-15T00:00:00+00:00
+u0120,"[""stationery"", ""drinkware""]","[""Kanaya""]","[""minimalist""]","[""abu"", ""merah""]",rendah,False,2024-07-29T00:00:00+00:00
+u0121,"[""drinkware"", ""organizer""]","[""Nusakita"", ""Cendana""]","[""natural""]","[""krem"", ""abu"", ""biru"", ""transparan""]",sedang,False,2025-12-01T00:00:00+00:00
+u0122,"[""stationery"", ""book""]","[""Aksara""]","[""playful""]","[""putih"", ""cokelat""]",sedang,False,2025-05-10T00:00:00+00:00
+u0123,"[""book"", ""snack"", ""personal_care"", ""drinkware""]","[""Lentera"", ""Bumi"", ""Kanaya""]","[""klasik""]","[""biru"", ""navy"", ""transparan"", ""hijau""]",rendah,False,2025-11-02T00:00:00+00:00
+u0124,"[""stationery"", ""drinkware""]","[""Lentera"", ""Nusakita""]","[""playful"", ""klasik""]","[""hitam"", ""putih"", ""cokelat"", ""krem""]",tinggi,False,2026-02-26T00:00:00+00:00
+u0125,"[""snack"", ""drinkware"", ""bag"", ""electronics""]","[""Sagara"", ""Kanaya"", ""Rimba"", ""Karsa""]","[""minimalist""]","[""merah"", ""putih"", ""transparan"", ""cokelat""]",tinggi,False,2024-09-04T00:00:00+00:00
+u0126,"[""drinkware"", ""stationery""]","[""Kanaya""]","[""minimalist""]","[""biru"", ""hijau""]",sedang,False,2025-02-23T00:00:00+00:00
+u0127,"[""book"", ""electronics""]","[""Pustaka Nusa"", ""Volta""]","[""sporty"", ""minimalist""]","[""merah"", ""hijau"", ""transparan""]",tinggi,False,2026-03-26T00:00:00+00:00
+u0128,"[""personal_care"", ""drinkware"", ""electronics""]","[""Tirta"", ""Kanaya"", ""Volta""]","[""klasik""]","[""hitam"", ""transparan"", ""hijau"", ""abu""]",rendah,False,2025-09-08T00:00:00+00:00
+u0129,"[""organizer"", ""bag""]","[""Lentera"", ""Nusakita""]","[""minimalist"", ""klasik""]","[""navy"", ""merah"", ""abu""]",tinggi,False,2026-01-30T00:00:00+00:00
+u0130,"[""personal_care"", ""umbrella"", ""stationery""]","[""Rimba"", ""Sagara"", ""Bumi""]","[""playful""]","[""hijau"", ""transparan""]",sedang,False,2026-02-06T00:00:00+00:00
+u0131,"[""personal_care"", ""stationery"", ""book""]","[""Rimba"", ""Bumi"", ""Pustaka Nusa""]","[""sporty"", ""natural""]","[""merah"", ""hitam"", ""transparan""]",sedang,False,2024-05-04T00:00:00+00:00
+u0132,"[""electronics"", ""book"", ""stationery"", ""bag""]","[""Nusakita"", ""Pustaka Nusa"", ""Kanaya"", ""Cendana""]","[""playful""]","[""navy"", ""cokelat"", ""hijau"", ""putih""]",sedang,False,2024-10-09T00:00:00+00:00
+u0133,"[""stationery"", ""drinkware"", ""desk"", ""electronics""]","[""Lentera"", ""Tirta"", ""Karsa"", ""Bumi""]","[""minimalist""]","[""cokelat"", ""abu""]",sedang,False,2025-08-21T00:00:00+00:00
+u0134,"[""umbrella"", ""desk""]","[""Kanaya"", ""Karsa""]","[""playful""]","[""hijau"", ""merah""]",tinggi,False,2026-03-08T00:00:00+00:00
+u0135,"[""electronics"", ""stationery"", ""desk""]","[""Karsa"", ""Aksara""]","[""klasik""]","[""transparan"", ""cokelat"", ""krem"", ""abu""]",rendah,False,2025-04-27T00:00:00+00:00
+u0136,"[""bag"", ""drinkware""]","[""Sagara"", ""Nusakita""]","[""natural"", ""playful""]","[""navy"", ""hijau"", ""merah""]",tinggi,False,2026-01-22T00:00:00+00:00
+u0137,"[""drinkware"", ""stationery""]","[""Kanaya"", ""Lentera""]","[""klasik""]","[""hitam"", ""putih"", ""biru"", ""abu""]",tinggi,False,2025-07-18T00:00:00+00:00
+u0138,"[""stationery"", ""electronics"", ""umbrella""]","[""Lentera"", ""Karsa"", ""Nusakita""]","[""minimalist"", ""sporty""]","[""cokelat"", ""abu"", ""biru"", ""hitam""]",sedang,False,2026-03-06T00:00:00+00:00
+u0139,"[""snack"", ""desk"", ""bag"", ""electronics""]","[""Rimba"", ""Karsa"", ""Cendana"", ""Nusakita""]","[""klasik"", ""natural""]","[""navy"", ""transparan"", ""hitam""]",sedang,False,2026-03-29T00:00:00+00:00
+u0140,"[""personal_care"", ""bag"", ""electronics""]","[""Rimba"", ""Nusakita"", ""Volta""]","[""playful"", ""klasik""]","[""putih"", ""merah""]",sedang,False,2024-05-27T00:00:00+00:00
+u0141,"[""book"", ""stationery""]","[""Lentera""]","[""natural""]","[""cokelat"", ""transparan""]",rendah,False,2024-07-14T00:00:00+00:00
+u0142,"[""personal_care"", ""drinkware"", ""desk""]","[""Kanaya"", ""Volta""]","[""sporty""]","[""biru"", ""navy"", ""cokelat"", ""krem""]",sedang,False,2024-08-01T00:00:00+00:00
+u0143,"[""drinkware"", ""desk"", ""stationery"", ""book""]","[""Sagara"", ""Karsa"", ""Lentera""]","[""playful"", ""klasik""]","[""abu"", ""merah"", ""krem""]",tinggi,False,2025-07-24T00:00:00+00:00
+u0144,"[""electronics"", ""snack""]","[""Karsa"", ""Bumi""]","[""minimalist"", ""klasik""]","[""biru"", ""cokelat"", ""abu"", ""transparan""]",tinggi,False,2026-02-26T00:00:00+00:00
+u0145,"[""stationery"", ""personal_care""]","[""Kanaya"", ""Tirta""]","[""natural"", ""sporty""]","[""cokelat"", ""navy"", ""krem""]",tinggi,False,2024-04-07T00:00:00+00:00
+u0146,"[""stationery"", ""umbrella"", ""organizer"", ""desk""]","[""Lentera"", ""Kanaya"", ""Karsa""]","[""playful"", ""minimalist""]","[""transparan"", ""krem"", ""putih"", ""cokelat""]",tinggi,False,2025-04-05T00:00:00+00:00
+u0147,"[""organizer"", ""bag"", ""umbrella"", ""book""]","[""Lentera"", ""Cendana"", ""Kanaya"", ""Pustaka Nusa""]","[""playful"", ""natural""]","[""navy"", ""transparan"", ""biru"", ""krem""]",sedang,False,2025-12-03T00:00:00+00:00
+u0148,"[""personal_care"", ""umbrella"", ""electronics"", ""book""]","[""Rimba"", ""Sagara"", ""Nusakita"", ""Aksara""]","[""klasik"", ""minimalist""]","[""transparan"", ""abu"", ""hijau"", ""krem""]",tinggi,False,2026-01-23T00:00:00+00:00
+u0149,"[""organizer"", ""desk"", ""bag"", ""electronics""]","[""Aksara"", ""Karsa"", ""Nusakita"", ""Volta""]","[""sporty"", ""minimalist""]","[""putih"", ""navy"", ""hitam""]",sedang,False,2025-03-05T00:00:00+00:00
+u0150,"[""book"", ""bag"", ""umbrella"", ""drinkware""]","[""Aksara"", ""Rimba"", ""Sagara"", ""Kanaya""]","[""playful""]","[""biru"", ""hitam"", ""hijau"", ""transparan""]",tinggi,False,2026-02-16T00:00:00+00:00
+u0151,"[""bag"", ""electronics"", ""drinkware""]","[""Sagara"", ""Nusakita""]","[""klasik""]","[""putih"", ""navy"", ""cokelat""]",tinggi,False,2024-12-17T00:00:00+00:00
+u0152,"[""drinkware"", ""book"", ""snack""]","[""Nusakita"", ""Pustaka Nusa"", ""Rimba""]","[""sporty"", ""playful""]","[""putih"", ""biru""]",sedang,False,2024-04-13T00:00:00+00:00
+u0153,"[""umbrella"", ""snack"", ""personal_care"", ""organizer""]","[""Sagara"", ""Bumi"", ""Tirta"", ""Aksara""]","[""klasik""]","[""putih"", ""navy"", ""krem"", ""hijau""]",rendah,False,2026-01-05T00:00:00+00:00
+u0154,"[""book"", ""bag"", ""desk""]","[""Pustaka Nusa"", ""Nusakita"", ""Karsa""]","[""klasik""]","[""transparan"", ""krem"", ""navy"", ""putih""]",sedang,False,2024-06-11T00:00:00+00:00
+u0155,"[""snack"", ""electronics""]","[""Rimba"", ""Nusakita""]","[""playful"", ""minimalist""]","[""hitam"", ""navy"", ""putih"", ""cokelat""]",rendah,False,2025-07-21T00:00:00+00:00
+u0156,"[""personal_care"", ""stationery"", ""book""]","[""Tirta"", ""Aksara"", ""Pustaka Nusa""]","[""sporty""]","[""krem"", ""hitam"", ""merah""]",sedang,False,2026-03-05T00:00:00+00:00
+u0157,"[""bag"", ""stationery"", ""drinkware""]","[""Sagara"", ""Kanaya""]","[""sporty""]","[""cokelat"", ""krem"", ""hitam""]",rendah,False,2025-02-10T00:00:00+00:00
+u0158,"[""book"", ""personal_care""]","[""Aksara"", ""Rimba""]","[""sporty"", ""natural""]","[""merah"", ""transparan"", ""hijau""]",sedang,False,2024-12-30T00:00:00+00:00
+u0159,"[""organizer"", ""umbrella"", ""book"", ""drinkware""]","[""Lentera"", ""Kanaya"", ""Aksara"", ""Nusakita""]","[""minimalist""]","[""transparan"", ""cokelat""]",sedang,False,2024-08-26T00:00:00+00:00
+u0160,"[""book"", ""desk"", ""umbrella""]","[""Aksara"", ""Volta"", ""Nusakita""]","[""natural"", ""minimalist""]","[""transparan"", ""abu"", ""merah"", ""navy""]",tinggi,False,2026-03-05T00:00:00+00:00
+u0161,"[""desk"", ""bag"", ""snack"", ""umbrella""]","[""Karsa"", ""Nusakita"", ""Sagara""]","[""sporty"", ""natural""]","[""biru"", ""merah"", ""navy""]",tinggi,False,2024-02-22T00:00:00+00:00
+u0162,"[""bag"", ""book"", ""organizer""]","[""Cendana"", ""Lentera"", ""Aksara""]","[""klasik"", ""sporty""]","[""putih"", ""navy"", ""hitam""]",sedang,False,2025-06-11T00:00:00+00:00
+u0163,"[""book"", ""stationery"", ""umbrella"", ""personal_care""]","[""Aksara"", ""Kanaya""]","[""natural""]","[""merah"", ""transparan"", ""abu""]",sedang,False,2025-09-30T00:00:00+00:00
+u0164,"[""bag"", ""personal_care"", ""stationery""]","[""Rimba"", ""Kanaya""]","[""playful"", ""klasik""]","[""cokelat"", ""krem"", ""merah"", ""putih""]",tinggi,False,2025-03-24T00:00:00+00:00
+u0165,"[""organizer"", ""desk""]","[""Aksara"", ""Volta""]","[""natural"", ""klasik""]","[""hijau"", ""abu"", ""biru"", ""transparan""]",rendah,False,2024-07-31T00:00:00+00:00
+u0166,"[""book"", ""stationery""]","[""Aksara"", ""Lentera""]","[""minimalist""]","[""hijau"", ""krem""]",rendah,False,2026-01-19T00:00:00+00:00
+u0167,"[""personal_care"", ""snack"", ""electronics"", ""desk""]","[""Kanaya"", ""Sagara"", ""Volta"", ""Cendana""]","[""klasik""]","[""abu"", ""merah""]",tinggi,False,2024-08-02T00:00:00+00:00
+u0168,"[""umbrella"", ""drinkware""]","[""Nusakita"", ""Sagara""]","[""minimalist"", ""playful""]","[""navy"", ""putih"", ""merah""]",tinggi,False,2024-11-30T00:00:00+00:00
+u0169,"[""bag"", ""electronics""]","[""Rimba"", ""Bumi""]","[""sporty"", ""minimalist""]","[""transparan"", ""navy"", ""hijau"", ""putih""]",sedang,False,2024-06-14T00:00:00+00:00
+u0170,"[""stationery"", ""drinkware"", ""organizer""]","[""Lentera"", ""Nusakita"", ""Aksara""]","[""playful"", ""sporty""]","[""navy"", ""abu""]",sedang,False,2025-01-03T00:00:00+00:00
+u0171,"[""desk"", ""drinkware"", ""stationery""]","[""Karsa"", ""Kanaya"", ""Lentera""]","[""playful"", ""sporty""]","[""hitam"", ""krem""]",rendah,False,2024-11-23T00:00:00+00:00
+u0172,"[""drinkware"", ""stationery"", ""bag""]","[""Nusakita"", ""Kanaya"", ""Cendana""]","[""sporty""]","[""navy"", ""merah"", ""putih"", ""krem""]",rendah,False,2025-04-19T00:00:00+00:00
+u0173,"[""stationery"", ""bag"", ""umbrella""]","[""Aksara"", ""Rimba"", ""Nusakita""]","[""natural"", ""klasik""]","[""hijau"", ""merah"", ""biru""]",rendah,False,2024-08-28T00:00:00+00:00
+u0174,"[""stationery"", ""drinkware"", ""snack"", ""bag""]","[""Bumi"", ""Nusakita"", ""Cendana""]","[""playful"", ""natural""]","[""transparan"", ""biru""]",tinggi,False,2024-04-23T00:00:00+00:00
+u0175,"[""bag"", ""stationery"", ""snack""]","[""Sagara"", ""Kanaya"", ""Bumi""]","[""sporty"", ""minimalist""]","[""transparan"", ""krem""]",sedang,False,2024-09-17T00:00:00+00:00
+u0176,"[""umbrella"", ""book"", ""organizer""]","[""Kanaya"", ""Pustaka Nusa"", ""Lentera""]","[""natural""]","[""biru"", ""krem"", ""abu""]",tinggi,False,2025-09-27T00:00:00+00:00
+u0177,"[""electronics"", ""stationery"", ""personal_care""]","[""Volta"", ""Kanaya"", ""Tirta""]","[""minimalist"", ""sporty""]","[""navy"", ""merah""]",rendah,False,2024-06-07T00:00:00+00:00
+u0178,"[""snack"", ""desk""]","[""Bumi"", ""Karsa""]","[""sporty""]","[""abu"", ""transparan"", ""biru"", ""hitam""]",sedang,False,2025-11-07T00:00:00+00:00
+u0179,"[""personal_care"", ""umbrella"", ""organizer"", ""electronics""]","[""Kanaya"", ""Sagara"", ""Aksara"", ""Nusakita""]","[""playful""]","[""merah"", ""putih"", ""cokelat"", ""hitam""]",sedang,False,2024-04-13T00:00:00+00:00
+u0180,"[""organizer"", ""electronics""]","[""Aksara"", ""Bumi""]","[""minimalist"", ""sporty""]","[""biru"", ""cokelat"", ""hijau""]",tinggi,False,2024-12-22T00:00:00+00:00
+u0181,"[""stationery"", ""organizer"", ""bag"", ""electronics""]","[""Lentera"", ""Aksara"", ""Sagara"", ""Bumi""]","[""sporty""]","[""biru"", ""krem"", ""putih"", ""cokelat""]",sedang,False,2025-12-23T00:00:00+00:00
+u0182,"[""personal_care"", ""stationery""]","[""Tirta"", ""Kanaya""]","[""playful"", ""natural""]","[""merah"", ""cokelat"", ""putih"", ""biru""]",sedang,False,2025-03-23T00:00:00+00:00
+u0183,"[""stationery"", ""drinkware"", ""bag"", ""organizer""]","[""Kanaya"", ""Rimba"", ""Lentera""]","[""natural""]","[""abu"", ""cokelat"", ""merah"", ""biru""]",tinggi,False,2026-02-02T00:00:00+00:00
+u0184,"[""organizer"", ""book"", ""drinkware"", ""snack""]","[""Cendana"", ""Lentera"", ""Tirta"", ""Bumi""]","[""natural"", ""sporty""]","[""abu"", ""krem""]",tinggi,False,2025-04-10T00:00:00+00:00
+u0185,"[""stationery"", ""electronics"", ""organizer"", ""desk""]","[""Aksara"", ""Nusakita"", ""Cendana""]","[""playful""]","[""hijau"", ""transparan""]",sedang,False,2025-05-17T00:00:00+00:00
+u0186,"[""book"", ""drinkware"", ""organizer"", ""bag""]","[""Pustaka Nusa"", ""Sagara"", ""Aksara""]","[""klasik""]","[""hitam"", ""navy""]",tinggi,False,2025-05-23T00:00:00+00:00
+u0187,"[""electronics"", ""stationery""]","[""Karsa"", ""Kanaya""]","[""sporty""]","[""biru"", ""navy""]",sedang,False,2024-06-10T00:00:00+00:00
+u0188,"[""stationery"", ""drinkware""]","[""Bumi"", ""Nusakita""]","[""playful""]","[""hijau"", ""merah""]",tinggi,False,2025-06-20T00:00:00+00:00
+u0189,"[""stationery"", ""drinkware""]","[""Lentera"", ""Nusakita""]","[""sporty"", ""klasik""]","[""merah"", ""krem"", ""hitam"", ""abu""]",sedang,False,2024-08-30T00:00:00+00:00
+u0190,"[""drinkware"", ""book"", ""snack"", ""bag""]","[""Sagara"", ""Aksara"", ""Rimba"", ""Nusakita""]","[""minimalist""]","[""putih"", ""merah"", ""biru"", ""navy""]",sedang,False,2025-06-10T00:00:00+00:00
+u0191,"[""snack"", ""electronics""]","[""Rimba"", ""Bumi""]","[""minimalist""]","[""biru"", ""putih"", ""cokelat"", ""hitam""]",rendah,False,2024-05-01T00:00:00+00:00
+u0192,"[""stationery"", ""book""]","[""Lentera""]","[""natural""]","[""krem"", ""navy""]",sedang,False,2025-06-23T00:00:00+00:00
+u0193,"[""book"", ""bag""]","[""Lentera"", ""Rimba""]","[""playful""]","[""cokelat"", ""transparan"", ""hijau"", ""krem""]",sedang,False,2024-10-04T00:00:00+00:00
+u0194,"[""desk"", ""drinkware"", ""stationery"", ""bag""]","[""Cendana"", ""Nusakita"", ""Lentera"", ""Sagara""]","[""playful""]","[""transparan"", ""hitam"", ""krem""]",rendah,False,2024-09-03T00:00:00+00:00
+u0195,"[""personal_care"", ""drinkware""]","[""Rimba"", ""Kanaya""]","[""sporty"", ""natural""]","[""biru"", ""hijau"", ""putih"", ""cokelat""]",sedang,False,2025-03-15T00:00:00+00:00
+u0196,"[""stationery"", ""personal_care"", ""bag"", ""drinkware""]","[""Kanaya"", ""Tirta"", ""Nusakita"", ""Sagara""]","[""klasik""]","[""hitam"", ""navy""]",sedang,False,2025-11-06T00:00:00+00:00
+u0197,"[""umbrella"", ""snack"", ""drinkware"", ""bag""]","[""Nusakita"", ""Rimba"", ""Tirta"", ""Cendana""]","[""klasik"", ""sporty""]","[""navy"", ""hijau"", ""hitam"", ""abu""]",rendah,False,2024-07-22T00:00:00+00:00
+u0198,"[""electronics"", ""bag"", ""stationery"", ""organizer""]","[""Karsa"", ""Sagara"", ""Kanaya"", ""Lentera""]","[""minimalist"", ""klasik""]","[""hijau"", ""putih""]",rendah,False,2026-03-26T00:00:00+00:00
+u0199,"[""organizer"", ""umbrella"", ""snack""]","[""Aksara"", ""Kanaya"", ""Rimba""]","[""minimalist""]","[""navy"", ""transparan"", ""abu"", ""cokelat""]",sedang,False,2026-03-16T00:00:00+00:00
+u0200,"[""organizer"", ""drinkware"", ""personal_care"", ""desk""]","[""Lentera"", ""Tirta"", ""Cendana""]","[""playful""]","[""krem"", ""transparan"", ""cokelat""]",sedang,False,2024-03-06T00:00:00+00:00
+u0201,"[""drinkware"", ""electronics""]","[""Sagara"", ""Volta""]","[""sporty""]","[""putih"", ""krem""]",rendah,False,2024-06-02T00:00:00+00:00
+u0202,"[""electronics"", ""organizer"", ""stationery""]","[""Karsa"", ""Aksara"", ""Bumi""]","[""playful"", ""natural""]","[""hitam"", ""navy""]",tinggi,False,2024-07-21T00:00:00+00:00
+u0203,"[""umbrella"", ""snack"", ""organizer"", ""bag""]","[""Nusakita"", ""Bumi"", ""Lentera"", ""Sagara""]","[""minimalist""]","[""krem"", ""putih"", ""hitam"", ""abu""]",rendah,False,2026-01-11T00:00:00+00:00
+u0204,"[""stationery"", ""snack""]","[""Bumi"", ""Rimba""]","[""klasik"", ""natural""]","[""krem"", ""hitam""]",sedang,False,2025-03-20T00:00:00+00:00
+u0205,"[""drinkware"", ""umbrella""]","[""Tirta"", ""Sagara""]","[""natural""]","[""putih"", ""transparan"", ""krem""]",sedang,False,2025-01-26T00:00:00+00:00
+u0206,"[""bag"", ""stationery"", ""organizer""]","[""Nusakita"", ""Bumi"", ""Lentera""]","[""klasik""]","[""hijau"", ""transparan""]",rendah,False,2024-03-21T00:00:00+00:00
+u0207,"[""organizer"", ""stationery"", ""personal_care""]","[""Cendana"", ""Lentera"", ""Tirta""]","[""sporty""]","[""abu"", ""biru""]",rendah,False,2024-11-14T00:00:00+00:00
+u0208,"[""book"", ""drinkware""]","[""Aksara"", ""Sagara""]","[""klasik"", ""playful""]","[""cokelat"", ""navy"", ""putih"", ""biru""]",sedang,False,2025-03-02T00:00:00+00:00
+u0209,"[""bag"", ""snack"", ""stationery""]","[""Rimba"", ""Bumi"", ""Lentera""]","[""natural""]","[""putih"", ""krem""]",rendah,False,2025-07-11T00:00:00+00:00
+u0210,"[""bag"", ""stationery"", ""umbrella""]","[""Cendana"", ""Kanaya""]","[""playful""]","[""merah"", ""hijau"", ""navy""]",sedang,False,2025-12-18T00:00:00+00:00
+u0211,"[""organizer"", ""electronics"", ""stationery""]","[""Aksara"", ""Volta"", ""Kanaya""]","[""sporty""]","[""hijau"", ""biru"", ""krem"", ""abu""]",tinggi,False,2025-05-20T00:00:00+00:00
+u0212,"[""electronics"", ""drinkware"", ""snack"", ""book""]","[""Volta"", ""Sagara"", ""Lentera""]","[""minimalist"", ""sporty""]","[""abu"", ""biru""]",rendah,False,2024-06-05T00:00:00+00:00
+u0213,"[""stationery"", ""electronics"", ""desk"", ""bag""]","[""Kanaya"", ""Karsa"", ""Volta"", ""Nusakita""]","[""klasik""]","[""cokelat"", ""krem""]",tinggi,False,2025-09-10T00:00:00+00:00
+u0214,"[""drinkware"", ""electronics"", ""stationery""]","[""Sagara"", ""Nusakita"", ""Kanaya""]","[""natural"", ""sporty""]","[""biru"", ""cokelat"", ""hijau""]",sedang,False,2025-06-10T00:00:00+00:00
+u0215,"[""snack"", ""organizer"", ""electronics"", ""drinkware""]","[""Bumi"", ""Aksara"", ""Nusakita"", ""Sagara""]","[""minimalist"", ""klasik""]","[""cokelat"", ""merah"", ""transparan"", ""putih""]",tinggi,False,2024-12-26T00:00:00+00:00
+u0216,"[""bag"", ""snack"", ""stationery""]","[""Cendana"", ""Rimba"", ""Kanaya""]","[""natural"", ""sporty""]","[""biru"", ""abu"", ""navy""]",sedang,False,2025-01-22T00:00:00+00:00
+u0217,"[""electronics"", ""drinkware"", ""snack"", ""organizer""]","[""Nusakita"", ""Kanaya"", ""Rimba"", ""Lentera""]","[""minimalist"", ""natural""]","[""krem"", ""hitam"", ""merah"", ""navy""]",tinggi,False,2025-03-21T00:00:00+00:00
+u0218,"[""snack"", ""bag"", ""organizer"", ""electronics""]","[""Sagara"", ""Nusakita"", ""Aksara""]","[""klasik""]","[""krem"", ""hitam"", ""putih""]",tinggi,False,2025-05-02T00:00:00+00:00
+u0219,"[""bag"", ""desk"", ""book"", ""drinkware""]","[""Rimba"", ""Volta"", ""Pustaka Nusa"", ""Kanaya""]","[""natural"", ""klasik""]","[""krem"", ""abu""]",tinggi,False,2025-11-06T00:00:00+00:00
+u0220,"[""drinkware"", ""bag""]","[""Nusakita""]","[""klasik""]","[""putih"", ""merah"", ""abu""]",tinggi,False,2025-08-04T00:00:00+00:00
+u0221,"[""snack"", ""bag"", ""stationery""]","[""Bumi"", ""Rimba"", ""Aksara""]","[""natural""]","[""merah"", ""biru"", ""hijau""]",sedang,False,2024-07-18T00:00:00+00:00
+u0222,"[""organizer"", ""snack""]","[""Aksara"", ""Rimba""]","[""klasik"", ""minimalist""]","[""merah"", ""transparan"", ""krem""]",tinggi,False,2026-01-20T00:00:00+00:00
+u0223,"[""drinkware"", ""stationery"", ""bag"", ""electronics""]","[""Sagara"", ""Aksara"", ""Nusakita""]","[""sporty""]","[""transparan"", ""cokelat""]",sedang,False,2024-03-15T00:00:00+00:00
+u0224,"[""organizer"", ""drinkware""]","[""Cendana"", ""Tirta""]","[""klasik"", ""natural""]","[""biru"", ""merah"", ""hitam""]",sedang,False,2026-03-06T00:00:00+00:00
+u0225,"[""stationery"", ""organizer"", ""drinkware"", ""desk""]","[""Bumi"", ""Cendana"", ""Tirta"", ""Volta""]","[""natural"", ""klasik""]","[""biru"", ""hitam"", ""transparan"", ""krem""]",sedang,False,2025-09-03T00:00:00+00:00
+u0226,"[""desk"", ""book"", ""snack""]","[""Volta"", ""Pustaka Nusa"", ""Rimba""]","[""natural""]","[""cokelat"", ""abu"", ""krem""]",rendah,False,2024-11-28T00:00:00+00:00
+u0227,"[""stationery"", ""organizer"", ""snack"", ""drinkware""]","[""Kanaya"", ""Cendana"", ""Sagara"", ""Nusakita""]","[""natural""]","[""navy"", ""putih""]",sedang,False,2025-01-02T00:00:00+00:00
+u0228,"[""organizer"", ""personal_care"", ""electronics"", ""drinkware""]","[""Cendana"", ""Kanaya"", ""Volta"", ""Sagara""]","[""playful""]","[""transparan"", ""merah""]",tinggi,False,2025-03-07T00:00:00+00:00
+u0229,"[""personal_care"", ""drinkware""]","[""Rimba"", ""Tirta""]","[""klasik"", ""sporty""]","[""navy"", ""merah"", ""hitam"", ""cokelat""]",tinggi,False,2025-06-13T00:00:00+00:00
+u0230,"[""umbrella"", ""organizer""]","[""Nusakita"", ""Aksara""]","[""natural""]","[""transparan"", ""abu"", ""hitam"", ""biru""]",rendah,False,2025-07-09T00:00:00+00:00
+u0231,"[""bag"", ""drinkware"", ""book"", ""stationery""]","[""Cendana"", ""Nusakita"", ""Pustaka Nusa"", ""Bumi""]","[""klasik""]","[""merah"", ""hitam"", ""putih"", ""hijau""]",tinggi,False,2025-07-22T00:00:00+00:00
+u0232,"[""stationery"", ""electronics""]","[""Bumi""]","[""klasik"", ""minimalist""]","[""krem"", ""cokelat""]",sedang,False,2025-04-08T00:00:00+00:00
+u0233,"[""stationery"", ""electronics""]","[""Aksara"", ""Karsa""]","[""natural""]","[""hijau"", ""abu""]",sedang,False,2026-03-16T00:00:00+00:00
+u0234,"[""bag"", ""book""]","[""Sagara"", ""Pustaka Nusa""]","[""natural""]","[""hitam"", ""biru"", ""krem"", ""hijau""]",tinggi,False,2024-08-24T00:00:00+00:00
+u0235,"[""personal_care"", ""organizer"", ""drinkware"", ""stationery""]","[""Kanaya"", ""Cendana"", ""Tirta"", ""Lentera""]","[""klasik"", ""playful""]","[""merah"", ""abu"", ""hitam""]",sedang,False,2025-06-01T00:00:00+00:00
+u0236,"[""stationery"", ""bag"", ""umbrella"", ""book""]","[""Bumi"", ""Cendana"", ""Sagara"", ""Lentera""]","[""minimalist"", ""playful""]","[""abu"", ""hijau"", ""merah""]",sedang,False,2025-05-11T00:00:00+00:00
+u0237,"[""personal_care"", ""snack"", ""bag"", ""organizer""]","[""Kanaya"", ""Rimba"", ""Nusakita"", ""Cendana""]","[""minimalist"", ""natural""]","[""abu"", ""hijau"", ""transparan"", ""navy""]",sedang,False,2024-05-06T00:00:00+00:00
+u0238,"[""organizer"", ""desk""]","[""Aksara"", ""Volta""]","[""natural""]","[""transparan"", ""abu"", ""putih"", ""hitam""]",sedang,False,2026-03-05T00:00:00+00:00
+u0239,"[""bag"", ""snack""]","[""Cendana"", ""Rimba""]","[""natural""]","[""transparan"", ""putih"", ""biru"", ""abu""]",sedang,False,2026-02-24T00:00:00+00:00
+u0240,"[""snack"", ""drinkware"", ""book""]","[""Rimba"", ""Nusakita"", ""Aksara""]","[""playful"", ""klasik""]","[""merah"", ""putih""]",sedang,False,2024-10-20T00:00:00+00:00
+u0241,"[""snack"", ""umbrella"", ""book""]","[""Bumi"", ""Nusakita"", ""Aksara""]","[""klasik""]","[""hijau"", ""biru"", ""navy"", ""putih""]",tinggi,False,2025-02-18T00:00:00+00:00
+u0242,"[""desk"", ""organizer"", ""umbrella""]","[""Cendana"", ""Aksara"", ""Nusakita""]","[""playful""]","[""cokelat"", ""krem"", ""navy""]",sedang,False,2024-04-06T00:00:00+00:00
+u0243,"[""bag"", ""drinkware""]","[""Sagara"", ""Kanaya""]","[""natural"", ""klasik""]","[""abu"", ""cokelat"", ""biru"", ""hitam""]",tinggi,False,2025-11-07T00:00:00+00:00
+u0244,"[""stationery"", ""desk"", ""organizer""]","[""Aksara"", ""Karsa"", ""Lentera""]","[""minimalist"", ""playful""]","[""merah"", ""krem"", ""biru"", ""hitam""]",tinggi,False,2026-01-23T00:00:00+00:00
+u0245,"[""electronics"", ""bag"", ""personal_care"", ""stationery""]","[""Nusakita"", ""Rimba"", ""Tirta"", ""Bumi""]","[""klasik""]","[""krem"", ""abu"", ""navy""]",tinggi,False,2025-11-06T00:00:00+00:00
+u0246,"[""stationery"", ""drinkware""]","[""Bumi"", ""Sagara""]","[""natural"", ""playful""]","[""putih"", ""transparan""]",tinggi,False,2024-05-05T00:00:00+00:00
+u0247,"[""desk"", ""bag""]","[""Volta"", ""Cendana""]","[""sporty""]","[""hitam"", ""transparan"", ""merah"", ""krem""]",tinggi,False,2025-03-16T00:00:00+00:00
+u0248,"[""bag"", ""stationery""]","[""Nusakita"", ""Kanaya""]","[""klasik""]","[""biru"", ""navy"", ""krem"", ""abu""]",tinggi,False,2025-03-06T00:00:00+00:00
+u0249,"[""book"", ""personal_care"", ""bag""]","[""Aksara"", ""Rimba""]","[""sporty""]","[""krem"", ""biru"", ""hijau"", ""transparan""]",rendah,False,2025-01-17T00:00:00+00:00
+u0250,"[""snack"", ""drinkware"", ""electronics"", ""book""]","[""Rimba"", ""Kanaya"", ""Karsa"", ""Pustaka Nusa""]","[""klasik""]","[""transparan"", ""krem""]",rendah,False,2025-11-10T00:00:00+00:00
+u0251,"[""snack"", ""desk"", ""book"", ""electronics""]","[""Rimba"", ""Volta"", ""Pustaka Nusa"", ""Nusakita""]","[""sporty"", ""natural""]","[""transparan"", ""abu"", ""cokelat""]",rendah,False,2025-06-09T00:00:00+00:00
+u0252,"[""drinkware"", ""stationery""]","[""Kanaya"", ""Bumi""]","[""minimalist""]","[""hitam"", ""abu"", ""biru""]",sedang,False,2026-03-15T00:00:00+00:00
+u0253,"[""stationery"", ""snack"", ""umbrella"", ""drinkware""]","[""Lentera"", ""Bumi"", ""Kanaya"", ""Tirta""]","[""minimalist""]","[""navy"", ""biru""]",sedang,False,2026-01-08T00:00:00+00:00
+u0254,"[""stationery"", ""snack""]","[""Kanaya"", ""Sagara""]","[""playful"", ""natural""]","[""hitam"", ""navy""]",tinggi,False,2026-02-20T00:00:00+00:00
+u0255,"[""drinkware"", ""stationery""]","[""Tirta"", ""Aksara""]","[""playful"", ""natural""]","[""abu"", ""biru""]",sedang,False,2025-05-05T00:00:00+00:00
+u0256,"[""desk"", ""stationery"", ""organizer"", ""bag""]","[""Volta"", ""Lentera"", ""Aksara"", ""Rimba""]","[""sporty"", ""minimalist""]","[""putih"", ""abu"", ""cokelat""]",sedang,False,2025-12-24T00:00:00+00:00
+u0257,"[""electronics"", ""drinkware""]","[""Bumi"", ""Nusakita""]","[""minimalist""]","[""krem"", ""navy""]",sedang,False,2026-02-21T00:00:00+00:00
+u0258,"[""stationery"", ""personal_care"", ""electronics""]","[""Aksara"", ""Kanaya"", ""Bumi""]","[""klasik"", ""natural""]","[""hitam"", ""cokelat"", ""transparan""]",tinggi,False,2024-12-08T00:00:00+00:00
+u0259,"[""bag"", ""stationery"", ""organizer""]","[""Rimba"", ""Aksara"", ""Cendana""]","[""natural"", ""playful""]","[""hijau"", ""cokelat""]",tinggi,False,2025-07-27T00:00:00+00:00
+u0260,"[""organizer"", ""stationery"", ""book"", ""electronics""]","[""Lentera"", ""Kanaya"", ""Pustaka Nusa"", ""Bumi""]","[""playful""]","[""transparan"", ""cokelat"", ""navy""]",sedang,False,2025-10-11T00:00:00+00:00
+u0261,"[""drinkware"", ""stationery""]","[""Nusakita"", ""Lentera""]","[""klasik"", ""sporty""]","[""navy"", ""putih"", ""krem""]",sedang,False,2025-01-13T00:00:00+00:00
+u0262,"[""organizer"", ""snack"", ""personal_care"", ""bag""]","[""Aksara"", ""Rimba"", ""Kanaya"", ""Nusakita""]","[""klasik""]","[""putih"", ""hitam"", ""abu""]",rendah,False,2026-03-15T00:00:00+00:00
+u0263,"[""stationery"", ""desk"", ""drinkware""]","[""Aksara"", ""Cendana"", ""Sagara""]","[""klasik""]","[""putih"", ""transparan"", ""cokelat"", ""biru""]",tinggi,False,2025-10-23T00:00:00+00:00
+u0264,"[""drinkware"", ""electronics""]","[""Nusakita""]","[""minimalist"", ""playful""]","[""krem"", ""abu"", ""hijau""]",sedang,False,2026-02-09T00:00:00+00:00
+u0265,"[""bag"", ""drinkware"", ""personal_care"", ""organizer""]","[""Nusakita"", ""Kanaya"", ""Rimba"", ""Cendana""]","[""sporty""]","[""biru"", ""abu"", ""krem"", ""putih""]",tinggi,False,2025-01-19T00:00:00+00:00
+u0266,"[""drinkware"", ""personal_care""]","[""Tirta""]","[""sporty"", ""minimalist""]","[""putih"", ""merah"", ""biru"", ""hijau""]",tinggi,False,2025-04-18T00:00:00+00:00
+u0267,"[""umbrella"", ""electronics"", ""stationery""]","[""Nusakita"", ""Bumi""]","[""minimalist"", ""natural""]","[""biru"", ""hitam"", ""cokelat""]",tinggi,False,2024-03-18T00:00:00+00:00
+u0268,"[""snack"", ""desk""]","[""Sagara"", ""Volta""]","[""sporty""]","[""abu"", ""hijau"", ""transparan""]",sedang,False,2025-06-28T00:00:00+00:00
+u0269,"[""drinkware"", ""bag"", ""snack""]","[""Sagara"", ""Nusakita""]","[""playful"", ""klasik""]","[""navy"", ""hitam""]",sedang,False,2026-02-24T00:00:00+00:00
+u0270,"[""electronics"", ""stationery""]","[""Karsa"", ""Aksara""]","[""klasik""]","[""putih"", ""abu"", ""krem"", ""navy""]",sedang,False,2025-11-09T00:00:00+00:00
+u0271,"[""stationery"", ""personal_care"", ""book"", ""drinkware""]","[""Aksara"", ""Kanaya"", ""Lentera"", ""Nusakita""]","[""minimalist"", ""playful""]","[""abu"", ""hitam"", ""putih"", ""krem""]",sedang,False,2026-01-03T00:00:00+00:00
+u0272,"[""bag"", ""desk""]","[""Sagara"", ""Cendana""]","[""klasik"", ""minimalist""]","[""merah"", ""krem""]",rendah,False,2024-06-13T00:00:00+00:00
+u0273,"[""drinkware"", ""bag"", ""book""]","[""Tirta"", ""Sagara"", ""Lentera""]","[""minimalist"", ""klasik""]","[""navy"", ""cokelat"", ""transparan""]",tinggi,False,2024-03-16T00:00:00+00:00
+u0274,"[""drinkware"", ""stationery""]","[""Tirta"", ""Lentera""]","[""sporty"", ""minimalist""]","[""krem"", ""putih"", ""abu""]",tinggi,False,2025-12-09T00:00:00+00:00
+u0275,"[""stationery"", ""book"", ""organizer"", ""bag""]","[""Lentera"", ""Pustaka Nusa"", ""Aksara"", ""Sagara""]","[""playful""]","[""navy"", ""cokelat"", ""krem"", ""transparan""]",sedang,False,2025-02-13T00:00:00+00:00
+u0276,"[""personal_care"", ""stationery"", ""drinkware""]","[""Kanaya"", ""Aksara"", ""Sagara""]","[""sporty""]","[""krem"", ""biru""]",tinggi,False,2024-06-24T00:00:00+00:00
+u0277,"[""umbrella"", ""electronics""]","[""Nusakita"", ""Bumi""]","[""sporty""]","[""hijau"", ""biru"", ""merah""]",sedang,False,2025-11-09T00:00:00+00:00
+u0278,"[""book"", ""stationery"", ""desk"", ""umbrella""]","[""Lentera"", ""Bumi"", ""Cendana"", ""Nusakita""]","[""playful""]","[""merah"", ""abu"", ""putih"", ""biru""]",rendah,False,2025-10-24T00:00:00+00:00
+u0279,"[""drinkware"", ""stationery""]","[""Sagara"", ""Bumi""]","[""sporty""]","[""navy"", ""krem"", ""hitam""]",sedang,False,2024-04-02T00:00:00+00:00
+u0280,"[""electronics"", ""stationery"", ""bag""]","[""Bumi"", ""Lentera"", ""Cendana""]","[""playful""]","[""cokelat"", ""hijau"", ""navy"", ""transparan""]",tinggi,False,2025-09-13T00:00:00+00:00
+u0281,"[""bag"", ""stationery"", ""personal_care""]","[""Rimba"", ""Bumi"", ""Tirta""]","[""playful""]","[""putih"", ""hitam"", ""abu"", ""merah""]",sedang,False,2026-03-14T00:00:00+00:00
+u0282,"[""electronics"", ""personal_care"", ""drinkware"", ""desk""]","[""Bumi"", ""Tirta"", ""Nusakita"", ""Karsa""]","[""sporty"", ""klasik""]","[""krem"", ""hitam"", ""merah""]",rendah,False,2025-10-04T00:00:00+00:00
+u0283,"[""snack"", ""umbrella"", ""bag"", ""organizer""]","[""Sagara"", ""Rimba"", ""Lentera""]","[""natural""]","[""putih"", ""transparan"", ""biru"", ""hijau""]",rendah,False,2024-07-31T00:00:00+00:00
+u0284,"[""stationery"", ""bag""]","[""Kanaya"", ""Nusakita""]","[""klasik"", ""minimalist""]","[""hijau"", ""krem"", ""transparan"", ""hitam""]",tinggi,False,2024-11-06T00:00:00+00:00
+u0285,"[""umbrella"", ""stationery""]","[""Sagara"", ""Bumi""]","[""klasik""]","[""hitam"", ""merah"", ""putih"", ""biru""]",tinggi,False,2025-07-09T00:00:00+00:00
+u0286,"[""bag"", ""book"", ""drinkware"", ""electronics""]","[""Cendana"", ""Pustaka Nusa"", ""Kanaya"", ""Volta""]","[""sporty""]","[""hitam"", ""navy"", ""merah""]",rendah,False,2024-04-20T00:00:00+00:00
+u0287,"[""organizer"", ""umbrella""]","[""Cendana"", ""Nusakita""]","[""sporty""]","[""transparan"", ""abu"", ""merah""]",sedang,False,2026-01-08T00:00:00+00:00
+u0288,"[""organizer"", ""bag"", ""drinkware"", ""stationery""]","[""Aksara"", ""Cendana"", ""Nusakita""]","[""playful""]","[""hitam"", ""krem""]",sedang,False,2024-08-19T00:00:00+00:00
+u0289,"[""stationery"", ""bag"", ""book"", ""electronics""]","[""Bumi"", ""Cendana"", ""Aksara"", ""Nusakita""]","[""playful"", ""klasik""]","[""krem"", ""putih"", ""navy""]",rendah,False,2025-01-17T00:00:00+00:00
+u0290,"[""book"", ""bag""]","[""Pustaka Nusa"", ""Cendana""]","[""klasik"", ""sporty""]","[""hijau"", ""transparan"", ""hitam"", ""biru""]",sedang,False,2024-02-14T00:00:00+00:00
+u0291,"[""stationery"", ""electronics""]","[""Kanaya"", ""Karsa""]","[""natural""]","[""cokelat"", ""hijau"", ""krem"", ""biru""]",rendah,False,2025-12-16T00:00:00+00:00
+u0292,"[""snack"", ""personal_care"", ""umbrella""]","[""Sagara"", ""Tirta"", ""Nusakita""]","[""playful""]","[""putih"", ""abu""]",tinggi,False,2024-03-14T00:00:00+00:00
+u0293,"[""stationery"", ""umbrella""]","[""Bumi"", ""Sagara""]","[""playful"", ""klasik""]","[""krem"", ""putih"", ""biru""]",sedang,False,2025-07-26T00:00:00+00:00
+u0294,"[""personal_care"", ""umbrella"", ""desk""]","[""Tirta"", ""Kanaya"", ""Cendana""]","[""minimalist""]","[""biru"", ""hitam"", ""cokelat"", ""krem""]",sedang,False,2025-12-14T00:00:00+00:00
+u0295,"[""desk"", ""book"", ""drinkware"", ""snack""]","[""Volta"", ""Aksara"", ""Sagara""]","[""playful""]","[""cokelat"", ""navy"", ""transparan"", ""biru""]",sedang,False,2026-02-05T00:00:00+00:00
+u0296,"[""desk"", ""electronics"", ""bag""]","[""Karsa"", ""Rimba""]","[""natural"", ""sporty""]","[""merah"", ""abu"", ""krem""]",sedang,False,2025-03-16T00:00:00+00:00
+u0297,"[""umbrella"", ""stationery"", ""organizer""]","[""Nusakita"", ""Aksara"", ""Cendana""]","[""sporty"", ""natural""]","[""abu"", ""krem"", ""hitam"", ""hijau""]",rendah,False,2024-05-15T00:00:00+00:00
+u0298,"[""electronics"", ""snack""]","[""Nusakita"", ""Bumi""]","[""minimalist"", ""sporty""]","[""krem"", ""biru"", ""cokelat""]",tinggi,False,2024-12-07T00:00:00+00:00
+u0299,"[""stationery"", ""desk"", ""bag"", ""organizer""]","[""Lentera"", ""Karsa"", ""Sagara"", ""Aksara""]","[""klasik""]","[""cokelat"", ""hijau"", ""navy"", ""hitam""]",tinggi,False,2026-01-20T00:00:00+00:00
+u0300,"[""electronics"", ""drinkware"", ""umbrella""]","[""Bumi"", ""Tirta"", ""Sagara""]","[""sporty""]","[""biru"", ""navy"", ""cokelat""]",rendah,False,2025-11-09T00:00:00+00:00
+u0301,"[""snack"", ""electronics"", ""organizer"", ""drinkware""]","[""Sagara"", ""Nusakita"", ""Cendana""]","[""klasik"", ""natural""]","[""putih"", ""cokelat""]",tinggi,False,2024-02-29T00:00:00+00:00
+u0302,"[""stationery"", ""personal_care"", ""bag""]","[""Kanaya"", ""Tirta"", ""Rimba""]","[""natural"", ""sporty""]","[""abu"", ""hitam""]",tinggi,False,2025-03-13T00:00:00+00:00
+u0303,"[""drinkware"", ""desk"", ""umbrella"", ""organizer""]","[""Nusakita"", ""Karsa"", ""Sagara"", ""Cendana""]","[""playful"", ""sporty""]","[""biru"", ""hijau"", ""abu"", ""transparan""]",tinggi,False,2026-03-04T00:00:00+00:00
+u0304,"[""bag"", ""electronics""]","[""Rimba"", ""Nusakita""]","[""playful""]","[""navy"", ""hitam"", ""merah"", ""abu""]",rendah,False,2026-02-23T00:00:00+00:00
+u0305,"[""stationery"", ""personal_care""]","[""Aksara"", ""Rimba""]","[""klasik""]","[""navy"", ""hijau"", ""biru"", ""hitam""]",sedang,False,2025-03-03T00:00:00+00:00
+u0306,"[""bag"", ""drinkware"", ""snack"", ""book""]","[""Cendana"", ""Nusakita"", ""Rimba"", ""Pustaka Nusa""]","[""minimalist"", ""klasik""]","[""merah"", ""hitam"", ""krem"", ""navy""]",tinggi,False,2025-01-29T00:00:00+00:00
+u0307,"[""stationery"", ""drinkware"", ""bag"", ""snack""]","[""Aksara"", ""Sagara"", ""Cendana"", ""Bumi""]","[""playful""]","[""navy"", ""merah"", ""abu""]",tinggi,False,2024-04-05T00:00:00+00:00
+u0308,"[""stationery"", ""drinkware"", ""bag"", ""electronics""]","[""Bumi"", ""Tirta"", ""Rimba""]","[""playful""]","[""abu"", ""hitam""]",tinggi,False,2025-09-02T00:00:00+00:00
+u0309,"[""bag"", ""stationery"", ""electronics"", ""drinkware""]","[""Sagara"", ""Kanaya"", ""Bumi"", ""Nusakita""]","[""minimalist"", ""klasik""]","[""abu"", ""biru""]",rendah,False,2024-12-14T00:00:00+00:00
+u0310,"[""bag"", ""snack"", ""book""]","[""Cendana"", ""Bumi"", ""Lentera""]","[""playful""]","[""putih"", ""abu"", ""hijau"", ""merah""]",sedang,False,2025-09-09T00:00:00+00:00
+u0311,"[""drinkware"", ""stationery"", ""desk"", ""bag""]","[""Sagara"", ""Lentera"", ""Volta"", ""Cendana""]","[""klasik""]","[""merah"", ""putih"", ""krem""]",sedang,False,2025-05-05T00:00:00+00:00
+u0312,"[""stationery"", ""personal_care"", ""bag"", ""book""]","[""Kanaya"", ""Rimba"", ""Nusakita"", ""Aksara""]","[""playful"", ""sporty""]","[""hijau"", ""cokelat"", ""transparan"", ""merah""]",sedang,False,2025-08-15T00:00:00+00:00
+u0313,"[""bag"", ""umbrella"", ""stationery"", ""desk""]","[""Nusakita"", ""Kanaya"", ""Volta""]","[""playful"", ""klasik""]","[""navy"", ""abu"", ""biru""]",rendah,False,2025-02-10T00:00:00+00:00
+u0314,"[""drinkware"", ""stationery""]","[""Kanaya"", ""Aksara""]","[""klasik""]","[""cokelat"", ""hijau"", ""merah"", ""putih""]",tinggi,False,2025-02-19T00:00:00+00:00
+u0315,"[""electronics"", ""drinkware""]","[""Nusakita"", ""Kanaya""]","[""klasik"", ""sporty""]","[""biru"", ""krem""]",sedang,False,2024-03-16T00:00:00+00:00
+u0316,"[""desk"", ""personal_care""]","[""Karsa"", ""Kanaya""]","[""klasik"", ""minimalist""]","[""abu"", ""cokelat""]",sedang,False,2024-08-20T00:00:00+00:00
+u0317,"[""bag"", ""personal_care"", ""desk"", ""electronics""]","[""Cendana"", ""Kanaya"", ""Volta"", ""Bumi""]","[""playful"", ""natural""]","[""putih"", ""transparan"", ""abu"", ""navy""]",rendah,False,2025-12-20T00:00:00+00:00
+u0318,"[""drinkware"", ""bag""]","[""Sagara"", ""Nusakita""]","[""playful"", ""sporty""]","[""merah"", ""hijau""]",tinggi,False,2025-05-24T00:00:00+00:00
+u0319,"[""snack"", ""personal_care"", ""stationery""]","[""Rimba"", ""Kanaya"", ""Lentera""]","[""natural""]","[""merah"", ""hitam""]",sedang,False,2025-05-29T00:00:00+00:00
+u0320,"[""book"", ""electronics""]","[""Aksara"", ""Volta""]","[""sporty""]","[""transparan"", ""cokelat"", ""abu""]",sedang,False,2024-10-18T00:00:00+00:00
+u0321,"[""organizer"", ""electronics"", ""stationery"", ""umbrella""]","[""Cendana"", ""Volta"", ""Aksara"", ""Kanaya""]","[""natural"", ""playful""]","[""navy"", ""krem"", ""transparan""]",tinggi,False,2025-12-05T00:00:00+00:00
+u0322,"[""stationery"", ""book"", ""umbrella"", ""organizer""]","[""Bumi"", ""Lentera"", ""Sagara"", ""Cendana""]","[""klasik"", ""playful""]","[""hitam"", ""krem"", ""merah"", ""biru""]",sedang,False,2025-01-07T00:00:00+00:00
+u0323,"[""stationery"", ""organizer""]","[""Lentera"", ""Cendana""]","[""sporty""]","[""krem"", ""cokelat"", ""navy"", ""hitam""]",rendah,False,2025-10-04T00:00:00+00:00
+u0324,"[""drinkware"", ""snack"", ""organizer""]","[""Tirta"", ""Rimba"", ""Aksara""]","[""minimalist"", ""klasik""]","[""hitam"", ""hijau""]",rendah,False,2024-10-22T00:00:00+00:00
+u0325,"[""electronics"", ""desk"", ""bag"", ""drinkware""]","[""Karsa"", ""Cendana"", ""Tirta""]","[""playful""]","[""cokelat"", ""biru"", ""hitam"", ""abu""]",sedang,False,2024-04-30T00:00:00+00:00
+u0326,"[""bag"", ""electronics""]","[""Rimba"", ""Karsa""]","[""playful"", ""sporty""]","[""putih"", ""krem""]",tinggi,False,2024-08-09T00:00:00+00:00
+u0327,"[""stationery"", ""electronics"", ""bag"", ""snack""]","[""Bumi"", ""Nusakita"", ""Cendana"", ""Sagara""]","[""sporty"", ""klasik""]","[""putih"", ""merah""]",tinggi,False,2024-09-11T00:00:00+00:00
+u0328,"[""bag"", ""organizer"", ""electronics""]","[""Sagara"", ""Lentera"", ""Bumi""]","[""sporty"", ""minimalist""]","[""hitam"", ""putih""]",sedang,False,2025-08-06T00:00:00+00:00
+u0329,"[""desk"", ""stationery""]","[""Cendana"", ""Bumi""]","[""sporty"", ""natural""]","[""hijau"", ""abu"", ""hitam""]",sedang,False,2025-04-13T00:00:00+00:00
+u0330,"[""drinkware"", ""desk"", ""bag"", ""organizer""]","[""Kanaya"", ""Karsa"", ""Nusakita"", ""Lentera""]","[""klasik""]","[""cokelat"", ""abu"", ""merah"", ""hijau""]",sedang,False,2024-08-10T00:00:00+00:00
+u0331,"[""umbrella"", ""drinkware"", ""organizer""]","[""Sagara"", ""Tirta"", ""Lentera""]","[""klasik"", ""minimalist""]","[""abu"", ""transparan""]",rendah,False,2026-01-28T00:00:00+00:00
+u0332,"[""umbrella"", ""stationery"", ""bag"", ""drinkware""]","[""Kanaya"", ""Aksara"", ""Cendana""]","[""playful"", ""sporty""]","[""merah"", ""krem"", ""putih"", ""hijau""]",sedang,False,2025-04-22T00:00:00+00:00
+u0333,"[""drinkware"", ""stationery"", ""personal_care""]","[""Kanaya"", ""Tirta""]","[""natural"", ""sporty""]","[""krem"", ""navy"", ""hitam""]",rendah,False,2024-11-26T00:00:00+00:00
+u0334,"[""stationery"", ""book"", ""desk""]","[""Bumi"", ""Pustaka Nusa"", ""Volta""]","[""playful"", ""natural""]","[""hijau"", ""navy"", ""merah"", ""biru""]",sedang,False,2024-06-29T00:00:00+00:00
+u0335,"[""stationery"", ""electronics"", ""book"", ""drinkware""]","[""Aksara"", ""Bumi"", ""Kanaya""]","[""playful""]","[""merah"", ""putih""]",rendah,False,2025-06-03T00:00:00+00:00
+u0336,"[""electronics"", ""drinkware"", ""book"", ""bag""]","[""Bumi"", ""Nusakita"", ""Aksara"", ""Rimba""]","[""klasik""]","[""transparan"", ""hijau"", ""hitam"", ""biru""]",tinggi,False,2025-01-03T00:00:00+00:00
+u0337,"[""drinkware"", ""electronics"", ""organizer""]","[""Kanaya"", ""Nusakita"", ""Lentera""]","[""minimalist""]","[""merah"", ""krem"", ""cokelat""]",sedang,False,2024-11-17T00:00:00+00:00
+u0338,"[""bag"", ""drinkware""]","[""Rimba"", ""Sagara""]","[""klasik""]","[""krem"", ""putih"", ""transparan""]",sedang,False,2024-02-29T00:00:00+00:00
+u0339,"[""book"", ""umbrella""]","[""Aksara"", ""Nusakita""]","[""playful"", ""klasik""]","[""krem"", ""transparan"", ""cokelat"", ""hijau""]",tinggi,False,2024-10-05T00:00:00+00:00
+u0340,"[""umbrella"", ""electronics"", ""drinkware""]","[""Sagara"", ""Nusakita"", ""Kanaya""]","[""sporty"", ""minimalist""]","[""hitam"", ""abu""]",tinggi,False,2025-03-03T00:00:00+00:00
+u0341,"[""organizer"", ""snack""]","[""Cendana"", ""Sagara""]","[""minimalist"", ""klasik""]","[""cokelat"", ""hijau"", ""krem"", ""merah""]",sedang,False,2024-06-03T00:00:00+00:00
+u0342,"[""electronics"", ""drinkware"", ""organizer"", ""stationery""]","[""Karsa"", ""Sagara"", ""Aksara"", ""Lentera""]","[""natural""]","[""hijau"", ""krem"", ""merah""]",sedang,False,2024-04-16T00:00:00+00:00
+u0343,"[""stationery"", ""snack"", ""umbrella"", ""book""]","[""Lentera"", ""Sagara"", ""Kanaya""]","[""sporty"", ""playful""]","[""abu"", ""transparan""]",tinggi,False,2025-12-31T00:00:00+00:00
+u0344,"[""book"", ""personal_care""]","[""Lentera"", ""Rimba""]","[""klasik""]","[""hitam"", ""transparan""]",rendah,False,2024-05-01T00:00:00+00:00
+u0345,"[""drinkware"", ""personal_care"", ""electronics"", ""organizer""]","[""Tirta"", ""Kanaya"", ""Bumi"", ""Aksara""]","[""playful"", ""natural""]","[""cokelat"", ""krem"", ""abu"", ""putih""]",sedang,False,2024-10-31T00:00:00+00:00
+u0346,"[""umbrella"", ""snack""]","[""Nusakita"", ""Bumi""]","[""minimalist""]","[""merah"", ""krem"", ""transparan"", ""biru""]",tinggi,False,2025-03-16T00:00:00+00:00
+u0347,"[""book"", ""personal_care""]","[""Aksara"", ""Kanaya""]","[""sporty""]","[""biru"", ""navy"", ""abu"", ""putih""]",rendah,False,2025-09-06T00:00:00+00:00
+u0348,"[""organizer"", ""bag"", ""umbrella"", ""drinkware""]","[""Aksara"", ""Cendana"", ""Kanaya"", ""Nusakita""]","[""klasik"", ""sporty""]","[""hijau"", ""cokelat"", ""merah""]",tinggi,False,2025-09-05T00:00:00+00:00
+u0349,"[""bag"", ""stationery"", ""organizer"", ""book""]","[""Cendana"", ""Lentera""]","[""natural"", ""klasik""]","[""hitam"", ""abu"", ""transparan"", ""krem""]",tinggi,False,2024-12-16T00:00:00+00:00
+u0350,"[""drinkware"", ""organizer""]","[""Kanaya"", ""Cendana""]","[""klasik""]","[""merah"", ""cokelat"", ""biru""]",tinggi,False,2025-06-27T00:00:00+00:00
+u0351,"[""desk"", ""bag"", ""electronics""]","[""Cendana"", ""Rimba"", ""Nusakita""]","[""klasik"", ""natural""]","[""cokelat"", ""transparan""]",rendah,False,2024-10-02T00:00:00+00:00
+u0352,"[""electronics"", ""drinkware""]","[""Volta"", ""Kanaya""]","[""playful""]","[""transparan"", ""merah"", ""hijau"", ""putih""]",sedang,False,2025-12-09T00:00:00+00:00
+u0353,"[""personal_care"", ""organizer"", ""snack""]","[""Tirta"", ""Cendana"", ""Bumi""]","[""natural""]","[""biru"", ""merah""]",rendah,False,2025-12-30T00:00:00+00:00
+u0354,"[""bag"", ""organizer"", ""drinkware"", ""stationery""]","[""Sagara"", ""Cendana"", ""Tirta"", ""Bumi""]","[""minimalist"", ""playful""]","[""navy"", ""krem"", ""hitam""]",sedang,False,2025-05-20T00:00:00+00:00
+u0355,"[""stationery"", ""drinkware"", ""organizer"", ""personal_care""]","[""Bumi"", ""Nusakita"", ""Lentera"", ""Kanaya""]","[""playful"", ""klasik""]","[""hitam"", ""hijau""]",sedang,False,2025-11-12T00:00:00+00:00
+u0356,"[""stationery"", ""bag"", ""organizer""]","[""Aksara"", ""Cendana"", ""Lentera""]","[""natural"", ""minimalist""]","[""putih"", ""cokelat"", ""transparan"", ""navy""]",sedang,False,2025-03-26T00:00:00+00:00
+u0357,"[""book"", ""stationery"", ""drinkware"", ""organizer""]","[""Aksara"", ""Bumi"", ""Kanaya"", ""Lentera""]","[""sporty""]","[""hitam"", ""putih""]",tinggi,False,2024-03-28T00:00:00+00:00
+u0358,"[""desk"", ""bag"", ""book""]","[""Cendana"", ""Rimba"", ""Pustaka Nusa""]","[""playful""]","[""hitam"", ""hijau"", ""krem"", ""merah""]",rendah,False,2026-04-02T00:00:00+00:00
+u0359,"[""organizer"", ""stationery"", ""drinkware""]","[""Aksara"", ""Bumi"", ""Sagara""]","[""playful"", ""klasik""]","[""merah"", ""hitam"", ""biru"", ""cokelat""]",sedang,False,2025-03-24T00:00:00+00:00
+u0360,"[""bag"", ""drinkware""]","[""Cendana"", ""Kanaya""]","[""playful""]","[""merah"", ""abu""]",rendah,False,2024-11-28T00:00:00+00:00
+u0361,"[""drinkware"", ""bag""]","[""Nusakita"", ""Rimba""]","[""minimalist"", ""natural""]","[""cokelat"", ""hijau""]",rendah,False,2024-04-22T00:00:00+00:00
+u0362,"[""bag"", ""organizer"", ""book""]","[""Cendana"", ""Lentera"", ""Aksara""]","[""minimalist"", ""natural""]","[""hitam"", ""hijau"", ""transparan""]",rendah,False,2026-04-01T00:00:00+00:00
+u0363,"[""stationery"", ""organizer"", ""bag""]","[""Kanaya"", ""Lentera"", ""Rimba""]","[""minimalist"", ""natural""]","[""abu"", ""biru""]",rendah,False,2025-12-11T00:00:00+00:00
+u0364,"[""snack"", ""umbrella"", ""desk""]","[""Rimba"", ""Kanaya"", ""Karsa""]","[""minimalist""]","[""cokelat"", ""merah"", ""navy""]",sedang,False,2025-07-30T00:00:00+00:00
+u0365,"[""book"", ""snack"", ""desk""]","[""Lentera"", ""Sagara"", ""Volta""]","[""minimalist""]","[""cokelat"", ""transparan"", ""hijau""]",sedang,False,2026-01-31T00:00:00+00:00
+u0366,"[""stationery"", ""umbrella"", ""drinkware"", ""electronics""]","[""Bumi"", ""Sagara""]","[""minimalist"", ""playful""]","[""merah"", ""cokelat""]",sedang,False,2025-09-20T00:00:00+00:00
+u0367,"[""desk"", ""drinkware"", ""stationery"", ""electronics""]","[""Volta"", ""Tirta"", ""Aksara"", ""Nusakita""]","[""minimalist""]","[""hitam"", ""navy""]",sedang,False,2025-02-21T00:00:00+00:00
+u0368,"[""electronics"", ""bag""]","[""Nusakita"", ""Sagara""]","[""natural"", ""playful""]","[""abu"", ""navy"", ""putih"", ""biru""]",tinggi,False,2024-07-12T00:00:00+00:00
+u0369,"[""snack"", ""organizer"", ""stationery""]","[""Sagara"", ""Cendana"", ""Bumi""]","[""sporty""]","[""putih"", ""biru"", ""transparan"", ""abu""]",sedang,False,2024-06-17T00:00:00+00:00
+u0370,"[""book"", ""drinkware"", ""personal_care"", ""stationery""]","[""Pustaka Nusa"", ""Kanaya"", ""Rimba"", ""Aksara""]","[""natural""]","[""merah"", ""biru""]",sedang,False,2025-01-08T00:00:00+00:00
+u0371,"[""umbrella"", ""stationery"", ""bag""]","[""Nusakita"", ""Bumi""]","[""playful""]","[""krem"", ""putih"", ""cokelat""]",sedang,False,2024-06-03T00:00:00+00:00
+u0372,"[""stationery"", ""desk"", ""umbrella"", ""personal_care""]","[""Lentera"", ""Volta"", ""Nusakita"", ""Kanaya""]","[""minimalist"", ""sporty""]","[""krem"", ""transparan"", ""biru""]",tinggi,False,2024-11-22T00:00:00+00:00
+u0373,"[""stationery"", ""drinkware""]","[""Lentera"", ""Nusakita""]","[""playful""]","[""hijau"", ""putih"", ""merah""]",sedang,False,2024-09-10T00:00:00+00:00
+u0374,"[""book"", ""stationery"", ""bag"", ""organizer""]","[""Lentera"", ""Aksara"", ""Rimba""]","[""natural"", ""klasik""]","[""biru"", ""putih""]",tinggi,False,2026-03-15T00:00:00+00:00
+u0375,"[""bag"", ""personal_care"", ""snack""]","[""Rimba"", ""Sagara""]","[""playful""]","[""biru"", ""hijau""]",sedang,False,2024-09-22T00:00:00+00:00
+u0376,"[""stationery"", ""electronics""]","[""Lentera"", ""Volta""]","[""minimalist""]","[""navy"", ""merah"", ""abu""]",sedang,False,2025-12-17T00:00:00+00:00
+u0377,"[""organizer"", ""book""]","[""Lentera"", ""Pustaka Nusa""]","[""minimalist""]","[""abu"", ""transparan"", ""cokelat"", ""hijau""]",sedang,False,2024-06-08T00:00:00+00:00
+u0378,"[""book"", ""snack"", ""electronics"", ""umbrella""]","[""Lentera"", ""Sagara"", ""Karsa"", ""Kanaya""]","[""natural"", ""klasik""]","[""krem"", ""transparan""]",tinggi,False,2025-05-14T00:00:00+00:00
+u0379,"[""drinkware"", ""umbrella""]","[""Nusakita"", ""Kanaya""]","[""klasik""]","[""merah"", ""navy"", ""putih""]",sedang,False,2025-04-24T00:00:00+00:00
+u0380,"[""desk"", ""drinkware""]","[""Karsa"", ""Kanaya""]","[""playful""]","[""transparan"", ""abu"", ""hitam"", ""krem""]",sedang,False,2024-12-27T00:00:00+00:00
+u0381,"[""desk"", ""drinkware"", ""personal_care"", ""stationery""]","[""Volta"", ""Nusakita"", ""Rimba"", ""Aksara""]","[""natural""]","[""hijau"", ""transparan"", ""putih"", ""abu""]",sedang,False,2024-05-24T00:00:00+00:00
+u0382,"[""bag"", ""book""]","[""Sagara"", ""Aksara""]","[""minimalist""]","[""putih"", ""hijau"", ""krem""]",sedang,False,2025-01-27T00:00:00+00:00
+u0383,"[""bag"", ""book""]","[""Nusakita"", ""Aksara""]","[""natural"", ""minimalist""]","[""abu"", ""putih"", ""krem"", ""hitam""]",sedang,False,2024-09-22T00:00:00+00:00
+u0384,"[""bag"", ""electronics""]","[""Rimba"", ""Volta""]","[""natural""]","[""biru"", ""putih"", ""navy"", ""hitam""]",tinggi,False,2024-10-18T00:00:00+00:00
+u0385,"[""stationery"", ""personal_care""]","[""Aksara"", ""Tirta""]","[""minimalist""]","[""krem"", ""merah"", ""putih""]",sedang,False,2024-03-19T00:00:00+00:00
+u0386,"[""drinkware"", ""desk""]","[""Nusakita"", ""Volta""]","[""klasik""]","[""transparan"", ""krem""]",tinggi,False,2024-09-25T00:00:00+00:00
+u0387,"[""umbrella"", ""personal_care""]","[""Sagara"", ""Rimba""]","[""klasik""]","[""hitam"", ""krem""]",rendah,False,2025-07-04T00:00:00+00:00
+u0388,"[""stationery"", ""book"", ""organizer""]","[""Bumi"", ""Lentera"", ""Cendana""]","[""sporty"", ""natural""]","[""merah"", ""cokelat"", ""transparan"", ""biru""]",tinggi,False,2025-11-02T00:00:00+00:00
+u0389,"[""bag"", ""organizer"", ""drinkware"", ""personal_care""]","[""Nusakita"", ""Lentera"", ""Sagara"", ""Rimba""]","[""sporty"", ""natural""]","[""merah"", ""biru""]",sedang,False,2025-03-08T00:00:00+00:00
+u0390,"[""desk"", ""stationery""]","[""Cendana"", ""Lentera""]","[""playful""]","[""biru"", ""hitam""]",tinggi,False,2024-12-02T00:00:00+00:00
+u0391,"[""bag"", ""book""]","[""Nusakita"", ""Pustaka Nusa""]","[""playful"", ""minimalist""]","[""cokelat"", ""abu""]",sedang,False,2024-12-06T00:00:00+00:00
+u0392,"[""electronics"", ""snack"", ""book"", ""bag""]","[""Volta"", ""Rimba"", ""Pustaka Nusa"", ""Nusakita""]","[""natural""]","[""merah"", ""krem"", ""hijau""]",sedang,False,2024-10-09T00:00:00+00:00
+u0393,"[""drinkware"", ""electronics"", ""stationery""]","[""Sagara"", ""Nusakita"", ""Kanaya""]","[""playful""]","[""transparan"", ""biru"", ""cokelat"", ""putih""]",rendah,False,2024-10-15T00:00:00+00:00
+u0394,"[""stationery"", ""bag"", ""umbrella"", ""snack""]","[""Aksara"", ""Rimba"", ""Nusakita""]","[""klasik"", ""minimalist""]","[""krem"", ""biru""]",sedang,False,2025-01-29T00:00:00+00:00
+u0395,"[""desk"", ""organizer"", ""stationery""]","[""Volta"", ""Lentera"", ""Kanaya""]","[""sporty""]","[""putih"", ""transparan"", ""hitam"", ""navy""]",tinggi,False,2024-12-26T00:00:00+00:00
+u0396,"[""stationery"", ""personal_care"", ""drinkware"", ""bag""]","[""Kanaya"", ""Sagara""]","[""klasik""]","[""merah"", ""krem"", ""hitam""]",tinggi,False,2024-12-22T00:00:00+00:00
+u0397,"[""personal_care"", ""drinkware"", ""electronics"", ""snack""]","[""Kanaya"", ""Volta"", ""Rimba""]","[""klasik"", ""minimalist""]","[""navy"", ""abu"", ""hitam""]",sedang,False,2025-08-19T00:00:00+00:00
+u0398,"[""drinkware"", ""snack"", ""electronics"", ""personal_care""]","[""Nusakita"", ""Bumi"", ""Kanaya""]","[""natural""]","[""cokelat"", ""putih""]",sedang,False,2026-04-02T00:00:00+00:00
+u0399,"[""book"", ""umbrella"", ""organizer"", ""desk""]","[""Lentera"", ""Sagara"", ""Cendana""]","[""minimalist"", ""sporty""]","[""transparan"", ""biru"", ""abu"", ""merah""]",sedang,False,2024-07-29T00:00:00+00:00
+u0400,"[""bag"", ""desk""]","[""Rimba"", ""Karsa""]","[""minimalist""]","[""cokelat"", ""transparan"", ""krem""]",sedang,False,2025-11-29T00:00:00+00:00
+u0401,"[""organizer"", ""desk"", ""book"", ""personal_care""]","[""Lentera"", ""Karsa"", ""Pustaka Nusa"", ""Kanaya""]","[""playful"", ""minimalist""]","[""putih"", ""hijau"", ""navy"", ""hitam""]",tinggi,False,2025-06-21T00:00:00+00:00
+u0402,"[""organizer"", ""umbrella"", ""stationery""]","[""Cendana"", ""Kanaya""]","[""playful""]","[""merah"", ""cokelat""]",sedang,False,2025-01-09T00:00:00+00:00
+u0403,"[""drinkware"", ""organizer"", ""umbrella""]","[""Tirta"", ""Lentera"", ""Kanaya""]","[""minimalist""]","[""cokelat"", ""krem"", ""abu""]",rendah,False,2025-07-07T00:00:00+00:00
+u0404,"[""electronics"", ""bag""]","[""Volta"", ""Sagara""]","[""klasik"", ""playful""]","[""abu"", ""krem"", ""cokelat"", ""navy""]",sedang,False,2025-08-10T00:00:00+00:00
+u0405,"[""electronics"", ""snack"", ""bag""]","[""Volta"", ""Sagara"", ""Nusakita""]","[""playful"", ""sporty""]","[""transparan"", ""hijau"", ""hitam""]",tinggi,False,2024-06-13T00:00:00+00:00
+u0406,"[""organizer"", ""personal_care"", ""drinkware""]","[""Aksara"", ""Rimba"", ""Nusakita""]","[""minimalist"", ""klasik""]","[""hijau"", ""navy"", ""cokelat"", ""hitam""]",tinggi,False,2024-11-04T00:00:00+00:00
+u0407,"[""drinkware"", ""stationery"", ""electronics"", ""desk""]","[""Sagara"", ""Lentera"", ""Volta""]","[""natural"", ""klasik""]","[""hijau"", ""transparan"", ""cokelat"", ""hitam""]",sedang,False,2024-06-06T00:00:00+00:00
+u0408,"[""snack"", ""organizer""]","[""Bumi"", ""Aksara""]","[""klasik""]","[""cokelat"", ""putih"", ""merah""]",rendah,False,2025-12-15T00:00:00+00:00
+u0409,"[""organizer"", ""drinkware"", ""stationery""]","[""Aksara"", ""Nusakita"", ""Bumi""]","[""minimalist"", ""klasik""]","[""putih"", ""navy"", ""biru""]",rendah,False,2025-04-21T00:00:00+00:00
+u0410,"[""personal_care"", ""snack"", ""stationery""]","[""Kanaya"", ""Sagara"", ""Bumi""]","[""playful"", ""minimalist""]","[""merah"", ""hitam"", ""biru""]",sedang,False,2024-12-02T00:00:00+00:00
+u0411,"[""electronics"", ""desk"", ""umbrella""]","[""Bumi"", ""Volta"", ""Nusakita""]","[""sporty"", ""natural""]","[""navy"", ""abu""]",rendah,False,2026-03-16T00:00:00+00:00
+u0412,"[""electronics"", ""snack""]","[""Karsa"", ""Bumi""]","[""playful""]","[""biru"", ""merah""]",tinggi,False,2024-10-10T00:00:00+00:00
+u0413,"[""organizer"", ""bag"", ""snack""]","[""Cendana"", ""Rimba""]","[""klasik""]","[""merah"", ""krem""]",tinggi,False,2024-09-11T00:00:00+00:00
+u0414,"[""stationery"", ""organizer"", ""personal_care""]","[""Aksara"", ""Rimba""]","[""playful""]","[""transparan"", ""hijau"", ""biru""]",tinggi,False,2025-02-12T00:00:00+00:00
+u0415,"[""stationery"", ""electronics"", ""book"", ""snack""]","[""Aksara"", ""Volta"", ""Lentera"", ""Rimba""]","[""klasik""]","[""krem"", ""biru"", ""putih"", ""cokelat""]",tinggi,False,2025-05-27T00:00:00+00:00
+u0416,"[""desk"", ""bag"", ""electronics"", ""stationery""]","[""Volta"", ""Sagara"", ""Karsa"", ""Lentera""]","[""sporty"", ""minimalist""]","[""hijau"", ""krem"", ""biru""]",sedang,False,2024-06-16T00:00:00+00:00
+u0417,"[""desk"", ""organizer"", ""drinkware"", ""snack""]","[""Karsa"", ""Lentera"", ""Kanaya"", ""Rimba""]","[""playful"", ""sporty""]","[""krem"", ""biru"", ""putih"", ""transparan""]",sedang,False,2025-01-31T00:00:00+00:00
+u0418,"[""bag"", ""snack"", ""organizer""]","[""Cendana"", ""Sagara""]","[""natural""]","[""navy"", ""putih""]",sedang,False,2025-11-22T00:00:00+00:00
+u0419,"[""stationery"", ""electronics"", ""bag""]","[""Aksara"", ""Volta"", ""Cendana""]","[""playful"", ""natural""]","[""navy"", ""cokelat"", ""krem"", ""putih""]",sedang,False,2025-05-29T00:00:00+00:00
+u0420,"[""organizer"", ""bag"", ""stationery"", ""umbrella""]","[""Lentera"", ""Nusakita"", ""Aksara""]","[""klasik""]","[""putih"", ""merah""]",rendah,False,2025-05-11T00:00:00+00:00
+u0421,"[""desk"", ""stationery"", ""personal_care"", ""bag""]","[""Karsa"", ""Bumi"", ""Tirta"", ""Sagara""]","[""klasik""]","[""transparan"", ""hitam"", ""hijau"", ""biru""]",tinggi,False,2026-03-01T00:00:00+00:00
+u0422,"[""stationery"", ""bag"", ""drinkware""]","[""Aksara"", ""Sagara"", ""Tirta""]","[""natural""]","[""cokelat"", ""krem"", ""putih"", ""navy""]",tinggi,False,2024-12-08T00:00:00+00:00
+u0423,"[""desk"", ""bag""]","[""Volta"", ""Nusakita""]","[""natural"", ""minimalist""]","[""navy"", ""transparan"", ""biru"", ""putih""]",tinggi,False,2026-02-26T00:00:00+00:00
+u0424,"[""stationery"", ""book"", ""electronics"", ""bag""]","[""Lentera"", ""Pustaka Nusa"", ""Nusakita""]","[""sporty"", ""klasik""]","[""cokelat"", ""abu""]",rendah,False,2024-11-10T00:00:00+00:00
+u0425,"[""book"", ""stationery""]","[""Pustaka Nusa"", ""Aksara""]","[""playful""]","[""putih"", ""abu""]",rendah,False,2025-04-06T00:00:00+00:00
+u0426,"[""stationery"", ""book"", ""snack""]","[""Aksara"", ""Lentera"", ""Rimba""]","[""natural"", ""klasik""]","[""abu"", ""merah"", ""putih"", ""biru""]",rendah,False,2024-03-25T00:00:00+00:00
+u0427,"[""snack"", ""stationery"", ""bag""]","[""Bumi"", ""Aksara"", ""Cendana""]","[""sporty"", ""minimalist""]","[""hijau"", ""navy"", ""transparan"", ""hitam""]",rendah,False,2024-06-24T00:00:00+00:00
+u0428,"[""bag"", ""organizer""]","[""Sagara"", ""Cendana""]","[""minimalist""]","[""transparan"", ""hijau""]",tinggi,False,2024-02-25T00:00:00+00:00
+u0429,"[""electronics"", ""stationery"", ""snack"", ""organizer""]","[""Volta"", ""Bumi"", ""Rimba"", ""Cendana""]","[""natural""]","[""biru"", ""hijau"", ""putih"", ""krem""]",tinggi,False,2024-10-03T00:00:00+00:00
+u0430,"[""personal_care"", ""electronics"", ""book""]","[""Rimba"", ""Karsa"", ""Lentera""]","[""natural"", ""sporty""]","[""transparan"", ""merah""]",rendah,False,2024-07-03T00:00:00+00:00
+u0431,"[""umbrella"", ""stationery"", ""book""]","[""Sagara"", ""Aksara""]","[""minimalist""]","[""krem"", ""hitam""]",tinggi,False,2025-05-12T00:00:00+00:00
+u0432,"[""snack"", ""book"", ""stationery""]","[""Rimba"", ""Lentera"", ""Kanaya""]","[""natural"", ""playful""]","[""krem"", ""biru"", ""transparan""]",sedang,False,2025-05-04T00:00:00+00:00
+u0433,"[""bag"", ""snack""]","[""Rimba""]","[""sporty""]","[""krem"", ""hijau"", ""cokelat""]",tinggi,False,2025-11-09T00:00:00+00:00
+u0434,"[""snack"", ""bag"", ""drinkware""]","[""Sagara"", ""Rimba"", ""Kanaya""]","[""playful""]","[""abu"", ""navy"", ""biru"", ""hijau""]",sedang,False,2025-04-20T00:00:00+00:00
+u0435,"[""drinkware"", ""bag""]","[""Kanaya"", ""Sagara""]","[""natural"", ""playful""]","[""transparan"", ""merah"", ""biru"", ""cokelat""]",sedang,False,2024-03-07T00:00:00+00:00
+u0436,"[""stationery"", ""organizer"", ""umbrella""]","[""Kanaya"", ""Lentera""]","[""klasik"", ""natural""]","[""transparan"", ""putih"", ""hitam""]",sedang,False,2024-10-26T00:00:00+00:00
+u0437,"[""stationery"", ""organizer"", ""book"", ""electronics""]","[""Kanaya"", ""Lentera"", ""Pustaka Nusa"", ""Nusakita""]","[""minimalist""]","[""abu"", ""putih"", ""hijau"", ""cokelat""]",tinggi,False,2026-01-13T00:00:00+00:00
+u0438,"[""bag"", ""drinkware""]","[""Cendana"", ""Kanaya""]","[""playful""]","[""biru"", ""krem"", ""cokelat""]",tinggi,False,2025-07-24T00:00:00+00:00
+u0439,"[""electronics"", ""stationery"", ""snack""]","[""Bumi"", ""Lentera"", ""Sagara""]","[""sporty"", ""playful""]","[""putih"", ""cokelat"", ""hijau""]",sedang,False,2024-06-30T00:00:00+00:00
+u0440,"[""book"", ""stationery""]","[""Lentera"", ""Bumi""]","[""klasik""]","[""hijau"", ""navy""]",sedang,False,2024-11-28T00:00:00+00:00
+u0441,"[""stationery"", ""book""]","[""Aksara"", ""Lentera""]","[""sporty""]","[""abu"", ""hijau"", ""krem""]",sedang,False,2026-01-22T00:00:00+00:00
+u0442,"[""electronics"", ""stationery"", ""desk""]","[""Karsa"", ""Lentera"", ""Volta""]","[""minimalist""]","[""transparan"", ""merah""]",tinggi,False,2024-10-05T00:00:00+00:00
+u0443,"[""bag"", ""book""]","[""Nusakita"", ""Pustaka Nusa""]","[""sporty"", ""minimalist""]","[""cokelat"", ""transparan"", ""biru"", ""navy""]",tinggi,False,2025-11-30T00:00:00+00:00
+u0444,"[""snack"", ""drinkware"", ""desk"", ""stationery""]","[""Bumi"", ""Sagara"", ""Cendana""]","[""playful""]","[""hitam"", ""hijau"", ""cokelat""]",sedang,False,2025-12-17T00:00:00+00:00
+u0445,"[""book"", ""desk""]","[""Aksara"", ""Cendana""]","[""playful""]","[""abu"", ""cokelat"", ""putih""]",sedang,False,2024-10-09T00:00:00+00:00
+u0446,"[""snack"", ""personal_care""]","[""Rimba"", ""Tirta""]","[""minimalist"", ""klasik""]","[""navy"", ""biru"", ""abu""]",tinggi,False,2024-06-25T00:00:00+00:00
+u0447,"[""desk"", ""stationery"", ""personal_care""]","[""Cendana"", ""Lentera"", ""Rimba""]","[""natural"", ""playful""]","[""hijau"", ""biru"", ""abu""]",sedang,False,2025-04-23T00:00:00+00:00
+u0448,"[""book"", ""organizer"", ""stationery"", ""electronics""]","[""Lentera"", ""Kanaya"", ""Volta""]","[""klasik""]","[""abu"", ""biru"", ""hitam"", ""navy""]",sedang,False,2025-09-05T00:00:00+00:00
+u0449,"[""stationery"", ""desk"", ""book""]","[""Bumi"", ""Karsa"", ""Aksara""]","[""sporty"", ""playful""]","[""merah"", ""cokelat""]",rendah,False,2026-02-07T00:00:00+00:00
+u0450,"[""stationery"", ""personal_care"", ""drinkware"", ""umbrella""]","[""Bumi"", ""Rimba"", ""Tirta"", ""Nusakita""]","[""natural"", ""klasik""]","[""krem"", ""hitam"", ""merah""]",sedang,False,2025-05-12T00:00:00+00:00
+u0451,"[""electronics"", ""book""]","[""Nusakita"", ""Lentera""]","[""sporty"", ""natural""]","[""cokelat"", ""hijau"", ""transparan"", ""biru""]",tinggi,True,2024-03-05T00:00:00+00:00
+u0452,"[""stationery"", ""organizer""]","[""Kanaya"", ""Aksara""]","[""playful""]","[""merah"", ""hijau"", ""hitam"", ""transparan""]",rendah,True,2026-02-26T00:00:00+00:00
+u0453,"[""bag"", ""book"", ""stationery"", ""organizer""]","[""Nusakita"", ""Pustaka Nusa"", ""Lentera"", ""Cendana""]","[""klasik""]","[""transparan"", ""cokelat"", ""putih""]",rendah,True,2025-03-19T00:00:00+00:00
+u0454,"[""snack"", ""bag""]","[""Bumi"", ""Cendana""]","[""natural""]","[""navy"", ""biru""]",tinggi,True,2025-11-29T00:00:00+00:00
+u0455,"[""electronics"", ""personal_care""]","[""Volta"", ""Kanaya""]","[""playful""]","[""cokelat"", ""transparan""]",rendah,True,2025-04-01T00:00:00+00:00
+u0456,"[""stationery"", ""drinkware""]","[""Aksara"", ""Sagara""]","[""sporty"", ""playful""]","[""abu"", ""krem"", ""transparan""]",sedang,True,2024-08-14T00:00:00+00:00
+u0457,"[""electronics"", ""umbrella""]","[""Volta"", ""Sagara""]","[""playful""]","[""cokelat"", ""abu"", ""transparan"", ""putih""]",rendah,True,2024-09-09T00:00:00+00:00
+u0458,"[""bag"", ""organizer"", ""snack"", ""book""]","[""Sagara"", ""Cendana"", ""Bumi"", ""Pustaka Nusa""]","[""sporty"", ""natural""]","[""transparan"", ""merah"", ""krem""]",sedang,True,2025-07-28T00:00:00+00:00
+u0459,"[""umbrella"", ""stationery"", ""snack""]","[""Nusakita"", ""Bumi""]","[""sporty"", ""natural""]","[""hijau"", ""merah""]",tinggi,True,2026-04-02T00:00:00+00:00
+u0460,"[""drinkware"", ""book"", ""snack""]","[""Tirta"", ""Pustaka Nusa"", ""Bumi""]","[""playful""]","[""putih"", ""transparan""]",tinggi,True,2026-02-13T00:00:00+00:00
+u0461,"[""drinkware"", ""organizer"", ""electronics"", ""stationery""]","[""Kanaya"", ""Lentera"", ""Nusakita""]","[""klasik"", ""natural""]","[""cokelat"", ""hijau"", ""merah""]",tinggi,True,2024-06-26T00:00:00+00:00
+u0462,"[""stationery"", ""electronics""]","[""Lentera"", ""Volta""]","[""sporty""]","[""putih"", ""navy"", ""hitam"", ""cokelat""]",tinggi,True,2024-09-18T00:00:00+00:00
+u0463,"[""desk"", ""bag""]","[""Karsa"", ""Cendana""]","[""sporty""]","[""merah"", ""hitam""]",sedang,True,2024-08-20T00:00:00+00:00
+u0464,"[""electronics"", ""bag"", ""book"", ""stationery""]","[""Volta"", ""Cendana"", ""Aksara"", ""Bumi""]","[""playful"", ""natural""]","[""biru"", ""transparan"", ""cokelat""]",tinggi,True,2024-11-13T00:00:00+00:00
+u0465,"[""drinkware"", ""personal_care"", ""electronics""]","[""Sagara"", ""Kanaya"", ""Nusakita""]","[""sporty"", ""natural""]","[""hijau"", ""cokelat"", ""abu""]",tinggi,True,2024-06-02T00:00:00+00:00
+u0466,"[""book"", ""snack"", ""personal_care""]","[""Aksara"", ""Sagara"", ""Tirta""]","[""sporty""]","[""transparan"", ""hijau"", ""krem"", ""navy""]",sedang,True,2024-12-23T00:00:00+00:00
+u0467,"[""electronics"", ""drinkware""]","[""Bumi"", ""Tirta""]","[""natural""]","[""merah"", ""hitam"", ""krem"", ""putih""]",sedang,True,2024-04-08T00:00:00+00:00
+u0468,"[""snack"", ""stationery"", ""drinkware"", ""bag""]","[""Sagara"", ""Lentera""]","[""natural""]","[""hitam"", ""hijau""]",sedang,True,2026-03-02T00:00:00+00:00
+u0469,"[""bag"", ""drinkware""]","[""Cendana"", ""Tirta""]","[""playful"", ""sporty""]","[""biru"", ""putih"", ""abu""]",sedang,True,2025-02-08T00:00:00+00:00
+u0470,"[""snack"", ""book""]","[""Bumi"", ""Lentera""]","[""natural""]","[""krem"", ""navy""]",rendah,True,2024-09-12T00:00:00+00:00
+u0471,"[""book"", ""bag""]","[""Lentera"", ""Rimba""]","[""natural""]","[""transparan"", ""navy"", ""abu"", ""biru""]",sedang,True,2025-12-23T00:00:00+00:00
+u0472,"[""desk"", ""drinkware""]","[""Volta"", ""Nusakita""]","[""klasik"", ""natural""]","[""abu"", ""krem"", ""hitam"", ""biru""]",sedang,True,2024-03-02T00:00:00+00:00
+u0473,"[""bag"", ""electronics""]","[""Nusakita""]","[""playful"", ""minimalist""]","[""biru"", ""abu""]",rendah,True,2025-02-03T00:00:00+00:00
+u0474,"[""electronics"", ""bag""]","[""Volta"", ""Sagara""]","[""playful""]","[""krem"", ""putih"", ""biru""]",rendah,True,2025-12-31T00:00:00+00:00
+u0475,"[""electronics"", ""bag"", ""drinkware""]","[""Volta"", ""Cendana"", ""Tirta""]","[""minimalist""]","[""hitam"", ""cokelat"", ""biru""]",sedang,True,2025-12-10T00:00:00+00:00
+u0476,"[""bag"", ""electronics"", ""drinkware"", ""umbrella""]","[""Sagara"", ""Volta"", ""Tirta""]","[""minimalist""]","[""putih"", ""navy"", ""hitam"", ""krem""]",sedang,True,2024-05-24T00:00:00+00:00
+u0477,"[""personal_care"", ""stationery""]","[""Tirta"", ""Aksara""]","[""natural""]","[""abu"", ""krem"", ""putih""]",tinggi,True,2026-03-21T00:00:00+00:00
+u0478,"[""bag"", ""personal_care"", ""stationery""]","[""Sagara"", ""Rimba"", ""Aksara""]","[""natural"", ""minimalist""]","[""merah"", ""biru"", ""transparan"", ""cokelat""]",sedang,True,2024-07-11T00:00:00+00:00
+u0479,"[""stationery"", ""bag""]","[""Bumi"", ""Rimba""]","[""natural""]","[""cokelat"", ""krem""]",sedang,True,2025-08-12T00:00:00+00:00
+u0480,"[""stationery"", ""electronics""]","[""Aksara"", ""Nusakita""]","[""natural""]","[""navy"", ""hitam"", ""putih""]",tinggi,True,2025-09-26T00:00:00+00:00
+u0481,"[""personal_care"", ""snack"", ""bag"", ""stationery""]","[""Tirta"", ""Sagara"", ""Cendana"", ""Lentera""]","[""sporty""]","[""merah"", ""hitam"", ""abu""]",tinggi,True,2025-06-26T00:00:00+00:00
+u0482,"[""bag"", ""drinkware""]","[""Rimba"", ""Sagara""]","[""sporty"", ""natural""]","[""hijau"", ""merah"", ""putih""]",tinggi,True,2024-07-05T00:00:00+00:00
+u0483,"[""organizer"", ""snack""]","[""Aksara"", ""Bumi""]","[""minimalist""]","[""navy"", ""transparan"", ""putih"", ""hijau""]",tinggi,True,2025-07-03T00:00:00+00:00
+u0484,"[""electronics"", ""personal_care"", ""snack""]","[""Karsa"", ""Tirta"", ""Rimba""]","[""sporty"", ""klasik""]","[""hijau"", ""merah""]",sedang,True,2024-05-26T00:00:00+00:00
+u0485,"[""desk"", ""umbrella"", ""book"", ""bag""]","[""Karsa"", ""Kanaya"", ""Pustaka Nusa"", ""Sagara""]","[""playful""]","[""abu"", ""hijau"", ""biru""]",rendah,True,2025-02-13T00:00:00+00:00
+u0486,"[""book"", ""bag""]","[""Pustaka Nusa"", ""Cendana""]","[""sporty"", ""natural""]","[""krem"", ""hitam""]",sedang,True,2026-02-17T00:00:00+00:00
+u0487,"[""bag"", ""personal_care"", ""stationery""]","[""Rimba"", ""Bumi""]","[""natural"", ""sporty""]","[""transparan"", ""krem"", ""merah"", ""navy""]",sedang,True,2024-12-17T00:00:00+00:00
+u0488,"[""stationery"", ""bag"", ""snack""]","[""Kanaya"", ""Cendana"", ""Bumi""]","[""klasik""]","[""navy"", ""krem"", ""cokelat"", ""biru""]",rendah,True,2025-07-16T00:00:00+00:00
+u0489,"[""book"", ""personal_care""]","[""Aksara"", ""Rimba""]","[""klasik"", ""minimalist""]","[""merah"", ""navy"", ""transparan""]",sedang,True,2026-03-02T00:00:00+00:00
+u0490,"[""snack"", ""organizer"", ""personal_care""]","[""Bumi"", ""Cendana"", ""Tirta""]","[""playful"", ""klasik""]","[""navy"", ""putih"", ""biru""]",sedang,True,2025-11-30T00:00:00+00:00
+u0491,"[""stationery"", ""snack"", ""organizer""]","[""Lentera"", ""Sagara"", ""Aksara""]","[""sporty"", ""natural""]","[""biru"", ""abu""]",tinggi,True,2026-01-21T00:00:00+00:00
+u0492,"[""book"", ""personal_care""]","[""Aksara"", ""Tirta""]","[""playful"", ""minimalist""]","[""hijau"", ""transparan"", ""navy"", ""hitam""]",tinggi,True,2025-09-26T00:00:00+00:00
+u0493,"[""stationery"", ""desk"", ""organizer""]","[""Lentera"", ""Karsa"", ""Cendana""]","[""klasik"", ""minimalist""]","[""hijau"", ""merah"", ""cokelat"", ""transparan""]",tinggi,True,2024-10-29T00:00:00+00:00
+u0494,"[""umbrella"", ""book""]","[""Sagara"", ""Aksara""]","[""minimalist""]","[""transparan"", ""hijau""]",tinggi,True,2025-07-10T00:00:00+00:00
+u0495,"[""electronics"", ""organizer""]","[""Volta"", ""Cendana""]","[""klasik"", ""natural""]","[""navy"", ""hitam""]",sedang,True,2024-06-13T00:00:00+00:00
+u0496,"[""umbrella"", ""book"", ""stationery""]","[""Nusakita"", ""Lentera"", ""Bumi""]","[""klasik"", ""minimalist""]","[""krem"", ""navy"", ""hitam"", ""hijau""]",rendah,True,2025-02-01T00:00:00+00:00
+u0497,"[""snack"", ""bag"", ""drinkware"", ""stationery""]","[""Sagara"", ""Rimba"", ""Tirta"", ""Lentera""]","[""sporty"", ""klasik""]","[""navy"", ""krem"", ""hitam"", ""hijau""]",tinggi,True,2024-06-06T00:00:00+00:00
+u0498,"[""book"", ""drinkware""]","[""Aksara"", ""Kanaya""]","[""sporty""]","[""krem"", ""hitam"", ""putih"", ""navy""]",sedang,True,2025-08-09T00:00:00+00:00
+u0499,"[""electronics"", ""personal_care"", ""stationery"", ""drinkware""]","[""Karsa"", ""Kanaya"", ""Lentera"", ""Tirta""]","[""klasik""]","[""hitam"", ""cokelat"", ""navy""]",tinggi,True,2025-10-13T00:00:00+00:00
+u0500,"[""stationery"", ""book"", ""snack""]","[""Kanaya"", ""Lentera"", ""Bumi""]","[""minimalist"", ""playful""]","[""merah"", ""navy"", ""hitam""]",tinggi,True,2024-07-14T00:00:00+00:00

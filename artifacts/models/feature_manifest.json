@@ -1,0 +1,38 @@
+{
+  "model_version": "hybrid-v1",
+  "trained_at": "2026-10-25T04:40:23Z",
+  "dataset_version": "rasa-synth-1.0.0",
+  "seed": 42,
+  "n_items": 600,
+  "n_users": 500,
+  "artifacts": {
+    "content": "content-v1",
+    "collaborative": "cf-svd-v1",
+    "popularity": "popularity-v1"
+  },
+  "collaborative_meta": {
+    "model_version": "cf-svd-v1",
+    "trained_at": "2026-10-25T04:40:23Z",
+    "n_users": 500,
+    "n_items": 600,
+    "n_components": 32,
+    "explained_variance": 0.2261,
+    "n_interaction_events": 8985,
+    "matrix_sparsity": 0.9702
+  },
+  "popularity_meta": {
+    "version": "popularity-v1",
+    "total_positive_events": 8985,
+    "n_products_with_history": 599,
+    "median_interactions": 15.0
+  },
+  "training_window": {
+    "start": "2026-04-03 07:20:57",
+    "end": "2026-07-31 13:50:18"
+  },
+  "notes": [
+    "TF-IDF, one-hot encoder, dan statistik numerik di-fit hanya pada data training.",
+    "Popularity dihitung hanya dari event positif pada data training.",
+    "Harga dan stok adalah data simulasi."
+  ]
+}

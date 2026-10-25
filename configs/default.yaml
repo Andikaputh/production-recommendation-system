@@ -1,0 +1,112 @@
+# RASA - konfigurasi utama (reproducible)
+# Semua eksperimen membaca konfigurasi ini kecuali ditimpa lewat CLI/env.
+project:
+  name: RASA
+  version: 1.0.0
+  language: id
+
+seed: 42
+
+dataset:
+  name: rasa-synthetic-commerce
+  version: rasa-synth-1.0.0
+  anchor_date: "2026-08-01"
+  n_categories: 10
+  n_products: 600
+  n_merchants: 30
+  n_users: 500
+  cold_user_fraction: 0.10
+  late_product_fraction: 0.15
+  n_interactions_target: 60000
+  interaction_window_days: 120
+  # Semua data katalog, merchant, harga, stok, dan interaksi bersifat SINTETIS.
+  synthetic: true
+
+split:
+  # Evaluasi temporal per pengguna: positif terakhir menjadi holdout.
+  test_fraction: 0.20
+  validation_fraction: 0.15
+  min_train_positives: 3
+
+features:
+  tfidf:
+    max_features: 4000
+    ngram_range: [1, 2]
+    min_df: 2
+    sublinear_tf: true
+  collaborative:
+    n_components: 32
+    item_similarity_top_k: 40
+    shrinkage: 5.0
+  event_weights:
+    impression: 0.0
+    click: 1.0
+    save: 2.0
+    add_to_list: 3.0
+    purchase_proxy: 4.0
+    dismiss: 0.0
+
+ranking:
+  top_k: 10
+  candidate_limit_per_category: 60
+  weights:
+    collaborative: 0.10
+    content: 0.20
+    mission: 0.30
+    quality: 0.15
+    affinity: 0.25
+  weight_grid:
+    # Bobot dipilih pada validation; collaborative boleh 0 bila tidak membantu.
+    collaborative: [0.0, 0.10, 0.20]
+    content: [0.0, 0.10, 0.20]
+    mission: [0.10, 0.20, 0.30, 0.40]
+    quality: [0.0, 0.10, 0.20]
+    affinity: [0.0, 0.10, 0.20, 0.30]
+  # Komposisi tetap untuk baseline EXP-005 (hybrid tanpa komponen misi).
+  hybrid_baseline:
+    collaborative: 0.25
+    content: 0.55
+    quality: 0.20
+  cold_start:
+    min_interactions: 3
+    popularity_weight: 0.65
+  controlled_exposure:
+    alpha: 0.08
+    max_share: 0.20
+    low_history_quantile: 0.40
+    quality_floor_rating_delta: 0.10
+
+optimization:
+  max_candidates_per_category: 14
+  max_optional_items: 2
+  time_limit_seconds: 2.0
+  lambda_merchant: 0.015
+  lambda_budget_slack: 0.020
+  redundancy_cosine_threshold: 0.92
+
+evaluation:
+  k_values: [5, 10, 20]
+  primary_k: 10
+  n_basket_missions: 120
+  min_sample_warning: 30
+
+api:
+  cors_origins:
+    - "http://localhost:5173"
+    - "http://127.0.0.1:5173"
+    - "http://localhost:4173"
+    - "http://127.0.0.1:4173"
+  max_payload_bytes: 65536
+  rate_limit_per_minute: 120
+  recommendation_timeout_seconds: 2.5
+  pagination_max_limit: 100
+  max_budget_ceiling: 50000000
+  top_k_max: 20
+  max_merchants_ceiling: 10
+
+paths:
+  raw: data/raw
+  processed: data/processed
+  sample: data/sample
+  artifacts: artifacts
+  experiments: experiments

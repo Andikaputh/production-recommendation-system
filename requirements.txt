@@ -1,7 +1,0 @@
-pandas
-scikit-learn
-lightgbm
-mlflow
-fastapi
-uvicorn
-sqlalchemy

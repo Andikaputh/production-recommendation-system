@@ -1,0 +1,229 @@
+{
+  "generated_at": "2026-10-24T02:03:46Z",
+  "dataset_version": "rasa-synth-1.0.0",
+  "summary": {
+    "total_checks": 18,
+    "passed": 18,
+    "warnings": 0,
+    "critical_failures": 0,
+    "passed_all_critical": true
+  },
+  "checks": [
+    {
+      "check": "primary_key_duplicates:products",
+      "status": "pass",
+      "severity": "critical",
+      "details": {
+        "duplicates": 0,
+        "rows": 600
+      },
+      "note": ""
+    },
+    {
+      "check": "primary_key_duplicates:merchants",
+      "status": "pass",
+      "severity": "critical",
+      "details": {
+        "duplicates": 0,
+        "rows": 30
+      },
+      "note": ""
+    },
+    {
+      "check": "primary_key_duplicates:categories",
+      "status": "pass",
+      "severity": "critical",
+      "details": {
+        "duplicates": 0,
+        "rows": 10
+      },
+      "note": ""
+    },
+    {
+      "check": "primary_key_duplicates:users",
+      "status": "pass",
+      "severity": "critical",
+      "details": {
+        "duplicates": 0,
+        "rows": 500
+      },
+      "note": ""
+    },
+    {
+      "check": "primary_key_duplicates:interactions",
+      "status": "pass",
+      "severity": "critical",
+      "details": {
+        "duplicates": 0,
+        "rows": 52174
+      },
+      "note": ""
+    },
+    {
+      "check": "price_validity",
+      "status": "pass",
+      "severity": "critical",
+      "details": {
+        "non_positive": 0,
+        "above_10m": 0,
+        "min": 4000,
+        "max": 636000
+      },
+      "note": ""
+    },
+    {
+      "check": "required_missing_values",
+      "status": "pass",
+      "severity": "critical",
+      "details": {
+        "missing_counts": {
+          "product_id": 0,
+          "product_name": 0,
+          "category_id": 0,
+          "price": 0,
+          "merchant_id": 0,
+          "availability_status": 0
+        }
+      },
+      "note": ""
+    },
+    {
+      "check": "unknown_categories",
+      "status": "pass",
+      "severity": "critical",
+      "details": {
+        "unknown": [],
+        "known": [
+          "bag",
+          "book",
+          "desk",
+          "drinkware",
+          "electronics",
+          "organizer",
+          "personal_care",
+          "snack",
+          "stationery",
+          "umbrella"
+        ]
+      },
+      "note": ""
+    },
+    {
+      "check": "referential_integrity:product_merchant",
+      "status": "pass",
+      "severity": "critical",
+      "details": {
+        "unknown_merchant_ids": []
+      },
+      "note": ""
+    },
+    {
+      "check": "referential_integrity:interaction_product",
+      "status": "pass",
+      "severity": "critical",
+      "details": {
+        "orphan_events": 0
+      },
+      "note": ""
+    },
+    {
+      "check": "timestamp_validity",
+      "status": "pass",
+      "severity": "critical",
+      "details": {
+        "null_timestamps": 0,
+        "future_events": 0,
+        "min": "2026-04-03 07:07:13",
+        "max": "2026-07-31 22:54:59"
+      },
+      "note": ""
+    },
+    {
+      "check": "duplicate_interactions",
+      "status": "pass",
+      "severity": "warning",
+      "details": {
+        "duplicates": 0
+      },
+      "note": "Interaksi duplikat pada timestamp identik dapat menandakan event ganda."
+    },
+    {
+      "check": "user_item_distribution",
+      "status": "pass",
+      "severity": "warning",
+      "details": {
+        "n_users_with_positives": 500,
+        "n_items_with_positives": 600,
+        "interactions_per_user": {
+          "min": 1,
+          "median": 28.0,
+          "max": 41
+        },
+        "interactions_per_item": {
+          "min": 2,
+          "median": 22.0,
+          "max": 45
+        },
+        "matrix_sparsity": 0.9562
+      },
+      "note": ""
+    },
+    {
+      "check": "temporal_leakage",
+      "status": "pass",
+      "severity": "critical",
+      "details": {
+        "users_with_leakage": 0,
+        "n_test_users": 451
+      },
+      "note": "Interaksi masa depan tidak boleh mendahului data training pengguna yang sama."
+    },
+    {
+      "check": "train_test_isolation",
+      "status": "pass",
+      "severity": "critical",
+      "details": {
+        "overlapping_event_ids": 0,
+        "train_rows": 8985,
+        "test_rows": 2615
+      },
+      "note": ""
+    },
+    {
+      "check": "enum_validity",
+      "status": "pass",
+      "severity": "critical",
+      "details": {
+        "invalid_availability": [],
+        "invalid_event_types": []
+      },
+      "note": ""
+    },
+    {
+      "check": "available_products_per_category",
+      "status": "pass",
+      "severity": "critical",
+      "details": {
+        "missing_available_categories": [],
+        "min_available_per_category": 49
+      },
+      "note": ""
+    },
+    {
+      "check": "schema_manifest_consistency",
+      "status": "pass",
+      "severity": "warning",
+      "details": {
+        "manifest_n_products": 600,
+        "actual_n_products": 600,
+        "dataset_version": "rasa-synth-1.0.0"
+      },
+      "note": ""
+    }
+  ],
+  "limitations": [
+    "Dataset sepenuhnya sintetis dan tidak merepresentasikan marketplace nyata.",
+    "Harga dan stok tidak real-time.",
+    "Label relevansi berasal dari simulasi interaksi, bukan preferensi pengguna nyata."
+  ]
+}

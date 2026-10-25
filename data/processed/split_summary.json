@@ -1,0 +1,38 @@
+{
+  "dataset_version": "rasa-synth-1.0.0",
+  "synthetic": true,
+  "n_categories": 10,
+  "n_merchants": 30,
+  "n_products": 600,
+  "n_users": 500,
+  "n_events": 52174,
+  "n_train": 8985,
+  "n_validation": 1529,
+  "n_test": 2615,
+  "n_train_users": 500,
+  "n_test_users": 451,
+  "n_cold_start_users": 50,
+  "test_fraction": 0.2,
+  "validation_fraction": 0.15,
+  "min_train_positives": 3,
+  "positive_event_types": [
+    "click",
+    "save",
+    "add_to_list",
+    "purchase_proxy"
+  ],
+  "availability_counts": {
+    "available": 520,
+    "unavailable": 44,
+    "unknown": 36
+  },
+  "price_stats": {
+    "min": 4000,
+    "median": 59500,
+    "max": 636000
+  },
+  "events_per_user": {
+    "mean": 104.35,
+    "median": 111.0
+  }
+}

@@ -1,0 +1,58 @@
+# Definisi eksperimen offline dan simulasi A/B (PRD bagian 11.6)
+# Hasil simulasi A/B TIDAK boleh diklaim sebagai bukti kausal.
+
+experiments:
+  - experiment_id: EXP-001
+    name: Global Popularity
+    model: popularity_global
+    strategy: popularity_global
+    purpose: Baseline umum berbasis popularitas global pada data training.
+  - experiment_id: EXP-002
+    name: Category Popularity
+    model: popularity_category
+    strategy: popularity_category
+    purpose: Baseline popularitas di dalam kategori relevan misi.
+  - experiment_id: EXP-003
+    name: Content-Based
+    model: content_tfidf
+    strategy: content
+    purpose: Mengukur kontribusi metadata dan deskripsi produk.
+  - experiment_id: EXP-004
+    name: Collaborative Filtering
+    model: cf_svd
+    strategy: collaborative
+    purpose: Mengukur kontribusi histori interaksi pengguna.
+  - experiment_id: EXP-005
+    name: Hybrid
+    model: hybrid_v1
+    strategy: hybrid
+    purpose: Mengukur kombinasi sinyal collaborative, content, dan quality.
+  - experiment_id: EXP-006
+    name: Hybrid + Mission Ranking
+    model: hybrid_v1
+    strategy: hybrid_mission
+    purpose: Mengukur kontribusi sinyal misi dan preferensi.
+  - experiment_id: EXP-007
+    name: Hybrid + Basket Optimization
+    model: hybrid_v1
+    strategy: hybrid_basket
+    purpose: Mengukur kontribusi optimasi keranjang dengan batasan keras.
+  - experiment_id: EXP-008
+    name: Hybrid + Controlled Exposure
+    model: hybrid_v1
+    strategy: hybrid_exposure
+    purpose: Mengukur trade-off coverage long-tail terhadap relevansi.
+
+ab_tests:
+  - experiment_id: AB-001
+    name: Simulasi A/B Mission Ranking
+    description: >-
+      Simulasi pembagian sesi ke varian ranking. Hasil hanya simulasi dan tidak
+      membuktikan kausalitas.
+    variants:
+      control: hybrid
+      treatment: hybrid_mission
+    primary_metric: "ndcg@10"
+    guardrail_metrics: ["precision@10", "catalog_coverage"]
+    unit: session_id
+    status: simulation_only

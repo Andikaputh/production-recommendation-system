@@ -1,0 +1,11 @@
+category_id,category_name,description,subcategories
+bag,Tas,Kategori tas untuk kebutuhan kampus dan harian (simulasi).,"[""backpack"", ""tote"", ""sling""]"
+stationery,Alat Tulis,Kategori alat tulis untuk kebutuhan kampus dan harian (simulasi).,"[""pen"", ""pencil"", ""notebook"", ""highlighter""]"
+drinkware,Botol Minum,Kategori botol minum untuk kebutuhan kampus dan harian (simulasi).,"[""tumbler"", ""bottle"", ""mug""]"
+organizer,Organizer,Kategori organizer untuk kebutuhan kampus dan harian (simulasi).,"[""pouch"", ""desk_organizer"", ""cable_organizer""]"
+electronics,Elektronik,Kategori elektronik untuk kebutuhan kampus dan harian (simulasi).,"[""powerbank"", ""mouse"", ""keyboard"", ""earphone"", ""usb_hub""]"
+book,Buku,Kategori buku untuk kebutuhan kampus dan harian (simulasi).,"[""novel"", ""textbook"", ""journal""]"
+desk,Perlengkapan Meja,Kategori perlengkapan meja untuk kebutuhan kampus dan harian (simulasi).,"[""lamp"", ""stand"", ""mat""]"
+personal_care,Perawatan Diri,Kategori perawatan diri untuk kebutuhan kampus dan harian (simulasi).,"[""sanitizer"", ""sunscreen"", ""lipbalm""]"
+snack,Camilan,Kategori camilan untuk kebutuhan kampus dan harian (simulasi).,"[""biscuits"", ""coffee"", ""energy_bar""]"
+umbrella,Payung,Kategori payung untuk kebutuhan kampus dan harian (simulasi).,"[""foldable"", ""transparent""]"

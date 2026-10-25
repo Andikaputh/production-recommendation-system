@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: production-recommendation-system
+    runtime: docker
+    plan: free
+    region: singapore
+    branch: main
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    healthCheckPath: /health
+    autoDeployTrigger: commit
+    envVars:
+      - key: RASA_ENV
+        value: production
+      - key: RASA_MODEL_VERSION
+        value: hybrid-v1
