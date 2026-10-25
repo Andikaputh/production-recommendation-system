@@ -1,4 +1,4 @@
-"""Katalog produk: caching in-memory, pencarian, dan detail produk."""
+"""Product catalog with in-memory caching, search, and product details."""
 
 from __future__ import annotations
 
@@ -82,7 +82,7 @@ class CatalogService:
             ]
         )
         if products.empty:
-            raise RuntimeError("Katalog database kosong. Jalankan `python scripts/seed_db.py`.")
+            raise RuntimeError("The database catalog is empty. Run `python scripts/seed_db.py`.")
         merchants = pd.DataFrame(
             [
                 {
@@ -231,7 +231,7 @@ class CatalogService:
             "limit": limit,
             "offset": offset,
             "items": [self._product_payload(row) for _, row in page.iterrows()],
-            "note": "Katalog, harga, dan stok adalah data simulasi.",
+            "note": "The catalog, prices, and inventory are simulated.",
         }
 
     def merchants_payload(self) -> list[dict[str, Any]]:

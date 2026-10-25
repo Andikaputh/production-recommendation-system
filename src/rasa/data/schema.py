@@ -1,4 +1,4 @@
-"""Pemuatan data, validasi skema, dan pemisahan temporal anti-leakage."""
+"""Data loading, schema validation, and leakage-safe temporal splitting."""
 
 from __future__ import annotations
 
@@ -25,7 +25,7 @@ INTERACTION_COLUMNS = (
 
 
 class DataValidationError(ValueError):
-    """Dilempar ketika dataset tidak memenuhi skema minimum."""
+    """Raised when a dataset does not satisfy the minimum schema."""
 
 
 @dataclass
@@ -65,7 +65,7 @@ def load_raw_dataset(raw_dir: Path | None = None) -> tuple[pd.DataFrame, ...]:
     missing = [name for name in required if not (raw_dir / name).exists()]
     if missing:
         raise FileNotFoundError(
-            f"Dataset mentah belum lengkap: {missing}. Jalankan `make data` atau "
+            f"The raw dataset is incomplete: {missing}. Run `make data` or "
             "`python scripts/generate_data.py`."
         )
     categories = pd.read_csv(raw_dir / "categories.csv")
@@ -76,10 +76,10 @@ def load_raw_dataset(raw_dir: Path | None = None) -> tuple[pd.DataFrame, ...]:
 
     missing_columns = [column for column in CATALOG_COLUMNS if column not in catalog.columns]
     if missing_columns:
-        raise DataValidationError(f"Kolom katalog hilang: {missing_columns}")
+        raise DataValidationError(f"Missing catalog columns: {missing_columns}")
     interaction_missing = [column for column in INTERACTION_COLUMNS if column not in interactions.columns]
     if interaction_missing:
-        raise DataValidationError(f"Kolom interaksi hilang: {interaction_missing}")
+        raise DataValidationError(f"Missing interaction columns: {interaction_missing}")
 
     catalog = _parse_attributes(catalog)
     interactions["event_timestamp"] = pd.to_datetime(interactions["event_timestamp"], utc=True).dt.tz_localize(None)
@@ -100,12 +100,12 @@ def temporal_split(
     validation_fraction: float | None = None,
     min_train_positives: int | None = None,
 ) -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame]:
-    """Split temporal per pengguna berbasis event positif.
+    """Create per-user temporal splits from positive events.
 
-    Semua event positif diurutkan berdasarkan waktu. ``test_fraction`` terakhir
-    menjadi holdout, lalu ``validation_fraction`` dari sisa data menjadi
-    validation. Event non-positif (impression) tidak dipakai untuk evaluasi
-    ranking agar label relevansi tetap eksplisit.
+    Positive events are ordered by time. The final ``test_fraction`` becomes
+    the holdout, then ``validation_fraction`` of the remainder becomes
+    validation. Non-positive events are excluded from ranking evaluation so
+    relevance labels remain explicit.
     """
     test_fraction = settings.get("split.test_fraction", 0.2) if test_fraction is None else test_fraction
     validation_fraction = (
@@ -120,8 +120,8 @@ def temporal_split(
     for _, group in positives.groupby("user_id", sort=False):
         n = len(group)
         if n <= min_train:
-            # Pengguna dengan histori sangat sedikit tetap masuk train; mereka
-            # diukur terpisah sebagai kelompok cold-start.
+            # Users with very little history remain in training; they
+            # are measured separately as the cold-start group.
             train_parts.append(group)
             continue
         n_test = max(1, int(round(n * test_fraction)))
@@ -139,11 +139,11 @@ def temporal_split(
     )
     test = pd.concat(test_parts, ignore_index=True) if test_parts else positives.iloc[0:0].copy()
 
-    # Event non-positif (impresi/dismiss) tidak dipakai untuk membangun fitur
-    # maupun evaluasi ranking. Menyimpannya di ``train`` akan menciptakan ilusi
-    # kebocoran temporal karena impresi dibuat mengelilingi event positif,
-    # termasuk holdout. Dataset mentah tetap menyimpan seluruh event untuk
-    # analitik dan audit.
+    # Non-positive events are excluded from feature construction
+    # or ranking evaluation. Keeping them in ``train`` would create the illusion
+    # of temporal leakage because impressions surround positive events,
+    # including the holdout. Raw data retains every event for
+    # analytics and auditing.
     return train, validation, test
 
 
@@ -195,7 +195,7 @@ def build_dataset(write: bool = True) -> DatasetBundle:
             "dataset_version": settings.dataset.version,
             "n_products": int(len(catalog)),
             "generated_at": read_json(settings.raw_dir / "dataset_manifest.json", {}).get("generated_at"),
-            "note": "Katalog, harga, stok, dan merchant adalah data simulasi.",
+            "note": "The catalog, prices, inventory, and merchants are simulated.",
         })
 
     return DatasetBundle(
@@ -212,15 +212,15 @@ def build_dataset(write: bool = True) -> DatasetBundle:
 
 
 def load_processed_dataset() -> DatasetBundle:
-    """Muat hasil build_dataset tanpa regenerasi."""
+    """Load build_dataset outputs without regeneration."""
     processed_dir = settings.processed_dir
     required = ["catalog.csv", "interactions_train.csv", "interactions_test.csv", "users.csv"]
     missing = [name for name in required if not (processed_dir / name).exists()]
     if missing:
-        raise FileNotFoundError(f"Data processed belum lengkap: {missing}. Jalankan `make data`.")
+        raise FileNotFoundError(f"The processed dataset is incomplete: {missing}. Run `make data`.")
     categories, merchants, _, users, _ = load_raw_dataset()
     catalog = pd.read_csv(processed_dir / "catalog.csv")
-    # Kolom atribut sudah diturunkan saat build; tetap pastikan tipe konsisten.
+    # Attribute columns are derived during the build; enforce consistent types here.
     catalog["created_at"] = pd.to_datetime(catalog["created_at"], utc=True).dt.tz_localize(None)
     train = pd.read_csv(processed_dir / "interactions_train.csv")
     validation_path = processed_dir / "interactions_validation.csv"

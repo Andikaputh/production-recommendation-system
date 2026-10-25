@@ -103,7 +103,7 @@ class FeedbackIn(BaseModel):
     @classmethod
     def _metadata_size(cls, value: dict[str, Any]) -> dict[str, Any]:
         if len(str(value)) > 2000:
-            raise ValueError("metadata maksimal 2000 karakter")
+            raise ValueError("metadata is limited to 2,000 characters")
         return value
 
 

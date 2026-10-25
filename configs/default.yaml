@@ -1,5 +1,5 @@
-# RASA - konfigurasi utama (reproducible)
-# Semua eksperimen membaca konfigurasi ini kecuali ditimpa lewat CLI/env.
+# RASA - primary reproducible configuration
+# All experiments use this configuration unless overridden by CLI arguments or environment variables.
 project:
   name: RASA
   version: 1.0.0
@@ -19,11 +19,11 @@ dataset:
   late_product_fraction: 0.15
   n_interactions_target: 60000
   interaction_window_days: 120
-  # Semua data katalog, merchant, harga, stok, dan interaksi bersifat SINTETIS.
+  # All catalog, merchant, price, inventory, and interaction data is SYNTHETIC.
   synthetic: true
 
 split:
-  # Evaluasi temporal per pengguna: positif terakhir menjadi holdout.
+  # Per-user temporal evaluation: the final positive events form the holdout.
   test_fraction: 0.20
   validation_fraction: 0.15
   min_train_positives: 3
@@ -56,13 +56,13 @@ ranking:
     quality: 0.15
     affinity: 0.25
   weight_grid:
-    # Bobot dipilih pada validation; collaborative boleh 0 bila tidak membantu.
+    # Weights are selected on validation; collaborative may be zero when it does not help.
     collaborative: [0.0, 0.10, 0.20]
     content: [0.0, 0.10, 0.20]
     mission: [0.10, 0.20, 0.30, 0.40]
     quality: [0.0, 0.10, 0.20]
     affinity: [0.0, 0.10, 0.20, 0.30]
-  # Komposisi tetap untuk baseline EXP-005 (hybrid tanpa komponen misi).
+  # Fixed composition for the EXP-005 baseline (hybrid without mission components).
   hybrid_baseline:
     collaborative: 0.25
     content: 0.55

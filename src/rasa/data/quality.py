@@ -1,4 +1,4 @@
-"""Data quality checks sesuai PRD bagian 9.3 dan 9.4."""
+"""Data-quality checks required by PRD sections 9.3 and 9.4."""
 
 from __future__ import annotations
 
@@ -51,7 +51,7 @@ def run_data_quality_checks(bundle: DatasetBundle | None = None) -> dict:
             {"duplicates": duplicates, "rows": int(len(frame))},
         ))
 
-    # 2. Harga valid
+    # 2. Valid prices
     invalid_price = int((catalog["price"] <= 0).sum())
     extreme_price = int((catalog["price"] > 10_000_000).sum())
     checks.append(_result(
@@ -62,7 +62,7 @@ def run_data_quality_checks(bundle: DatasetBundle | None = None) -> dict:
          "min": int(catalog["price"].min()), "max": int(catalog["price"].max())},
     ))
 
-    # 3. Missing value kolom wajib
+    # 3. Missing values in required columns
     required = ["product_id", "product_name", "category_id", "price", "merchant_id", "availability_status"]
     missing_counts = {column: int(catalog[column].isna().sum()) for column in required}
     total_missing = sum(missing_counts.values())
@@ -73,7 +73,7 @@ def run_data_quality_checks(bundle: DatasetBundle | None = None) -> dict:
         {"missing_counts": missing_counts},
     ))
 
-    # 4. Kategori tidak dikenal
+    # 4. Unknown categories
     known_categories = set(categories["category_id"])
     unknown_categories = sorted(set(catalog["category_id"]) - known_categories)
     checks.append(_result(
@@ -83,7 +83,7 @@ def run_data_quality_checks(bundle: DatasetBundle | None = None) -> dict:
         {"unknown": unknown_categories, "known": sorted(known_categories)},
     ))
 
-    # 5. Referential integrity produk -> merchant, produk -> kategori
+    # 5. Referential integrity from products to merchants and categories
     unknown_merchants = sorted(set(catalog["merchant_id"]) - set(merchants["merchant_id"]))
     checks.append(_result(
         "referential_integrity:product_merchant",
@@ -98,7 +98,7 @@ def run_data_quality_checks(bundle: DatasetBundle | None = None) -> dict:
         {"orphan_events": int((~interactions["product_id"].isin(catalog["product_id"])).sum())},
     ))
 
-    # 6. Timestamp & urutan waktu
+    # 6. Timestamps and chronological order
     timestamps = pd.to_datetime(interactions["event_timestamp"])
     null_timestamps = int(timestamps.isna().sum())
     future_events = int((timestamps > pd.Timestamp(settings.dataset.anchor_date).tz_localize(None)).sum())
@@ -110,7 +110,7 @@ def run_data_quality_checks(bundle: DatasetBundle | None = None) -> dict:
          "min": str(timestamps.min()), "max": str(timestamps.max())},
     ))
 
-    # 7. Duplikasi interaksi (user, produk, tipe, waktu)
+    # 7. Duplicate interactions by user, product, type, and timestamp
     duplicate_interactions = int(
         interactions.duplicated(subset=["user_id", "product_id", "event_type", "event_timestamp"]).sum()
     )
@@ -119,7 +119,7 @@ def run_data_quality_checks(bundle: DatasetBundle | None = None) -> dict:
         "pass" if duplicate_interactions == 0 else "warn",
         "warning",
         {"duplicates": duplicate_interactions},
-        note="Interaksi duplikat pada timestamp identik dapat menandakan event ganda.",
+        note="Duplicate interactions at identical timestamps may indicate duplicate events.",
     ))
 
     # 8. Distribusi user-item
@@ -144,7 +144,7 @@ def run_data_quality_checks(bundle: DatasetBundle | None = None) -> dict:
         },
     ))
 
-    # 9. Kebocoran temporal: max timestamp train <= min timestamp test per pengguna
+    # 9. Temporal leakage: maximum train timestamp <= minimum test timestamp per user
     train, validation, test = bundle.train, bundle.validation, bundle.test
     leakage_users = 0
     for user_id, test_group in test.groupby("user_id"):
@@ -156,7 +156,7 @@ def run_data_quality_checks(bundle: DatasetBundle | None = None) -> dict:
         "pass" if leakage_users == 0 else "fail",
         "critical",
         {"users_with_leakage": leakage_users, "n_test_users": int(test["user_id"].nunique())},
-        note="Interaksi masa depan tidak boleh mendahului data training pengguna yang sama.",
+        note="Future interactions must not precede the same user's training data.",
     ))
 
     # 10. Isolasi train/test
@@ -178,7 +178,7 @@ def run_data_quality_checks(bundle: DatasetBundle | None = None) -> dict:
         {"invalid_availability": invalid_availability, "invalid_event_types": invalid_events},
     ))
 
-    # 12. Cakupan kategori wajib skenario demo
+    # 12. Required-category coverage for demo scenarios
     counts = catalog[catalog["availability_status"] == "available"].groupby("category_id").size()
     missing_available = [spec.category_id for spec in CATEGORY_SPECS if counts.get(spec.category_id, 0) == 0]
     checks.append(_result(
@@ -189,7 +189,7 @@ def run_data_quality_checks(bundle: DatasetBundle | None = None) -> dict:
          "min_available_per_category": int(counts.min()) if len(counts) else 0},
     ))
 
-    # 13. Pemeriksaan perubahan skema terhadap manifest
+    # 13. Schema-drift check against the manifest
     manifest = read_json(settings.raw_dir / "dataset_manifest.json", {})
     manifest_products = manifest.get("n_products")
     checks.append(_result(
@@ -214,9 +214,9 @@ def run_data_quality_checks(bundle: DatasetBundle | None = None) -> dict:
         },
         "checks": checks,
         "limitations": [
-            "Dataset sepenuhnya sintetis dan tidak merepresentasikan marketplace nyata.",
-            "Harga dan stok tidak real-time.",
-            "Label relevansi berasal dari simulasi interaksi, bukan preferensi pengguna nyata.",
+            "The dataset is entirely synthetic and does not represent a real marketplace.",
+            "Prices and inventory are not real-time.",
+            "Relevance labels come from simulated interactions, not real user preferences.",
         ],
     }
     return report
@@ -224,14 +224,14 @@ def run_data_quality_checks(bundle: DatasetBundle | None = None) -> dict:
 
 def render_markdown(report: dict) -> str:
     lines = [
-        "# Laporan Kualitas Data",
+        "# Data Quality Report",
         "",
         f"- Dataset: `{report['dataset_version']}`",
-        f"- Dibuat: {report['generated_at']}",
+        f"- Generated: {report['generated_at']}",
         f"- Total pemeriksaan: {report['summary']['total_checks']}",
         f"- Lulus: {report['summary']['passed']}",
-        f"- Peringatan: {report['summary']['warnings']}",
-        f"- Kegagalan kritis: {report['summary']['critical_failures']}",
+        f"- Warnings: {report['summary']['warnings']}",
+        f"- Critical failures: {report['summary']['critical_failures']}",
         "",
         "| Pemeriksaan | Status | Severity | Detail |",
         "| --- | --- | --- | --- |",
@@ -240,7 +240,7 @@ def render_markdown(report: dict) -> str:
         detail = ", ".join(f"{key}={value}" for key, value in check["details"].items())
         detail = detail.replace("|", "/")
         lines.append(f"| `{check['check']}` | {check['status']} | {check['severity']} | {detail} |")
-    lines.extend(["", "## Batasan", ""])
+    lines.extend(["", "## Limitations", ""])
     lines.extend(f"- {item}" for item in report["limitations"])
     lines.append("")
     return "\n".join(lines)
@@ -248,7 +248,7 @@ def render_markdown(report: dict) -> str:
 
 def main() -> None:
     bundle = load_processed_dataset()
-    # Pastikan split yang dipakai konsisten dengan konfigurasi terbaru.
+    # Ensure active splits match the latest configuration.
     if len(bundle.validation) == 0:
         train, validation, test = temporal_split(bundle.interactions)
         bundle.train, bundle.validation, bundle.test = train, validation, test

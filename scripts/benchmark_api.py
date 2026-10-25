@@ -1,7 +1,7 @@
-"""Smoke benchmark endpoint rekomendasi pada process lokal.
+"""Smoke-benchmark the recommendation endpoint in a local process.
 
-Menjalankan lifespan aplikasi, warm-up sekali, lalu mengukur beberapa request.
-Exit code non-zero bila p95 melewati target konfigurasi.
+The benchmark runs the application lifespan, performs one warm-up, and measures
+multiple requests. It exits non-zero when p95 exceeds the configured target.
 """
 
 from __future__ import annotations
@@ -25,7 +25,7 @@ from rasa.utils import read_json  # noqa: E402
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description="Benchmark API rekomendasi RASA")
+    parser = argparse.ArgumentParser(description="Benchmark the RASA recommendation API")
     parser.add_argument("--requests", type=int, default=10)
     parser.add_argument("--scenario", type=int, default=0)
     args = parser.parse_args()

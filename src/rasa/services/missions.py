@@ -1,4 +1,4 @@
-"""Persistensi misi belanja dan sesi anonim."""
+"""Persistence for shopping missions and anonymous sessions."""
 
 from __future__ import annotations
 

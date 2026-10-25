@@ -1,4 +1,4 @@
-"""Tahap B-D - Preference scoring, mission feasibility, dan hybrid ranking."""
+"""Stages B through D: preference scoring, mission feasibility, and hybrid ranking."""
 
 from __future__ import annotations
 
@@ -28,11 +28,11 @@ STRATEGIES = (
 )
 
 STOPWORDS = {
-    "yang", "untuk", "dan", "dengan", "dari", "saya", "ingin", "membeli", "belanja",
-    "maksimal", "biaya", "anggaran", "agar", "bisa", "atau", "pada", "adalah", "ini",
-    "itu", "paket", "kebutuhan", "harus", "minimal", "toko", "produk", "barang",
-    "cari", "mencari", "menyiapkan", "perlengkapan", "kegiatan", "sebisa", "mungkin",
-    "secara", "lebih", "hemat", "baru", "sehari", "harian",
+    "the", "for", "and", "with", "from", "i", "want", "buy", "shopping",
+    "maximum", "cost", "budget", "can", "or", "on", "is", "this", "that",
+    "bundle", "needs", "must", "minimum", "merchant", "product", "item",
+    "find", "search", "prepare", "essentials", "activity", "possible",
+    "more", "budget-friendly", "new", "daily", "everyday",
 }
 
 
@@ -159,7 +159,7 @@ class HybridRanker:
         weights: dict[str, float] | None,
         catalog_lookup: dict[str, dict[str, str]],
     ) -> np.ndarray | None:
-        """Kecocokan atribut eksplisit dengan histori/sesi (bukan CF laten)."""
+        """Match explicit attributes against history or session context, separate from latent CF."""
         if not weights:
             return None
         history = catalog_lookup
@@ -291,7 +291,7 @@ class HybridRanker:
             if preferences.brands:
                 parts.append((0.08, 1.0 if str(row.brand) in preferences.brands else 0.0))
             if cold_user:
-                # Cold-start fallback: popularitas dalam kategori relevan.
+                # Cold-start fallback: popularity within relevant categories.
                 parts.append((0.08, float(popularity_category[len(scores)])))
             total_weight = sum(weight for weight, _ in parts)
             scores.append(sum(weight * value for weight, value in parts) / total_weight if total_weight else 0.0)
@@ -316,8 +316,8 @@ class HybridRanker:
             return {"collaborative": 1.0}
         weights = dict(self.weights)
         if strategy == "hybrid":
-            # Baseline hybrid tanpa sinyal misi memakai komposisi tetap agar
-            # perbandingan EXP-005 vs EXP-006 tetap bermakna setelah tuning.
+            # The hybrid baseline without mission signals uses a fixed composition so
+            # the EXP-005 versus EXP-006 comparison remains meaningful after tuning.
             weights = {
                 "collaborative": float(self.config.get("hybrid_baseline_collaborative", 0.25)),
                 "content": float(self.config.get("hybrid_baseline_content", 0.55)),
@@ -348,7 +348,7 @@ class HybridRanker:
         exclude_product_ids: set[str] | None = None,
     ) -> RankResult:
         if strategy not in STRATEGIES:
-            raise ValueError(f"Strategi tidak dikenal: {strategy}")
+            raise ValueError(f"Unknown strategy: {strategy}")
         top_k = int(top_k or self.config.get("top_k", 10))
         candidate_limit = self.config.get("candidate_limit_per_category")
 
@@ -385,8 +385,8 @@ class HybridRanker:
             }
             for row in candidates.to_dict("records")
         }
-        # Lookup harus mencakup seluruh katalog karena histori pengguna dapat
-        # berisi produk di luar kandidat misi saat ini.
+        # Lookup spans the full catalog because history may contain
+        # products outside the current mission candidate set.
         catalog_lookup.update({
             str(row["product_id"]): {
                 "brand": str(row.get("brand", "")),
@@ -438,7 +438,7 @@ class HybridRanker:
             for key, weight in weights.items():
                 score += weight * components.get(key, np.zeros(len(candidates)))
 
-        # Tahap C - feasibility flags (hard constraints sudah difilter di retrieval).
+        # Stage C: feasibility flags after retrieval filters hard constraints.
         prices = candidates["price"].to_numpy(dtype=float)
         score = np.where(prices <= mission.max_budget, score, -np.inf)
 
@@ -571,7 +571,7 @@ def simulate_mission_for_user(
     max_budget: float | None = None,
     max_merchants: int = 2,
 ) -> Mission:
-    """Bangun misi sintetis dari preferensi pengguna untuk evaluasi offline."""
+    """Build a synthetic mission from user preferences for offline evaluation."""
     import json
 
     preferred = user_row.get("preferred_categories", [])
@@ -594,7 +594,7 @@ def simulate_mission_for_user(
     if isinstance(colors, str):
         colors = json.loads(colors)
     return Mission(
-        goal=f"Menyiapkan {', '.join(required)} untuk kebutuhan harian",
+        goal=f"Prepare {', '.join(required)} for everyday needs",
         required_categories=required,
         optional_categories=[],
         max_budget=float(max_budget),

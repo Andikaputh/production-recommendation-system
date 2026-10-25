@@ -1,17 +1,10 @@
-"""Generator dataset katalog dan interaksi SINTETIS untuk RASA.
+"""Generate RASA's fully synthetic catalog and interaction dataset.
 
-Mengapa sintetis?
------------------
-PRD (bagian 9.2) mengizinkan data sintetis yang dibuat secara transparan ketika
-dataset publik tidak menyediakan atribut merchant, stok, harga, dan misi. Data
-sintetis di sini dibuat dengan seed tetap sehingga:
-
-* relasi produk -> merchant -> kategori valid (referential integrity),
-* tidak ada data pribadi nyata,
-* label relevansi, cold-start, dan skenario basket dapat dikontrol,
-* seluruh eksperimen dapat direproduksi persis.
-
-Keluarannya ditulis ke ``data/raw`` dalam format CSV/JSON yang mudah diaudit.
+The PRD permits transparently generated synthetic data when public datasets do
+not include the merchant, inventory, price, and mission attributes required by
+the product. A fixed seed makes relationships valid, excludes real personal
+data, keeps relevance and cold-start cases controllable, and makes experiments
+exactly reproducible. Outputs use auditable CSV and JSON files in ``data/raw``.
 """
 
 from __future__ import annotations
@@ -35,15 +28,15 @@ from rasa.utils import (
     write_json,
 )
 
-STYLES = ["minimalist", "sporty", "klasik", "playful", "natural"]
+STYLES = ["minimalist", "sporty", "classic", "playful", "natural"]
 STYLE_LABEL = {
-    "minimalist": "minimalis",
+    "minimalist": "minimalist",
     "sporty": "sporty",
-    "klasik": "klasik",
-    "playful": "ceria",
+    "classic": "classic",
+    "playful": "playful",
     "natural": "natural",
 }
-COLORS = ["hitam", "putih", "abu", "navy", "hijau", "krem", "biru", "merah", "cokelat", "transparan"]
+COLORS = ["black", "white", "gray", "navy", "green", "cream", "blue", "red", "brown", "transparent"]
 
 
 @dataclass(frozen=True)
@@ -62,125 +55,125 @@ class CategorySpec:
 
 CATEGORY_SPECS: tuple[CategorySpec, ...] = (
     CategorySpec(
-        "bag", "Tas",
+        "bag", "Bags",
         ("backpack", "tote", "sling"),
-        ("Ransel", "Tas Tote", "Tas Selempang"),
+        ("Backpack", "Tote Bag", "Sling Bag"),
         (60000, 450000),
         ("Nusakita", "Sagara", "Rimba", "Cendana"),
-        ("kanvas", "polyester", "nylon", "kulit sintetis"),
-        ("kuliah harian", "kerja remote", "perjalanan singkat"),
-        ("mahasiswa", "pekerja muda", "pengguna aktif"),
-        ("kuliah", "harian", "laptop", "ringan"),
+        ("canvas", "polyester", "nylon", "synthetic leather"),
+        ("daily campus use", "remote work", "short trips"),
+        ("students", "young professionals", "active users"),
+        ("campus", "everyday", "laptop", "lightweight"),
     ),
     CategorySpec(
-        "stationery", "Alat Tulis",
+        "stationery", "Stationery",
         ("pen", "pencil", "notebook", "highlighter"),
-        ("Pulpen", "Pensil", "Buku Catatan", "Stabilo"),
+        ("Pen", "Pencil", "Notebook", "Highlighter"),
         (4000, 90000),
         ("Aksara", "Lentera", "Kanaya", "Bumi"),
-        ("plastik ABS", "kertas daur ulang", "logam", "kayu"),
-        ("mencatat kuliah", "belajar mandiri", "menyusun jurnal"),
-        ("mahasiswa", "pelajar", "penulis"),
-        ("kuliah", "catatan", "ujian", "hemat"),
+        ("ABS plastic", "recycled paper", "metal", "wood"),
+        ("taking class notes", "independent study", "journaling"),
+        ("university students", "students", "writers"),
+        ("campus", "notes", "exams", "budget-friendly"),
     ),
     CategorySpec(
-        "drinkware", "Botol Minum",
+        "drinkware", "Drinkware",
         ("tumbler", "bottle", "mug"),
-        ("Tumbler", "Botol", "Mug"),
+        ("Tumbler", "Bottle", "Mug"),
         (30000, 250000),
         ("Tirta", "Sagara", "Nusakita", "Kanaya"),
-        ("stainless steel", "Tritan", "kaca", "keramik"),
-        ("kuliah harian", "kerja di kantor", "olahraga ringan"),
-        ("mahasiswa", "pekerja", "pengguna aktif"),
-        ("kuliah", "harian", "anti bocor", "tahan panas"),
+        ("stainless steel", "Tritan", "glass", "ceramic"),
+        ("daily campus use", "office work", "light exercise"),
+        ("students", "professionals", "active users"),
+        ("campus", "everyday", "leakproof", "insulated"),
     ),
     CategorySpec(
         "organizer", "Organizer",
         ("pouch", "desk_organizer", "cable_organizer"),
-        ("Pouch", "Organizer Meja", "Pengatur Kabel"),
+        ("Pouch", "Desk Organizer", "Cable Organizer"),
         (15000, 120000),
         ("Aksara", "Cendana", "Lentera"),
-        ("kanvas", "plastik", "kayu", "silikon"),
-        ("merapikan meja", "menyimpan alat tulis", "mengatur kabel"),
-        ("mahasiswa", "pekerja", "pengguna rapi"),
-        ("rapi", "meja", "kuliah", "kabel"),
+        ("canvas", "plastic", "wood", "silicone"),
+        ("organizing a desk", "storing stationery", "managing cables"),
+        ("students", "professionals", "organized users"),
+        ("organized", "desk", "campus", "cables"),
     ),
     CategorySpec(
-        "electronics", "Elektronik",
+        "electronics", "Electronics",
         ("powerbank", "mouse", "keyboard", "earphone", "usb_hub"),
         ("Power Bank", "Mouse", "Keyboard", "Earphone", "USB Hub"),
         (45000, 650000),
         ("Volta", "Karsa", "Bumi", "Nusakita"),
-        ("aluminium", "plastik ABS", "silikon", "logam"),
-        ("bekerja remote", "belajar daring", "presentasi kelas"),
-        ("mahasiswa", "pekerja remote", "pengguna perangkat"),
-        ("kuliah", "kerja", "usb", "nirkabel"),
+        ("aluminum", "ABS plastic", "silicone", "metal"),
+        ("remote work", "online study", "class presentations"),
+        ("students", "remote professionals", "device users"),
+        ("campus", "work", "usb", "wireless"),
     ),
     CategorySpec(
-        "book", "Buku",
+        "book", "Books",
         ("novel", "textbook", "journal"),
-        ("Novel", "Buku Pelajaran", "Jurnal"),
+        ("Novel", "Textbook", "Journal"),
         (35000, 200000),
         ("Aksara", "Pustaka Nusa", "Lentera"),
-        ("kertas book paper", "kertas HVS", "kertas daur ulang", "hardcover"),
-        ("membaca santai", "belajar semester baru", "menulis refleksi"),
-        ("mahasiswa", "pembaca", "penulis"),
-        ("kuliah", "baca", "semester", "hadiah"),
+        ("book paper", "uncoated paper", "recycled paper", "hardcover"),
+        ("leisure reading", "new-semester study", "reflective writing"),
+        ("students", "readers", "writers"),
+        ("campus", "reading", "semester", "gift"),
     ),
     CategorySpec(
-        "desk", "Perlengkapan Meja",
+        "desk", "Desk Accessories",
         ("lamp", "stand", "mat"),
-        ("Lampu Meja", "Stand Laptop", "Mat Meja"),
+        ("Desk Lamp", "Laptop Stand", "Desk Mat"),
         (40000, 350000),
         ("Karsa", "Cendana", "Volta"),
-        ("logam", "kayu", "aluminium", "kulit sintetis"),
-        ("belajar malam", "bekerja remote", "menjaga postur"),
-        ("mahasiswa", "pekerja remote", "pengguna meja"),
-        ("meja", "kerja", "belajar", "ergonomis"),
+        ("metal", "wood", "aluminum", "synthetic leather"),
+        ("late-night study", "remote work", "improving posture"),
+        ("students", "remote professionals", "desk users"),
+        ("desk", "work", "study", "ergonomic"),
     ),
     CategorySpec(
-        "personal_care", "Perawatan Diri",
+        "personal_care", "Personal Care",
         ("sanitizer", "sunscreen", "lipbalm"),
-        ("Hand Sanitizer", "Tabir Surya", "Lip Balm"),
+        ("Hand Sanitizer", "Sunscreen", "Lip Balm"),
         (15000, 120000),
         ("Kanaya", "Tirta", "Rimba"),
-        ("botol plastik", "tube", "aluminium"),
-        ("aktivitas harian", "kuliah tatap muka", "perjalanan"),
-        ("mahasiswa", "pengguna aktif", "pekerja"),
-        ("harian", "higienis", "praktis"),
+        ("plastic bottle", "tube", "aluminum"),
+        ("daily activities", "in-person classes", "travel"),
+        ("students", "active users", "professionals"),
+        ("everyday", "hygienic", "practical"),
     ),
     CategorySpec(
-        "snack", "Camilan",
+        "snack", "Snacks",
         ("biscuits", "coffee", "energy_bar"),
-        ("Biskuit", "Kopi Sachet", "Energy Bar"),
+        ("Biscuits", "Instant Coffee", "Energy Bar"),
         (8000, 85000),
         ("Rimba", "Bumi", "Sagara"),
-        ("kemasan kertas", "kemasan aluminium", "kemasan plastik"),
-        ("bekal kuliah", "menemani belajar", "istirahat kerja"),
-        ("mahasiswa", "pekerja", "pengguna aktif"),
-        ("bekal", "hemat", "praktis", "energi"),
+        ("paper packaging", "aluminum packaging", "plastic packaging"),
+        ("campus snacks", "study sessions", "work breaks"),
+        ("students", "professionals", "active users"),
+        ("snack", "budget-friendly", "practical", "energy"),
     ),
     CategorySpec(
-        "umbrella", "Payung",
+        "umbrella", "Umbrellas",
         ("foldable", "transparent"),
-        ("Payung Lipat", "Payung Transparan"),
+        ("Folding Umbrella", "Transparent Umbrella"),
         (30000, 150000),
         ("Sagara", "Nusakita", "Kanaya"),
-        ("nylon", "polyester", "plastik transparan"),
-        ("hujan di kampus", "perjalanan harian", "aktivitas luar"),
-        ("mahasiswa", "pekerja", "pengguna aktif"),
-        ("hujan", "lipat", "harian", "ringan"),
+        ("nylon", "polyester", "transparent plastic"),
+        ("rainy campus days", "daily commuting", "outdoor activities"),
+        ("students", "professionals", "active users"),
+        ("rain", "folding", "everyday", "lightweight"),
     ),
 )
 
 MERCHANT_NAMES = (
-    "Toko Cendana", "Kampus Sejahtera", "Gudang Aksara", "Nusa Perlengkapan",
-    "Tirta Supply", "Rimba Store", "Lentera Kecil", "Bumi Katalog",
-    "Karsa Teknologi", "Sagara Daily", "Kanaya Care", "Pustaka Nusa",
-    "Volta Elektronik", "Aksara Station", "Cendana Living", "Toko Kanaya",
+    "Cendana Store", "Sejahtera Campus", "Aksara Warehouse", "Nusa Supplies",
+    "Tirta Supply", "Rimba Store", "Little Lentera", "Bumi Catalog",
+    "Karsa Technology", "Sagara Daily", "Kanaya Care", "Nusa Books",
+    "Volta Electronics", "Aksara Station", "Cendana Living", "Kanaya Store",
     "Sagara Outdoor", "Nusakita Official", "Bumi Snack", "Tirta Drinkware",
-    "Rimba Organizer", "Lentera Desk", "Karsa Workspace", "Kampus Tech",
-    "Sejahtera Mart", "Gudang Ringkas", "Toko Hemat Nusa", "Cendana Gift",
+    "Rimba Organizer", "Lentera Desk", "Karsa Workspace", "Campus Tech",
+    "Sejahtera Mart", "Compact Warehouse", "Nusa Value Store", "Cendana Gift",
     "Sagara Campus", "Nusa Bag Studio",
 )
 
@@ -245,8 +238,8 @@ def generate_catalog(seed: int = 42, n_products: int = 600) -> tuple[pd.DataFram
             age_days = int(rng.integers(5, 28)) if is_late else int(rng.integers(90, 420))
             created_at = DATASET_ANCHOR - timedelta(days=age_days)
 
-            # Merchant populer mendapat lebih banyak produk; merchant low-history
-            # tetap mendapat porsi katalog agar dapat dievaluasi eksposurnya.
+            # Popular merchants receive more products; low-history merchants
+            # retain enough catalog share for exposure evaluation.
             weights = merchants_df["exposure_factor"].to_numpy()
             weights = weights / weights.sum()
             merchant_id = str(rng.choice(merchants_df["merchant_id"], p=weights))
@@ -272,20 +265,20 @@ def generate_catalog(seed: int = 42, n_products: int = 600) -> tuple[pd.DataFram
             capacity_text = ""
             if spec.category_id == "drinkware":
                 capacity_ml = int(rng.choice([350, 500, 600, 750, 1000]))
-                capacity_text = f" Kapasitas {capacity_ml} ml."
+                capacity_text = f" Capacity: {capacity_ml} ml."
             elif spec.category_id == "bag":
                 capacity_l = int(rng.choice([14, 18, 20, 24, 28]))
-                capacity_text = f" Kapasitas {capacity_l} liter."
+                capacity_text = f" Capacity: {capacity_l} liters."
             elif spec.category_id == "book":
                 pages = int(rng.choice([120, 160, 200, 240, 320]))
-                capacity_text = f" {pages} halaman."
+                capacity_text = f" {pages} pages."
             elif spec.category_id == "electronics" and subcategory == "powerbank":
-                capacity_text = f" Kapasitas baterai {int(rng.choice([5000, 10000, 20000]))} mAh."
+                capacity_text = f" Battery capacity: {int(rng.choice([5000, 10000, 20000]))} mAh."
 
             description = (
-                f"{product_name} adalah {sub_label.lower()} bergaya {style_label} untuk {use_case}. "
-                f"Material {material} dengan warna {color}, cocok untuk {audience}.{capacity_text} "
-                f"Produk ini dirancang agar praktis dibawa dan mudah dipadukan dengan perlengkapan lain."
+                f"{product_name} is a {style_label} {sub_label.lower()} for {use_case}. "
+                f"Made from {material} in {color}, it is designed for {audience}.{capacity_text} "
+                f"This product is easy to carry and pair with other essentials."
             )
             attributes = {
                 "color": color,
@@ -300,7 +293,7 @@ def generate_catalog(seed: int = 42, n_products: int = 600) -> tuple[pd.DataFram
             }
             if capacity_text:
                 attributes["capacity_text"] = capacity_text.strip()
-            # Contoh aturan eksklusi katalog lintas kategori (buku catatan vs jurnal).
+            # Example cross-category exclusion rule for notebooks and journals.
             if spec.category_id in {"stationery", "book"} and subcategory in {"notebook", "journal"}:
                 attributes["exclusive_group"] = "paper_goods"
 
@@ -326,8 +319,8 @@ def generate_catalog(seed: int = 42, n_products: int = 600) -> tuple[pd.DataFram
 
     products_df = pd.DataFrame(products)
 
-    # Pastikan setiap kategori punya cukup produk tersedia agar skenario demo
-    # tidak gagal hanya karena kebetulan acak.
+    # Ensure every category has enough available products so demo scenarios
+    # do not fail because of random sampling.
     for category_id in products_df["category_id"].unique():
         mask = products_df["category_id"] == category_id
         available_idx = products_df.index[mask & (products_df["availability_status"] == "available")]
@@ -337,7 +330,7 @@ def generate_catalog(seed: int = 42, n_products: int = 600) -> tuple[pd.DataFram
             for idx in list(candidates)[:need]:
                 products_df.at[idx, "availability_status"] = "available"
 
-    # Harga dan rating produk harus realistis.
+    # Keep synthetic prices and ratings within realistic ranges.
     products_df["price"] = products_df["price"].clip(lower=1000).astype(int)
     products_df["rating"] = products_df["rating"].clip(3.5, 5.0)
 
@@ -346,7 +339,7 @@ def generate_catalog(seed: int = 42, n_products: int = 600) -> tuple[pd.DataFram
             {
                 "category_id": spec.category_id,
                 "category_name": spec.name,
-                "description": f"Kategori {spec.name.lower()} untuk kebutuhan kampus dan harian (simulasi).",
+                "description": f"Synthetic {spec.name.lower()} category for campus and everyday needs.",
                 "subcategories": json.dumps(list(spec.subcategories)),
             }
             for spec in CATEGORY_SPECS
@@ -375,7 +368,7 @@ def generate_users(seed: int = 42, n_users: int = 500) -> pd.DataFrame:
         preferred_brands = list(dict.fromkeys(preferred_brands))
         preferred_styles = list(rng.choice(STYLES, size=int(rng.integers(1, 3)), replace=False))
         preferred_colors = list(rng.choice(COLORS, size=int(rng.integers(2, 5)), replace=False))
-        sensitivity = str(rng.choice(["tinggi", "sedang", "rendah"], p=[0.35, 0.45, 0.20]))
+        sensitivity = str(rng.choice(["high", "medium", "low"], p=[0.35, 0.45, 0.20]))
         is_cold = idx > n_users - cold_count
         users.append(
             {
@@ -411,16 +404,16 @@ def _user_product_affinity(
     exposure = catalog["merchant_id"].map(merchant_exposure).to_numpy(dtype=float)
 
     price_rank = catalog.groupby("category_id")["price"].rank(pct=True).to_numpy()
-    if sensitivity == "tinggi":
+    if sensitivity == "high":
         price_fit = 1.0 - price_rank
-    elif sensitivity == "rendah":
+    elif sensitivity == "low":
         price_fit = price_rank
     else:
         price_fit = 1.0 - np.abs(price_rank - 0.45)
 
-    # Bobot ini menentukan seberapa kuat preferensi pengguna tercermin pada
-    # interaksi. Sinyal harus cukup kuat agar evaluasi offline punya daya uji
-    # (bukan ranking acak), tetapi tetap mengandung noise dan eksplorasi.
+    # These weights control how strongly user preferences influence
+    # interactions. The signal must support meaningful offline evaluation
+    # while retaining noise and exploration.
     score = (
         0.44 * cat
         + 0.20 * brand
@@ -490,7 +483,7 @@ def generate_interactions(
             )
             event_counter += 1
 
-            # Impresi di sesi yang sama (bisa sebelum/sesudah interaksi).
+            # Impression in the same session, possibly before or after the interaction.
             n_impressions = int(rng.integers(2, 5))
             impression_pool = rng.choice(
                 catalog.index.to_numpy(), size=n_impressions, replace=False,
@@ -564,10 +557,10 @@ def generate_dataset(seed: int | None = None, n_products: int | None = None) -> 
                 "interactions.csv": interactions,
             }.items()
         },
-        "license": "CC-BY-4.0 (data sintetis, bukan data marketplace nyata)",
+        "license": "CC-BY-4.0 (synthetic data, not real marketplace data)",
         "warning": (
-            "Seluruh produk, merchant, harga, stok, dan interaksi adalah data simulasi. "
-            "Tidak merepresentasikan marketplace atau pengguna nyata."
+            "All products, merchants, prices, inventory, and interactions are simulated. "
+            "They do not represent a real marketplace or real users."
         ),
     }
     write_json(out_dir / "dataset_manifest.json", manifest)
@@ -575,7 +568,7 @@ def generate_dataset(seed: int | None = None, n_products: int | None = None) -> 
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description="Generate dataset sintetis RASA")
+    parser = argparse.ArgumentParser(description="Generate the synthetic RASA dataset")
     parser.add_argument("--seed", type=int, default=settings.seed)
     parser.add_argument("--products", type=int, default=settings.dataset.n_products)
     args = parser.parse_args()

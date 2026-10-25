@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-25T04:44:45Z",
+  "generated_at": "2026-10-25T13:13:12Z",
   "dataset_version": "rasa-synth-1.0.0",
   "model_version": "hybrid-v1",
   "seed": 42,
@@ -22,7 +22,7 @@
       "catalog_metrics": {
         "catalog_coverage": 0.16666666666666666,
         "user_coverage": 1.0,
-        "intra_list_diversity": 0.7940612809200372,
+        "intra_list_diversity": 0.7972484747095713,
         "novelty": 8.493673984135311,
         "long_tail_exposure": 0.0,
         "exposure_gini": 0.6213794642857142,
@@ -48,7 +48,7 @@
       "catalog_metrics": {
         "catalog_coverage": 0.145,
         "user_coverage": 1.0,
-        "intra_list_diversity": 0.8258046145950045,
+        "intra_list_diversity": 0.8269096856315931,
         "novelty": 8.596523349343196,
         "long_tail_exposure": 0.034482758620689655,
         "exposure_gini": 0.5078509852216748,
@@ -80,7 +80,7 @@
           "independent_top1": 120
         },
         "all_feasible_constraints_valid": true,
-        "label": "Baseline popularitas kategori tanpa optimasi",
+        "label": "Category-popularity baseline without optimization",
         "strategy": "popularity_category",
         "basket_mode": "independent",
         "evaluated_missions": 120
@@ -94,20 +94,20 @@
       "scope": "ranking",
       "status": "completed",
       "ranking_metrics": {
-        "precision@10": 0.035937500000000004,
-        "recall@10": 0.09093856292517007,
-        "ndcg@10": 0.06394287348391796,
-        "map@10": 0.029858508631627256,
-        "mrr": 0.09460654053287983,
-        "hit_rate@10": 0.30357142857142855
+        "precision@10": 0.03705357142857143,
+        "recall@10": 0.09435586734693878,
+        "ndcg@10": 0.06397275280070956,
+        "map@10": 0.028710682313600043,
+        "mrr": 0.09144168083900227,
+        "hit_rate@10": 0.31026785714285715
       },
       "catalog_metrics": {
         "catalog_coverage": 0.7316666666666667,
         "user_coverage": 1.0,
-        "intra_list_diversity": 0.6783443288877606,
-        "novelty": 9.375216927950849,
+        "intra_list_diversity": 0.6740901857377991,
+        "novelty": 9.402132278888116,
         "long_tail_exposure": 0.5398633257403189,
-        "exposure_gini": 0.31397758704848666,
+        "exposure_gini": 0.3054517165636186,
         "distinct_items_exposed": 439.0
       },
       "n_users": 448
@@ -130,7 +130,7 @@
       "catalog_metrics": {
         "catalog_coverage": 0.59,
         "user_coverage": 1.0,
-        "intra_list_diversity": 0.825993563713772,
+        "intra_list_diversity": 0.8281985361897757,
         "novelty": 8.935232743739633,
         "long_tail_exposure": 0.4435028248587571,
         "exposure_gini": 0.46556194511702986,
@@ -146,21 +146,21 @@
       "scope": "ranking",
       "status": "completed",
       "ranking_metrics": {
-        "precision@10": 0.03482142857142857,
-        "recall@10": 0.08942920918367346,
-        "ndcg@10": 0.06296576437561105,
-        "map@10": 0.028805662269868266,
-        "mrr": 0.0960282029478458,
-        "hit_rate@10": 0.3013392857142857
+        "precision@10": 0.03504464285714286,
+        "recall@10": 0.09208652210884354,
+        "ndcg@10": 0.06453454265087157,
+        "map@10": 0.029635083448061764,
+        "mrr": 0.09979892998866213,
+        "hit_rate@10": 0.29910714285714285
       },
       "catalog_metrics": {
-        "catalog_coverage": 0.7116666666666667,
+        "catalog_coverage": 0.7166666666666667,
         "user_coverage": 1.0,
-        "intra_list_diversity": 0.7135940176833954,
-        "novelty": 9.235495600619087,
-        "long_tail_exposure": 0.531615925058548,
-        "exposure_gini": 0.4244960689193711,
-        "distinct_items_exposed": 427.0
+        "intra_list_diversity": 0.7092857634264326,
+        "novelty": 9.273709855164295,
+        "long_tail_exposure": 0.5325581395348837,
+        "exposure_gini": 0.41736918604651163,
+        "distinct_items_exposed": 430.0
       },
       "n_users": 448
     },
@@ -172,38 +172,38 @@
       "scope": "ranking_and_basket",
       "status": "completed",
       "ranking_metrics": {
-        "precision@10": 0.04196428571428572,
-        "recall@10": 0.11271789965986392,
-        "ndcg@10": 0.0757575018179001,
-        "map@10": 0.03397937672092647,
-        "mrr": 0.11152122307256236,
-        "hit_rate@10": 0.36607142857142855
+        "precision@10": 0.03794642857142857,
+        "recall@10": 0.1022906037414966,
+        "ndcg@10": 0.07090806334124593,
+        "map@10": 0.033221736735368754,
+        "mrr": 0.10771417942176871,
+        "hit_rate@10": 0.3325892857142857
       },
       "catalog_metrics": {
-        "catalog_coverage": 0.6466666666666666,
+        "catalog_coverage": 0.5683333333333334,
         "user_coverage": 1.0,
-        "intra_list_diversity": 0.7603850950087819,
-        "novelty": 9.226145634117687,
-        "long_tail_exposure": 0.5180412371134021,
-        "exposure_gini": 0.5173773472017673,
-        "distinct_items_exposed": 388.0
+        "intra_list_diversity": 0.7651884565277705,
+        "novelty": 9.287551554306686,
+        "long_tail_exposure": 0.5190615835777126,
+        "exposure_gini": 0.581539327607876,
+        "distinct_items_exposed": 341.0
       },
       "n_users": 448,
       "basket_metrics": {
         "n_missions": 120,
-        "budget_feasibility_rate": 0.5667,
-        "infeasible_mission_rate": 0.4333,
+        "budget_feasibility_rate": 0.5417,
+        "infeasible_mission_rate": 0.4583,
         "required_category_coverage": 1.0,
         "availability_feasibility": 1.0,
-        "avg_merchant_count": 1.54,
+        "avg_merchant_count": 1.55,
         "merchant_count_distribution": {
-          "1": 38,
-          "3": 7,
-          "2": 23
+          "1": 37,
+          "3": 8,
+          "2": 20
         },
-        "budget_utilization": 0.6558,
-        "avg_basket_total": 87205.88,
-        "basket_relevance": 0.7096,
+        "budget_utilization": 0.7068,
+        "avg_basket_total": 97284.62,
+        "basket_relevance": 0.7853,
         "substitution_success": null,
         "infeasibility_explanation_rate": 0.0,
         "solver_latency_ms": {
@@ -214,7 +214,7 @@
           "independent_top1": 120
         },
         "all_feasible_constraints_valid": true,
-        "label": "Hybrid + misi tanpa optimasi keranjang",
+        "label": "Hybrid plus mission without basket optimization",
         "strategy": "hybrid_mission",
         "basket_mode": "independent",
         "evaluated_missions": 120
@@ -229,31 +229,31 @@
       "status": "completed",
       "basket_metrics": {
         "n_missions": 120,
-        "budget_feasibility_rate": 0.9833,
-        "infeasible_mission_rate": 0.0167,
+        "budget_feasibility_rate": 0.975,
+        "infeasible_mission_rate": 0.025,
         "required_category_coverage": 1.0,
         "availability_feasibility": 1.0,
-        "avg_merchant_count": 1.61,
+        "avg_merchant_count": 1.64,
         "merchant_count_distribution": {
-          "1": 60,
-          "3": 14,
-          "2": 44
+          "1": 57,
+          "3": 15,
+          "2": 45
         },
-        "budget_utilization": 0.7485,
-        "avg_basket_total": 122245.76,
-        "basket_relevance": 0.6216,
-        "substitution_success": 0.9091,
+        "budget_utilization": 0.7736,
+        "avg_basket_total": 127534.19,
+        "basket_relevance": 0.6714,
+        "substitution_success": 0.9455,
         "infeasibility_explanation_rate": 1.0,
         "solver_latency_ms": {
-          "mean": 65.36,
-          "p95": 88.41
+          "mean": 54.38,
+          "p95": 78.12
         },
         "solver_usage": {
-          "ilp_cbc": 118,
-          "ilp_infeasible": 2
+          "ilp_cbc": 117,
+          "ilp_infeasible": 3
         },
         "all_feasible_constraints_valid": true,
-        "label": "Hybrid + optimasi keranjang (ILP)",
+        "label": "Hybrid + basket optimization (ILP)",
         "strategy": "hybrid_mission",
         "basket_mode": "optimized",
         "evaluated_missions": 120
@@ -267,21 +267,21 @@
       "scope": "ranking_and_basket",
       "status": "completed",
       "ranking_metrics": {
-        "precision@10": 0.04062500000000001,
-        "recall@10": 0.10741390306122447,
-        "ndcg@10": 0.07007055318060493,
-        "map@10": 0.03019635644436346,
-        "mrr": 0.10097700538548751,
-        "hit_rate@10": 0.3549107142857143
+        "precision@10": 0.037723214285714284,
+        "recall@10": 0.09959608843537415,
+        "ndcg@10": 0.06595908156461053,
+        "map@10": 0.02929466689949789,
+        "mrr": 0.09494844812925171,
+        "hit_rate@10": 0.3236607142857143
       },
       "catalog_metrics": {
-        "catalog_coverage": 0.6283333333333333,
+        "catalog_coverage": 0.555,
         "user_coverage": 1.0,
-        "intra_list_diversity": 0.7738339346168297,
-        "novelty": 9.155513977654449,
-        "long_tail_exposure": 0.493368700265252,
-        "exposure_gini": 0.5270047840090943,
-        "distinct_items_exposed": 377.0
+        "intra_list_diversity": 0.7836109445918173,
+        "novelty": 9.186761760476552,
+        "long_tail_exposure": 0.4744744744744745,
+        "exposure_gini": 0.5904587623337623,
+        "distinct_items_exposed": 333.0
       },
       "n_users": 448,
       "basket_metrics": {
@@ -296,21 +296,21 @@
           "3": 16,
           "2": 43
         },
-        "budget_utilization": 0.7526,
-        "avg_basket_total": 120754.24,
-        "basket_relevance": 0.6457,
+        "budget_utilization": 0.7743,
+        "avg_basket_total": 126063.56,
+        "basket_relevance": 0.6973,
         "substitution_success": null,
         "infeasibility_explanation_rate": 1.0,
         "solver_latency_ms": {
-          "mean": 64.61,
-          "p95": 88.22
+          "mean": 55.52,
+          "p95": 79.12
         },
         "solver_usage": {
           "ilp_cbc": 118,
           "ilp_infeasible": 2
         },
         "all_feasible_constraints_valid": true,
-        "label": "Hybrid + eksposur terkontrol + optimasi",
+        "label": "Hybrid + controlled exposure + optimization",
         "strategy": "hybrid_exposure",
         "basket_mode": "optimized",
         "evaluated_missions": 120
@@ -322,14 +322,14 @@
     "experiment_id": "AB-001",
     "unit": "simulated_user",
     "n_per_group": 448,
-    "control_mean_ndcg": 0.06296574330357142,
-    "treatment_mean_ndcg": 0.07575747098214285,
-    "absolute_lift": 0.012791727678571424,
+    "control_mean_ndcg": 0.06453453571428572,
+    "treatment_mean_ndcg": 0.07090803124999999,
+    "absolute_lift": 0.006373495535714271,
     "bootstrap_95_ci": [
-      0.003906005580357141,
-      0.021790013895089277
+      -0.002276090680803573,
+      0.015310955412946423
     ],
-    "label": "SIMULASI OFFLINE. Pembagian bukan randomisasi sesi live dan tidak membuktikan kausalitas."
+    "label": "OFFLINE SIMULATION. Assignment is not randomized across live sessions and does not establish causality."
   },
-  "note": "Hasil offline; bukan bukti dampak bisnis nyata."
+  "note": "Offline results; not evidence of real business impact."
 }

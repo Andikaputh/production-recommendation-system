@@ -1,4 +1,4 @@
-"""Utilitas umum: waktu, hash, pembulatan, dan I/O JSON yang aman."""
+"""Shared utilities for time, hashing, rounding, and safe JSON I/O."""
 
 from __future__ import annotations
 
@@ -12,8 +12,8 @@ from typing import Any
 
 import numpy as np
 
-# Tanggal acuan dataset. Semua timestamp sintetis relatif terhadap tanggal ini
-# sehingga eksperimen dapat direproduksi kapan pun.
+# Dataset anchor date. All synthetic timestamps are relative to this date so
+# every generated experiment remains reproducible.
 DATASET_ANCHOR = datetime(2026, 8, 1, tzinfo=UTC)
 
 
@@ -47,7 +47,7 @@ def clamp(value: float, low: float = 0.0, high: float = 1.0) -> float:
 
 
 def normalize(values: np.ndarray) -> np.ndarray:
-    """Min-max normalization yang aman untuk array konstan."""
+    """Min-max normalization that safely handles constant arrays."""
     values = np.asarray(values, dtype=float)
     if values.size == 0:
         return values
@@ -59,15 +59,15 @@ def normalize(values: np.ndarray) -> np.ndarray:
 
 
 def round_idr(value: float) -> int:
-    """Bulatkan rupiah ke kelipatan 500 terdekat."""
+    """Round an IDR amount to the nearest 500."""
     return int(round(float(value) / 500.0) * 500)
 
 
 def format_idr(value: float | int | None) -> str:
-    """Format rupiah gaya Indonesia: Rp250.000."""
+    """Format Indonesian rupiah for an international audience."""
     if value is None:
-        return "Rp-"
-    return "Rp" + f"{int(round(float(value))):,}".replace(",", ".")
+        return "IDR -"
+    return "IDR " + f"{int(round(float(value))):,}"
 
 
 def file_sha256(path: Path | str) -> str:
@@ -114,7 +114,7 @@ def read_jsonl(path: Path | str) -> list[dict[str, Any]]:
 
 
 def json_safe(value: Any) -> Any:
-    """Ubah tipe numpy/pandas menjadi tipe JSON native secara rekursif."""
+    """Recursively convert NumPy and pandas values to native JSON types."""
     if isinstance(value, dict):
         return {str(key): json_safe(item) for key, item in value.items()}
     if isinstance(value, (list, tuple, set)):

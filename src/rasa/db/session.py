@@ -1,4 +1,4 @@
-"""Engine, session factory, dan inisialisasi database."""
+"""Database engine, session factory, and initialization."""
 
 from __future__ import annotations
 

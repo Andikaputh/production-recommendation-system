@@ -8,10 +8,10 @@ from rasa.optimization.basket import optimize_basket
 
 def scored_catalog() -> pd.DataFrame:
     rows = [
-        ["bag-1", "Tas A", "bag", "Tas", 90_000, 4.7, "m1", "Toko Satu", 0.9],
-        ["bag-2", "Tas B", "bag", "Tas", 60_000, 4.5, "m2", "Toko Dua", 0.7],
-        ["pen-1", "Pena A", "stationery", "Alat Tulis", 30_000, 4.8, "m1", "Toko Satu", 0.8],
-        ["pen-2", "Pena B", "stationery", "Alat Tulis", 12_000, 4.4, "m2", "Toko Dua", 0.6],
+        ["bag-1", "Bag A", "bag", "Bags", 90_000, 4.7, "m1", "Store One", 0.9],
+        ["bag-2", "Bag B", "bag", "Bags", 60_000, 4.5, "m2", "Store Two", 0.7],
+        ["pen-1", "Pen A", "stationery", "Stationery", 30_000, 4.8, "m1", "Store One", 0.8],
+        ["pen-2", "Pen B", "stationery", "Stationery", 12_000, 4.4, "m2", "Store Two", 0.6],
     ]
     frame = pd.DataFrame(rows, columns=[
         "product_id", "product_name", "category_id", "category_name", "price", "rating",

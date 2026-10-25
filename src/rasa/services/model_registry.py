@@ -1,4 +1,4 @@
-"""Registry artefak model untuk inference (tanpa training saat request)."""
+"""Model-artifact registry for inference without request-time training."""
 
 from __future__ import annotations
 
@@ -81,7 +81,7 @@ class ModelRegistry:
     @property
     def ranker(self) -> HybridRanker:
         if not self.ready or self._ranker is None:
-            raise RuntimeError(f"Model belum siap dimuat: {self.error}")
+            raise RuntimeError(f"The model is not ready to load: {self.error}")
         return self._ranker
 
     @property

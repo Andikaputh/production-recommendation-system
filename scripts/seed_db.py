@@ -1,4 +1,4 @@
-"""Seed database demo (SQLite default) dari dataset dan artefak."""
+"""Seed the demo database from the dataset and model artifacts."""
 
 from __future__ import annotations
 
@@ -16,8 +16,8 @@ from rasa.db.seed import seed_database  # noqa: E402
 
 def main() -> None:
     parser = argparse.ArgumentParser(description="Seed database RASA")
-    parser.add_argument("--keep", action="store_true", help="Jangan hapus tabel yang ada")
-    parser.add_argument("--no-events", action="store_true", help="Lewati event interaksi")
+    parser.add_argument("--keep", action="store_true", help="Keep existing tables")
+    parser.add_argument("--no-events", action="store_true", help="Skip interaction events")
     args = parser.parse_args()
 
     counts = seed_database(drop=not args.keep, include_events=not args.no_events)

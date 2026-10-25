@@ -1,4 +1,4 @@
-"""Ingesti feedback anonim dan profiling sesi untuk rekomendasi berikutnya."""
+"""Anonymous feedback ingestion and session profiling for later recommendations."""
 
 from __future__ import annotations
 
@@ -38,12 +38,12 @@ def submit_feedback(
 ) -> dict[str, Any]:
     if event_type not in FEEDBACK_EVENT_TYPES:
         raise FeedbackValidationError(
-            f"event_type '{event_type}' tidak valid. Pilihan: {', '.join(FEEDBACK_EVENT_TYPES)}."
+            f"event_type '{event_type}' is invalid. Valid choices: {', '.join(FEEDBACK_EVENT_TYPES)}."
         )
     if not product_id:
-        raise FeedbackValidationError("product_id wajib untuk setiap event feedback.")
+        raise FeedbackValidationError("product_id is required for every feedback event.")
     if product_id and session.get(Product, product_id) is None:
-        raise FeedbackValidationError(f"Produk '{product_id}' tidak ditemukan pada katalog.")
+        raise FeedbackValidationError(f"Product '{product_id}' was not found in the catalog.")
 
     ensure_session(session, session_id, experiment_variant=experiment_variant)
     event = InteractionEvent(
@@ -66,12 +66,12 @@ def submit_feedback(
         "event_type": event_type,
         "product_id": product_id,
         "timestamp": event.event_timestamp.isoformat(timespec="seconds"),
-        "privacy": "Session ID anonim; tidak ada identitas pribadi yang disimpan.",
+        "privacy": "Anonymous session ID; no personal identity is stored.",
     }
 
 
 def session_weights(session: Session, session_id: str, limit: int = 40) -> dict[str, float]:
-    """Bobot interaksi positif terbaru dalam sesi (untuk session-based CF)."""
+    """Weight recent positive interactions for session-based collaborative filtering."""
     if not session_id:
         return {}
     rows = list(
@@ -122,5 +122,5 @@ def session_summary(session: Session, session_id: str, limit: int = 100) -> dict
             }
             for row in rows
         ],
-        "privacy": "Data sesi anonim; tidak memuat identitas pribadi.",
+        "privacy": "Anonymous session data; contains no personal identity.",
     }

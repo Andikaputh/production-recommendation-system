@@ -1,7 +1,7 @@
-"""Feature representation: content-based dan collaborative filtering.
+"""Content-based and collaborative feature representations.
 
-Semua transformasi di-fit HANYA pada data training (anti-leakage) lalu
-disimpan sebagai artefak berversi. Inference memuat artefak, bukan melatih ulang.
+All transformations are fitted only on training data, then stored as versioned
+artifacts. Inference loads artifacts and never retrains them.
 """
 
 from __future__ import annotations
@@ -47,7 +47,7 @@ def build_item_text(catalog: pd.DataFrame) -> pd.Series:
 
 
 class ContentModel:
-    """TF-IDF + kategorikal + fitur numerik, digabung menjadi vektor konten."""
+    """Combine TF-IDF, categorical, and numeric features into content vectors."""
 
     def __init__(self, seed: int | None = None) -> None:
         self.seed = settings.seed if seed is None else seed
@@ -116,7 +116,7 @@ class ContentModel:
     # ------------------------------------------------------------------
     def transform_query(self, text: str) -> sparse.csr_matrix:
         if self.tfidf is None:
-            raise RuntimeError("ContentModel belum di-fit.")
+            raise RuntimeError("ContentModel has not been fitted.")
         vector = self.tfidf.transform([text or ""])
         norm = float(np.sqrt(vector.multiply(vector).sum()))
         if norm > 0:
@@ -125,9 +125,9 @@ class ContentModel:
 
     def text_scores(self, text: str) -> np.ndarray:
         if self.tfidf is None or self.item_matrix is None:
-            raise RuntimeError("ContentModel belum di-fit.")
+            raise RuntimeError("ContentModel has not been fitted.")
         query = self.transform_query(text)
-        # Skor cosine terhadap blok TF-IDF item (bukan seluruh matriks).
+        # Cosine score against the item's TF-IDF block, not the full matrix.
         tfidf_block = self.item_matrix[:, : self.n_text_features]
         scores = np.asarray((tfidf_block @ query.T).todense()).ravel()
         return np.clip(scores, 0.0, 1.0)
@@ -189,7 +189,7 @@ class ContentModel:
     def load(cls, path: Path | None = None) -> ContentModel:
         path = path or (settings.models_dir / "content_model.joblib")
         if not path.exists():
-            raise FileNotFoundError(f"Artifact content model tidak ditemukan: {path}")
+            raise FileNotFoundError(f"Content model artifact not found: {path}")
         payload = joblib.load(path)
         model = cls(seed=int(payload.get("seed", settings.seed)))
         model.tfidf = payload["tfidf"]
@@ -222,8 +222,8 @@ class CollaborativeArtifacts:
 class CollaborativeModel:
     """Matrix factorization (TruncatedSVD) + item-item similarity.
 
-    Untuk pengguna baru / sesi anonim, skor CF dihitung dari kemiripan item
-    terhadap produk yang telah diberi feedback dalam sesi (session-based CF).
+    For new users or anonymous sessions, CF scores use item similarity against
+    products that received feedback during the session.
     """
 
     def __init__(self, seed: int | None = None) -> None:
@@ -255,7 +255,7 @@ class CollaborativeModel:
         matrix = sparse.csr_matrix(
             (values, (rows, cols)), shape=(len(self.user_ids), len(self.item_ids)), dtype=np.float32
         )
-        # Gabungkan event berulang pada user-item yang sama.
+        # Combine repeated events for the same user-item pair.
         matrix.sum_duplicates()
 
         self.user_interaction_counts = (
@@ -268,7 +268,7 @@ class CollaborativeModel:
         self.user_factors = svd.fit_transform(matrix).astype(np.float32)
         self.item_factors = svd.components_.T.astype(np.float32)
 
-        # Item-item similarity dari faktor laten (lebih stabil untuk data sparse).
+        # Item-item similarity from latent factors, which is more stable for sparse data.
         norms = np.linalg.norm(self.item_factors, axis=1)
         norms[norms == 0] = 1.0
         normalized = self.item_factors / norms[:, None]
@@ -350,7 +350,7 @@ class CollaborativeModel:
     def load(cls, path: Path | None = None) -> CollaborativeModel:
         path = path or (settings.models_dir / "collaborative_model.joblib")
         if not path.exists():
-            raise FileNotFoundError(f"Artifact collaborative model tidak ditemukan: {path}")
+            raise FileNotFoundError(f"Collaborative model artifact not found: {path}")
         payload = joblib.load(path)
         model = cls(seed=int(payload.get("seed", settings.seed)))
         model.user_ids = payload["user_ids"]
@@ -394,10 +394,10 @@ class PopularityModel:
         return normalize(values)
 
     def category_scores(self, catalog: pd.DataFrame, categories: list[str] | None = None) -> np.ndarray:
-        """Popularitas relatif di dalam kategori (share, bukan count mentah).
+        """Return relative within-category popularity rather than raw counts.
 
-        Membagi dengan total interaksi kategori membuat kategori kecil dan besar
-        dapat dibandingkan secara adil saat memilih produk lintas kategori misi.
+        Dividing by total category interactions makes categories comparable
+        when selecting products across a mission.
         """
         values = np.zeros(len(catalog), dtype=float)
         category_totals = {
@@ -432,7 +432,7 @@ class PopularityModel:
     def load(cls, path: Path | None = None) -> PopularityModel:
         path = path or (settings.models_dir / "popularity_model.joblib")
         if not path.exists():
-            raise FileNotFoundError(f"Artifact popularity model tidak ditemukan: {path}")
+            raise FileNotFoundError(f"Popularity model artifact not found: {path}")
         payload = joblib.load(path)
         model = cls()
         model.global_counts = payload["global_counts"]
@@ -451,7 +451,7 @@ class PopularityModel:
 
 
 def train_feature_artifacts(bundle, output_dir: Path | None = None) -> dict:
-    """Latih seluruh representasi fitur dari data training saja."""
+    """Train every feature representation on training data only."""
     output_dir = output_dir or settings.models_dir
     output_dir.mkdir(parents=True, exist_ok=True)
 
@@ -483,9 +483,9 @@ def train_feature_artifacts(bundle, output_dir: Path | None = None) -> dict:
             "end": str(bundle.train["event_timestamp"].max()),
         },
         "notes": [
-            "TF-IDF, one-hot encoder, dan statistik numerik di-fit hanya pada data training.",
-            "Popularity dihitung hanya dari event positif pada data training.",
-            "Harga dan stok adalah data simulasi.",
+            "TF-IDF, the one-hot encoder, and numeric statistics are fitted only on training data.",
+            "Popularity is calculated only from positive events in the training data.",
+            "Prices and inventory are simulated.",
         ],
     }
     write_json(output_dir / "feature_manifest.json", manifest)

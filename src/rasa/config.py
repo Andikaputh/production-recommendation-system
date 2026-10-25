@@ -1,8 +1,7 @@
-"""Konfigurasi terpusat RASA.
+"""Central RASA configuration loaded from YAML and environment overrides.
 
-Konfigurasi dibaca dari ``configs/default.yaml`` dan dapat ditimpa oleh variabel
-lingkungan. Semua jalur bersifat relatif terhadap akar repositori agar artefak
-dan dataset dapat dipindahkan tanpa mengubah kode.
+All paths are relative to the repository root so artifacts and datasets remain
+portable without code changes.
 """
 
 from __future__ import annotations
@@ -141,7 +140,7 @@ class Settings:
 @lru_cache(maxsize=1)
 def get_settings() -> Settings:
     if not CONFIG_PATH.exists():
-        raise FileNotFoundError(f"Konfigurasi tidak ditemukan: {CONFIG_PATH}")
+        raise FileNotFoundError(f"Configuration not found: {CONFIG_PATH}")
     with CONFIG_PATH.open("r", encoding="utf-8") as handle:
         raw = yaml.safe_load(handle) or {}
     settings = Settings(raw=raw, config_path=CONFIG_PATH, root_dir=ROOT_DIR)

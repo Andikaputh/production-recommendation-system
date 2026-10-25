@@ -1,11 +1,11 @@
-# Laporan Kualitas Data
+# Data Quality Report
 
 - Dataset: `rasa-synth-1.0.0`
-- Dibuat: 2026-10-24T02:03:46Z
+- Generated: 2026-10-25T13:06:15Z
 - Total pemeriksaan: 18
 - Lulus: 18
-- Peringatan: 0
-- Kegagalan kritis: 0
+- Warnings: 0
+- Critical failures: 0
 
 | Pemeriksaan | Status | Severity | Detail |
 | --- | --- | --- | --- |
@@ -28,8 +28,8 @@
 | `available_products_per_category` | pass | critical | missing_available_categories=[], min_available_per_category=49 |
 | `schema_manifest_consistency` | pass | warning | manifest_n_products=600, actual_n_products=600, dataset_version=rasa-synth-1.0.0 |
 
-## Batasan
+## Limitations
 
-- Dataset sepenuhnya sintetis dan tidak merepresentasikan marketplace nyata.
-- Harga dan stok tidak real-time.
-- Label relevansi berasal dari simulasi interaksi, bukan preferensi pengguna nyata.
+- The dataset is entirely synthetic and does not represent a real marketplace.
+- Prices and inventory are not real-time.
+- Relevance labels come from simulated interactions, not real user preferences.

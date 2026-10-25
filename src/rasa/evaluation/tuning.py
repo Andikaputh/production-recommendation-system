@@ -1,8 +1,8 @@
-"""Pemilihan bobot hybrid melalui validasi (bukan intuisi).
+"""Select hybrid weights through validation rather than intuition.
 
-Bobot dipilih dengan grid search pada validation split, lalu dibekukan di
-``artifacts/models/hybrid_config.json`` agar test set tidak pernah dipakai untuk
-menentukan konfigurasi.
+Grid search uses the validation split, then freezes weights in
+``artifacts/models/hybrid_config.json`` so the test set never determines the
+configuration.
 """
 
 from __future__ import annotations
@@ -159,6 +159,6 @@ def tune_weights(
         "validation_set": {
             "n_users": len(prepared),
             "fraction": settings.get("split.validation_fraction", 0.15),
-            "note": "Validation diambil dari bagian akhir data training per pengguna; test tidak dipakai.",
+            "note": "Validation uses the final portion of each user's training data; the test split is not used.",
         },
     }

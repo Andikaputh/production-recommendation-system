@@ -1,8 +1,7 @@
-"""Tahap A - Candidate generation.
+"""Stage A: candidate generation.
 
-Kandidat diambil berdasarkan kategori misi, ketersediaan, rating minimum, dan
-batas harga. Diagnostik dikembalikan agar UI/API dapat menjelaskan mengapa
-kandidat tertentu tidak muncul.
+Candidates are retrieved by mission category, availability, minimum rating,
+and price limits. Diagnostics explain why products were excluded.
 """
 
 from __future__ import annotations

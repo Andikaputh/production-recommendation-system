@@ -33,3 +33,9 @@ Thumbs.db
 
 # Local scratch files
 tree.txt
+
+# Local AI and code-graph tooling
+.codex/
+.opencode/
+graphify-out/
+src/graphify-out/

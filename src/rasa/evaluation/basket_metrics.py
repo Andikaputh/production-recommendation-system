@@ -1,4 +1,4 @@
-"""Metrik kualitas keranjang sesuai PRD bagian 11.3."""
+"""Basket-quality metrics required by PRD section 11.3."""
 
 from __future__ import annotations
 

@@ -1,6 +1,6 @@
-"""Bangun dataset sintetis + split temporal + laporan kualitas data.
+"""Build the synthetic dataset, temporal splits, and data-quality report.
 
-Jalankan: ``python scripts/generate_data.py`` (atau ``make data``).
+Run ``python scripts/generate_data.py`` or ``make data``.
 """
 
 from __future__ import annotations
@@ -21,13 +21,13 @@ from rasa.utils import write_json  # noqa: E402
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description="Generate dataset sintetis RASA")
+    parser = argparse.ArgumentParser(description="Generate the synthetic RASA dataset")
     parser.add_argument("--seed", type=int, default=settings.seed)
     parser.add_argument("--products", type=int, default=settings.dataset.n_products)
     args = parser.parse_args()
 
     manifest = generate_dataset(seed=args.seed, n_products=args.products)
-    print(f"Dataset mentah: {manifest['n_events']} event, {manifest['n_products']} produk")
+    print(f"Raw dataset: {manifest['n_events']} events, {manifest['n_products']} products")
 
     bundle = build_dataset(write=True)
     print(
@@ -44,11 +44,11 @@ def main() -> None:
 
     summary = report["summary"]
     print(
-        f"Kualitas data: {summary['passed']}/{summary['total_checks']} lulus, "
-        f"{summary['warnings']} peringatan, {summary['critical_failures']} kegagalan kritis"
+        f"Data quality: {summary['passed']}/{summary['total_checks']} passed, "
+        f"{summary['warnings']} warnings, {summary['critical_failures']} critical failures"
     )
     if not summary["passed_all_critical"]:
-        raise SystemExit("Pemeriksaan kualitas data gagal.")
+        raise SystemExit("Data-quality checks failed.")
 
 
 if __name__ == "__main__":

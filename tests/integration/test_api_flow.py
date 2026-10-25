@@ -42,7 +42,7 @@ class StubRanker:
                 style=str(row.get("style") or ""), color=str(row.get("color") or ""),
                 material=str(row.get("material") or ""), score=float(row["score"]),
                 components={"mission": 1.0, "quality": 0.8},
-                reasons=[{"code": "required_category", "label": "Kategori wajib", "detail": "Sesuai misi", "strength": 1.0}],
+                reasons=[{"code": "required_category", "label": "Required category", "detail": "Mission match", "strength": 1.0}],
                 flags={"user_known": False},
             ))
         return RankResult(items, scored, {"candidate_generation": {"n_candidates": len(scored)}})

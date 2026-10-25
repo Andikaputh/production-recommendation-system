@@ -1,6 +1,6 @@
 {
   "model_version": "hybrid-v1",
-  "trained_at": "2026-10-25T04:40:23Z",
+  "trained_at": "2026-10-25T13:06:31Z",
   "dataset_version": "rasa-synth-1.0.0",
   "seed": 42,
   "n_items": 600,
@@ -12,7 +12,7 @@
   },
   "collaborative_meta": {
     "model_version": "cf-svd-v1",
-    "trained_at": "2026-10-25T04:40:23Z",
+    "trained_at": "2026-10-25T13:06:31Z",
     "n_users": 500,
     "n_items": 600,
     "n_components": 32,
@@ -31,8 +31,8 @@
     "end": "2026-07-31 13:50:18"
   },
   "notes": [
-    "TF-IDF, one-hot encoder, dan statistik numerik di-fit hanya pada data training.",
-    "Popularity dihitung hanya dari event positif pada data training.",
-    "Harga dan stok adalah data simulasi."
+    "TF-IDF, the one-hot encoder, and numeric statistics are fitted only on training data.",
+    "Popularity is calculated only from positive events in the training data.",
+    "Prices and inventory are simulated."
   ]
 }

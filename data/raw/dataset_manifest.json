@@ -1,7 +1,7 @@
 {
   "dataset_name": "rasa-synthetic-commerce",
   "dataset_version": "rasa-synth-1.0.0",
-  "generated_at": "2026-10-24T02:03:44Z",
+  "generated_at": "2026-10-25T13:06:14Z",
   "seed": 42,
   "synthetic": true,
   "n_categories": 10,
@@ -15,25 +15,25 @@
   "files": {
     "categories.csv": {
       "rows": 10,
-      "sha256": "a3558645684fbf6d24afaefbe68a66b0ef758a6353183a2505dbe8dd389b661d"
+      "sha256": "e7f684ebbe3ce08871956fd7520040f8c54b203cb4477f441a547db8a9eb33de"
     },
     "merchants.csv": {
       "rows": 30,
-      "sha256": "b28f95662a85d10603e37799597551a7ee773bece04a5ebf99c137754c6ff821"
+      "sha256": "20dddbc5547ca799641a6f0922b9a312e855b55901c56b9eef9dc74921965024"
     },
     "products.csv": {
       "rows": 600,
-      "sha256": "8b09a3f0973397235a03d7a7d555124374f87eb915cab9be3c9eda97d1ce23c4"
+      "sha256": "2f37c93f146cd95e2ad9f0b3fce835de9611ef8d5517a255b4621640dc9ac436"
     },
     "users.csv": {
       "rows": 500,
-      "sha256": "902b4b69551eab34889a2a4837522148707676a46573025b18a3841f28d6a554"
+      "sha256": "a0e8ba441d029d6efc29a8724dcfcf3f2e2ef7c7986a2d3c10e9165c0f7f8856"
     },
     "interactions.csv": {
       "rows": 52174,
       "sha256": "60426311b6896f975ed990daafb3ca14f5308860037062964ef3ecc7e074746f"
     }
   },
-  "license": "CC-BY-4.0 (data sintetis, bukan data marketplace nyata)",
-  "warning": "Seluruh produk, merchant, harga, stok, dan interaksi adalah data simulasi. Tidak merepresentasikan marketplace atau pengguna nyata."
+  "license": "CC-BY-4.0 (synthetic data, not real marketplace data)",
+  "warning": "All products, merchants, prices, inventory, and interactions are simulated. They do not represent a real marketplace or real users."
 }

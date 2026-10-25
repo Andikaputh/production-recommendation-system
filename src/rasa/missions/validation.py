@@ -1,4 +1,4 @@
-"""Validasi misi belanja dan pemeriksaan batasan yang saling bertentangan."""
+"""Shopping-mission validation and constraint-conflict detection."""
 
 from __future__ import annotations
 
@@ -103,10 +103,10 @@ class ValidationResult:
 
 
 def budget_allocation(mission: Mission, catalog: pd.DataFrame) -> dict[str, float]:
-    """Alokasi anggaran per kategori berbasis median harga katalog.
+    """Allocate budget by category using median catalog prices.
 
-    Alokasi hanya dipakai sebagai fitur *lunak* untuk menilai kecocokan harga.
-    Anggaran total tetap merupakan batasan keras pada optimizer.
+    The allocation is a soft price-fit feature; total budget remains a hard
+    optimizer constraint.
     """
     medians: dict[str, float] = {}
     for category_id in mission.all_categories:
@@ -118,7 +118,7 @@ def budget_allocation(mission: Mission, catalog: pd.DataFrame) -> dict[str, floa
     for category_id in required:
         weights[category_id] = medians.get(category_id, 0.0) or 1.0
     for category_id in optional:
-        # Kategori opsional mendapat porsi lebih kecil agar tidak menekan kategori wajib.
+        # Optional categories receive less weight so they do not crowd out required categories.
         weights[category_id] = (medians.get(category_id, 0.0) or 1.0) * 0.5
     total = sum(weights.values())
     if total <= 0:
@@ -141,14 +141,14 @@ def minimum_budget(mission: Mission, catalog: pd.DataFrame) -> float:
 
 
 def minimum_merchants(mission: Mission, catalog: pd.DataFrame) -> int:
-    """Perkiraan minimum merchant: set cover sederhana dengan produk termurah."""
+    """Estimate the minimum merchant count using a simple set-cover heuristic."""
     available = catalog[catalog["availability_status"] == "available"]
     chosen_merchants: set[str] = set()
     for category_id in mission.required_categories:
         subset = available[available["category_id"] == category_id]
         if len(subset) == 0:
             return 10**6
-        # Pilih merchant yang paling sering muncul di kategori ini.
+        # Select the merchant that appears most frequently in this category.
         merchant = subset["merchant_id"].value_counts().idxmax()
         chosen_merchants.add(str(merchant))
     return max(1, len(chosen_merchants))
@@ -162,16 +162,16 @@ def validate_mission(mission: Mission, catalog: pd.DataFrame, categories: pd.Dat
     rating_max = float(catalog["rating"].max())
 
     if not mission.goal:
-        errors.append(ValidationIssue("goal_required", "Tujuan misi wajib diisi.", "goal"))
+        errors.append(ValidationIssue("goal_required", "A mission goal is required.", "goal"))
     if len(mission.goal) > 500:
         errors.append(ValidationIssue(
-            "goal_too_long", "Tujuan misi maksimal 500 karakter.", "goal"
+            "goal_too_long", "The mission goal is limited to 500 characters.", "goal"
         ))
 
     if not mission.required_categories:
         errors.append(ValidationIssue(
             "required_categories_required",
-            "Pilih minimal satu kategori wajib.",
+            "Select at least one required category.",
             "required_categories",
         ))
     unknown_required = [item for item in mission.required_categories if item not in known_categories]
@@ -179,31 +179,31 @@ def validate_mission(mission: Mission, catalog: pd.DataFrame, categories: pd.Dat
     if unknown_required or unknown_optional:
         errors.append(ValidationIssue(
             "unknown_category",
-            f"Kategori tidak dikenal: {sorted(set(unknown_required + unknown_optional))}.",
+            f"Unknown categories: {sorted(set(unknown_required + unknown_optional))}.",
             "required_categories",
         ))
 
     duplicates = len(mission.required_categories) != len(set(mission.required_categories))
     if duplicates:
         errors.append(ValidationIssue(
-            "duplicate_category", "Kategori wajib tidak boleh duplikat.", "required_categories"
+            "duplicate_category", "Required categories must be unique.", "required_categories"
         ))
     overlap = set(mission.required_categories) & set(mission.optional_categories)
     if overlap:
         errors.append(ValidationIssue(
             "category_overlap",
-            f"Kategori tidak boleh menjadi wajib sekaligus opsional: {sorted(overlap)}.",
+            f"A category cannot be both required and optional: {sorted(overlap)}.",
             "optional_categories",
         ))
 
     if mission.max_budget <= 0:
         errors.append(ValidationIssue(
-            "invalid_budget", "Anggaran harus berupa angka positif.", "max_budget"
+            "invalid_budget", "The budget must be a positive number.", "max_budget"
         ))
     elif mission.max_budget < 1000:
         warnings.append(ValidationIssue(
             "very_low_budget",
-            "Anggaran di bawah Rp1.000 kemungkinan tidak dapat memenuhi misi.",
+            "A budget below IDR 1,000 is unlikely to satisfy the mission.",
             "max_budget",
             "warning",
         ))
@@ -211,13 +211,13 @@ def validate_mission(mission: Mission, catalog: pd.DataFrame, categories: pd.Dat
     if mission.max_merchants < 1:
         errors.append(ValidationIssue(
             "invalid_max_merchants",
-            "Batas jumlah toko harus bilangan bulat positif.",
+            "The merchant limit must be a positive integer.",
             "max_merchants",
         ))
     elif mission.max_merchants > 10:
         warnings.append(ValidationIssue(
             "high_merchant_limit",
-            "Batas toko di atas 10 jarang dibutuhkan untuk misi belanja.",
+            "A merchant limit above 10 is rarely needed for a shopping mission.",
             "max_merchants",
             "warning",
         ))
@@ -226,24 +226,24 @@ def validate_mission(mission: Mission, catalog: pd.DataFrame, categories: pd.Dat
         if mission.preferences.minimum_rating < rating_min or mission.preferences.minimum_rating > rating_max:
             errors.append(ValidationIssue(
                 "rating_out_of_scale",
-                f"Rating minimum harus berada pada skala dataset {rating_min:.1f}-{rating_max:.1f}.",
+                f"The minimum rating must be within the dataset range {rating_min:.1f}-{rating_max:.1f}.",
                 "preferences.minimum_rating",
             ))
     if mission.preferences.max_item_price is not None and mission.preferences.max_item_price <= 0:
         errors.append(ValidationIssue(
             "invalid_max_item_price",
-            "Harga maksimum per produk harus positif.",
+            "The maximum price per product must be positive.",
             "preferences.max_item_price",
         ))
 
-    # Deteksi konflik batasan (bukan error validasi form, tetapi misi tidak feasible).
+    # Detect conflicts that make a valid form infeasible.
     if not errors and mission.required_categories:
         cheapest = minimum_budget(mission, catalog)
         if cheapest > mission.max_budget:
             warnings.append(ValidationIssue(
                 "budget_conflict",
-                f"Anggaran Rp{mission.max_budget:,.0f} di bawah total produk termurah "
-                f"(Rp{cheapest:,.0f}) untuk kategori wajib.".replace(",", "."),
+                f"The budget of IDR {mission.max_budget:,.0f} is below the cheapest total "
+                f"of IDR {cheapest:,.0f} for all required categories.",
                 "max_budget",
                 "warning",
             ))
@@ -251,8 +251,8 @@ def validate_mission(mission: Mission, catalog: pd.DataFrame, categories: pd.Dat
         if mission.max_merchants < min_merchants:
             warnings.append(ValidationIssue(
                 "merchant_conflict",
-                f"Kategori wajib diperkirakan membutuhkan minimal {min_merchants} toko, "
-                f"sedangkan batas Anda {mission.max_merchants}.",
+                f"Required categories are estimated to need at least {min_merchants} merchants, "
+                f"but the current limit is {mission.max_merchants}.",
                 "max_merchants",
                 "warning",
             ))
@@ -264,7 +264,7 @@ def validate_mission(mission: Mission, catalog: pd.DataFrame, categories: pd.Dat
         if empty_categories:
             warnings.append(ValidationIssue(
                 "empty_category",
-                f"Kategori tanpa produk tersedia: {empty_categories}.",
+                f"Categories with no available products: {empty_categories}.",
                 "required_categories",
                 "warning",
             ))

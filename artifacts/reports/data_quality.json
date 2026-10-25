@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-24T02:03:46Z",
+  "generated_at": "2026-10-25T13:06:15Z",
   "dataset_version": "rasa-synth-1.0.0",
   "summary": {
     "total_checks": 18,
@@ -145,7 +145,7 @@
       "details": {
         "duplicates": 0
       },
-      "note": "Interaksi duplikat pada timestamp identik dapat menandakan event ganda."
+      "note": "Duplicate interactions at identical timestamps may indicate duplicate events."
     },
     {
       "check": "user_item_distribution",
@@ -176,7 +176,7 @@
         "users_with_leakage": 0,
         "n_test_users": 451
       },
-      "note": "Interaksi masa depan tidak boleh mendahului data training pengguna yang sama."
+      "note": "Future interactions must not precede the same user's training data."
     },
     {
       "check": "train_test_isolation",
@@ -222,8 +222,8 @@
     }
   ],
   "limitations": [
-    "Dataset sepenuhnya sintetis dan tidak merepresentasikan marketplace nyata.",
-    "Harga dan stok tidak real-time.",
-    "Label relevansi berasal dari simulasi interaksi, bukan preferensi pengguna nyata."
+    "The dataset is entirely synthetic and does not represent a real marketplace.",
+    "Prices and inventory are not real-time.",
+    "Relevance labels come from simulated interactions, not real user preferences."
   ]
 }

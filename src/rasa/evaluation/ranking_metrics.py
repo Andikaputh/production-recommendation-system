@@ -1,7 +1,7 @@
-"""Metrik ranking offline dengan definisi relevansi eksplisit.
+"""Offline ranking metrics with an explicit relevance definition.
 
-Relevansi = event positif (click/save/add_to_list/purchase_proxy) pada holdout
-temporal, setelah produk yang sudah pernah berinteraksi di training dikeluarkan.
+Relevance means a positive event in the temporal holdout after excluding
+products already seen in training.
 """
 
 from __future__ import annotations

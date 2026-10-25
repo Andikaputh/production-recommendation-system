@@ -1,4 +1,4 @@
-"""Dashboard analytics: agregasi event demo, kualitas misi, dan eksposur katalog."""
+"""Dashboard analytics for demo events, mission quality, and catalog exposure."""
 
 from __future__ import annotations
 
@@ -44,8 +44,8 @@ def _sample_warning(samples: int) -> str | None:
     minimum = int(settings.get("evaluation.min_sample_warning", 30))
     if samples < minimum:
         return (
-            f"Sampel hanya {samples} (< {minimum}). Metrik ditampilkan sebagai indikasi awal, "
-            "bukan kesimpulan statistik."
+            f"The sample contains only {samples} (< {minimum}). Metrics are shown as an early signal, "
+            "not a statistical conclusion."
         )
     return None
 
@@ -151,11 +151,11 @@ def analytics_summary(
     sample_size = len(requests)
     warnings = [message for message in (_sample_warning(sample_size),) if message]
     if impressions and impressions < 30:
-        warnings.append("CTR proxy dihitung dari < 30 impresi; jangan ditafsirkan sebagai dampak bisnis.")
+        warnings.append("The CTR proxy is based on fewer than 30 impressions and must not be interpreted as business impact.")
     if not requests:
         warnings.append(
-            "Belum ada request rekomendasi pada periode ini. Buka demo dan jalankan satu misi "
-            "untuk mengisi metrik."
+            "No recommendation requests were recorded during this period. Run a mission in "
+            "the demo to populate the metrics."
         )
 
     return {
@@ -170,7 +170,7 @@ def analytics_summary(
             "type": "demo_events_and_offline_evaluation",
             "dataset_version": registry.dataset_version,
             "model_version": registry.model_version if registry.ready else None,
-            "note": "Seluruh data katalog dan event demo bersifat simulasi.",
+            "note": "All catalog data and demo events are simulated.",
         },
         "sample_sizes": {
             "recommendation_requests": sample_size,
@@ -231,8 +231,8 @@ def analytics_summary(
                 sum(1 for basket in feasible_baskets) / max(1, sample_size), 4
             ) if sample_size else None,
             "caveat": (
-                "Metrik ini dihitung dari event demo/simulasi. Tidak boleh disebut conversion "
-                "rate atau dampak revenue."
+                "These metrics are calculated from simulated demo events. They must not be "
+                "described as conversion rate or revenue impact."
             ),
         },
         "system_health": {
@@ -286,8 +286,8 @@ def experiment_catalog(session: Session) -> dict[str, Any]:
         "ab_tests": config.get("ab_tests", []),
         "results": results,
         "note": (
-            "Eksperimen offline dijalankan pada holdout temporal. Simulasi A/B bukan bukti kausal "
-            "dan tidak boleh dilaporkan sebagai peningkatan production."
+            "Offline experiments run on a temporal holdout. The A/B simulation is not causal "
+            "evidence and must not be reported as a production improvement."
         ),
         "generated_at": iso_now(),
     }

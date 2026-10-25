@@ -1,13 +1,4 @@
-"""FastAPI application RASA.
-
-Fitur sesuai PRD bagian 13:
-* schema request/response terdokumentasi (OpenAPI),
-* validasi input dan error 4xx yang jelas,
-* batas ukuran payload dan rate limit sederhana,
-* timeout pada endpoint rekomendasi,
-* mode degradasi ketika artifact model belum tersedia,
-* tidak membocorkan stack trace ke pengguna.
-"""
+"""RASA FastAPI application with documented schemas and production safeguards."""
 
 from __future__ import annotations
 
@@ -60,7 +51,7 @@ API_PREFIX = "/api/v1"
 
 
 class RateLimiter:
-    """Sliding-window in-memory rate limiter (cukup untuk demo single-process)."""
+    """Sliding-window in-memory rate limiter for the single-process demo."""
 
     def __init__(self, limit: int, window_seconds: float = 60.0) -> None:
         self.limit = max(1, int(limit))
@@ -98,7 +89,7 @@ def _error(status: int, code: str, message: str, details: dict[str, Any] | None 
 
 
 def _load_catalog() -> str:
-    """Muat katalog dari database; fallback ke file processed jika DB kosong."""
+    """Load the catalog from the database, falling back to processed files."""
     try:
         with session_scope() as session:
             count = int(session.scalar(select(func.count()).select_from(Product)) or 0)
@@ -106,7 +97,7 @@ def _load_catalog() -> str:
                 catalog_service.load(session)
                 return "database"
     except Exception as exc:  # pragma: no cover - bergantung lingkungan
-        logger.warning("Gagal memuat katalog dari database: %s", exc)
+        logger.warning("Failed to load the catalog from the database: %s", exc)
     from rasa.data.schema import load_processed_dataset
 
     bundle = load_processed_dataset()
@@ -120,25 +111,25 @@ async def lifespan(app: FastAPI):
     try:
         init_db()
     except Exception as exc:  # pragma: no cover - bergantung lingkungan
-        logger.warning("Inisialisasi database gagal: %s", exc)
+        logger.warning("Database initialization failed: %s", exc)
 
     registry.load()
     try:
         app.state.catalog_source = _load_catalog()
     except Exception as exc:  # pragma: no cover
         app.state.catalog_source = "unavailable"
-        logger.error("Katalog tidak dapat dimuat: %s", exc)
+        logger.error("Catalog loading failed: %s", exc)
 
     app.state.started_at = iso_now()
     app.state.startup_ms = round((time.perf_counter() - started) * 1000.0, 1)
     logger.info(
-        "RASA siap: model=%s katalog=%s (%.1f ms)",
+        "RASA ready: model=%s catalog=%s (%.1f ms)",
         registry.model_version if registry.ready else "unavailable",
         app.state.catalog_source,
         app.state.startup_ms,
     )
     yield
-    logger.info("RASA berhenti.")
+    logger.info("RASA stopped.")
 
 
 def create_app(model_registry: ModelRegistry | None = None) -> FastAPI:
@@ -151,9 +142,9 @@ def create_app(model_registry: ModelRegistry | None = None) -> FastAPI:
         title="RASA API",
         version=str(settings.get("project.version", "1.0.0")),
         description=(
-            "Relevance-Aware Shopping Assistant — rekomendasi berbasis misi dengan "
-            "optimasi keranjang. Seluruh katalog, harga, stok, dan interaksi adalah data "
-            "simulasi dan tidak merepresentasikan marketplace nyata."
+            "Relevance-Aware Shopping Assistant: mission-aware recommendations with "
+            "constraint-aware basket optimization. The catalog, prices, inventory, and "
+            "interactions are synthetic and do not represent a real marketplace."
         ),
         lifespan=lifespan,
         docs_url="/docs",
@@ -179,7 +170,7 @@ def create_app(model_registry: ModelRegistry | None = None) -> FastAPI:
         max_bytes = int(settings.get("api.max_payload_bytes", 65536))
         declared = request.headers.get("content-length")
         if declared and int(declared) > max_bytes:
-            return _error(413, "payload_too_large", f"Payload melebihi batas {max_bytes} byte.")
+            return _error(413, "payload_too_large", f"Payload exceeds the {max_bytes}-byte limit.")
 
         if request.url.path not in {"/health", "/"}:
             allowed, remaining = rate_limiter.allow(_client_key(request))
@@ -187,7 +178,7 @@ def create_app(model_registry: ModelRegistry | None = None) -> FastAPI:
                 return _error(
                     429,
                     "rate_limited",
-                    "Terlalu banyak permintaan. Coba lagi beberapa saat lagi.",
+                    "Too many requests. Try again shortly.",
                 )
             request.state.rate_limit_remaining = remaining
 
@@ -195,8 +186,8 @@ def create_app(model_registry: ModelRegistry | None = None) -> FastAPI:
         try:
             response = await call_next(request)
         except Exception:
-            logger.exception("Unhandled error pada %s %s", request.method, request.url.path)
-            response = _error(500, "internal_error", "Terjadi kesalahan internal.")
+            logger.exception("Unhandled error on %s %s", request.method, request.url.path)
+            response = _error(500, "internal_error", "An internal error occurred.")
         elapsed = (time.perf_counter() - started) * 1000.0
         response.headers["X-Request-ID"] = request_id
         response.headers["X-Response-Time-Ms"] = f"{elapsed:.1f}"
@@ -207,7 +198,7 @@ def create_app(model_registry: ModelRegistry | None = None) -> FastAPI:
         return _error(
             422,
             "validation_error",
-            "Input tidak valid. Periksa field yang ditandai.",
+            "Invalid input. Review the highlighted fields.",
             {"issues": json_safe(exc.errors())},
         )
 
@@ -215,7 +206,7 @@ def create_app(model_registry: ModelRegistry | None = None) -> FastAPI:
     async def http_handler(request: Request, exc: HTTPException):
         detail = exc.detail
         if isinstance(detail, dict):
-            message = str(detail.get("message") or "Permintaan tidak dapat diproses.")
+            message = str(detail.get("message") or "The request could not be processed.")
             details = detail
         else:
             message = str(detail)
@@ -228,14 +219,14 @@ def create_app(model_registry: ModelRegistry | None = None) -> FastAPI:
         if (web_dist / "index.html").exists():
             return FileResponse(web_dist / "index.html")
         return {
-            "name": "RASA — Relevance-Aware Shopping Assistant",
+            "name": "RASA : Relevance-Aware Shopping Assistant",
             "version": str(settings.get("project.version", "1.0.0")),
-            "language": "id",
+            "language": "en",
             "docs": "/docs",
             "health": "/health",
             "api_prefix": API_PREFIX,
             "data_mode": "synthetic",
-            "notice": "Semua produk, harga, stok, merchant, dan interaksi adalah data simulasi.",
+            "notice": "All products, prices, inventory, merchants, and interactions are simulated.",
         }
 
     @application.get("/health", tags=["meta"])
@@ -272,7 +263,7 @@ def create_app(model_registry: ModelRegistry | None = None) -> FastAPI:
     @application.get(f"{API_PREFIX}/scenarios", tags=["meta"])
     def scenarios() -> dict[str, Any]:
         payload = read_json(settings.scenarios_path, {}) or {}
-        payload.setdefault("note", "Harga, stok, dan merchant adalah data simulasi.")
+        payload.setdefault("note", "Prices, inventory, and merchants are simulated.")
         return payload
 
     @application.get("/api/v1/benchmark", tags=["meta"])
@@ -283,8 +274,8 @@ def create_app(model_registry: ModelRegistry | None = None) -> FastAPI:
             "experiments": read_json(settings.reports_dir / "experiments.json", {}) or {},
             "data_quality": read_json(settings.reports_dir / "data_quality.json", {}) or {},
             "notice": (
-                "Metrik offline pada data sintetis. Bukan bukti dampak bisnis nyata dan bukan "
-                "hasil eksperimen online."
+                "Offline metrics on synthetic data. These are not evidence of real business "
+                "impact or results from an online experiment."
             ),
         }
 
@@ -293,7 +284,7 @@ def create_app(model_registry: ModelRegistry | None = None) -> FastAPI:
     def categories() -> dict[str, Any]:
         return {
             "items": catalog_service.categories_payload(),
-            "note": "Katalog dan ketersediaan bersifat simulasi.",
+            "note": "The catalog and availability data are simulated.",
         }
 
     @application.get(f"{API_PREFIX}/catalog/products", tags=["catalog"])
@@ -326,14 +317,14 @@ def create_app(model_registry: ModelRegistry | None = None) -> FastAPI:
     def product_detail(product_id: str) -> dict[str, Any]:
         payload = catalog_service.get_product(product_id)
         if payload is None:
-            raise HTTPException(status_code=404, detail=f"Produk '{product_id}' tidak ditemukan.")
+            raise HTTPException(status_code=404, detail=f"Product '{product_id}' was not found.")
         return payload
 
     @application.get(f"{API_PREFIX}/catalog/merchants", tags=["catalog"])
     def merchants() -> dict[str, Any]:
         return {
             "items": catalog_service.merchants_payload(),
-            "note": "Merchant dan stok bersifat simulasi.",
+            "note": "Merchant and inventory data are simulated.",
         }
 
     # ------------------------------------------------------------------
@@ -355,7 +346,7 @@ def create_app(model_registry: ModelRegistry | None = None) -> FastAPI:
             return _error(
                 422,
                 "invalid_mission",
-                "Misi tidak valid.",
+                "Invalid mission.",
                 {"errors": [issue.__dict__ for issue in result.errors]},
             )
         record = create_mission(
@@ -373,7 +364,7 @@ def create_app(model_registry: ModelRegistry | None = None) -> FastAPI:
     def mission_detail(mission_id: str, db: Session = Depends(get_db)) -> dict[str, Any]:
         payload = mission_to_payload(db, mission_id)
         if payload is None:
-            raise HTTPException(status_code=404, detail=f"Misi '{mission_id}' tidak ditemukan.")
+            raise HTTPException(status_code=404, detail=f"Mission '{mission_id}' was not found.")
         return payload
 
     # ------------------------------------------------------------------
@@ -383,7 +374,7 @@ def create_app(model_registry: ModelRegistry | None = None) -> FastAPI:
         if not registry.ready:
             raise HTTPException(
                 status_code=503,
-                detail="Model belum siap. Jalankan `python scripts/train.py` lalu coba lagi.",
+                detail="The model is not ready. Run `python scripts/train.py`, then try again.",
             )
         mission = payload.mission.to_domain(payload.preferences)
         validation = validate_mission(
@@ -393,7 +384,7 @@ def create_app(model_registry: ModelRegistry | None = None) -> FastAPI:
             raise HTTPException(
                 status_code=422,
                 detail={
-                    "message": "Misi tidak valid.",
+                    "message": "Invalid mission.",
                     "errors": [issue.__dict__ for issue in validation.errors],
                 },
             )
@@ -426,7 +417,7 @@ def create_app(model_registry: ModelRegistry | None = None) -> FastAPI:
             return _error(
                 504,
                 "recommendation_timeout",
-                f"Rekomendasi melebihi batas waktu {timeout:.1f} detik. Coba sederhanakan misi.",
+                f"Recommendation processing exceeded the {timeout:.1f} second timeout. Try simplifying the mission.",
             )
         result.setdefault("meta", {})["server_latency_ms"] = round(
             (time.perf_counter() - started) * 1000.0, 2
@@ -447,7 +438,7 @@ def create_app(model_registry: ModelRegistry | None = None) -> FastAPI:
                     _recommend_sync, recommendation_payload, abandon_on_cancel=True
                 )
         except TimeoutError:
-            return _error(504, "optimization_timeout", "Optimasi keranjang melebihi batas waktu.")
+            return _error(504, "optimization_timeout", "Basket optimization exceeded the time limit.")
         return {
             "basket": result["basket"],
             "comparison": result.get("comparison"),
@@ -498,9 +489,9 @@ def create_app(model_registry: ModelRegistry | None = None) -> FastAPI:
             db, days=days, model_version=model_version, strategy=strategy
         )
 
-    # Pada image deployment, hasil build React disajikan oleh proses yang sama.
-    # Semua route API didaftarkan lebih dulu sehingga mount ini hanya menangani
-    # aset frontend dan fallback dokumen statis.
+    # In the deployment image, the same process serves the React build.
+    # API routes are registered first so this mount handles only
+    # frontend assets and static-document fallback.
     if web_dist.exists():
         application.mount("/", StaticFiles(directory=web_dist, html=True), name="web")
 

@@ -1,25 +1,25 @@
 {
-  "trained_at": "2026-10-25T04:44:45Z",
-  "runtime_seconds": 262.2,
+  "trained_at": "2026-10-25T13:09:45Z",
+  "runtime_seconds": 194.3,
   "seed": 42,
   "dataset_version": "rasa-synth-1.0.0",
   "model_version": "hybrid-v1",
   "weights": {
-    "collaborative": 0.2,
-    "content": 0.2,
-    "mission": 0.3,
-    "quality": 0.2,
-    "affinity": 0.1
+    "collaborative": 0.1667,
+    "content": 0.3333,
+    "mission": 0.1667,
+    "quality": 0.3333,
+    "affinity": 0.0
   },
   "validation": {
-    "ndcg@10": 0.0878450452342083,
-    "recall@10": 0.14285714285714285,
+    "ndcg@10": 0.08703534971146276,
+    "recall@10": 0.14333333333333334,
     "precision@10": 0.03028571428571429
   },
   "validation_ci": {
-    "mean": 0.0878450452342083,
-    "ci_low": 0.06336212212671968,
-    "ci_high": 0.11409941805477257
+    "mean": 0.08703534971146276,
+    "ci_low": 0.06158288891473422,
+    "ci_high": 0.1121062808739271
   },
   "evaluation": {
     "ranking": {
@@ -40,12 +40,12 @@
         "hit_rate@10": 0.2544642857142857
       },
       "EXP-003": {
-        "precision@10": 0.035937500000000004,
-        "recall@10": 0.09093856292517007,
-        "ndcg@10": 0.06394287348391796,
-        "map@10": 0.029858508631627256,
-        "mrr": 0.09460654053287983,
-        "hit_rate@10": 0.30357142857142855
+        "precision@10": 0.03705357142857143,
+        "recall@10": 0.09435586734693878,
+        "ndcg@10": 0.06397275280070956,
+        "map@10": 0.028710682313600043,
+        "mrr": 0.09144168083900227,
+        "hit_rate@10": 0.31026785714285715
       },
       "EXP-004": {
         "precision@10": 0.03035714285714286,
@@ -56,28 +56,28 @@
         "hit_rate@10": 0.26339285714285715
       },
       "EXP-005": {
-        "precision@10": 0.03482142857142857,
-        "recall@10": 0.08942920918367346,
-        "ndcg@10": 0.06296576437561105,
-        "map@10": 0.028805662269868266,
-        "mrr": 0.0960282029478458,
-        "hit_rate@10": 0.3013392857142857
+        "precision@10": 0.03504464285714286,
+        "recall@10": 0.09208652210884354,
+        "ndcg@10": 0.06453454265087157,
+        "map@10": 0.029635083448061764,
+        "mrr": 0.09979892998866213,
+        "hit_rate@10": 0.29910714285714285
       },
       "EXP-006": {
-        "precision@10": 0.04196428571428572,
-        "recall@10": 0.11271789965986392,
-        "ndcg@10": 0.0757575018179001,
-        "map@10": 0.03397937672092647,
-        "mrr": 0.11152122307256236,
-        "hit_rate@10": 0.36607142857142855
+        "precision@10": 0.03794642857142857,
+        "recall@10": 0.1022906037414966,
+        "ndcg@10": 0.07090806334124593,
+        "map@10": 0.033221736735368754,
+        "mrr": 0.10771417942176871,
+        "hit_rate@10": 0.3325892857142857
       },
       "EXP-008": {
-        "precision@10": 0.04062500000000001,
-        "recall@10": 0.10741390306122447,
-        "ndcg@10": 0.07007055318060493,
-        "map@10": 0.03019635644436346,
-        "mrr": 0.10097700538548751,
-        "hit_rate@10": 0.3549107142857143
+        "precision@10": 0.037723214285714284,
+        "recall@10": 0.09959608843537415,
+        "ndcg@10": 0.06595908156461053,
+        "map@10": 0.02929466689949789,
+        "mrr": 0.09494844812925171,
+        "hit_rate@10": 0.3236607142857143
       }
     },
     "baskets": {
@@ -86,11 +86,11 @@
         "required_category_coverage": 1.0
       },
       "EXP-006": {
-        "budget_feasibility_rate": 0.5667,
+        "budget_feasibility_rate": 0.5417,
         "required_category_coverage": 1.0
       },
       "EXP-007": {
-        "budget_feasibility_rate": 0.9833,
+        "budget_feasibility_rate": 0.975,
         "required_category_coverage": 1.0
       },
       "EXP-008": {
@@ -100,7 +100,7 @@
     }
   },
   "notes": [
-    "Bobot dipilih pada validation split; test split hanya dipakai untuk pelaporan.",
-    "Seluruh data sintetis; angka tidak merepresentasikan marketplace nyata."
+    "Weights are selected on validation; the test split is used only for reporting.",
+    "All data is synthetic; the values do not represent a real marketplace."
   ]
 }

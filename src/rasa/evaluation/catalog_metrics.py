@@ -1,4 +1,4 @@
-"""Metrik katalog, personalisasi, diversitas, dan eksposur."""
+"""Catalog, personalization, diversity, and exposure metrics."""
 
 from __future__ import annotations
 

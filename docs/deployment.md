@@ -17,4 +17,4 @@ After deployment, verify `/health`, `/docs`, a feasible scenario, the intentiona
 
 ## Render Blueprint
 
-`render.yaml` menyediakan konfigurasi one-click untuk Docker Web Service di region Singapore dengan health check dan auto-deploy dari branch `main`. Pada plan gratis, filesystem bersifat ephemeral: katalog akan kembali ke seed image setelah restart dan event feedback demo tidak dijamin persisten. Gunakan paid persistent disk atau PostgreSQL untuk retensi jangka panjang.
+`render.yaml` provides one-click configuration for a Docker Web Service in the Singapore region, including health checks and automatic deployment from `main`. On the free plan, the filesystem is ephemeral: the catalog returns to its image seed after a restart and demo feedback events are not guaranteed to persist. Use a paid persistent disk or PostgreSQL for long-term retention.

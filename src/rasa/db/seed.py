@@ -1,7 +1,7 @@
-"""Seed database demo dari dataset sintetis dan artefak model.
+"""Seed the demo database from synthetic data and model artifacts.
 
-Menjalankan ulang seed akan mengosongkan tabel (``drop=True``) agar data demo
-selalu konsisten dengan dataset berversi. Harga/stok tetap data simulasi.
+Re-seeding clears tables when ``drop=True`` so demo data stays consistent with
+the versioned dataset. Prices and inventory remain simulated.
 """
 
 from __future__ import annotations
@@ -136,7 +136,7 @@ def seed_database(drop: bool = True, include_events: bool = True) -> dict[str, i
                     "preferred_styles": row.get("preferred_styles") or [],
                     "preferred_colors": row.get("preferred_colors") or [],
                     "preferred_price_range": {
-                        "sensitivity": row.get("price_sensitivity", "sedang"),
+                        "sensitivity": row.get("price_sensitivity", "medium"),
                     },
                     "price_sensitivity": row.get("price_sensitivity"),
                 }

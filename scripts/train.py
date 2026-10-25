@@ -1,12 +1,12 @@
-"""Latih fitur, pilih bobot hybrid di validation, lalu evaluasi di test.
+"""Train features, select hybrid weights on validation, and evaluate on test.
 
 Alur (PRD bagian 11):
-1. Latih representasi content + collaborative + popularity pada train.
-2. Tuning bobot hanya pada validation split.
-3. Bekukan bobot di ``artifacts/models/hybrid_config.json``.
-4. Jalankan evaluasi ranking/basket/ablation pada test split.
+1. Train content, collaborative, and popularity representations on train.
+2. Tune weights only on the validation split.
+3. Freeze weights in ``artifacts/models/hybrid_config.json``.
+4. Run ranking, basket, and ablation evaluation on the test split.
 
-Jalankan: ``python scripts/train.py`` (atau ``make train``).
+Run ``python scripts/train.py`` or ``make train``.
 """
 
 from __future__ import annotations
@@ -34,7 +34,7 @@ def build_ranker(weights: dict[str, float]) -> HybridRanker:
 
     registry = ModelRegistry().load()
     if not registry.ready:
-        raise RuntimeError(f"Artifact model gagal dimuat: {registry.error}")
+        raise RuntimeError(f"Model artifact failed to load: {registry.error}")
     config = dict(registry.ranker.config)
     config["weights"] = weights
     return HybridRanker(
@@ -43,27 +43,27 @@ def build_ranker(weights: dict[str, float]) -> HybridRanker:
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description="Latih dan evaluasi model RASA")
-    parser.add_argument("--skip-tuning", action="store_true", help="Pakai bobot yang tersimpan")
-    parser.add_argument("--skip-evaluation", action="store_true", help="Lewati evaluasi test")
-    parser.add_argument("--tuning-users", type=int, default=180, help="Jumlah pengguna validasi")
+    parser = argparse.ArgumentParser(description="Train and evaluate the RASA model")
+    parser.add_argument("--skip-tuning", action="store_true", help="Use stored weights")
+    parser.add_argument("--skip-evaluation", action="store_true", help="Skip test evaluation")
+    parser.add_argument("--tuning-users", type=int, default=180, help="Number of validation users")
     parser.add_argument(
-        "--basket-missions", type=int, default=None, help="Jumlah misi evaluasi keranjang"
+        "--basket-missions", type=int, default=None, help="Number of basket-evaluation missions"
     )
     args = parser.parse_args()
 
     started = time.perf_counter()
     bundle = load_processed_dataset()
 
-    print("[1/3] Melatih artifact fitur (train-only)...")
+    print("[1/3] Training feature artifacts on training data only...")
     manifest = train_feature_artifacts(bundle)
 
     weights_path = settings.models_dir / "hybrid_config.json"
     if args.skip_tuning and weights_path.exists():
         tuning = read_json(weights_path, {})
-        print(f"[2/3] Memakai bobot tersimpan: {tuning.get('weights')}")
+        print(f"[2/3] Using stored weights: {tuning.get('weights')}")
     else:
-        print("[2/3] Tuning bobot pada validation split...")
+        print("[2/3] Tuning weights on the validation split...")
         ranker = build_ranker(dict(settings.get("ranking.weights", {})))
         tuning = tune_weights(
             ranker,
@@ -80,13 +80,13 @@ def main() -> None:
         tuning["dataset_version"] = manifest.get("dataset_version", settings.dataset.version)
         write_json(weights_path, tuning)
         print(
-            f"      Bobot terpilih: {tuning['weights']} "
+            f"      Selected weights: {tuning['weights']} "
             f"(validation NDCG@10={tuning['selected_metrics'].get('ndcg@10', 0):.4f})"
         )
 
     payload = None
     if not args.skip_evaluation:
-        print("[3/3] Evaluasi pada test split (ranking, basket, ablation)...")
+        print("[3/3] Evaluating on the test split (ranking, basket, ablation)...")
         tuned = build_ranker({key: float(value) for key, value in tuning["weights"].items()})
         evaluator = OfflineEvaluator(bundle, tuned, k=int(settings.get("evaluation.primary_k", 10)))
         payload = evaluator.run(basket_missions=args.basket_missions)
@@ -122,12 +122,12 @@ def main() -> None:
             else read_json(settings.reports_dir / "training.json", {}).get("evaluation")
         ),
         "notes": [
-            "Bobot dipilih pada validation split; test split hanya dipakai untuk pelaporan.",
-            "Seluruh data sintetis; angka tidak merepresentasikan marketplace nyata.",
+            "Weights are selected on validation; the test split is used only for reporting.",
+            "All data is synthetic; the values do not represent a real marketplace.",
         ],
     }
     write_json(settings.reports_dir / "training.json", training)
-    print(f"Selesai dalam {training['runtime_seconds']} detik.")
+    print(f"Completed in {training['runtime_seconds']} seconds.")
 
 
 if __name__ == "__main__":

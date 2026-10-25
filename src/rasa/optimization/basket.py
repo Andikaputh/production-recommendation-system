@@ -1,16 +1,4 @@
-"""Tahap D - Constraint-aware basket optimization.
-
-Batasan keras:
-* total harga <= anggaran,
-* semua item harus tersedia,
-* setiap kategori wajib terisi tepat satu produk,
-* kategori opsional maksimal satu produk dan dibatasi jumlahnya,
-* jumlah merchant <= batas,
-* produk dalam ``exclusive_group`` yang sama tidak boleh dipilih bersamaan.
-
-Solver utama: Integer Linear Programming (PuLP + CBC).
-Fallback: beam-search greedy deterministik bila solver gagal/timeout.
-"""
+"""Stage D: constraint-aware basket optimization with ILP and beam-search fallback."""
 
 from __future__ import annotations
 
@@ -25,7 +13,7 @@ from rasa.config import settings
 from rasa.missions.validation import Mission, minimum_budget, minimum_merchants
 from rasa.utils import format_idr
 
-try:  # pragma: no cover - import dijaga agar API tetap hidup tanpa pulp
+try:  # pragma: no cover - keep the API available when PuLP is absent
     import pulp
 
     PULP_AVAILABLE = True
@@ -134,7 +122,7 @@ def _greedy_search(
     lambda_budget_slack: float,
     beam_width: int = 250,
 ) -> list[dict[str, Any]] | None:
-    """Beam search deterministik untuk fallback tanpa solver eksternal."""
+    """Deterministic beam-search fallback that does not require an external solver."""
     required = [category for category in mission.required_categories if category in set(candidates["category_id"])]
     optional = [category for category in mission.optional_categories if category in set(candidates["category_id"])]
     missing_required = set(mission.required_categories) - set(required)
@@ -149,7 +137,7 @@ def _greedy_search(
         options = candidates[candidates["category_id"] == category_id]
         expanded: list[dict] = []
         if not required_flag:
-            expanded.append(state)  # lewati kategori opsional
+            expanded.append(state)  # Skip an optional category.
         for row in options.to_dict("records"):
             price = float(row["price"])
             merchant = str(row["merchant_id"])
@@ -213,7 +201,7 @@ def _greedy_search(
         ),
         reverse=True,
     )
-    # Aturan eksklusi katalog juga harus dipatuhi pada fallback.
+    # The fallback must also honor catalog exclusion rules.
     for state in states:
         groups = [str(item.get("exclusive_group") or "") for item in state["selection"]]
         non_empty = [group for group in groups if group]
@@ -253,10 +241,10 @@ def _ilp_solve(
         )
     )
 
-    # Anggaran (hard constraint).
+    # Budget hard constraint.
     problem += pulp.lpSum(float(row["price"]) * x[row["product_id"]] for row in rows) <= mission.max_budget
 
-    # Satu produk per kategori; kategori wajib harus terisi.
+    # One product per category; every required category must be filled.
     for category_id in mission.all_categories:
         subset = [row for row in rows if row["category_id"] == category_id]
         expression = pulp.lpSum(x[row["product_id"]] for row in subset)
@@ -275,7 +263,7 @@ def _ilp_solve(
         <= max_optional
     )
 
-    # Merchant link & batas jumlah merchant.
+    # Merchant linking and merchant-count limit.
     for row in rows:
         problem += x[row["product_id"]] <= z[str(row["merchant_id"])]
     problem += pulp.lpSum(z.values()) <= mission.max_merchants
@@ -321,8 +309,8 @@ def _infeasibility_analysis(
         ]
         analysis["empty_required_categories"] = empty_required
         suggestions.append(
-            "Kategori berikut belum memiliki produk yang memenuhi filter: "
-            + ", ".join(names) + ". Longgarkan rating/harga atau pilih kategori lain."
+            "The following categories have no products that satisfy the filters: "
+            + ", ".join(names) + ". Relax the rating or price filters, or choose another category."
         )
 
     cheapest_required = minimum_budget(mission, catalog)
@@ -332,18 +320,18 @@ def _infeasibility_analysis(
     if np.isfinite(cheapest_required) and cheapest_required > mission.max_budget:
         analysis["budget_shortfall"] = float(cheapest_required - mission.max_budget)
         suggestions.append(
-            f"Anggaran perlu dinaikkan minimal ke {format_idr(cheapest_required)} "
-            f"(saat ini {format_idr(mission.max_budget)})."
+            f"Increase the budget to at least {format_idr(cheapest_required)} "
+            f"(currently {format_idr(mission.max_budget)})."
         )
 
-    # Batas merchant: cek apakah kandidat dengan batas toko saat ini punya solusi.
+    # Check whether the current merchant limit allows a solution.
     if mission.required_categories:
         min_merchants = minimum_merchants(mission, catalog)
         analysis["estimated_minimum_merchants"] = int(min_merchants)
         if mission.max_merchants < min_merchants:
             suggestions.append(
-                f"Jumlah toko maksimal perlu dinaikkan menjadi minimal {min_merchants} "
-                f"(saat ini {mission.max_merchants})."
+                f"Increase the merchant limit to at least {min_merchants} "
+                f"(currently {mission.max_merchants})."
             )
 
     if mission.preferences.minimum_rating is not None and len(candidates):
@@ -352,22 +340,21 @@ def _infeasibility_analysis(
             suggested = round(max(3.5, min_available_rating + 0.1), 1)
             analysis["suggested_min_rating"] = suggested
             suggestions.append(
-                f"Turunkan rating minimum dari {mission.preferences.minimum_rating:.1f} "
-                f"ke sekitar {suggested:.1f} untuk memperluas kandidat."
+                f"Lower the minimum rating from {mission.preferences.minimum_rating:.1f} "
+                f"to about {suggested:.1f} to expand the candidate pool."
             )
 
     if mission.optional_categories:
         suggestions.append(
-            "Hapus kategori opsional terlebih dahulu; kategori opsional tidak boleh "
-            "mengorbankan kategori wajib."
+            "Remove optional categories first; optional categories must not displace required categories."
         )
 
     analysis["max_budget"] = float(mission.max_budget)
     analysis["max_merchants"] = int(mission.max_merchants)
     if not suggestions:
         suggestions.append(
-            "Tidak ada kombinasi yang memenuhi seluruh batasan keras. Ubah anggaran, "
-            "batas toko, rating minimum, atau kategori wajib."
+            "No combination satisfies every hard constraint. Adjust the budget, merchant limit, "
+            "minimum rating, or required categories."
         )
     return suggestions, analysis
 
@@ -466,7 +453,7 @@ def optimize_basket(
     covered = {item.category_id for item in items if item.role == "required"}
     coverage = len(covered & set(mission.required_categories)) / max(1, len(mission.required_categories))
 
-    # Validasi ulang seluruh batasan keras sebelum mengembalikan hasil.
+    # Revalidate every hard constraint before returning a result.
     feasible = (
         total_price <= mission.max_budget + 1e-6
         and len(merchant_ids) <= mission.max_merchants
@@ -487,12 +474,12 @@ def optimize_basket(
     suggestions = []
     if feasible and total_price < mission.max_budget * 0.72:
         suggestions.append(
-            f"Anda masih memiliki sisa anggaran {format_idr(mission.max_budget - total_price)}. "
-            "Tambahkan kategori opsional jika diperlukan."
+            f"You still have {format_idr(mission.max_budget - total_price)} remaining. "
+            "Add optional categories if useful."
         )
     if solver_name == "greedy_fallback":
         suggestions.append(
-            "Solver ILP tidak selesai dalam batas waktu; hasil greedy tetap memenuhi batasan keras."
+            "The ILP solver did not finish within the time limit; the greedy result still satisfies every hard constraint."
         )
 
     return BasketResult(
@@ -516,10 +503,10 @@ def naive_independent_basket(
     scored: pd.DataFrame,
     mission: Mission,
 ) -> BasketResult:
-    """Baseline: pilih produk skor tertinggi per kategori tanpa optimasi gabungan.
+    """Select the top-scoring product per category without joint optimization.
 
-    Baseline ini sengaja tidak memeriksa anggaran total dan batas merchant untuk
-    menunjukkan nilai optimasi keranjang (EXP-007).
+    This baseline intentionally ignores the total budget and merchant limit to
+    isolate the value of basket optimization in EXP-007.
     """
     items: list[BasketItem] = []
     seen_categories: set[str] = set()

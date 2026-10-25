@@ -1,13 +1,13 @@
 {
   "version": "1.0.0",
-  "note": "Skenario demo bawaan. Harga, stok, dan merchant adalah data simulasi.",
+  "note": "Built-in demo scenarios. Prices, inventory, and merchants are simulated.",
   "scenarios": [
     {
-      "scenario_id": "kuliah-hemat",
-      "title": "Perlengkapan kuliah hemat",
-      "description": "Tas, alat tulis, dan botol minum untuk penggunaan harian dengan anggaran Rp250.000 dan maksimal 2 toko.",
+      "scenario_id": "budget-campus",
+      "title": "Budget campus kit",
+      "description": "A bag, stationery, and drinkware for everyday campus use with an IDR 250,000 budget and at most two merchants.",
       "mission": {
-        "goal": "Menyiapkan perlengkapan kuliah harian yang minimalis",
+        "goal": "Build a minimalist everyday campus kit",
         "required_categories": ["bag", "stationery", "drinkware"],
         "optional_categories": ["organizer"],
         "max_budget": 250000,
@@ -15,35 +15,35 @@
       },
       "preferences": {
         "style": ["minimalist", "natural"],
-        "colors": ["hitam", "abu", "krem"],
+        "colors": ["black", "gray", "cream"],
         "brands": [],
         "minimum_rating": 4.2
       }
     },
     {
-      "scenario_id": "kerja-remote",
-      "title": "Meja kerja remote",
-      "description": "Perlengkapan meja, elektronik pendukung, dan botol minum untuk bekerja dari rumah dengan anggaran Rp750.000.",
+      "scenario_id": "remote-work",
+      "title": "Remote workspace",
+      "description": "Desk accessories, supporting electronics, and drinkware for remote work with an IDR 750,000 budget.",
       "mission": {
-        "goal": "Menyiapkan meja kerja remote yang nyaman dan rapi",
+        "goal": "Create a comfortable and organized remote workspace",
         "required_categories": ["desk", "electronics", "drinkware"],
         "optional_categories": ["organizer"],
         "max_budget": 750000,
         "max_merchants": 3
       },
       "preferences": {
-        "style": ["minimalist", "klasik"],
-        "colors": ["hitam", "putih", "abu"],
+        "style": ["minimalist", "classic"],
+        "colors": ["black", "white", "gray"],
         "brands": ["Volta", "Karsa"],
         "minimum_rating": 4.3
       }
     },
     {
-      "scenario_id": "bekal-hemat",
-      "title": "Bekal harian hemat",
-      "description": "Camilan, botol minum, dan perawatan diri untuk aktivitas harian dengan anggaran Rp100.000.",
+      "scenario_id": "daily-essentials",
+      "title": "Budget daily essentials",
+      "description": "Snacks, drinkware, and personal-care items for daily activities with an IDR 100,000 budget.",
       "mission": {
-        "goal": "Menyiapkan bekal dan perlengkapan harian yang hemat",
+        "goal": "Build a budget-friendly set of daily essentials",
         "required_categories": ["snack", "drinkware", "personal_care"],
         "optional_categories": [],
         "max_budget": 100000,
@@ -51,35 +51,35 @@
       },
       "preferences": {
         "style": ["natural", "playful"],
-        "colors": ["hijau", "krem", "biru"],
+        "colors": ["green", "cream", "blue"],
         "brands": [],
         "minimum_rating": 4.0
       }
     },
     {
-      "scenario_id": "hadiah-wisuda",
-      "title": "Hadiah wisuda",
-      "description": "Hadiah sederhana berupa alat tulis dan organizer, dengan opsi buku, anggaran Rp200.000.",
+      "scenario_id": "graduation-gift",
+      "title": "Graduation gift",
+      "description": "A simple stationery and organizer gift, with an optional book and an IDR 200,000 budget.",
       "mission": {
-        "goal": "Memilih hadiah wisuda yang rapi dan berguna",
+        "goal": "Choose a thoughtful and useful graduation gift",
         "required_categories": ["stationery", "organizer"],
         "optional_categories": ["book"],
         "max_budget": 200000,
         "max_merchants": 2
       },
       "preferences": {
-        "style": ["klasik", "minimalist"],
-        "colors": ["navy", "krem", "cokelat"],
+        "style": ["classic", "minimalist"],
+        "colors": ["navy", "cream", "brown"],
         "brands": ["Aksara", "Cendana"],
         "minimum_rating": 4.4
       }
     },
     {
-      "scenario_id": "semester-baru",
-      "title": "Persiapan semester baru",
-      "description": "Tas, buku, elektronik, dan perlengkapan meja dengan anggaran Rp1.000.000 dari maksimal 3 toko.",
+      "scenario_id": "new-semester",
+      "title": "New-semester setup",
+      "description": "A bag, books, electronics, and desk accessories with an IDR 1,000,000 budget from at most three merchants.",
       "mission": {
-        "goal": "Menyiapkan seluruh kebutuhan semester baru",
+        "goal": "Prepare all essentials for a new semester",
         "required_categories": ["bag", "book", "electronics", "desk"],
         "optional_categories": ["stationery"],
         "max_budget": 1000000,
@@ -87,17 +87,17 @@
       },
       "preferences": {
         "style": ["minimalist", "sporty"],
-        "colors": ["hitam", "navy", "abu"],
+        "colors": ["black", "navy", "gray"],
         "brands": [],
         "minimum_rating": 4.2
       }
     },
     {
-      "scenario_id": "tanpa-solusi",
-      "title": "Contoh misi tanpa solusi",
-      "description": "Misi dengan anggaran yang sengaja terlalu kecil untuk menunjukkan penanganan infeasible dan saran pelonggaran batasan.",
+      "scenario_id": "infeasible-case",
+      "title": "Infeasible mission example",
+      "description": "An intentionally insufficient budget that demonstrates infeasibility handling and constraint-relaxation suggestions.",
       "mission": {
-        "goal": "Membeli power bank dengan anggaran sangat terbatas",
+        "goal": "Buy a power bank on a very limited budget",
         "required_categories": ["electronics"],
         "optional_categories": [],
         "max_budget": 25000,

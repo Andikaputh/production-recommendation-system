@@ -1,8 +1,8 @@
-"""Skema database relasional RASA (SQLAlchemy 2.0).
+"""RASA relational database schema using SQLAlchemy 2.0.
 
-Skema kompatibel dengan SQLite (default demo) dan PostgreSQL (produksi).
-Event log bersifat append-oriented; data agregat dashboard dihitung dari event
-dan tabel rekomendasi, bukan disimpan sebagai satu baris mutable.
+The schema supports SQLite for the demo and PostgreSQL for production. Event
+logs are append-oriented, and dashboard aggregates are calculated from events
+and recommendation tables rather than stored as a mutable summary row.
 """
 
 from __future__ import annotations

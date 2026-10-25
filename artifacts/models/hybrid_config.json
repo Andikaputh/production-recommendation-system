@@ -1,26 +1,26 @@
 {
-  "selected_at": "2026-10-25T04:40:42Z",
+  "selected_at": "2026-10-25T13:06:41Z",
   "objective": "mean ndcg@10 on validation split",
   "seed": 42,
   "k": 10,
   "n_users": 175,
   "n_weight_combinations": 398,
   "weights": {
-    "collaborative": 0.2,
-    "content": 0.2,
-    "mission": 0.3,
-    "quality": 0.2,
-    "affinity": 0.1
+    "collaborative": 0.1667,
+    "content": 0.3333,
+    "mission": 0.1667,
+    "quality": 0.3333,
+    "affinity": 0.0
   },
   "selected_metrics": {
-    "ndcg@10": 0.0878450452342083,
-    "recall@10": 0.14285714285714285,
+    "ndcg@10": 0.08703534971146276,
+    "recall@10": 0.14333333333333334,
     "precision@10": 0.03028571428571429
   },
   "selected_ndcg_ci": {
-    "mean": 0.0878450452342083,
-    "ci_low": 0.06336212212671968,
-    "ci_high": 0.11409941805477257
+    "mean": 0.08703534971146276,
+    "ci_low": 0.06158288891473422,
+    "ci_high": 0.1121062808739271
   },
   "default_weights": {
     "collaborative": 0.1,
@@ -32,59 +32,14 @@
   "top_10": [
     {
       "weights": {
-        "collaborative": 0.2,
-        "content": 0.2,
-        "mission": 0.3,
-        "quality": 0.2,
-        "affinity": 0.1
-      },
-      "metrics": {
-        "ndcg@10": 0.0878450452342083,
-        "recall@10": 0.14285714285714285,
-        "precision@10": 0.03028571428571429
-      },
-      "n_users": 175
-    },
-    {
-      "weights": {
-        "collaborative": 0.2,
-        "content": 0.1,
-        "mission": 0.4,
-        "quality": 0.2,
-        "affinity": 0.1
-      },
-      "metrics": {
-        "ndcg@10": 0.08485927336317811,
-        "recall@10": 0.1357142857142857,
-        "precision@10": 0.02971428571428571
-      },
-      "n_users": 175
-    },
-    {
-      "weights": {
-        "collaborative": 0.3333,
-        "content": 0.0,
+        "collaborative": 0.1667,
+        "content": 0.3333,
         "mission": 0.1667,
         "quality": 0.3333,
-        "affinity": 0.1667
+        "affinity": 0.0
       },
       "metrics": {
-        "ndcg@10": 0.08463315323859787,
-        "recall@10": 0.13428571428571429,
-        "precision@10": 0.028571428571428577
-      },
-      "n_users": 175
-    },
-    {
-      "weights": {
-        "collaborative": 0.25,
-        "content": 0.125,
-        "mission": 0.25,
-        "quality": 0.25,
-        "affinity": 0.125
-      },
-      "metrics": {
-        "ndcg@10": 0.08425432167703871,
+        "ndcg@10": 0.08703534971146276,
         "recall@10": 0.14333333333333334,
         "precision@10": 0.03028571428571429
       },
@@ -92,46 +47,16 @@
     },
     {
       "weights": {
-        "collaborative": 0.0,
-        "content": 0.2857,
-        "mission": 0.2857,
-        "quality": 0.2857,
-        "affinity": 0.1429
+        "collaborative": 0.1111,
+        "content": 0.1111,
+        "mission": 0.4444,
+        "quality": 0.1111,
+        "affinity": 0.2222
       },
       "metrics": {
-        "ndcg@10": 0.08401361764061951,
-        "recall@10": 0.13190476190476189,
-        "precision@10": 0.028
-      },
-      "n_users": 175
-    },
-    {
-      "weights": {
-        "collaborative": 0.0,
-        "content": 0.3333,
-        "mission": 0.3333,
-        "quality": 0.3333,
-        "affinity": 0.0
-      },
-      "metrics": {
-        "ndcg@10": 0.08397774672758511,
-        "recall@10": 0.13428571428571429,
-        "precision@10": 0.02914285714285715
-      },
-      "n_users": 175
-    },
-    {
-      "weights": {
-        "collaborative": 0.125,
-        "content": 0.0,
-        "mission": 0.5,
-        "quality": 0.25,
-        "affinity": 0.125
-      },
-      "metrics": {
-        "ndcg@10": 0.0839047863483582,
-        "recall@10": 0.13285714285714287,
-        "precision@10": 0.03028571428571429
+        "ndcg@10": 0.08661502484893922,
+        "recall@10": 0.1438095238095238,
+        "precision@10": 0.03085714285714286
       },
       "n_users": 175
     },
@@ -144,39 +69,114 @@
         "affinity": 0.0909
       },
       "metrics": {
-        "ndcg@10": 0.08363138274685265,
-        "recall@10": 0.1357142857142857,
-        "precision@10": 0.02971428571428571
+        "ndcg@10": 0.08618896239065242,
+        "recall@10": 0.15047619047619046,
+        "precision@10": 0.03142857142857143
       },
       "n_users": 175
     },
     {
       "weights": {
-        "collaborative": 0.1,
-        "content": 0.2,
-        "mission": 0.4,
-        "quality": 0.2,
-        "affinity": 0.1
+        "collaborative": 0.125,
+        "content": 0.125,
+        "mission": 0.5,
+        "quality": 0.25,
+        "affinity": 0.0
       },
       "metrics": {
-        "ndcg@10": 0.08355363248697689,
-        "recall@10": 0.1357142857142857,
+        "ndcg@10": 0.08515180139716895,
+        "recall@10": 0.13809523809523808,
+        "precision@10": 0.03142857142857143
+      },
+      "n_users": 175
+    },
+    {
+      "weights": {
+        "collaborative": 0.125,
+        "content": 0.0,
+        "mission": 0.375,
+        "quality": 0.25,
+        "affinity": 0.25
+      },
+      "metrics": {
+        "ndcg@10": 0.08498826107662254,
+        "recall@10": 0.15333333333333335,
+        "precision@10": 0.03257142857142858
+      },
+      "n_users": 175
+    },
+    {
+      "weights": {
+        "collaborative": 0.1429,
+        "content": 0.2857,
+        "mission": 0.2857,
+        "quality": 0.2857,
+        "affinity": 0.0
+      },
+      "metrics": {
+        "ndcg@10": 0.08494817474483282,
+        "recall@10": 0.14523809523809522,
+        "precision@10": 0.029714285714285714
+      },
+      "n_users": 175
+    },
+    {
+      "weights": {
+        "collaborative": 0.125,
+        "content": 0.0,
+        "mission": 0.5,
+        "quality": 0.25,
+        "affinity": 0.125
+      },
+      "metrics": {
+        "ndcg@10": 0.08483878678998653,
+        "recall@10": 0.13904761904761906,
+        "precision@10": 0.03085714285714286
+      },
+      "n_users": 175
+    },
+    {
+      "weights": {
+        "collaborative": 0.0,
+        "content": 0.0,
+        "mission": 0.75,
+        "quality": 0.25,
+        "affinity": 0.0
+      },
+      "metrics": {
+        "ndcg@10": 0.0848304538465595,
+        "recall@10": 0.1361904761904762,
+        "precision@10": 0.03142857142857143
+      },
+      "n_users": 175
+    },
+    {
+      "weights": {
+        "collaborative": 0.2222,
+        "content": 0.0,
+        "mission": 0.4444,
+        "quality": 0.2222,
+        "affinity": 0.1111
+      },
+      "metrics": {
+        "ndcg@10": 0.08468780572785709,
+        "recall@10": 0.13714285714285715,
         "precision@10": 0.03028571428571429
       },
       "n_users": 175
     },
     {
       "weights": {
-        "collaborative": 0.1667,
-        "content": 0.3333,
-        "mission": 0.1667,
-        "quality": 0.3333,
-        "affinity": 0.0
+        "collaborative": 0.1429,
+        "content": 0.0,
+        "mission": 0.4286,
+        "quality": 0.2857,
+        "affinity": 0.1429
       },
       "metrics": {
-        "ndcg@10": 0.08335479781982941,
-        "recall@10": 0.14047619047619048,
-        "precision@10": 0.02914285714285714
+        "ndcg@10": 0.08463109437332463,
+        "recall@10": 0.14238095238095236,
+        "precision@10": 0.03142857142857143
       },
       "n_users": 175
     }
@@ -184,9 +184,9 @@
   "validation_set": {
     "n_users": 175,
     "fraction": 0.15,
-    "note": "Validation diambil dari bagian akhir data training per pengguna; test tidak dipakai."
+    "note": "Validation uses the final portion of each user's training data; the test split is not used."
   },
-  "trained_at": "2026-10-25T04:40:42Z",
+  "trained_at": "2026-10-25T13:06:41Z",
   "model_version": "hybrid-v1",
   "dataset_version": "rasa-synth-1.0.0"
 }

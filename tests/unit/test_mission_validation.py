@@ -12,7 +12,7 @@ def catalog_frames() -> tuple[pd.DataFrame, pd.DataFrame]:
         {"product_id": "p3", "category_id": "bag", "price": 40_000, "rating": 4.5, "availability_status": "unavailable", "merchant_id": "m2"},
     ])
     categories = pd.DataFrame([
-        {"category_id": "bag", "category_name": "Tas"},
+        {"category_id": "bag", "category_name": "Bags"},
         {"category_id": "stationery", "category_name": "Alat Tulis"},
     ])
     return catalog, categories
@@ -20,18 +20,18 @@ def catalog_frames() -> tuple[pd.DataFrame, pd.DataFrame]:
 
 def test_valid_mission_is_normalized() -> None:
     catalog, categories = catalog_frames()
-    mission = Mission("  Kuliah harian  ", ["bag"], ["stationery"], 100_000, 1)
+    mission = Mission("  Everyday campus kit  ", ["bag"], ["stationery"], 100_000, 1)
 
     result = validate_mission(mission, catalog, categories)
 
     assert result.valid is True
     assert result.normalized is not None
-    assert result.normalized.goal == "Kuliah harian"
+    assert result.normalized.goal == "Everyday campus kit"
 
 
 def test_unknown_category_and_overlap_are_rejected() -> None:
     catalog, categories = catalog_frames()
-    mission = Mission("Misi", ["bag", "unknown"], ["bag"], 100_000, 2)
+    mission = Mission("Mission", ["bag", "unknown"], ["bag"], 100_000, 2)
 
     result = validate_mission(mission, catalog, categories)
 
@@ -52,7 +52,7 @@ def test_budget_conflict_is_explained_not_silently_relaxed() -> None:
 
 def test_rating_outside_dataset_scale_is_rejected() -> None:
     catalog, categories = catalog_frames()
-    mission = Mission("Cari tas", ["bag"], [], 100_000, 1, Preferences(minimum_rating=5.0))
+    mission = Mission("Find a bag", ["bag"], [], 100_000, 1, Preferences(minimum_rating=5.0))
 
     result = validate_mission(mission, catalog, categories)
 

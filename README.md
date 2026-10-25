@@ -1,37 +1,37 @@
-# RASA — Relevance-Aware Shopping Assistant
+# RASA: Relevance-Aware Shopping Assistant
 
-RASA adalah sistem rekomendasi produk berbasis **misi belanja, batas anggaran, ketersediaan, dan kualitas pengalaman**. Alih-alih hanya mengurutkan produk populer, RASA mengambil kandidat, menggabungkan sinyal content/collaborative/mission, lalu mengoptimalkan satu keranjang yang memenuhi batasan keras.
+RASA is a product recommendation system built around **shopping missions, budget constraints, availability, and experience quality**. Instead of simply ranking popular products, RASA retrieves candidates, combines content, collaborative, and mission signals, then optimizes a basket that satisfies hard constraints.
 
-> Portfolio project. Seluruh produk, pengguna, merchant, harga, stok, dan interaksi bersifat **sintetis**. Proyek ini bukan marketplace aktif, tidak memproses pembayaran, dan tidak mengklaim dampak conversion/revenue nyata.
+> Portfolio project. All products, users, merchants, prices, inventory, and interactions are **synthetic**. This project is not an active marketplace, does not process payments, and makes no claims about real conversion or revenue impact.
 
-## Yang sudah tersedia
+## What is included
 
-- Mission builder berbahasa Indonesia dengan skenario bawaan dan parser berbasis aturan yang selalu meminta konfirmasi.
-- Global/category popularity, content-based TF-IDF, collaborative item similarity, hybrid ranking, dan cold-start fallback.
-- Optimasi keranjang ILP dengan fallback beam search; anggaran, kategori wajib, stok, dan batas merchant diperiksa ulang sebelum hasil dikembalikan.
-- Penjelasan yang diturunkan dari komponen skor dan constraint yang benar-benar digunakan.
-- REST API FastAPI, OpenAPI, SQLite/PostgreSQL-compatible schema, event feedback anonim, dan analytics agregat.
-- React frontend responsif, accessibility states, empty/error/infeasible state, dan static fallback yang diberi label jelas.
-- Dataset sintetis reproducible, temporal split, data quality gates, evaluation, ablation, dan simulasi A/B yang dilabeli non-kausal.
-- Unit/integration/data tests, lint, dependency audit, GitHub Actions, dan multi-stage Docker image.
+- An English-language mission builder with built-in scenarios and a rule-based parser that always requires confirmation.
+- Global and category popularity, content-based TF-IDF, collaborative item similarity, hybrid ranking, and a cold-start fallback.
+- ILP basket optimization with beam-search fallback. Budget, required categories, inventory, and merchant limits are revalidated before a result is returned.
+- Explanations derived from the score components and constraints actually used.
+- A FastAPI REST API, OpenAPI documentation, a SQLite/PostgreSQL-compatible schema, anonymous feedback events, and aggregated analytics.
+- A responsive React frontend with accessible states and clearly labeled empty, error, infeasible, and static-fallback states.
+- A reproducible synthetic dataset, temporal splits, data-quality gates, evaluation, ablation analysis, and a clearly labeled non-causal A/B simulation.
+- Unit, integration, and data tests, linting, dependency auditing, GitHub Actions, and a multi-stage Docker image.
 
-## Hasil benchmark saat ini
+## Current benchmark
 
-Hasil berasal dari `rasa-synth-1.0.0`, seed `42`, dan temporal holdout. Angka bukan benchmark industri.
+Results use `rasa-synth-1.0.0`, seed `42`, and a temporal holdout. They are not industry benchmarks.
 
-| Area | Metrik | Hasil |
+| Area | Metric | Result |
 | --- | --- | ---: |
-| Ranking hybrid mission | NDCG@10 | 0,0758 |
-| Ranking hybrid mission | Recall@10 | 0,1127 |
-| Ranking hybrid mission | Hit Rate@10 | 0,3661 |
-| Basket optimizer | Budget feasibility | 98,33% |
-| Basket optimizer | Required category coverage (feasible) | 100% |
-| Basket optimizer | Validasi hard constraints pada hasil feasible | 100% |
-| Basket optimizer | p95 solver latency (offline) | 88,41 ms |
+| Hybrid mission ranking | NDCG@10 | 0.0709 |
+| Hybrid mission ranking | Recall@10 | 0.1023 |
+| Hybrid mission ranking | Hit Rate@10 | 0.3326 |
+| Basket optimizer | Budget feasibility | 97.50% |
+| Basket optimizer | Required category coverage on feasible results | 100% |
+| Basket optimizer | Hard-constraint validation on feasible results | 100% |
+| Basket optimizer | Offline p95 solver latency | 78.12 ms |
 
-Hybrid mission mengungguli category popularity pada NDCG@10 di dataset sintetis ini (0,0758 vs 0,0520). Lihat [benchmark report](docs/reports/benchmark-report.md) untuk definisi, confidence interval, baseline, ablation, cold-start, dan keterbatasannya.
+Hybrid mission ranking outperforms category popularity on NDCG@10 in this synthetic dataset (0.0709 vs. 0.0520). See the [benchmark report](docs/reports/benchmark-report.md) for metric definitions, confidence intervals, baselines, ablations, cold-start analysis, and limitations.
 
-## Arsitektur
+## Architecture
 
 ```mermaid
 flowchart LR
@@ -47,21 +47,21 @@ flowchart LR
   EVAL[Temporal evaluation] --> REPORT[Benchmark reports]
 ```
 
-Training dan evaluasi dipisahkan dari inference. Container hanya memuat artifact versi yang sudah dilatih; request API tidak memicu training.
+Training and evaluation are separated from inference. The container loads versioned, pre-trained artifacts, and API requests never trigger training.
 
-## Mulai cepat
+## Quick start
 
-### Docker — jalur paling singkat
+### Docker
 
 ```bash
 docker compose up --build
 ```
 
-Buka `http://localhost:8000`. Dokumentasi API tersedia di `http://localhost:8000/docs` dan health check di `http://localhost:8000/health`.
+Open `http://localhost:8000`. API documentation is available at `http://localhost:8000/docs`, and the health endpoint is at `http://localhost:8000/health`.
 
-### Development lokal
+### Local development
 
-Prasyarat: Python 3.11+ dan Node.js 22+.
+Requirements: Python 3.11+ and Node.js 22+.
 
 ```bash
 python -m venv .venv
@@ -72,7 +72,7 @@ python scripts/seed_db.py
 uvicorn apps.api.main:app --reload --port 8000
 ```
 
-Di terminal lain:
+In another terminal:
 
 ```bash
 cd frontend
@@ -80,11 +80,11 @@ npm ci
 npm run dev
 ```
 
-Frontend development berjalan di `http://localhost:5173` dan mem-proxy `/api` ke port 8000.
+The frontend runs at `http://localhost:5173` and proxies `/api` to port 8000.
 
-## Reproduksi pipeline ML
+## Reproduce the ML pipeline
 
-Artifact siap-demo sudah disertakan agar reviewer tidak perlu melatih model. Untuk mereproduksi semuanya:
+Demo-ready artifacts are committed so reviewers do not need to train the models. To reproduce the complete pipeline:
 
 ```bash
 python scripts/generate_data.py
@@ -92,9 +92,9 @@ python scripts/train.py
 python scripts/seed_db.py
 ```
 
-Pipeline mencatat seed, checksum file, versi dataset/model, konfigurasi bobot, validation selection, dan test metrics. Bobot hybrid dipilih pada validation split; test split hanya dipakai untuk pelaporan akhir.
+The pipeline records the random seed, file checksums, dataset and model versions, weight configuration, validation selection, and test metrics. Hybrid weights are selected on the validation split; the test split is used only for final reporting.
 
-Perintah berguna:
+Useful commands:
 
 ```bash
 python scripts/evaluate.py
@@ -103,30 +103,30 @@ pytest --cov=rasa --cov-fail-under=50
 cd frontend && npm audit && npm run lint && npm run build
 ```
 
-## API inti
+## Core API
 
-| Method | Endpoint | Fungsi |
+| Method | Endpoint | Purpose |
 | --- | --- | --- |
-| `GET` | `/health` | Kesiapan model, katalog, dan database |
-| `GET` | `/api/v1/scenarios` | Skenario demo bawaan |
-| `GET` | `/api/v1/catalog/categories` | Kategori katalog |
-| `POST` | `/api/v1/missions/parse` | Draft misi dari teks; wajib ditinjau |
-| `POST` | `/api/v1/missions` | Validasi dan simpan misi anonim |
-| `POST` | `/api/v1/recommendations` | Ranking + optimasi + explanations |
-| `POST` | `/api/v1/baskets/optimize` | Respons fokus keranjang |
-| `POST` | `/api/v1/feedback` | Event feedback anonim |
-| `GET` | `/api/v1/analytics/summary` | Analytics agregat dengan sample warning |
-| `GET` | `/api/v1/experiments` | Konfigurasi dan hasil eksperimen |
-| `GET` | `/api/v1/benchmark` | Laporan evaluasi machine-readable |
+| `GET` | `/health` | Model, catalog, and database readiness |
+| `GET` | `/api/v1/scenarios` | Built-in demo scenarios |
+| `GET` | `/api/v1/catalog/categories` | Catalog categories |
+| `POST` | `/api/v1/missions/parse` | Mission draft from text; review required |
+| `POST` | `/api/v1/missions` | Validate and store an anonymous mission |
+| `POST` | `/api/v1/recommendations` | Ranking, optimization, and explanations |
+| `POST` | `/api/v1/baskets/optimize` | Basket-focused response |
+| `POST` | `/api/v1/feedback` | Anonymous feedback event |
+| `GET` | `/api/v1/analytics/summary` | Aggregated analytics with sample warnings |
+| `GET` | `/api/v1/experiments` | Experiment configuration and results |
+| `GET` | `/api/v1/benchmark` | Machine-readable evaluation report |
 
-Contoh request:
+Example request:
 
 ```bash
 curl -X POST http://localhost:8000/api/v1/recommendations \
   -H "Content-Type: application/json" \
   -d '{
     "mission": {
-      "goal": "Perlengkapan kuliah harian",
+      "goal": "Everyday campus essentials",
       "required_categories": ["bag", "stationery", "drinkware"],
       "optional_categories": ["organizer"],
       "max_budget": 250000,
@@ -134,7 +134,7 @@ curl -X POST http://localhost:8000/api/v1/recommendations \
     },
     "preferences": {
       "style": ["minimalist"],
-      "colors": ["hitam", "abu"],
+      "colors": ["black", "gray"],
       "brands": [],
       "minimum_rating": 4.2
     },
@@ -146,26 +146,26 @@ curl -X POST http://localhost:8000/api/v1/recommendations \
   }'
 ```
 
-## Struktur repository
+## Repository structure
 
 ```text
-apps/api/                  entry point deployment
-src/rasa/                  domain, ML, optimizer, services, API, database
-frontend/                  React mission builder dan dashboard
-configs/                   konfigurasi reproducible dan eksperimen
-data/raw, data/processed/  dataset sintetis dan temporal splits
-artifacts/models/          artifact model ringan berversi
-artifacts/reports/         output evaluasi machine-readable
-tests/                     unit, integration, dan data tests
-docs/                      PRD ringkas, cards, arsitektur, API, reports
-scripts/                   generate, train, evaluate, seed
+apps/api/                  deployment entry point
+src/rasa/                  domain, ML, optimizer, services, API, and database
+frontend/                  React mission builder and dashboard
+configs/                   reproducible configuration and experiments
+data/raw, data/processed/  synthetic dataset and temporal splits
+artifacts/models/          lightweight versioned model artifacts
+artifacts/reports/         machine-readable evaluation output
+tests/                     unit, integration, and data tests
+docs/                      PRD, cards, architecture, API, and reports
+scripts/                   generation, training, evaluation, and seeding
 ```
 
-## Dokumentasi
+## Documentation
 
-- [Product requirements & traceability](docs/product-requirements.md)
+- [Product requirements and traceability](docs/product-requirements.md)
 - [Architecture](docs/architecture/system.md)
-- [Dataset card](docs/dataset/dataset-card.md) dan [data dictionary](docs/dataset/data-dictionary.md)
+- [Dataset card](docs/dataset/dataset-card.md) and [data dictionary](docs/dataset/data-dictionary.md)
 - [Model card](docs/model/model-card.md)
 - [API guide](docs/api/README.md)
 - [Deployment guide](docs/deployment.md)
@@ -173,16 +173,16 @@ scripts/                   generate, train, evaluate, seed
 - [Problem validation notes](docs/problem-validation.md)
 - [Release notes](docs/release-notes.md)
 
-## Privasi, keamanan, dan batasan
+## Privacy, security, and limitations
 
-- UI tidak meminta nama, telepon, alamat, email, pembayaran, atau akun.
-- Feedback memakai session ID acak dan event append-oriented; analytics endpoint hanya mengembalikan agregat.
-- Payload size, enum, range, timeout, CORS, rate limit demo, dan error response divalidasi.
-- Rate limiter in-memory cocok untuk demo single-process, bukan pengganti distributed gateway.
-- SQLite cocok untuk demo; gunakan PostgreSQL untuk deployment multi-instance.
-- Font web memiliki fallback system font; frontend dan contoh statis tetap dapat dimuat saat API tidur.
-- Dataset sintetis tidak cukup untuk klaim preferensi pengguna nyata, fairness pasar, conversion, atau revenue.
+- The UI does not request a name, phone number, address, email address, payment details, or an account.
+- Feedback uses a random session ID and append-oriented events; the analytics endpoint returns aggregates only.
+- Payload size, enums, ranges, timeouts, CORS, demo rate limits, and error responses are validated.
+- The in-memory rate limiter is suitable for a single-process demo, not as a replacement for a distributed gateway.
+- SQLite is suitable for the demo; use PostgreSQL for a multi-instance deployment.
+- Web fonts have system fallbacks, and the frontend can show a labeled static example while the API wakes up.
+- Synthetic data is insufficient for claims about real user preferences, marketplace fairness, conversion, or revenue.
 
-## Lisensi
+## License
 
-Kode: [MIT](LICENSE). Dataset sintetis: CC BY 4.0 sebagaimana dicatat pada manifest. Dependency pihak ketiga mengikuti lisensi masing-masing.
+Code: [MIT](LICENSE). Synthetic dataset: CC BY 4.0, as recorded in the manifest. Third-party dependencies retain their respective licenses.

@@ -1,11 +1,11 @@
 # Problem Validation Notes
 
-## Hipotesis, bukan fakta pasar
+## Hypotheses, not market facts
 
-Proyek menguji empat hipotesis: mission-aware ranking lebih relevan daripada popularity-only; constraint-aware construction lebih feasible daripada independent top-1; gabungan ranking dan basket metrics lebih informatif daripada satu metrik klik; controlled exposure dapat membantu low-history items dengan relevance guardrail.
+The project tests four hypotheses: mission-aware ranking is more relevant than popularity-only ranking; constraint-aware construction is more feasible than independent top-1 selection; combined ranking and basket metrics are more informative than a single click metric; and controlled exposure can support low-history items with a relevance guardrail.
 
-Benchmark sintetis mendukung dua hipotesis teknis: EXP-006 memiliki NDCG@10 lebih tinggi dari category popularity, dan EXP-007 menaikkan budget feasibility dari 56,67% menjadi 98,33% dibanding ranking tanpa basket optimization. Hasil ini tidak memvalidasi demand pengguna atau dampak bisnis nyata.
+The synthetic benchmark supports two technical hypotheses: EXP-006 has higher NDCG@10 than category popularity, and EXP-007 raises budget feasibility from 56.67% to 98.33% compared with ranking without basket optimization. These results do not validate real user demand or business impact.
 
-## Riset yang masih diperlukan
+## Further research required
 
-Sebelum klaim produk, lakukan 5–8 problem interviews per persona, usability test pada mission builder, dan prior-art review produk/publikasi/paten. Ukur waktu penyelesaian tugas, kemampuan memahami trade-off, frekuensi misi infeasible, dan apakah explanation membantu keputusan. Jangan mengumpulkan PII; gunakan skenario dan katalog uji.
+Before making product claims, conduct five to eight problem interviews per persona, usability testing on the mission builder, and a prior-art review of products, publications, and patents. Measure task completion time, trade-off comprehension, infeasible-mission frequency, and whether explanations improve decisions. Do not collect personal data; use test scenarios and catalogs.

@@ -1,4 +1,4 @@
-"""Orchestrator rekomendasi end-to-end (Tahap A-E) + persistensi audit."""
+"""End-to-end recommendation orchestrator with audit persistence."""
 
 from __future__ import annotations
 
@@ -102,7 +102,7 @@ class RecommendationService:
             "experiment_id": experiment_id,
             "variant": variant,
             "strategy": strategy,
-            "label": "Simulasi A/B, bukan bukti kausal",
+            "label": "A/B simulation, not causal evidence",
         }
 
     # ------------------------------------------------------------------
@@ -142,12 +142,12 @@ class RecommendationService:
         if mission.max_merchants < 10:
             variants.append((
                 "merchant_luwes",
-                "Alternatif dengan batas toko lebih longgar",
+                "Alternative with a relaxed merchant limit",
                 replace(mission, max_merchants=mission.max_merchants + 1),
             ))
         variants.append((
             "anggaran_luwes",
-            "Alternatif dengan anggaran 15% lebih tinggi",
+            "Alternative with a 15% higher budget",
             replace(mission, max_budget=mission.max_budget * 1.15, max_merchants=mission.max_merchants + 1),
         ))
 
@@ -235,9 +235,8 @@ class RecommendationService:
             payload["is_selected_in_basket"] = item.product_id in selected_ids
             recommendations.append(payload)
 
-        # Solusi alternatif menjalankan optimizer tambahan. Hitung hanya ketika
-        # klien memang meminta mode perbandingan agar jalur utama tetap berada
-        # dalam budget latency demo.
+        # Alternative solutions run the optimizer again. Compute them only when
+        # explicitly requested so the primary path stays within its latency budget.
         alternative_baskets = (
             self._alternative_baskets(
                 rank_result.scored, mission, catalog_service_frame, basket, rank_result.diagnostics
@@ -260,20 +259,20 @@ class RecommendationService:
                     ),
                     "feasibility_changed": bool(basket.feasible != baseline.feasible),
                 },
-                "label": "Baseline memilih produk terbaik per kategori tanpa optimasi gabungan.",
+                "label": "The baseline selects the top product in each category without joint optimization.",
             }
 
         latency_ms = (time.perf_counter() - start) * 1000.0
         status = "success" if basket.feasible else "infeasible"
         limitations = [
-            "Harga, stok, rating, dan merchant adalah data simulasi, bukan data real-time.",
-            "Sistem ini bukan marketplace dan tidak memproses pembayaran atau pesanan.",
-            "Skor relevansi internal bukan probabilitas pembelian yang terkalibrasi.",
+            "Prices, inventory, ratings, and merchants are simulated, not real-time data.",
+            "This system is not a marketplace and does not process payments or orders.",
+            "Internal relevance scores are not calibrated purchase probabilities.",
         ]
         if rank_result.diagnostics.get("cold_start", {}).get("is_cold_user"):
             limitations.append(
-                "Profil pengguna belum memiliki histori memadai; rekomendasi memakai "
-                "preferensi misi, konten, dan popularitas kategori sebagai fallback."
+                "The user profile has insufficient history, so the recommendation falls back "
+                "to mission preferences, content, and category popularity."
             )
 
         response: dict[str, Any] = {
@@ -312,7 +311,7 @@ class RecommendationService:
             "meta": {
                 "latency_ms": round(latency_ms, 2),
                 "data_mode": "synthetic",
-                "notice": "Semua harga, stok, merchant, dan interaksi adalah simulasi.",
+                "notice": "All prices, inventory, merchants, and interactions are simulated.",
                 "candidate_count": int(len(rank_result.scored)),
             },
         }
@@ -419,5 +418,5 @@ def latency_budget_seconds() -> float:
 
 
 def score_confidence(score: float) -> float:
-    """Hanya untuk tampilan internal; bukan probabilitas pembelian."""
+    """Internal display value only; not a purchase probability."""
     return clamp(score)

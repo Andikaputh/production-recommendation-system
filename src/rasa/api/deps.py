@@ -1,4 +1,4 @@
-"""Dependency injection untuk API."""
+"""API dependency injection."""
 
 from __future__ import annotations
 

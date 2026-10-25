@@ -1,4 +1,4 @@
-"""Runner evaluasi offline: ranking, katalog, basket, ablation, dan simulasi A/B."""
+"""Offline evaluation runner for ranking, catalog, basket, ablation, and A/B simulation."""
 
 from __future__ import annotations
 
@@ -67,10 +67,10 @@ def generate_evaluation_missions(
         max_budget = max(20_000.0, median_total * factor)
         max_merchants = int(rng.integers(1, 4))
         minimum_rating = float(rng.choice([4.0, 4.2, 4.4]))
-        style = list(rng.choice(["minimalist", "sporty", "klasik", "playful", "natural"], size=1))
-        colors = list(rng.choice(["hitam", "putih", "abu", "navy", "krem", "hijau"], size=2, replace=False))
+        style = list(rng.choice(["minimalist", "sporty", "classic", "playful", "natural"], size=1))
+        colors = list(rng.choice(["black", "white", "gray", "navy", "cream", "green"], size=2, replace=False))
         missions.append(Mission(
-            goal="Misi evaluasi: menyiapkan " + ", ".join(required),
+            goal="Evaluation mission: prepare " + ", ".join(required),
             required_categories=required,
             optional_categories=optional,
             max_budget=float(round(max_budget / 500) * 500),
@@ -200,12 +200,11 @@ class OfflineEvaluator:
 
     # ------------------------------------------------------------------
     def evaluate_cold_start(self, n_users: int = 60, seed: int | None = None) -> dict[str, Any]:
-        """Simulasi cold-start dengan menyembunyikan sebagian besar histori.
+        """Simulate cold start by hiding most interaction history.
 
-        Tiga kondisi dibandingkan pada pengguna yang sama:
-        ``known_user`` (histori penuh), ``session_2_items`` (hanya 2 item terakhir
-        sebagai konteks sesi anonim), dan ``no_history`` (tanpa konteks).
-        Ini simulasi offline, bukan pengukuran pengguna baru sungguhan.
+        Compare full history, the final two items as anonymous session context,
+        and no history for the same users. This is an offline simulation, not a
+        measurement of genuinely new users.
         """
         rng = np.random.default_rng(settings.seed if seed is None else seed)
         eligible = [user_id for user_id in sorted(self.relevant) if self.train_counts.get(user_id, 0) >= 8]
@@ -253,9 +252,9 @@ class OfflineEvaluator:
                 **aggregate_metrics(rows),
                 "n_users": len(rows),
                 "context": {
-                    "known_user": "profil lengkap dari data training",
-                    "session_2_items": "dua interaksi terakhir sebagai konteks sesi anonim",
-                    "no_history": "tanpa histori; hanya misi, konten, dan popularitas",
+                    "known_user": "complete profile from training data",
+                    "session_2_items": "the final two interactions as anonymous session context",
+                    "no_history": "no history; mission, content, and popularity only",
                 }[scenario],
             }
         return {
@@ -263,8 +262,8 @@ class OfflineEvaluator:
             "scenarios": results,
             "n_users": len(sample),
             "note": (
-                "Cold-start disimulasikan dengan menyembunyikan histori pengguna yang sama; "
-                "bukan pengguna baru nyata dan bukan bukti performa produksi."
+                "Cold start is simulated by hiding history for the same users; this does not "
+                "represent real new users or production performance."
             ),
         }
 
@@ -286,10 +285,10 @@ class OfflineEvaluator:
 
     def evaluate_baskets(self, missions: list[Mission]) -> dict[str, Any]:
         configurations = {
-            "EXP-002": ("popularity_category", "independent", "Baseline popularitas kategori tanpa optimasi"),
-            "EXP-006": ("hybrid_mission", "independent", "Hybrid + misi tanpa optimasi keranjang"),
-            "EXP-007": ("hybrid_mission", "optimized", "Hybrid + optimasi keranjang (ILP)"),
-            "EXP-008": ("hybrid_exposure", "optimized", "Hybrid + eksposur terkontrol + optimasi"),
+            "EXP-002": ("popularity_category", "independent", "Category-popularity baseline without optimization"),
+            "EXP-006": ("hybrid_mission", "independent", "Hybrid plus mission without basket optimization"),
+            "EXP-007": ("hybrid_mission", "optimized", "Hybrid + basket optimization (ILP)"),
+            "EXP-008": ("hybrid_exposure", "optimized", "Hybrid + controlled exposure + optimization"),
         }
         results: dict[str, list[BasketResult]] = defaultdict(list)
         scored_caches: list[dict[str, pd.DataFrame]] = []
@@ -355,7 +354,7 @@ class OfflineEvaluator:
         results["base_all_signals"] = {
             "metrics": base_subset["metrics"],
             "weights": base_weights,
-            "note": f"Konfigurasi penuh pada subset {len(subset_users)} pengguna uji.",
+            "note": f"Full configuration on a subset of {len(subset_users)} test users.",
         }
         for name, override in variants.items():
             weights = dict(base_weights)
@@ -363,20 +362,20 @@ class OfflineEvaluator:
             if sum(weights.values()) <= 0:
                 continue
             config = copy.deepcopy(base_config)
-            # Bobot lain TIDAK dinormalisasi ulang: ablation mengukur kontribusi
-            # marginal komponen, bukan konfigurasi alternatif yang dioptimalkan.
+            # Other weights are not renormalized: the ablation measures
+            # a component's marginal contribution, not an optimized alternative configuration.
             config["weights"] = weights
             ranker = HybridRanker(
                 self.ranker.content, self.ranker.collaborative, self.ranker.popularity, config=config
             )
             results[name] = self._evaluate_ranking_with(ranker, user_ids=subset_users)
             results[name]["weights"] = config["weights"]
-            note = f"Ablation pada subset {len(subset_users)} pengguna uji."
+            note = f"Ablation on a subset of {len(subset_users)} test users."
             zeroed = [key for key, value in override.items() if value == 0.0 and base_weights.get(key, 0.0) == 0.0]
             if zeroed:
                 note += (
-                    f" Komponen {', '.join(zeroed)} sudah bernilai 0 pada konfigurasi terpilih, "
-                    "sehingga varian ini identik dengan baseline."
+                    f" Components {', '.join(zeroed)} are already zero in the selected configuration, "
+                    "so this variant is identical to the baseline."
                 )
             results[name]["note"] = note
 
@@ -385,12 +384,12 @@ class OfflineEvaluator:
             "without_exposure": ranking_results.get("EXP-006", {}).get("metrics"),
             "coverage_with_exposure": ranking_results.get("EXP-008", {}).get("catalog_metrics", {}).get("catalog_coverage"),
             "coverage_without_exposure": ranking_results.get("EXP-006", {}).get("catalog_metrics", {}).get("catalog_coverage"),
-            "note": "Eksposur terkontrol dibandingkan pada konfigurasi hybrid mission yang sama.",
+            "note": "Controlled exposure is compared under the same hybrid-mission configuration.",
         }
         results["no_basket_constraints"] = {
             "with_constraints": basket_results.get("EXP-007"),
             "without_constraints": basket_results.get("EXP-006"),
-            "note": "Tanpa batasan keras berarti memilih produk terbaik per kategori tanpa memeriksa total anggaran/merchant.",
+            "note": "Without hard constraints, the system selects the top product per category without checking total budget or merchant count.",
         }
         return results
 
@@ -418,7 +417,7 @@ class OfflineEvaluator:
                 float(np.quantile(differences, 0.975)),
             ],
             "label": (
-                "SIMULASI OFFLINE. Pembagian bukan randomisasi sesi live dan tidak membuktikan kausalitas."
+                "OFFLINE SIMULATION. Assignment is not randomized across live sessions and does not establish causality."
             ),
         }
 
@@ -445,7 +444,7 @@ class OfflineEvaluator:
                 f"Recall@10={result['metrics'].get('recall@10', 0):.4f}"
             )
 
-        print("[basket] menjalankan evaluasi keranjang...")
+        print("[basket] running basket evaluation...")
         missions = generate_evaluation_missions(self.bundle, n_missions=n_missions, seed=settings.seed)
         basket_results = self.evaluate_baskets(missions)
         for key, summary in basket_results.items():
@@ -454,10 +453,10 @@ class OfflineEvaluator:
                 f"coverage={summary.get('required_category_coverage')}"
             )
 
-        print("[ablation] menjalankan ablation study...")
+        print("[ablation] running the ablation study...")
         ablation = self._ablation(ranking_results, basket_results)
         ab_simulation = self._ab_simulation(ranking_results)
-        print("[cold-start] menjalankan simulasi cold-start...")
+        print("[cold-start] running the cold-start simulation...")
         cold_start = self.evaluate_cold_start()
 
         weights_config = read_json(settings.models_dir / "hybrid_config.json", {}) or {}
@@ -472,8 +471,8 @@ class OfflineEvaluator:
                 "n_users": len(self.relevant),
                 "n_events": int(len(self.bundle.test)),
                 "relevance_definition": (
-                    "Produk dengan event positif pada holdout temporal, setelah produk yang "
-                    "sudah pernah berinteraksi di training dikeluarkan."
+                    "Products with positive events in the temporal holdout after excluding "
+                    "products already seen in training."
                 ),
                 "n_catalog_items": self.catalog_size,
             },
@@ -484,11 +483,11 @@ class OfflineEvaluator:
             "ab_simulation": ab_simulation,
             "cold_start_simulation": cold_start,
             "notes": [
-                "Semua data bersifat sintetis; angka tidak merepresentasikan marketplace nyata.",
-                "Metrik ranking memakai holdout temporal per pengguna.",
-                "EXP-007 dievaluasi pada metrik basket karena tujuannya optimasi kombinasi.",
-                "Interval kepercayaan memakai bootstrap pada level pengguna.",
-                "Simulasi A/B bukan eksperimen online dan tidak boleh diklaim sebagai bukti kausal.",
+                "All data is synthetic; the values do not represent a real marketplace.",
+                "Ranking metrics use a per-user temporal holdout.",
+                "EXP-007 uses basket metrics because its objective is combination optimization.",
+                "Confidence intervals use user-level bootstrapping.",
+                "The A/B simulation is not an online experiment and must not be presented as causal evidence.",
             ],
         }
         write_json(settings.reports_dir / "evaluation.json", payload)
@@ -578,19 +577,19 @@ class OfflineEvaluator:
             "seed": payload["seed"],
             "results": experiments,
             "ab_simulation": payload["ab_simulation"],
-            "note": "Hasil offline; bukan bukti dampak bisnis nyata.",
+            "note": "Offline results; not evidence of real business impact.",
         })
 
     def _write_benchmark(self, payload: dict[str, Any]) -> None:
         lines = [
-            "# Benchmark Report — RASA",
+            "# Benchmark Report : RASA",
             "",
-            f"- Dibuat: {payload['generated_at']}",
-            f"- Dataset: `{payload['dataset_version']}` (sintetis)",
+            f"- Generated: {payload['generated_at']}",
+            f"- Dataset: `{payload['dataset_version']}` (synthetic)",
             f"- Model: `{payload['model_version']}`",
             f"- Seed: {payload['seed']}",
-            f"- Holdout: {payload['test_set']['n_users']} pengguna, {payload['test_set']['n_events']} event",
-            f"- Definisi relevansi: {payload['test_set']['relevance_definition']}",
+            f"- Holdout: {payload['test_set']['n_users']} users, {payload['test_set']['n_events']} events",
+            f"- Relevance definition: {payload['test_set']['relevance_definition']}",
             "",
             "## 1. Ranking (k = 10)",
             "",
@@ -611,7 +610,7 @@ class OfflineEvaluator:
             "",
             "## 2. Basket",
             "",
-            "| Exp | Konfigurasi | Feasibility | Required coverage | Avg merchant | Budget utilization | Basket relevance |",
+            "| Exp | Configuration | Feasibility | Required coverage | Avg merchant | Budget utilization | Basket relevance |",
             "| --- | --- | ---: | ---: | ---: | ---: | ---: |",
         ])
         for experiment_id, result in payload["baskets"].items():
@@ -627,7 +626,7 @@ class OfflineEvaluator:
             "",
             "## 3. Ablation",
             "",
-            "| Varian | NDCG@10 | Recall@10 |",
+            "| Variant | NDCG@10 | Recall@10 |",
             "| --- | ---: | ---: |",
         ])
         for name, result in payload["ablation"].items():
@@ -640,9 +639,9 @@ class OfflineEvaluator:
                 lines.append(f"| {name} | - | - |")
         lines.extend([
             "",
-            "## 4. Simulasi Cold-Start",
+            "## 4. Cold-Start Simulation",
             "",
-            "| Skenario | NDCG@10 | Recall@10 | HitRate@10 | Pengguna |",
+            "| Scenario | NDCG@10 | Recall@10 | HitRate@10 | Users |",
             "| --- | ---: | ---: | ---: | ---: |",
         ])
         cold = payload.get("cold_start_simulation", {}) or {}
@@ -653,13 +652,13 @@ class OfflineEvaluator:
             )
         lines.extend([
             "",
-            "## 5. Simulasi A/B",
+            "## 5. A/B Simulation",
             "",
             f"- Status: **{payload['ab_simulation'].get('status')}**",
-            f"- Lift absolut (simulasi): {payload['ab_simulation'].get('absolute_lift')}",
-            f"- Catatan: {payload['ab_simulation'].get('label')}",
+            f"- Absolute lift (simulation): {payload['ab_simulation'].get('absolute_lift')}",
+            f"- Note: {payload['ab_simulation'].get('label')}",
             "",
-            "## 6. Batasan",
+            "## 6. Limitations",
             "",
         ])
         lines.extend(f"- {note}" for note in payload["notes"])

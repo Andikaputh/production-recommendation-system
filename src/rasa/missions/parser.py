@@ -1,8 +1,8 @@
-"""Ekstraksi misi dari bahasa alami (rule-based, tanpa LLM berbayar).
+"""Rule-based natural-language mission extraction.
 
-PRD FR-020 (Could): hasil ekstraksi WAJIB ditinjau pengguna sebelum dipakai.
-Parser ini deterministik dan hanya mengekstrak struktur; tidak mengarang harga,
-stok, atau rating.
+PRD FR-020 requires users to review extracted fields before applying them. The
+parser is deterministic, extracts structure only, and never invents prices,
+inventory, or ratings.
 """
 
 from __future__ import annotations
@@ -13,66 +13,65 @@ from typing import Any
 from rasa.missions.validation import Preferences
 
 CATEGORY_KEYWORDS: dict[str, tuple[str, ...]] = {
-    "bag": ("tas ransel", "ransel", "backpack", "tas tote", "tote bag", "tas selempang", "tas"),
+    "bag": ("backpack", "tote bag", "sling bag", "bag"),
     "stationery": (
-        "alat tulis", "buku catatan", "buku tulis", "pulpen", "pensil", "stabilo",
-        "highlighter", "notebook", "penghapus",
+        "stationery", "notebook", "pen", "pencil", "highlighter", "eraser",
     ),
-    "drinkware": ("botol minum", "botol", "tumbler", "mug", "gelas", "drinkware"),
-    "organizer": ("organizer meja", "pengatur kabel", "organizer", "pouch", "tempat pensil"),
+    "drinkware": ("water bottle", "bottle", "tumbler", "mug", "cup", "drinkware"),
+    "organizer": ("desk organizer", "cable organizer", "organizer", "pouch", "pencil case"),
     "electronics": (
         "power bank", "powerbank", "mouse", "keyboard", "earphone", "headset",
-        "usb hub", "elektronik",
+        "usb hub", "electronics",
     ),
-    "book": ("buku pelajaran", "buku", "novel", "jurnal"),
-    "desk": ("lampu meja", "stand laptop", "mat meja", "perlengkapan meja", "meja kerja"),
-    "personal_care": ("hand sanitizer", "sanitizer", "tabir surya", "sunscreen", "lip balm", "perawatan diri"),
-    "snack": ("energy bar", "kopi", "biskuit", "camilan", "snack", "makanan ringan"),
-    "umbrella": ("payung lipat", "payung transparan", "payung"),
+    "book": ("textbook", "book", "novel", "journal"),
+    "desk": ("desk lamp", "laptop stand", "desk mat", "desk accessories", "workspace"),
+    "personal_care": ("hand sanitizer", "sanitizer", "sunscreen", "lip balm", "personal care"),
+    "snack": ("energy bar", "coffee", "biscuits", "snack", "light meal"),
+    "umbrella": ("folding umbrella", "transparent umbrella", "umbrella"),
 }
 
 STYLE_KEYWORDS = {
-    "minimalist": ("minimalis", "minimalist", "sederhana"),
-    "sporty": ("sporty", "olahraga"),
-    "klasik": ("klasik", "classic"),
-    "playful": ("ceria", "playful", "warna-warni"),
-    "natural": ("natural", "alami", "earth tone", "netral", "neutral"),
+    "minimalist": ("minimalist", "simple"),
+    "sporty": ("sporty", "athletic"),
+    "classic": ("classic", "timeless"),
+    "playful": ("playful", "colorful"),
+    "natural": ("natural", "earth tone", "neutral"),
 }
 
 COLOR_KEYWORDS = {
-    "hitam": ("hitam", "black"),
-    "putih": ("putih", "white"),
-    "abu": ("abu", "grey", "gray"),
-    "navy": ("navy", "biru tua"),
-    "hijau": ("hijau", "green"),
-    "krem": ("krem", "cream", "beige"),
-    "biru": ("biru", "blue"),
-    "merah": ("merah", "red"),
-    "cokelat": ("cokelat", "brown"),
-    "transparan": ("transparan", "clear"),
+    "black": ("black",),
+    "white": ("white",),
+    "gray": ("gray", "grey"),
+    "navy": ("navy", "dark blue"),
+    "green": ("green",),
+    "cream": ("cream", "beige"),
+    "blue": ("blue",),
+    "red": ("red",),
+    "brown": ("brown",),
+    "transparent": ("transparent", "clear"),
 }
 
 NUMBER_WORDS = {
-    "satu": 1, "dua": 2, "tiga": 3, "empat": 4, "lima": 5,
-    "enam": 6, "tujuh": 7, "delapan": 8, "sembilan": 9, "sepuluh": 10,
+    "one": 1, "two": 2, "three": 3, "four": 4, "five": 5,
+    "six": 6, "seven": 7, "eight": 8, "nine": 9, "ten": 10,
 }
 
 MONEY_PATTERN = re.compile(
-    r"(?:rp\.?\s*)?(\d{1,3}(?:\.\d{3})+|\d+(?:,\d+)?)\s*(juta|jt|ribu|rb|k)?",
+    r"(?:idr|rp\.?|\$)?\s*(\d{1,3}(?:[.,]\d{3})+|\d+(?:[.,]\d+)?)\s*(million|m|thousand|k)?",
     re.IGNORECASE,
 )
 MERCHANT_PATTERN = re.compile(
-    r"(?:maks(?:imal|\.)?|paling banyak|maksimal|hingga|dari)?\s*"
-    r"(\d+|satu|dua|tiga|empat|lima|enam|tujuh|delapan|sembilan|sepuluh)\s*"
-    r"(?:toko|merchant|penjual)",
+    r"(?:maximum|max\.?|up to|from)?\s*"
+    r"(\d+|one|two|three|four|five|six|seven|eight|nine|ten)\s*"
+    r"(?:stores?|merchants?|sellers?)",
     re.IGNORECASE,
 )
 RATING_PATTERN = re.compile(
-    r"rating(?:\s*(?:minimal|min\.?))?\s*(?:di atas|minimal|>=|:)?\s*(\d(?:[.,]\d)?)",
+    r"rating(?:\s*(?:minimum|min\.?))?\s*(?:above|minimum|>=|:)?\s*(\d(?:[.,]\d)?)",
     re.IGNORECASE,
 )
 BUDGET_CONTEXT = re.compile(
-    r"(anggaran|budget|maksimal|maks\.?|maks|di bawah|kurang dari|s.d\.?|sampai|rp)",
+    r"(budget|maximum|max\.?|under|less than|up to|idr|rp|\$)",
     re.IGNORECASE,
 )
 
@@ -82,12 +81,12 @@ def _parse_money(raw_number: str, unit: str | None) -> float | None:
     multiplier = 1.0
     if unit:
         unit_lower = unit.lower()
-        if unit_lower in {"juta", "jt"}:
+        if unit_lower in {"million", "m"}:
             multiplier = 1_000_000
-        elif unit_lower in {"ribu", "rb", "k"}:
+        elif unit_lower in {"thousand", "k"}:
             multiplier = 1_000
-    if "." in text and re.fullmatch(r"\d{1,3}(?:\.\d{3})+", text):
-        value = float(text.replace(".", ""))
+    if re.fullmatch(r"\d{1,3}(?:[.,]\d{3})+", text):
+        value = float(text.replace(".", "").replace(",", ""))
     else:
         value = float(text.replace(",", "."))
     return value * multiplier
@@ -97,9 +96,9 @@ def extract_budget(text: str) -> tuple[float | None, str | None]:
     candidates: list[tuple[float, int, str]] = []
     for match in MONEY_PATTERN.finditer(text):
         number, unit = match.group(1), match.group(2)
-        # Abaikan angka yang jelas bukan uang (mis. "2 toko").
+        # Ignore numbers that clearly are not monetary values, such as "2 merchants".
         tail = text[match.end(): match.end() + 12].lower()
-        if re.match(r"\s*(toko|merchant|orang|hari|minggu|bulan|tahun|kategori)", tail):
+        if re.match(r"\s*(stores?|merchants?|people|days?|weeks?|months?|years?|categories)", tail):
             continue
         value = _parse_money(number, unit)
         if value is None or value < 100:
@@ -121,7 +120,7 @@ def detect_categories(text: str) -> tuple[list[str], list[str], list[str]]:
     matched_terms: list[str] = []
     remaining = text.lower()
 
-    # Frasa terpanjang diproses lebih dulu agar "buku catatan" tidak menjadi "buku".
+    # Process longer phrases first so "water bottle" does not degrade to "bottle".
     keyword_pairs = [
         (keyword, category_id)
         for category_id, keywords in CATEGORY_KEYWORDS.items()
@@ -137,7 +136,7 @@ def detect_categories(text: str) -> tuple[list[str], list[str], list[str]]:
         if not match:
             continue
         context = remaining[max(0, match.start() - 30): match.end() + 30]
-        if "opsional" in context or "kalau ada" in context or "jika memungkinkan" in context:
+        if "optional" in context or "if available" in context or "if possible" in context:
             optional.append(category_id)
         else:
             required.append(category_id)
@@ -187,19 +186,19 @@ def parse_mission_text(text: str) -> dict[str, Any]:
     ]
 
     notes: list[str] = [
-        "Ekstraksi ini menggunakan aturan kata kunci dan harus dikonfirmasi sebelum dipakai.",
+        "This extraction uses keyword rules and must be confirmed before use.",
     ]
     if budget is None:
-        notes.append("Anggaran tidak terdeteksi; pengguna perlu mengisinya manual.")
+        notes.append("No budget was detected; enter it manually.")
     if not required and not optional:
-        notes.append("Kategori tidak terdeteksi; pilih kategori secara manual.")
+        notes.append("No category was detected; select categories manually.")
     if max_merchants is None:
-        notes.append("Batas jumlah toko tidak terdeteksi; nilai default 2 dipakai setelah konfirmasi.")
+        notes.append("No merchant limit was detected; the default value of 2 is used after confirmation.")
     if minimum_rating is not None and not (3.5 <= minimum_rating <= 5.0):
-        notes.append("Rating minimum di luar skala dataset 3,5-5,0; periksa kembali.")
+        notes.append("The minimum rating is outside the dataset range of 3.5 to 5.0; review it.")
         minimum_rating = None
 
-    # Kategori opsional dibatasi agar scope misi tetap jelas.
+    # Limit optional categories so the mission remains focused.
     if len(required) > 6:
         optional.extend(required[6:])
         required = required[:6]
@@ -211,7 +210,7 @@ def parse_mission_text(text: str) -> dict[str, Any]:
     confidence = round(min(0.95, 0.40 + 0.09 * fields_found), 2)
 
     goal = clean
-    for prefix in ("saya ingin ", "aku ingin ", "tolong ", "bantu saya "):
+    for prefix in ("i want ", "i need ", "please ", "help me "):
         if goal.lower().startswith(prefix):
             goal = goal[len(prefix):]
             break
