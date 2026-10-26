@@ -43,6 +43,8 @@ from rasa.services.feedback import (
 )
 from rasa.services.missions import create_mission, mission_to_payload
 from rasa.services.model_registry import ModelRegistry, registry
+from rasa.services.pilot import current_catalog, enabled, require_admin
+from rasa.services.pilot import router as pilot_router
 from rasa.utils import iso_now, json_safe, read_json
 
 logger = logging.getLogger("rasa.api")
@@ -74,9 +76,6 @@ request_id_var: ContextVar[str | None] = ContextVar("request_id", default=None)
 
 
 def _client_key(request: Request) -> str:
-    forwarded = request.headers.get("x-forwarded-for")
-    if forwarded:
-        return forwarded.split(",")[0].strip()
     return request.client.host if request.client else "anonymous"
 
 
@@ -157,9 +156,10 @@ def create_app(model_registry: ModelRegistry | None = None) -> FastAPI:
         allow_origins=settings.cors_origins,
         allow_credentials=False,
         allow_methods=["GET", "POST", "OPTIONS"],
-        allow_headers=["Content-Type", "X-Request-ID"],
+        allow_headers=["Content-Type", "X-Request-ID", "X-Session-ID", "Authorization"],
         expose_headers=["X-Request-ID", "X-Response-Time-Ms"],
     )
+    application.include_router(pilot_router)
 
     @application.middleware("http")
     async def guard(request: Request, call_next):
@@ -167,10 +167,26 @@ def create_app(model_registry: ModelRegistry | None = None) -> FastAPI:
         request_id_var.set(request_id)
         request.state.request_id = request_id
 
+        legacy = ("catalog/", "missions", "recommendations", "baskets/", "feedback")
+        if enabled() and request.url.path.startswith(tuple(f"{API_PREFIX}/{name}" for name in legacy)):
+            return _error(409, "pilot_endpoint_required", "Mode pilot memakai /api/v1/pilot agar data merchant dan demo terpisah.")
+
+        protected = request.url.path.startswith((f"{API_PREFIX}/analytics", f"{API_PREFIX}/experiments", f"{API_PREFIX}/feedback/session"))
+        if protected and (enabled() or settings.environment == "production"):
+            try:
+                require_admin(request.headers.get("authorization", ""))
+            except HTTPException:
+                return _error(401, "unauthorized", "Token admin diperlukan.")
+
         max_bytes = int(settings.get("api.max_payload_bytes", 65536))
         declared = request.headers.get("content-length")
-        if declared and int(declared) > max_bytes:
-            return _error(413, "payload_too_large", f"Payload exceeds the {max_bytes}-byte limit.")
+        try:
+            if declared and (int(declared) < 0 or int(declared) > max_bytes):
+                return _error(413, "payload_too_large", f"Payload exceeds the {max_bytes}-byte limit.")
+        except ValueError:
+            return _error(400, "invalid_length", "Content-Length tidak valid.")
+        if request.method in {"POST", "PUT", "PATCH"} and len(await request.body()) > max_bytes:
+            return _error(413, "payload_too_large", "Payload terlalu besar.")
 
         if request.url.path not in {"/health", "/"}:
             allowed, remaining = rate_limiter.allow(_client_key(request))
@@ -248,9 +264,22 @@ def create_app(model_registry: ModelRegistry | None = None) -> FastAPI:
                 "loaded": catalog_service.loaded,
                 "products": int(len(catalog_service.catalog)),
             },
-            "database": {"ok": db_ok, "error": db_error},
+            "database": {"ok": db_ok, "error": "Database unavailable" if db_error else None},
             "environment": settings.environment,
         }
+
+    @application.get("/readyz", tags=["meta"])
+    def readiness(db: Session = Depends(get_db)):
+        try:
+            if enabled():
+                current_catalog(db)
+            elif not registry.ready:
+                raise RuntimeError("Model belum siap.")
+            if not healthcheck()[0]:
+                raise RuntimeError("Database belum siap.")
+        except Exception:
+            return _error(503, "not_ready", "Katalog, model, atau database belum siap.")
+        return {"status": "ready"}
 
     @application.get(f"{API_PREFIX}/model", tags=["meta"])
     def model_status() -> dict[str, Any]:
@@ -370,6 +399,9 @@ def create_app(model_registry: ModelRegistry | None = None) -> FastAPI:
     # ------------------------------------------------------------------
     def _recommend_sync(payload: RecommendationIn) -> dict[str, Any]:
         from rasa.services.recommendation import RecommendationService
+
+        if enabled():
+            raise HTTPException(409, "Mode pilot menggunakan /api/v1/pilot/missions agar katalog dan event terisolasi.")
 
         if not registry.ready:
             raise HTTPException(

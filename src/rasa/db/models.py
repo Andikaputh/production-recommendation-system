@@ -31,6 +31,36 @@ class Base(DeclarativeBase):
     pass
 
 
+class PilotCatalog(Base):
+    __tablename__ = "pilot_catalogs"
+    merchant_id: Mapped[str] = mapped_column(String(50), primary_key=True)
+    imported_at: Mapped[datetime] = mapped_column(DateTime, nullable=False)
+    synthetic: Mapped[bool] = mapped_column(Boolean, nullable=False)
+    checksum: Mapped[str] = mapped_column(String(64), nullable=False)
+
+
+class PilotMission(Base):
+    __tablename__ = "pilot_missions"
+    mission_id: Mapped[str] = mapped_column(String(80), primary_key=True)
+    session_id: Mapped[str] = mapped_column(String(80), nullable=False, index=True)
+    source: Mapped[str] = mapped_column(String(20), nullable=False)
+    payload: Mapped[dict] = mapped_column(JSON, nullable=False)
+    snapshot: Mapped[dict] = mapped_column(JSON, nullable=False)
+    revision: Mapped[int] = mapped_column(Integer, nullable=False, default=1)
+    created_at: Mapped[datetime] = mapped_column(DateTime, nullable=False, default=utcnow)
+    __mapper_args__ = {"version_id_col": revision}
+
+
+class PilotEvent(Base):
+    __tablename__ = "pilot_events"
+    event_id: Mapped[str] = mapped_column(String(80), primary_key=True)
+    mission_id: Mapped[str] = mapped_column(ForeignKey("pilot_missions.mission_id"), nullable=False, index=True)
+    event_type: Mapped[str] = mapped_column(String(40), nullable=False)
+    revision: Mapped[int] = mapped_column(Integer, nullable=False)
+    created_at: Mapped[datetime] = mapped_column(DateTime, nullable=False, default=utcnow)
+    __table_args__ = (UniqueConstraint("mission_id", "event_type", "revision", name="uq_pilot_event"),)
+
+
 class Category(Base):
     __tablename__ = "categories"
 

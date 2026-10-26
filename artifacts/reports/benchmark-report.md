@@ -1,6 +1,6 @@
 # Benchmark Report : RASA
 
-- Generated: 2026-10-25T13:13:12Z
+- Generated: 2026-10-26T01:21:23Z
 - Dataset: `rasa-synth-1.0.0` (synthetic)
 - Model: `hybrid-v1`
 - Seed: 42
@@ -25,19 +25,21 @@
 | --- | --- | ---: | ---: | ---: | ---: | ---: |
 | EXP-002 | Category-popularity baseline without optimization | 0.5833 | 1.0000 | 1.6 | 0.6595 | 0.9476 |
 | EXP-006 | Hybrid plus mission without basket optimization | 0.5417 | 1.0000 | 1.55 | 0.7068 | 0.7853 |
-| EXP-007 | Hybrid + basket optimization (ILP) | 0.9750 | 1.0000 | 1.64 | 0.7736 | 0.6714 |
-| EXP-008 | Hybrid + controlled exposure + optimization | 0.9833 | 1.0000 | 1.64 | 0.7743 | 0.6973 |
+| EXP-007 | Hybrid + basket optimization (ILP) | 0.9917 | 1.0000 | 1.63 | 0.7707 | 0.6675 |
+| EXP-008 | Hybrid + controlled exposure + optimization | 0.9917 | 1.0000 | 1.63 | 0.7647 | 0.6946 |
+| SIMPLE-CHEAPEST | Cheapest eligible item per category, no joint optimization | 0.6083 | 1.0000 | 1.68 | 0.4319 | 0.4877 |
+| SIMPLE-FIXED | Fixed highest-rating catalog curation per category, no test-label selection | 0.2083 | 1.0000 | 1.4 | 0.7833 | 0.5955 |
 
 ## 3. Ablation
 
 | Variant | NDCG@10 | Recall@10 |
 | --- | ---: | ---: |
-| base_all_signals | 0.0768 | 0.1101 |
-| no_collaborative_signal | 0.0781 | 0.1122 |
-| no_content_signal | 0.0645 | 0.0897 |
-| no_mission_signal | 0.0693 | 0.0955 |
-| no_quality_signal | 0.0798 | 0.1229 |
-| no_affinity_signal | 0.0768 | 0.1101 |
+| base_all_signals | 0.0739 | 0.1058 |
+| no_collaborative_signal | 0.0710 | 0.1036 |
+| no_content_signal | 0.0549 | 0.0823 |
+| no_mission_signal | 0.0697 | 0.0962 |
+| no_quality_signal | 0.0843 | 0.1194 |
+| no_affinity_signal | 0.0739 | 0.1058 |
 | no_exposure_adjustment | - | - |
 | no_basket_constraints | - | - |
 

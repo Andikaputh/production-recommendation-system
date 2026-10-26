@@ -477,6 +477,7 @@ class HybridRanker:
             order = np.argsort(-score, kind="stable")
 
         scored = candidates.copy()
+        scored["candidate_order"] = np.arange(len(candidates))
         scored["score"] = score
         for name, values in components.items():
             scored[f"component_{name}"] = values

@@ -1,0 +1,13 @@
+{
+  "label": "ASUMSI ILUSTRATIF, BUKAN DATA BISNIS AKTUAL",
+  "currency": "IDR",
+  "monthly_subscription": 300000,
+  "accepted_baskets_per_merchant_month": 100,
+  "compute_cost_per_accepted_basket": 100,
+  "support_hours_per_merchant_month": 2,
+  "hourly_labor_cost": 50000,
+  "onboarding_hours": 4,
+  "onboarding_amortization_months": 6,
+  "fixed_monthly_cost": 1000000,
+  "merchant_acquisition_cost": 500000
+}

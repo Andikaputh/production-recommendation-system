@@ -20,6 +20,7 @@ jobs:
       - run: python -m pip install --upgrade pip
       - run: pip install -e ".[dev]"
       - run: ruff check .
+      - run: python scripts/sync_evaluation_docs.py --check
       - run: pytest --cov=rasa --cov-report=term --cov-fail-under=50
 
   frontend:
@@ -37,6 +38,7 @@ jobs:
       - run: npm ci
       - run: npm audit
       - run: npm run lint
+      - run: npm test
       - run: npm run build
 
   container:

@@ -1,0 +1,37 @@
+{
+  "generated_at": "2026-10-26T02:17:05.128Z",
+  "default_language": "en",
+  "languages": {
+    "en": {
+      "feasible": true,
+      "acceptance": true,
+      "handoff": true,
+      "infeasible": true,
+      "api_failure": true,
+      "language_persisted": true,
+      "custom_input_preserved": true,
+      "result_preserved_on_language_switch": true,
+      "mobile_overflow": false,
+      "page_errors": []
+    },
+    "id": {
+      "feasible": true,
+      "acceptance": true,
+      "handoff": true,
+      "infeasible": true,
+      "api_failure": true,
+      "language_persisted": true,
+      "custom_input_preserved": true,
+      "result_preserved_on_language_switch": true,
+      "mobile_overflow": false,
+      "page_errors": []
+    }
+  },
+  "maximum_budget": {
+    "valid_whole_rupiah": true,
+    "invalid_bounds_and_fractions_rejected": true,
+    "submitted_budget": 250000,
+    "api_status": 200,
+    "live_result_rendered": true
+  }
+}

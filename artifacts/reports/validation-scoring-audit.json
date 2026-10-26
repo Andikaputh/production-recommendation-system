@@ -1,0 +1,17 @@
+{
+  "generated_at": "2026-10-26T01:15:06Z",
+  "split": "validation",
+  "selected_new_weights": false,
+  "n_users": 175,
+  "mismatched_user_ids": [],
+  "metrics_frozen_weights_actual_inference": {
+    "precision@10": 0.026857142857142857,
+    "recall@10": 0.13047619047619047,
+    "ndcg@10": 0.07986902994840728,
+    "map@10": 0.046698790627362055,
+    "mrr": 0.09302721088435374,
+    "hit_rate@10": 0.24571428571428572
+  },
+  "hybrid_config_sha256": "014cd227458536ac03a4acc8360a8931f20ff64cb766d3fcaaff3e2b45b3e055",
+  "note": "Audit only. Existing frozen config remains unchanged; this is not a new grid-search run."
+}

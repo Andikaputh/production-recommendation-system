@@ -13,7 +13,7 @@ EventType = Literal["impression", "click", "save", "add_to_list", "purchase_prox
 
 
 class PreferencesIn(BaseModel):
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="forbid", allow_inf_nan=False)
 
     style: list[str] = Field(default_factory=list, max_length=5)
     colors: list[str] = Field(default_factory=list, max_length=10)
@@ -26,7 +26,7 @@ class PreferencesIn(BaseModel):
 
 
 class MissionIn(BaseModel):
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="forbid", allow_inf_nan=False)
 
     goal: str = Field(min_length=3, max_length=500)
     required_categories: list[str] = Field(min_length=1, max_length=6)
@@ -38,6 +38,13 @@ class MissionIn(BaseModel):
     @classmethod
     def _dedupe(cls, value: list[str]) -> list[str]:
         return list(dict.fromkeys(item.strip() for item in value if item.strip()))
+
+    @field_validator("required_categories")
+    @classmethod
+    def _required_nonempty(cls, value: list[str]) -> list[str]:
+        if not value:
+            raise ValueError("Pilih setidaknya satu kebutuhan wajib.")
+        return value
 
     def to_domain(self, preferences: PreferencesIn | None = None) -> Mission:
         return Mission.from_dict({

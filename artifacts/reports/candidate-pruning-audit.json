@@ -1,0 +1,2776 @@
+{
+  "generated_at": "2026-10-26T01:11:44Z",
+  "seed": 42,
+  "n_missions": 120,
+  "feasible_counts": {
+    "old_top_score_only": 117,
+    "price_and_merchant_preserving": 119,
+    "all_retrieved_candidates": 119
+  },
+  "mission_hash": "957aa963b61161fc123ba6fee82278c603ace0b77dc14d2fa9d4a6149c0673e9",
+  "model_config_sha256": "014cd227458536ac03a4acc8360a8931f20ff64cb766d3fcaaff3e2b45b3e055",
+  "optimizer_sha256": "f87ea974346c971a24676ef42eca7d2429cfc1a82e1f5f27ffcc74f585db2bc9",
+  "note": "Same eligible retrieved candidates for all policies. Full means after retrieval filters/cap; no global guarantee. Solver statuses retained; timeout is not proof of infeasibility. No tuning on these results.",
+  "records": [
+    {
+      "mission_index": 0,
+      "outcomes": {
+        "old_top_score_only": {
+          "candidate_count": 14,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 0.9209112833085135
+        },
+        "price_and_merchant_preserving": {
+          "candidate_count": 22,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 0.9209112833085135
+        },
+        "all_retrieved_candidates": {
+          "candidate_count": 25,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 0.9209112833085135
+        }
+      }
+    },
+    {
+      "mission_index": 1,
+      "outcomes": {
+        "old_top_score_only": {
+          "candidate_count": 56,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 2.3156483627098408
+        },
+        "price_and_merchant_preserving": {
+          "candidate_count": 102,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 2.3156483627098403
+        },
+        "all_retrieved_candidates": {
+          "candidate_count": 136,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 2.3156483627098408
+        }
+      }
+    },
+    {
+      "mission_index": 2,
+      "outcomes": {
+        "old_top_score_only": {
+          "candidate_count": 28,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.5290790526453526
+        },
+        "price_and_merchant_preserving": {
+          "candidate_count": 51,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.5290790526453526
+        },
+        "all_retrieved_candidates": {
+          "candidate_count": 69,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.5290790526453526
+        }
+      }
+    },
+    {
+      "mission_index": 3,
+      "outcomes": {
+        "old_top_score_only": {
+          "candidate_count": 42,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.669407575811851
+        },
+        "price_and_merchant_preserving": {
+          "candidate_count": 73,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.6694075758118512
+        },
+        "all_retrieved_candidates": {
+          "candidate_count": 107,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.669407575811851
+        }
+      }
+    },
+    {
+      "mission_index": 4,
+      "outcomes": {
+        "old_top_score_only": {
+          "candidate_count": 42,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 2.0394799137778343
+        },
+        "price_and_merchant_preserving": {
+          "candidate_count": 68,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 2.0394799137778348
+        },
+        "all_retrieved_candidates": {
+          "candidate_count": 86,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 2.0394799137778343
+        }
+      }
+    },
+    {
+      "mission_index": 5,
+      "outcomes": {
+        "old_top_score_only": {
+          "candidate_count": 42,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.8849426809445982
+        },
+        "price_and_merchant_preserving": {
+          "candidate_count": 55,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.8849426809445982
+        },
+        "all_retrieved_candidates": {
+          "candidate_count": 60,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.8849426809445982
+        }
+      }
+    },
+    {
+      "mission_index": 6,
+      "outcomes": {
+        "old_top_score_only": {
+          "candidate_count": 42,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.2907946836359379
+        },
+        "price_and_merchant_preserving": {
+          "candidate_count": 56,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.2907946836359379
+        },
+        "all_retrieved_candidates": {
+          "candidate_count": 64,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.2907946836359379
+        }
+      }
+    },
+    {
+      "mission_index": 7,
+      "outcomes": {
+        "old_top_score_only": {
+          "candidate_count": 11,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 0.6181151980959743
+        },
+        "price_and_merchant_preserving": {
+          "candidate_count": 11,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 0.6181151980959743
+        },
+        "all_retrieved_candidates": {
+          "candidate_count": 11,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 0.6181151980959743
+        }
+      }
+    },
+    {
+      "mission_index": 8,
+      "outcomes": {
+        "old_top_score_only": {
+          "candidate_count": 42,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.9040737829945968
+        },
+        "price_and_merchant_preserving": {
+          "candidate_count": 78,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.9040737829945968
+        },
+        "all_retrieved_candidates": {
+          "candidate_count": 96,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.9040737829945968
+        }
+      }
+    },
+    {
+      "mission_index": 9,
+      "outcomes": {
+        "old_top_score_only": {
+          "candidate_count": 28,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.2713176178625811
+        },
+        "price_and_merchant_preserving": {
+          "candidate_count": 56,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.2713176178625811
+        },
+        "all_retrieved_candidates": {
+          "candidate_count": 77,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.2713176178625811
+        }
+      }
+    },
+    {
+      "mission_index": 10,
+      "outcomes": {
+        "old_top_score_only": {
+          "candidate_count": 22,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.0696377530426195
+        },
+        "price_and_merchant_preserving": {
+          "candidate_count": 26,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.0696377530426195
+        },
+        "all_retrieved_candidates": {
+          "candidate_count": 28,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.0696377530426195
+        }
+      }
+    },
+    {
+      "mission_index": 11,
+      "outcomes": {
+        "old_top_score_only": {
+          "candidate_count": 14,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 0.7401614898013547
+        },
+        "price_and_merchant_preserving": {
+          "candidate_count": 22,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 0.7401614898013547
+        },
+        "all_retrieved_candidates": {
+          "candidate_count": 25,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 0.7401614898013547
+        }
+      }
+    },
+    {
+      "mission_index": 12,
+      "outcomes": {
+        "old_top_score_only": {
+          "candidate_count": 42,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.9551430694141572
+        },
+        "price_and_merchant_preserving": {
+          "candidate_count": 81,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.9551430694141572
+        },
+        "all_retrieved_candidates": {
+          "candidate_count": 99,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.9551430694141572
+        }
+      }
+    },
+    {
+      "mission_index": 13,
+      "outcomes": {
+        "old_top_score_only": {
+          "candidate_count": 56,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 2.1104765049392973
+        },
+        "price_and_merchant_preserving": {
+          "candidate_count": 75,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 2.1104765049392977
+        },
+        "all_retrieved_candidates": {
+          "candidate_count": 79,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 2.1104765049392973
+        }
+      }
+    },
+    {
+      "mission_index": 14,
+      "outcomes": {
+        "old_top_score_only": {
+          "candidate_count": 28,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.4518417335852238
+        },
+        "price_and_merchant_preserving": {
+          "candidate_count": 52,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.4518417335852238
+        },
+        "all_retrieved_candidates": {
+          "candidate_count": 67,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.4518417335852238
+        }
+      }
+    },
+    {
+      "mission_index": 15,
+      "outcomes": {
+        "old_top_score_only": {
+          "candidate_count": 16,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 0.5700017983197374
+        },
+        "price_and_merchant_preserving": {
+          "candidate_count": 24,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 0.5700017983197374
+        },
+        "all_retrieved_candidates": {
+          "candidate_count": 29,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 0.5700017983197374
+        }
+      }
+    },
+    {
+      "mission_index": 16,
+      "outcomes": {
+        "old_top_score_only": {
+          "candidate_count": 42,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.8103289066150319
+        },
+        "price_and_merchant_preserving": {
+          "candidate_count": 77,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.8103289066150319
+        },
+        "all_retrieved_candidates": {
+          "candidate_count": 103,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.8103289066150319
+        }
+      }
+    },
+    {
+      "mission_index": 17,
+      "outcomes": {
+        "old_top_score_only": {
+          "candidate_count": 42,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.7090206996464634
+        },
+        "price_and_merchant_preserving": {
+          "candidate_count": 57,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.7090206996464632
+        },
+        "all_retrieved_candidates": {
+          "candidate_count": 62,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.7090206996464634
+        }
+      }
+    },
+    {
+      "mission_index": 18,
+      "outcomes": {
+        "old_top_score_only": {
+          "candidate_count": 56,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.408354060813946
+        },
+        "price_and_merchant_preserving": {
+          "candidate_count": 79,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.525696978508068
+        },
+        "all_retrieved_candidates": {
+          "candidate_count": 90,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.525696978508068
+        }
+      }
+    },
+    {
+      "mission_index": 19,
+      "outcomes": {
+        "old_top_score_only": {
+          "candidate_count": 14,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 0.808968199602118
+        },
+        "price_and_merchant_preserving": {
+          "candidate_count": 14,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 0.808968199602118
+        },
+        "all_retrieved_candidates": {
+          "candidate_count": 14,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 0.808968199602118
+        }
+      }
+    },
+    {
+      "mission_index": 20,
+      "outcomes": {
+        "old_top_score_only": {
+          "candidate_count": 28,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.3241608436097962
+        },
+        "price_and_merchant_preserving": {
+          "candidate_count": 54,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.3241608436097962
+        },
+        "all_retrieved_candidates": {
+          "candidate_count": 72,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.3241608436097962
+        }
+      }
+    },
+    {
+      "mission_index": 21,
+      "outcomes": {
+        "old_top_score_only": {
+          "candidate_count": 23,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.4376168229538664
+        },
+        "price_and_merchant_preserving": {
+          "candidate_count": 23,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.4376168229538664
+        },
+        "all_retrieved_candidates": {
+          "candidate_count": 23,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.4376168229538664
+        }
+      }
+    },
+    {
+      "mission_index": 22,
+      "outcomes": {
+        "old_top_score_only": {
+          "candidate_count": 14,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 0.8470214744470098
+        },
+        "price_and_merchant_preserving": {
+          "candidate_count": 16,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 0.8470214744470098
+        },
+        "all_retrieved_candidates": {
+          "candidate_count": 17,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 0.8470214744470098
+        }
+      }
+    },
+    {
+      "mission_index": 23,
+      "outcomes": {
+        "old_top_score_only": {
+          "candidate_count": 14,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 0.8753072140900879
+        },
+        "price_and_merchant_preserving": {
+          "candidate_count": 21,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 0.8753072140900879
+        },
+        "all_retrieved_candidates": {
+          "candidate_count": 22,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 0.8753072140900879
+        }
+      }
+    },
+    {
+      "mission_index": 24,
+      "outcomes": {
+        "old_top_score_only": {
+          "candidate_count": 42,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 2.0761680470440793
+        },
+        "price_and_merchant_preserving": {
+          "candidate_count": 86,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 2.0761680470440793
+        },
+        "all_retrieved_candidates": {
+          "candidate_count": 120,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 2.0761680470440793
+        }
+      }
+    },
+    {
+      "mission_index": 25,
+      "outcomes": {
+        "old_top_score_only": {
+          "candidate_count": 14,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 0.9071060158753498
+        },
+        "price_and_merchant_preserving": {
+          "candidate_count": 23,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 0.9071060158753498
+        },
+        "all_retrieved_candidates": {
+          "candidate_count": 27,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 0.9071060158753498
+        }
+      }
+    },
+    {
+      "mission_index": 26,
+      "outcomes": {
+        "old_top_score_only": {
+          "candidate_count": 22,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 0.727047401365984
+        },
+        "price_and_merchant_preserving": {
+          "candidate_count": 25,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 0.727047401365984
+        },
+        "all_retrieved_candidates": {
+          "candidate_count": 25,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 0.727047401365984
+        }
+      }
+    },
+    {
+      "mission_index": 27,
+      "outcomes": {
+        "old_top_score_only": {
+          "candidate_count": 28,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.5146020055229257
+        },
+        "price_and_merchant_preserving": {
+          "candidate_count": 59,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.5146020055229257
+        },
+        "all_retrieved_candidates": {
+          "candidate_count": 87,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.5146020055229257
+        }
+      }
+    },
+    {
+      "mission_index": 28,
+      "outcomes": {
+        "old_top_score_only": {
+          "candidate_count": 14,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 0.96487374566676
+        },
+        "price_and_merchant_preserving": {
+          "candidate_count": 27,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 0.96487374566676
+        },
+        "all_retrieved_candidates": {
+          "candidate_count": 31,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 0.96487374566676
+        }
+      }
+    },
+    {
+      "mission_index": 29,
+      "outcomes": {
+        "old_top_score_only": {
+          "candidate_count": 56,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.5011154620708969
+        },
+        "price_and_merchant_preserving": {
+          "candidate_count": 107,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.8451127065597752
+        },
+        "all_retrieved_candidates": {
+          "candidate_count": 161,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 2.06778626954702
+        }
+      }
+    },
+    {
+      "mission_index": 30,
+      "outcomes": {
+        "old_top_score_only": {
+          "candidate_count": 56,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 2.0584956187865364
+        },
+        "price_and_merchant_preserving": {
+          "candidate_count": 113,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 2.058495618786536
+        },
+        "all_retrieved_candidates": {
+          "candidate_count": 167,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 2.0584956187865364
+        }
+      }
+    },
+    {
+      "mission_index": 31,
+      "outcomes": {
+        "old_top_score_only": {
+          "candidate_count": 28,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.1795634889508155
+        },
+        "price_and_merchant_preserving": {
+          "candidate_count": 46,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.1795634889508155
+        },
+        "all_retrieved_candidates": {
+          "candidate_count": 58,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.1795634889508155
+        }
+      }
+    },
+    {
+      "mission_index": 32,
+      "outcomes": {
+        "old_top_score_only": {
+          "candidate_count": 33,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.626056613589851
+        },
+        "price_and_merchant_preserving": {
+          "candidate_count": 39,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.6260566135898513
+        },
+        "all_retrieved_candidates": {
+          "candidate_count": 41,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.626056613589851
+        }
+      }
+    },
+    {
+      "mission_index": 33,
+      "outcomes": {
+        "old_top_score_only": {
+          "candidate_count": 26,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 0.8480036174126281
+        },
+        "price_and_merchant_preserving": {
+          "candidate_count": 34,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 0.8480036174126281
+        },
+        "all_retrieved_candidates": {
+          "candidate_count": 39,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 0.8480036174126281
+        }
+      }
+    },
+    {
+      "mission_index": 34,
+      "outcomes": {
+        "old_top_score_only": {
+          "candidate_count": 23,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 0.7937127802407556
+        },
+        "price_and_merchant_preserving": {
+          "candidate_count": 26,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 0.7937127802407556
+        },
+        "all_retrieved_candidates": {
+          "candidate_count": 27,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 0.7937127802407556
+        }
+      }
+    },
+    {
+      "mission_index": 35,
+      "outcomes": {
+        "old_top_score_only": {
+          "candidate_count": 42,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 2.040998058346341
+        },
+        "price_and_merchant_preserving": {
+          "candidate_count": 80,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 2.040998058346341
+        },
+        "all_retrieved_candidates": {
+          "candidate_count": 112,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 2.040998058346341
+        }
+      }
+    },
+    {
+      "mission_index": 36,
+      "outcomes": {
+        "old_top_score_only": {
+          "candidate_count": 42,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 2.215155774695534
+        },
+        "price_and_merchant_preserving": {
+          "candidate_count": 82,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 2.215155774695534
+        },
+        "all_retrieved_candidates": {
+          "candidate_count": 113,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 2.215155774695534
+        }
+      }
+    },
+    {
+      "mission_index": 37,
+      "outcomes": {
+        "old_top_score_only": {
+          "candidate_count": 28,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.4301717530678542
+        },
+        "price_and_merchant_preserving": {
+          "candidate_count": 55,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.4301717530678542
+        },
+        "all_retrieved_candidates": {
+          "candidate_count": 84,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.4301717530678542
+        }
+      }
+    },
+    {
+      "mission_index": 38,
+      "outcomes": {
+        "old_top_score_only": {
+          "candidate_count": 28,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.096590833653257
+        },
+        "price_and_merchant_preserving": {
+          "candidate_count": 35,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.096590833653257
+        },
+        "all_retrieved_candidates": {
+          "candidate_count": 37,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.096590833653257
+        }
+      }
+    },
+    {
+      "mission_index": 39,
+      "outcomes": {
+        "old_top_score_only": {
+          "candidate_count": 56,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 2.1948069784553654
+        },
+        "price_and_merchant_preserving": {
+          "candidate_count": 100,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 2.1948069784553654
+        },
+        "all_retrieved_candidates": {
+          "candidate_count": 131,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 2.1948069784553654
+        }
+      }
+    },
+    {
+      "mission_index": 40,
+      "outcomes": {
+        "old_top_score_only": {
+          "candidate_count": 27,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.6493798970342528
+        },
+        "price_and_merchant_preserving": {
+          "candidate_count": 33,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.6493798970342528
+        },
+        "all_retrieved_candidates": {
+          "candidate_count": 38,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.6493798970342528
+        }
+      }
+    },
+    {
+      "mission_index": 41,
+      "outcomes": {
+        "old_top_score_only": {
+          "candidate_count": 28,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.531765572715732
+        },
+        "price_and_merchant_preserving": {
+          "candidate_count": 45,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.531765572715732
+        },
+        "all_retrieved_candidates": {
+          "candidate_count": 58,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.531765572715732
+        }
+      }
+    },
+    {
+      "mission_index": 42,
+      "outcomes": {
+        "old_top_score_only": {
+          "candidate_count": 11,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 0.9477267449182316
+        },
+        "price_and_merchant_preserving": {
+          "candidate_count": 11,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 0.9477267449182316
+        },
+        "all_retrieved_candidates": {
+          "candidate_count": 11,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 0.9477267449182316
+        }
+      }
+    },
+    {
+      "mission_index": 43,
+      "outcomes": {
+        "old_top_score_only": {
+          "candidate_count": 42,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 2.099307570217411
+        },
+        "price_and_merchant_preserving": {
+          "candidate_count": 75,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 2.099307570217411
+        },
+        "all_retrieved_candidates": {
+          "candidate_count": 103,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 2.099307570217411
+        }
+      }
+    },
+    {
+      "mission_index": 44,
+      "outcomes": {
+        "old_top_score_only": {
+          "candidate_count": 42,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 2.2773125471109625
+        },
+        "price_and_merchant_preserving": {
+          "candidate_count": 81,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 2.2773125471109625
+        },
+        "all_retrieved_candidates": {
+          "candidate_count": 111,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 2.2773125471109625
+        }
+      }
+    },
+    {
+      "mission_index": 45,
+      "outcomes": {
+        "old_top_score_only": {
+          "candidate_count": 28,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.1864090018859006
+        },
+        "price_and_merchant_preserving": {
+          "candidate_count": 48,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.1864090018859006
+        },
+        "all_retrieved_candidates": {
+          "candidate_count": 60,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.1864090018859006
+        }
+      }
+    },
+    {
+      "mission_index": 46,
+      "outcomes": {
+        "old_top_score_only": {
+          "candidate_count": 42,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.2982587659819846
+        },
+        "price_and_merchant_preserving": {
+          "candidate_count": 57,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.2982587659819846
+        },
+        "all_retrieved_candidates": {
+          "candidate_count": 67,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.2982587659819846
+        }
+      }
+    },
+    {
+      "mission_index": 47,
+      "outcomes": {
+        "old_top_score_only": {
+          "candidate_count": 56,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 2.1048823478355247
+        },
+        "price_and_merchant_preserving": {
+          "candidate_count": 74,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 2.1048823478355243
+        },
+        "all_retrieved_candidates": {
+          "candidate_count": 82,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 2.1048823478355247
+        }
+      }
+    },
+    {
+      "mission_index": 48,
+      "outcomes": {
+        "old_top_score_only": {
+          "candidate_count": 28,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.4779340252728068
+        },
+        "price_and_merchant_preserving": {
+          "candidate_count": 35,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.4779340252728068
+        },
+        "all_retrieved_candidates": {
+          "candidate_count": 36,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.4779340252728068
+        }
+      }
+    },
+    {
+      "mission_index": 49,
+      "outcomes": {
+        "old_top_score_only": {
+          "candidate_count": 29,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.3720126043784535
+        },
+        "price_and_merchant_preserving": {
+          "candidate_count": 35,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.3720126043784535
+        },
+        "all_retrieved_candidates": {
+          "candidate_count": 39,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.3720126043784535
+        }
+      }
+    },
+    {
+      "mission_index": 50,
+      "outcomes": {
+        "old_top_score_only": {
+          "candidate_count": 42,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 2.0707635059066525
+        },
+        "price_and_merchant_preserving": {
+          "candidate_count": 75,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 2.0707635059066525
+        },
+        "all_retrieved_candidates": {
+          "candidate_count": 99,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 2.0707635059066525
+        }
+      }
+    },
+    {
+      "mission_index": 51,
+      "outcomes": {
+        "old_top_score_only": {
+          "candidate_count": 42,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.5437291831842372
+        },
+        "price_and_merchant_preserving": {
+          "candidate_count": 79,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.5437291831842372
+        },
+        "all_retrieved_candidates": {
+          "candidate_count": 104,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.5437291831842372
+        }
+      }
+    },
+    {
+      "mission_index": 52,
+      "outcomes": {
+        "old_top_score_only": {
+          "candidate_count": 56,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.8314422505042776
+        },
+        "price_and_merchant_preserving": {
+          "candidate_count": 106,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.8314422505042776
+        },
+        "all_retrieved_candidates": {
+          "candidate_count": 141,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.8314422505042776
+        }
+      }
+    },
+    {
+      "mission_index": 53,
+      "outcomes": {
+        "old_top_score_only": {
+          "candidate_count": 14,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 0.9879999999999999
+        },
+        "price_and_merchant_preserving": {
+          "candidate_count": 15,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 0.9879999999999999
+        },
+        "all_retrieved_candidates": {
+          "candidate_count": 15,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 0.9879999999999999
+        }
+      }
+    },
+    {
+      "mission_index": 54,
+      "outcomes": {
+        "old_top_score_only": {
+          "candidate_count": 42,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 2.24696445978538
+        },
+        "price_and_merchant_preserving": {
+          "candidate_count": 71,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 2.24696445978538
+        },
+        "all_retrieved_candidates": {
+          "candidate_count": 107,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 2.24696445978538
+        }
+      }
+    },
+    {
+      "mission_index": 55,
+      "outcomes": {
+        "old_top_score_only": {
+          "candidate_count": 42,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.6095246102967984
+        },
+        "price_and_merchant_preserving": {
+          "candidate_count": 80,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.6095246102967986
+        },
+        "all_retrieved_candidates": {
+          "candidate_count": 120,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.6095246102967984
+        }
+      }
+    },
+    {
+      "mission_index": 56,
+      "outcomes": {
+        "old_top_score_only": {
+          "candidate_count": 23,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.2636863598131534
+        },
+        "price_and_merchant_preserving": {
+          "candidate_count": 34,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.2636863598131534
+        },
+        "all_retrieved_candidates": {
+          "candidate_count": 46,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.2636863598131534
+        }
+      }
+    },
+    {
+      "mission_index": 57,
+      "outcomes": {
+        "old_top_score_only": {
+          "candidate_count": 28,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.3109364300803548
+        },
+        "price_and_merchant_preserving": {
+          "candidate_count": 35,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.3109364300803548
+        },
+        "all_retrieved_candidates": {
+          "candidate_count": 39,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.3109364300803548
+        }
+      }
+    },
+    {
+      "mission_index": 58,
+      "outcomes": {
+        "old_top_score_only": {
+          "candidate_count": 42,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.854108031155886
+        },
+        "price_and_merchant_preserving": {
+          "candidate_count": 88,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.854108031155886
+        },
+        "all_retrieved_candidates": {
+          "candidate_count": 122,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.854108031155886
+        }
+      }
+    },
+    {
+      "mission_index": 59,
+      "outcomes": {
+        "old_top_score_only": {
+          "candidate_count": 5,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 0.9494672519837049
+        },
+        "price_and_merchant_preserving": {
+          "candidate_count": 5,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 0.9494672519837049
+        },
+        "all_retrieved_candidates": {
+          "candidate_count": 5,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 0.9494672519837049
+        }
+      }
+    },
+    {
+      "mission_index": 60,
+      "outcomes": {
+        "old_top_score_only": {
+          "candidate_count": 14,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 0.9107689304485446
+        },
+        "price_and_merchant_preserving": {
+          "candidate_count": 18,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 0.9107689304485446
+        },
+        "all_retrieved_candidates": {
+          "candidate_count": 20,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 0.9107689304485446
+        }
+      }
+    },
+    {
+      "mission_index": 61,
+      "outcomes": {
+        "old_top_score_only": {
+          "candidate_count": 42,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 2.1018756298896784
+        },
+        "price_and_merchant_preserving": {
+          "candidate_count": 83,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 2.1018756298896784
+        },
+        "all_retrieved_candidates": {
+          "candidate_count": 119,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 2.1018756298896784
+        }
+      }
+    },
+    {
+      "mission_index": 62,
+      "outcomes": {
+        "old_top_score_only": {
+          "candidate_count": 42,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.7494347635213332
+        },
+        "price_and_merchant_preserving": {
+          "candidate_count": 68,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.7494347635213332
+        },
+        "all_retrieved_candidates": {
+          "candidate_count": 94,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.7494347635213332
+        }
+      }
+    },
+    {
+      "mission_index": 63,
+      "outcomes": {
+        "old_top_score_only": {
+          "candidate_count": 42,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 2.234443990525274
+        },
+        "price_and_merchant_preserving": {
+          "candidate_count": 90,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 2.2344439905252735
+        },
+        "all_retrieved_candidates": {
+          "candidate_count": 135,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 2.234443990525274
+        }
+      }
+    },
+    {
+      "mission_index": 64,
+      "outcomes": {
+        "old_top_score_only": {
+          "candidate_count": 28,
+          "feasible": false,
+          "solver": "ilp_infeasible",
+          "objective": null
+        },
+        "price_and_merchant_preserving": {
+          "candidate_count": 45,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.0012068565502716
+        },
+        "all_retrieved_candidates": {
+          "candidate_count": 55,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.0012068565502716
+        }
+      }
+    },
+    {
+      "mission_index": 65,
+      "outcomes": {
+        "old_top_score_only": {
+          "candidate_count": 42,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.402974411554859
+        },
+        "price_and_merchant_preserving": {
+          "candidate_count": 53,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.4029744115548592
+        },
+        "all_retrieved_candidates": {
+          "candidate_count": 58,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.402974411554859
+        }
+      }
+    },
+    {
+      "mission_index": 66,
+      "outcomes": {
+        "old_top_score_only": {
+          "candidate_count": 14,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 0.9749861572665651
+        },
+        "price_and_merchant_preserving": {
+          "candidate_count": 15,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 0.9749861572665651
+        },
+        "all_retrieved_candidates": {
+          "candidate_count": 15,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 0.9749861572665651
+        }
+      }
+    },
+    {
+      "mission_index": 67,
+      "outcomes": {
+        "old_top_score_only": {
+          "candidate_count": 5,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 0.5997227964983735
+        },
+        "price_and_merchant_preserving": {
+          "candidate_count": 5,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 0.5997227964983735
+        },
+        "all_retrieved_candidates": {
+          "candidate_count": 5,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 0.5997227964983735
+        }
+      }
+    },
+    {
+      "mission_index": 68,
+      "outcomes": {
+        "old_top_score_only": {
+          "candidate_count": 14,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 0.8145584153349051
+        },
+        "price_and_merchant_preserving": {
+          "candidate_count": 26,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 0.8145584153349051
+        },
+        "all_retrieved_candidates": {
+          "candidate_count": 31,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 0.8145584153349051
+        }
+      }
+    },
+    {
+      "mission_index": 69,
+      "outcomes": {
+        "old_top_score_only": {
+          "candidate_count": 42,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.5487987618606105
+        },
+        "price_and_merchant_preserving": {
+          "candidate_count": 76,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.5487987618606105
+        },
+        "all_retrieved_candidates": {
+          "candidate_count": 101,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.5487987618606105
+        }
+      }
+    },
+    {
+      "mission_index": 70,
+      "outcomes": {
+        "old_top_score_only": {
+          "candidate_count": 23,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 0.7569477861942874
+        },
+        "price_and_merchant_preserving": {
+          "candidate_count": 27,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 0.7569477861942874
+        },
+        "all_retrieved_candidates": {
+          "candidate_count": 27,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 0.7569477861942874
+        }
+      }
+    },
+    {
+      "mission_index": 71,
+      "outcomes": {
+        "old_top_score_only": {
+          "candidate_count": 42,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 2.216188435439097
+        },
+        "price_and_merchant_preserving": {
+          "candidate_count": 76,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 2.216188435439097
+        },
+        "all_retrieved_candidates": {
+          "candidate_count": 103,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 2.216188435439097
+        }
+      }
+    },
+    {
+      "mission_index": 72,
+      "outcomes": {
+        "old_top_score_only": {
+          "candidate_count": 8,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 0.9115951323702942
+        },
+        "price_and_merchant_preserving": {
+          "candidate_count": 8,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 0.9115951323702942
+        },
+        "all_retrieved_candidates": {
+          "candidate_count": 8,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 0.9115951323702942
+        }
+      }
+    },
+    {
+      "mission_index": 73,
+      "outcomes": {
+        "old_top_score_only": {
+          "candidate_count": 56,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 2.6497720224068826
+        },
+        "price_and_merchant_preserving": {
+          "candidate_count": 101,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 2.6497720224068826
+        },
+        "all_retrieved_candidates": {
+          "candidate_count": 137,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 2.6497720224068826
+        }
+      }
+    },
+    {
+      "mission_index": 74,
+      "outcomes": {
+        "old_top_score_only": {
+          "candidate_count": 53,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.888310464868269
+        },
+        "price_and_merchant_preserving": {
+          "candidate_count": 68,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.888310464868269
+        },
+        "all_retrieved_candidates": {
+          "candidate_count": 73,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.888310464868269
+        }
+      }
+    },
+    {
+      "mission_index": 75,
+      "outcomes": {
+        "old_top_score_only": {
+          "candidate_count": 28,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.6242292201683939
+        },
+        "price_and_merchant_preserving": {
+          "candidate_count": 41,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.6242292201683939
+        },
+        "all_retrieved_candidates": {
+          "candidate_count": 54,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.6242292201683939
+        }
+      }
+    },
+    {
+      "mission_index": 76,
+      "outcomes": {
+        "old_top_score_only": {
+          "candidate_count": 42,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.9380825571185796
+        },
+        "price_and_merchant_preserving": {
+          "candidate_count": 90,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.9380825571185798
+        },
+        "all_retrieved_candidates": {
+          "candidate_count": 143,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.9380825571185796
+        }
+      }
+    },
+    {
+      "mission_index": 77,
+      "outcomes": {
+        "old_top_score_only": {
+          "candidate_count": 28,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.1690406396332922
+        },
+        "price_and_merchant_preserving": {
+          "candidate_count": 58,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.1690406396332922
+        },
+        "all_retrieved_candidates": {
+          "candidate_count": 81,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.1690406396332922
+        }
+      }
+    },
+    {
+      "mission_index": 78,
+      "outcomes": {
+        "old_top_score_only": {
+          "candidate_count": 28,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.270695881690481
+        },
+        "price_and_merchant_preserving": {
+          "candidate_count": 37,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.270695881690481
+        },
+        "all_retrieved_candidates": {
+          "candidate_count": 42,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.270695881690481
+        }
+      }
+    },
+    {
+      "mission_index": 79,
+      "outcomes": {
+        "old_top_score_only": {
+          "candidate_count": 42,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.7218448341480526
+        },
+        "price_and_merchant_preserving": {
+          "candidate_count": 58,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.7218448341480526
+        },
+        "all_retrieved_candidates": {
+          "candidate_count": 63,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.7218448341480526
+        }
+      }
+    },
+    {
+      "mission_index": 80,
+      "outcomes": {
+        "old_top_score_only": {
+          "candidate_count": 28,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.3729157923352555
+        },
+        "price_and_merchant_preserving": {
+          "candidate_count": 30,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.3729157923352555
+        },
+        "all_retrieved_candidates": {
+          "candidate_count": 30,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.3729157923352555
+        }
+      }
+    },
+    {
+      "mission_index": 81,
+      "outcomes": {
+        "old_top_score_only": {
+          "candidate_count": 42,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 2.0926274788585
+        },
+        "price_and_merchant_preserving": {
+          "candidate_count": 79,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 2.0926274788585
+        },
+        "all_retrieved_candidates": {
+          "candidate_count": 105,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 2.0926274788585
+        }
+      }
+    },
+    {
+      "mission_index": 82,
+      "outcomes": {
+        "old_top_score_only": {
+          "candidate_count": 42,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.7254176423949827
+        },
+        "price_and_merchant_preserving": {
+          "candidate_count": 52,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.7254176423949827
+        },
+        "all_retrieved_candidates": {
+          "candidate_count": 56,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.7254176423949827
+        }
+      }
+    },
+    {
+      "mission_index": 83,
+      "outcomes": {
+        "old_top_score_only": {
+          "candidate_count": 39,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.3754842037793367
+        },
+        "price_and_merchant_preserving": {
+          "candidate_count": 46,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.375484203779337
+        },
+        "all_retrieved_candidates": {
+          "candidate_count": 53,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.3754842037793367
+        }
+      }
+    },
+    {
+      "mission_index": 84,
+      "outcomes": {
+        "old_top_score_only": {
+          "candidate_count": 56,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.9012302959734322
+        },
+        "price_and_merchant_preserving": {
+          "candidate_count": 106,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.9012302959734322
+        },
+        "all_retrieved_candidates": {
+          "candidate_count": 155,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.9012302959734322
+        }
+      }
+    },
+    {
+      "mission_index": 85,
+      "outcomes": {
+        "old_top_score_only": {
+          "candidate_count": 28,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.1549727034157005
+        },
+        "price_and_merchant_preserving": {
+          "candidate_count": 45,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.1549727034157005
+        },
+        "all_retrieved_candidates": {
+          "candidate_count": 55,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.1549727034157005
+        }
+      }
+    },
+    {
+      "mission_index": 86,
+      "outcomes": {
+        "old_top_score_only": {
+          "candidate_count": 42,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.957314516294255
+        },
+        "price_and_merchant_preserving": {
+          "candidate_count": 49,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.9573145162942545
+        },
+        "all_retrieved_candidates": {
+          "candidate_count": 54,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.957314516294255
+        }
+      }
+    },
+    {
+      "mission_index": 87,
+      "outcomes": {
+        "old_top_score_only": {
+          "candidate_count": 41,
+          "feasible": false,
+          "solver": "ilp_infeasible",
+          "objective": null
+        },
+        "price_and_merchant_preserving": {
+          "candidate_count": 48,
+          "feasible": false,
+          "solver": "ilp_infeasible",
+          "objective": null
+        },
+        "all_retrieved_candidates": {
+          "candidate_count": 54,
+          "feasible": false,
+          "solver": "ilp_infeasible",
+          "objective": null
+        }
+      }
+    },
+    {
+      "mission_index": 88,
+      "outcomes": {
+        "old_top_score_only": {
+          "candidate_count": 42,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.8321348777552466
+        },
+        "price_and_merchant_preserving": {
+          "candidate_count": 73,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.8321348777552466
+        },
+        "all_retrieved_candidates": {
+          "candidate_count": 93,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.8321348777552466
+        }
+      }
+    },
+    {
+      "mission_index": 89,
+      "outcomes": {
+        "old_top_score_only": {
+          "candidate_count": 42,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.7108528762458124
+        },
+        "price_and_merchant_preserving": {
+          "candidate_count": 58,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.7108528762458124
+        },
+        "all_retrieved_candidates": {
+          "candidate_count": 67,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.7108528762458124
+        }
+      }
+    },
+    {
+      "mission_index": 90,
+      "outcomes": {
+        "old_top_score_only": {
+          "candidate_count": 14,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 0.8172812784300587
+        },
+        "price_and_merchant_preserving": {
+          "candidate_count": 14,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 0.8172812784300587
+        },
+        "all_retrieved_candidates": {
+          "candidate_count": 14,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 0.8172812784300587
+        }
+      }
+    },
+    {
+      "mission_index": 91,
+      "outcomes": {
+        "old_top_score_only": {
+          "candidate_count": 56,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 2.2707969826685215
+        },
+        "price_and_merchant_preserving": {
+          "candidate_count": 76,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 2.2707969826685215
+        },
+        "all_retrieved_candidates": {
+          "candidate_count": 83,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 2.2707969826685215
+        }
+      }
+    },
+    {
+      "mission_index": 92,
+      "outcomes": {
+        "old_top_score_only": {
+          "candidate_count": 21,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.2981586059471435
+        },
+        "price_and_merchant_preserving": {
+          "candidate_count": 23,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.2981586059471435
+        },
+        "all_retrieved_candidates": {
+          "candidate_count": 23,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.2981586059471435
+        }
+      }
+    },
+    {
+      "mission_index": 93,
+      "outcomes": {
+        "old_top_score_only": {
+          "candidate_count": 27,
+          "feasible": false,
+          "solver": "ilp_infeasible",
+          "objective": null
+        },
+        "price_and_merchant_preserving": {
+          "candidate_count": 39,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 0.6567459493805061
+        },
+        "all_retrieved_candidates": {
+          "candidate_count": 43,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 0.6567459493805061
+        }
+      }
+    },
+    {
+      "mission_index": 94,
+      "outcomes": {
+        "old_top_score_only": {
+          "candidate_count": 42,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.3787142226426727
+        },
+        "price_and_merchant_preserving": {
+          "candidate_count": 67,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.3787142226426727
+        },
+        "all_retrieved_candidates": {
+          "candidate_count": 92,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.3787142226426727
+        }
+      }
+    },
+    {
+      "mission_index": 95,
+      "outcomes": {
+        "old_top_score_only": {
+          "candidate_count": 42,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.6984289705809712
+        },
+        "price_and_merchant_preserving": {
+          "candidate_count": 54,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.6984289705809712
+        },
+        "all_retrieved_candidates": {
+          "candidate_count": 59,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.6984289705809712
+        }
+      }
+    },
+    {
+      "mission_index": 96,
+      "outcomes": {
+        "old_top_score_only": {
+          "candidate_count": 23,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 0.8160781039284029
+        },
+        "price_and_merchant_preserving": {
+          "candidate_count": 26,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 0.8160781039284029
+        },
+        "all_retrieved_candidates": {
+          "candidate_count": 27,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 0.8160781039284029
+        }
+      }
+    },
+    {
+      "mission_index": 97,
+      "outcomes": {
+        "old_top_score_only": {
+          "candidate_count": 42,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.804657340759997
+        },
+        "price_and_merchant_preserving": {
+          "candidate_count": 71,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.804657340759997
+        },
+        "all_retrieved_candidates": {
+          "candidate_count": 97,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.804657340759997
+        }
+      }
+    },
+    {
+      "mission_index": 98,
+      "outcomes": {
+        "old_top_score_only": {
+          "candidate_count": 42,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 2.191634429831366
+        },
+        "price_and_merchant_preserving": {
+          "candidate_count": 93,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 2.191634429831366
+        },
+        "all_retrieved_candidates": {
+          "candidate_count": 129,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 2.191634429831366
+        }
+      }
+    },
+    {
+      "mission_index": 99,
+      "outcomes": {
+        "old_top_score_only": {
+          "candidate_count": 14,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 0.772000495712692
+        },
+        "price_and_merchant_preserving": {
+          "candidate_count": 18,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 0.772000495712692
+        },
+        "all_retrieved_candidates": {
+          "candidate_count": 19,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 0.772000495712692
+        }
+      }
+    },
+    {
+      "mission_index": 100,
+      "outcomes": {
+        "old_top_score_only": {
+          "candidate_count": 42,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.8260841161513006
+        },
+        "price_and_merchant_preserving": {
+          "candidate_count": 90,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.8795249692583536
+        },
+        "all_retrieved_candidates": {
+          "candidate_count": 137,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.8795249692583536
+        }
+      }
+    },
+    {
+      "mission_index": 101,
+      "outcomes": {
+        "old_top_score_only": {
+          "candidate_count": 56,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 2.3526856353138537
+        },
+        "price_and_merchant_preserving": {
+          "candidate_count": 121,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 2.3526856353138537
+        },
+        "all_retrieved_candidates": {
+          "candidate_count": 183,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 2.3526856353138537
+        }
+      }
+    },
+    {
+      "mission_index": 102,
+      "outcomes": {
+        "old_top_score_only": {
+          "candidate_count": 42,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.6229603362777854
+        },
+        "price_and_merchant_preserving": {
+          "candidate_count": 77,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.6229603362777854
+        },
+        "all_retrieved_candidates": {
+          "candidate_count": 103,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.6229603362777854
+        }
+      }
+    },
+    {
+      "mission_index": 103,
+      "outcomes": {
+        "old_top_score_only": {
+          "candidate_count": 28,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.21294938884146
+        },
+        "price_and_merchant_preserving": {
+          "candidate_count": 41,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.21294938884146
+        },
+        "all_retrieved_candidates": {
+          "candidate_count": 52,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.21294938884146
+        }
+      }
+    },
+    {
+      "mission_index": 104,
+      "outcomes": {
+        "old_top_score_only": {
+          "candidate_count": 56,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 2.565917524825932
+        },
+        "price_and_merchant_preserving": {
+          "candidate_count": 70,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 2.565917524825932
+        },
+        "all_retrieved_candidates": {
+          "candidate_count": 82,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 2.565917524825932
+        }
+      }
+    },
+    {
+      "mission_index": 105,
+      "outcomes": {
+        "old_top_score_only": {
+          "candidate_count": 42,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 2.155707285300351
+        },
+        "price_and_merchant_preserving": {
+          "candidate_count": 74,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 2.155707285300351
+        },
+        "all_retrieved_candidates": {
+          "candidate_count": 96,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 2.155707285300351
+        }
+      }
+    },
+    {
+      "mission_index": 106,
+      "outcomes": {
+        "old_top_score_only": {
+          "candidate_count": 28,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.3534976693737755
+        },
+        "price_and_merchant_preserving": {
+          "candidate_count": 33,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.3534976693737755
+        },
+        "all_retrieved_candidates": {
+          "candidate_count": 37,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.3534976693737755
+        }
+      }
+    },
+    {
+      "mission_index": 107,
+      "outcomes": {
+        "old_top_score_only": {
+          "candidate_count": 42,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.8887947023069156
+        },
+        "price_and_merchant_preserving": {
+          "candidate_count": 75,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.8887947023069156
+        },
+        "all_retrieved_candidates": {
+          "candidate_count": 95,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.8887947023069156
+        }
+      }
+    },
+    {
+      "mission_index": 108,
+      "outcomes": {
+        "old_top_score_only": {
+          "candidate_count": 28,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.364780261893637
+        },
+        "price_and_merchant_preserving": {
+          "candidate_count": 39,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.364780261893637
+        },
+        "all_retrieved_candidates": {
+          "candidate_count": 47,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.364780261893637
+        }
+      }
+    },
+    {
+      "mission_index": 109,
+      "outcomes": {
+        "old_top_score_only": {
+          "candidate_count": 12,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 0.8337775069688764
+        },
+        "price_and_merchant_preserving": {
+          "candidate_count": 12,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 0.8337775069688764
+        },
+        "all_retrieved_candidates": {
+          "candidate_count": 12,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 0.8337775069688764
+        }
+      }
+    },
+    {
+      "mission_index": 110,
+      "outcomes": {
+        "old_top_score_only": {
+          "candidate_count": 28,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.2308064989991092
+        },
+        "price_and_merchant_preserving": {
+          "candidate_count": 42,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.2308064989991092
+        },
+        "all_retrieved_candidates": {
+          "candidate_count": 53,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.2308064989991092
+        }
+      }
+    },
+    {
+      "mission_index": 111,
+      "outcomes": {
+        "old_top_score_only": {
+          "candidate_count": 28,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 0.5600630109211704
+        },
+        "price_and_merchant_preserving": {
+          "candidate_count": 38,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 0.5600630109211704
+        },
+        "all_retrieved_candidates": {
+          "candidate_count": 41,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 0.5600630109211704
+        }
+      }
+    },
+    {
+      "mission_index": 112,
+      "outcomes": {
+        "old_top_score_only": {
+          "candidate_count": 22,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.559699086964159
+        },
+        "price_and_merchant_preserving": {
+          "candidate_count": 28,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.559699086964159
+        },
+        "all_retrieved_candidates": {
+          "candidate_count": 29,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.559699086964159
+        }
+      }
+    },
+    {
+      "mission_index": 113,
+      "outcomes": {
+        "old_top_score_only": {
+          "candidate_count": 56,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.9706985805116823
+        },
+        "price_and_merchant_preserving": {
+          "candidate_count": 76,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.9706985805116826
+        },
+        "all_retrieved_candidates": {
+          "candidate_count": 85,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.9706985805116823
+        }
+      }
+    },
+    {
+      "mission_index": 114,
+      "outcomes": {
+        "old_top_score_only": {
+          "candidate_count": 42,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.7099242776200554
+        },
+        "price_and_merchant_preserving": {
+          "candidate_count": 77,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.8430684034102771
+        },
+        "all_retrieved_candidates": {
+          "candidate_count": 105,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.8430684034102771
+        }
+      }
+    },
+    {
+      "mission_index": 115,
+      "outcomes": {
+        "old_top_score_only": {
+          "candidate_count": 7,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 0.8765530784304146
+        },
+        "price_and_merchant_preserving": {
+          "candidate_count": 7,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 0.8765530784304146
+        },
+        "all_retrieved_candidates": {
+          "candidate_count": 7,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 0.8765530784304146
+        }
+      }
+    },
+    {
+      "mission_index": 116,
+      "outcomes": {
+        "old_top_score_only": {
+          "candidate_count": 42,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 2.088058898684921
+        },
+        "price_and_merchant_preserving": {
+          "candidate_count": 68,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 2.088058898684921
+        },
+        "all_retrieved_candidates": {
+          "candidate_count": 84,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 2.088058898684921
+        }
+      }
+    },
+    {
+      "mission_index": 117,
+      "outcomes": {
+        "old_top_score_only": {
+          "candidate_count": 24,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.3196135094683965
+        },
+        "price_and_merchant_preserving": {
+          "candidate_count": 29,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.3196135094683965
+        },
+        "all_retrieved_candidates": {
+          "candidate_count": 32,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.3196135094683965
+        }
+      }
+    },
+    {
+      "mission_index": 118,
+      "outcomes": {
+        "old_top_score_only": {
+          "candidate_count": 56,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.8740290265088644
+        },
+        "price_and_merchant_preserving": {
+          "candidate_count": 108,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.8740290265088646
+        },
+        "all_retrieved_candidates": {
+          "candidate_count": 159,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.8740290265088644
+        }
+      }
+    },
+    {
+      "mission_index": 119,
+      "outcomes": {
+        "old_top_score_only": {
+          "candidate_count": 42,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.7400722827522015
+        },
+        "price_and_merchant_preserving": {
+          "candidate_count": 79,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.7400722827522015
+        },
+        "all_retrieved_candidates": {
+          "candidate_count": 115,
+          "feasible": true,
+          "solver": "ilp_cbc",
+          "objective": 1.7400722827522015
+        }
+      }
+    }
+  ]
+}

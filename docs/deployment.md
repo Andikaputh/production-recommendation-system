@@ -18,3 +18,8 @@ After deployment, verify `/health`, `/docs`, a feasible scenario, the intentiona
 ## Render Blueprint
 
 `render.yaml` provides one-click configuration for a Docker Web Service in the Singapore region, including health checks and automatic deployment from `main`. On the free plan, the filesystem is ephemeral: the catalog returns to its image seed after a restart and demo feedback events are not guaranteed to persist. Use a paid persistent disk or PostgreSQL for long-term retention.
+
+
+## Pilot satu merchant
+
+Gunakan `docs/pilot/README.md` untuk database persisten terpisah, token admin, katalog bertimestamp dan biaya pilot. Hosting tanpa persistent disk hanya untuk demo. `/readyz` mengembalikan 503 bila katalog pilot belum diimpor atau kedaluwarsa; gunakan sebagai readiness gate, `/health` tetap diagnostik. Aplikasi tidak mengirim ringkasan ke pihak luar. Deploy publik tidak dilakukan dalam pengembangan ini.
