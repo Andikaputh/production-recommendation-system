@@ -1,5 +1,7 @@
 # Python
 .venv/
+.venv-pilot/
+.cache/
 venv/
 env/
 __pycache__/

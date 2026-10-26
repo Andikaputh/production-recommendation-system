@@ -29,7 +29,7 @@ def summarize_baskets(
         for result in feasible
     ]
     availabilities = [
-        1.0 if all(item.price > 0 for item in result.items) else 0.0 for result in feasible
+        1.0 if result.diagnostics.get("validation", {}).get("all_available") else 0.0 for result in feasible
     ]
     latencies = [result.solve_time_ms for result in results]
     explained = [
@@ -59,6 +59,7 @@ def summarize_baskets(
         "all_feasible_constraints_valid": all(
             result.total_price <= (result.total_price + result.budget_remaining) + 1e-6
             and result.required_category_coverage == 1.0
+            and all(result.diagnostics.get("validation", {}).get(key, False) for key in ("budget_ok", "merchant_limit_ok", "required_coverage_ok", "all_available"))
             for result in feasible
         ),
     }

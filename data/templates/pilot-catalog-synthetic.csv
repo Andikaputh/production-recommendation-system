@@ -1,0 +1,7 @@
+product_id,product_name,category_id,merchant_id,price,stock,updated_at,description,brand,style,color
+sample-bag,Tas contoh sintetis,bag,pilot-store,100000,5,2026-10-26T08:00:00Z,Data contoh bukan produk nyata,Contoh,minimalist,black
+sample-pen,Alat tulis contoh sintetis,stationery,pilot-store,15000,20,2026-10-26T08:00:00Z,Data contoh bukan produk nyata,Contoh,minimalist,black
+sample-bottle,Botol contoh sintetis,drinkware,pilot-store,35000,10,2026-10-26T08:00:00Z,Data contoh bukan produk nyata,Contoh,natural,cream
+sample-organizer,Penyimpanan contoh sintetis,organizer,pilot-store,25000,10,2026-10-26T08:00:00Z,Data contoh bukan produk nyata,Contoh,minimalist,white
+sample-desk,Lampu meja contoh sintetis,desk,pilot-store,120000,5,2026-10-26T08:00:00Z,Data contoh bukan produk nyata,Contoh,minimalist,black
+sample-care,Pouch perawatan contoh sintetis,personal_care,pilot-store,45000,10,2026-10-26T08:00:00Z,Data contoh bukan produk nyata,Contoh,natural,cream

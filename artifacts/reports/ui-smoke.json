@@ -1,0 +1,30 @@
+{
+  "generated_at": "2026-10-26T01:40:17.810Z",
+  "default_language": "en",
+  "languages": {
+    "en": {
+      "feasible": true,
+      "acceptance": true,
+      "handoff": true,
+      "infeasible": true,
+      "api_failure": true,
+      "language_persisted": true,
+      "custom_input_preserved": true,
+      "result_preserved_on_language_switch": true,
+      "mobile_overflow": false,
+      "page_errors": []
+    },
+    "id": {
+      "feasible": true,
+      "acceptance": true,
+      "handoff": true,
+      "infeasible": true,
+      "api_failure": true,
+      "language_persisted": true,
+      "custom_input_preserved": true,
+      "result_preserved_on_language_switch": true,
+      "mobile_overflow": false,
+      "page_errors": []
+    }
+  }
+}

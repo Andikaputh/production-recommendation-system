@@ -91,6 +91,9 @@ def _prune_candidates(scored: pd.DataFrame, mission: Mission) -> pd.DataFrame:
     frames = []
     for _category_id, group in scored.groupby("category_id"):
         frames.append(group.nlargest(limit, "score"))
+        # Preserve affordable and merchant-compatible routes through the search space.
+        frames.append(group.nsmallest(2, "price"))
+        frames.append(group.sort_values(["price", "product_id"]).groupby("merchant_id").head(1))
     if not frames:
         return scored.iloc[0:0].copy()
     pruned = pd.concat(frames, ignore_index=True)
@@ -151,6 +154,9 @@ def _greedy_search(
             ):
                 continue
             selected = list(state["selection"])
+            exclusive = str(row.get("exclusive_group") or "")
+            if exclusive and any(str(item.get("exclusive_group") or "") == exclusive for item in selected):
+                continue
             selected.append(row)
             expanded.append({
                 "selection": selected,
@@ -279,7 +285,10 @@ def _ilp_solve(
             problem += pulp.lpSum(x[product_id] for product_id in product_ids) <= 1
 
     solver = pulp.PULP_CBC_CMD(msg=False, timeLimit=max(0.2, float(time_limit)), threads=1)
-    status_code = problem.solve(solver)
+    try:
+        status_code = problem.solve(solver)
+    except pulp.PulpSolverError:
+        return None, "cbc_unavailable", None
     status = pulp.LpStatus.get(status_code, str(status_code))
     if status != "Optimal":
         return None, f"ilp_{status.lower().replace(' ', '_')}", None
@@ -368,6 +377,14 @@ def optimize_basket(
     start = time.perf_counter()
     candidate_diagnostics = candidate_diagnostics or {}
     limit_cfg = int(settings.get("optimization.max_candidates_per_category", 14))
+    scored = scored.copy()
+    if "availability_status" in scored:
+        scored = scored[scored["availability_status"] == "available"]
+    scored = scored[scored["category_id"].isin(mission.all_categories)]
+    if mission.preferences.minimum_rating is not None:
+        scored = scored[scored["rating"] >= mission.preferences.minimum_rating]
+    if mission.preferences.max_item_price is not None:
+        scored = scored[scored["price"] <= mission.preferences.max_item_price]
     candidates = _prune_candidates(scored, mission) if len(scored) else scored.copy()
     candidates = candidates[candidates["price"] <= mission.max_budget]
     if "exclusive_group" not in candidates.columns:
@@ -408,6 +425,16 @@ def optimize_basket(
     if selection is None:
         selection = _greedy_search(candidates, mission, lambda_merchant, lambda_budget_slack)
         solver_name = "greedy_fallback" if selection else solver_name
+
+    if selection is None and len(scored) > len(candidates):
+        expanded = scored[scored["price"] <= mission.max_budget].copy()
+        if "exclusive_group" not in expanded:
+            expanded["exclusive_group"] = ""
+        diagnostics["full_candidate_retry"] = True
+        selection, solver_name, objective = _ilp_solve(expanded, mission, lambda_merchant, lambda_budget_slack, time_limit)
+        if selection is None:
+            selection = _greedy_search(expanded, mission, lambda_merchant, lambda_budget_slack)
+            solver_name = "greedy_fallback" if selection else solver_name
 
     if not selection:
         suggestions, analysis = _infeasibility_analysis(mission, catalog, candidates, candidate_diagnostics)
@@ -544,6 +571,17 @@ def naive_independent_basket(
         objective_value=None,
         solver="independent_top1",
         solve_time_ms=0.0,
-        diagnostics={"purpose": "baseline comparison", "hard_constraints_enforced": False},
+        diagnostics={
+            "purpose": "baseline comparison", "hard_constraints_enforced": False,
+            "validation": {
+                "budget_ok": total <= mission.max_budget,
+                "merchant_limit_ok": len(merchants) <= mission.max_merchants,
+                "required_coverage_ok": coverage == 1.0,
+                "all_available": bool(len(items)) and all(
+                    scored.loc[scored["product_id"] == item.product_id, "availability_status"].eq("available").all()
+                    for item in items
+                ) if "availability_status" in scored else False,
+            },
+        },
         suggestions=[],
     )

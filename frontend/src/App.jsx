@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from 'react'
 import './App.css'
+import PilotBuilder from './PilotBuilder'
 
 const API_URL = (import.meta.env.VITE_API_URL || '').replace(/\/$/, '')
 
@@ -104,7 +105,7 @@ function Metric({ label, value, hint }) {
   return <div className="metric"><span>{label}</span><strong>{value}</strong>{hint && <small>{hint}</small>}</div>
 }
 
-function App() {
+function TechnicalApp() {
   const [view, setView] = useState('demo')
   const [categories, setCategories] = useState(fallbackCategories)
   const [scenarios, setScenarios] = useState(fallbackScenarios)
@@ -266,7 +267,7 @@ function App() {
           <h1>Beyond popular products.<br /><em>A basket that makes sense.</em></h1>
           <p>RASA turns a shopping goal into a relevant, available product bundle that respects both budget and merchant limits.</p>
           <div className="hero-facts">
-            <span><b>600</b> synthetic products</span><span><b>4</b> decision layers</span><span><b>100%</b> free of personal data</span>
+            <span><b>600</b> synthetic products</span><span><b>4</b> decision layers</span><span>Anonymous demo sessions</span>
           </div>
         </section>
 
@@ -355,9 +356,17 @@ function App() {
         {[['01', 'Candidate generation', 'Categories, attributes, popularity, and history form the candidate pool.'], ['02', 'Hybrid ranking', 'Content, collaborative, mission, quality, and affinity signals are combined with validated weights.'], ['03', 'Feasibility', 'Inventory, ratings, per-item prices, and required categories are filtered before optimization.'], ['04', 'Basket optimization', 'An ILP selects a combination that respects the budget and merchant limit.'], ['05', 'Explanation & feedback', 'The factors actually used become human-readable reasons, and anonymous responses are recorded as events.']].map(([number, title, copy]) => <article key={number}><span>{number}</span><div><h2>{title}</h2><p>{copy}</p></div></article>)}
       </section><section className="method-note"><h2>Claim boundaries</h2><p>The catalog, prices, inventory, merchants, profiles, and interactions are entirely synthetic. Internal scores are not purchase probabilities. The A/B simulation is not an online experiment and does not establish causal effects.</p></section></main>}
 
-      <footer><span>RASA · portfolio engineering project</span><span>Synthetic data · no transactions · no personal data</span></footer>
+      <footer><span>RASA · portfolio engineering project</span><span>Synthetic data · no transactions · no identity required</span></footer>
     </div>
   )
 }
 
-export default App
+export default function App() {
+  const [technical, setTechnical] = useState(false)
+  const [language, setLanguage] = useState(() => localStorage.getItem('rasa-language') === 'id' ? 'id' : 'en')
+  useEffect(() => {
+    localStorage.setItem('rasa-language', language)
+    document.documentElement.lang = technical ? 'en' : language
+  }, [language, technical])
+  return technical ? <div lang="en"><button className="secondary-button" onClick={() => setTechnical(false)}>{language === 'id' ? '← Kembali ke penyusunan paket' : '← Back to kit builder'}</button><TechnicalApp /></div> : <PilotBuilder language={language} onLanguageChange={setLanguage} onTechnical={() => setTechnical(true)} />
+}

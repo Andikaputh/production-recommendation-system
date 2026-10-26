@@ -3,6 +3,8 @@
 from __future__ import annotations
 
 import copy
+import hashlib
+import platform
 import time
 from collections import defaultdict
 from typing import Any
@@ -23,7 +25,7 @@ from rasa.missions.validation import Mission, Preferences
 from rasa.optimization.basket import BasketResult, naive_independent_basket, optimize_basket
 from rasa.ranking.ranker import HybridRanker, simulate_mission_for_user
 from rasa.services.catalog import CatalogService
-from rasa.utils import iso_now, read_json, write_json
+from rasa.utils import file_sha256, iso_now, read_json, write_json
 
 EXPERIMENT_STRATEGIES = {
     "EXP-001": ("Global Popularity", "popularity_global", "ranking"),
@@ -144,16 +146,18 @@ class OfflineEvaluator:
         k: int | None = None,
     ) -> dict[str, Any]:
         k = k or self.k
-        targets = user_ids or sorted(self.relevant)
+        targets = sorted(self.relevant) if user_ids is None else user_ids
         metric_rows: list[dict[str, float]] = []
         cold_rows: list[dict[str, float]] = []
         recommendations: dict[str, list[str]] = {}
         latencies: list[float] = []
+        evaluated_users: list[str] = []
         for user_id in targets:
             mission = self._mission_for(user_id)
             relevant = self._relevant_for(user_id, mission)
             if not relevant:
                 continue
+            evaluated_users.append(user_id)
             start = time.perf_counter()
             result = ranker.rank(
                 self.catalog,
@@ -188,6 +192,7 @@ class OfflineEvaluator:
             "ndcg_confidence_interval": bootstrap_ci(ndcg_values, seed=settings.seed),
             "recall_confidence_interval": bootstrap_ci(recall_values, seed=settings.seed),
             "n_users": len(metric_rows),
+            "user_ids": evaluated_users,
             "n_cold_start_users": len(cold_rows),
             "cold_start_metrics": aggregate_metrics(cold_rows) if cold_rows else {},
             "catalog_metrics": catalog_metrics,
@@ -296,6 +301,12 @@ class OfflineEvaluator:
             cache: dict[str, pd.DataFrame] = {}
             for key, (strategy, mode, _) in configurations.items():
                 results[key].append(self._basket_for_strategy(mission, strategy, mode, cache))
+            scored = cache["hybrid_mission"]
+            cheapest = scored.sort_values(["price", "product_id"]).groupby("category_id").head(1)
+            fixed_ids = set(self.catalog.sort_values(["rating", "product_id"], ascending=[False, True]).groupby("category_id").head(1)["product_id"])
+            fixed = scored[scored["product_id"].isin(fixed_ids)]
+            results["SIMPLE-CHEAPEST"].append(naive_independent_basket(cheapest, mission))
+            results["SIMPLE-FIXED"].append(naive_independent_basket(fixed, mission))
             scored_caches.append(cache)
 
         substitution_success = self._substitution_success(missions, scored_caches, limit=25)
@@ -312,6 +323,8 @@ class OfflineEvaluator:
                 "evaluated_missions": len(missions),
             })
             summaries[key] = summary
+        for key, label in [("SIMPLE-CHEAPEST", "Cheapest eligible item per category, no joint optimization"), ("SIMPLE-FIXED", "Fixed highest-rating catalog curation per category, no test-label selection")]:
+            summaries[key] = {**summarize_baskets(results[key]), "label": label, "score_definition": "Same hybrid-mission score as EXP-007; conditional on feasible baskets."}
         return summaries
 
     def _substitution_success(
@@ -348,12 +361,16 @@ class OfflineEvaluator:
             "no_quality_signal": {"quality": 0.0},
             "no_affinity_signal": {"affinity": 0.0},
         }
-        subset_users = sorted(self.relevant)[:180]
+        eligible = [uid for uid in sorted(self.relevant) if self._relevant_for(uid, self._mission_for(uid))]
+        rng = np.random.default_rng(settings.seed)
+        subset_users = sorted(str(uid) for uid in rng.choice(eligible, size=min(180, len(eligible)), replace=False))
         results: dict[str, Any] = {}
         base_subset = self._evaluate_ranking_with(self.ranker, user_ids=subset_users)
         results["base_all_signals"] = {
             "metrics": base_subset["metrics"],
             "weights": base_weights,
+            "n_users": base_subset["n_users"],
+            "user_ids": base_subset["user_ids"],
             "note": f"Full configuration on a subset of {len(subset_users)} test users.",
         }
         for name, override in variants.items():
@@ -362,14 +379,17 @@ class OfflineEvaluator:
             if sum(weights.values()) <= 0:
                 continue
             config = copy.deepcopy(base_config)
-            # Other weights are not renormalized: the ablation measures
-            # a component's marginal contribution, not an optimized alternative configuration.
+            # Inference renormalizes remaining weights, including cold-start adjustments.
+            # This is removal of a signal without retuning, not a validation-selected replacement.
             config["weights"] = weights
             ranker = HybridRanker(
                 self.ranker.content, self.ranker.collaborative, self.ranker.popularity, config=config
             )
             results[name] = self._evaluate_ranking_with(ranker, user_ids=subset_users)
             results[name]["weights"] = config["weights"]
+            differences = np.asarray(results[name]["ndcg_per_user"]) - np.asarray(base_subset["ndcg_per_user"])
+            results[name]["paired_ndcg_delta_ci"] = bootstrap_ci(differences.tolist(), seed=settings.seed)
+            results[name]["mean_ndcg_delta"] = float(differences.mean()) if len(differences) else None
             note = f"Ablation on a subset of {len(subset_users)} test users."
             zeroed = [key for key, value in override.items() if value == 0.0 and base_weights.get(key, 0.0) == 0.0]
             if zeroed:
@@ -466,6 +486,17 @@ class OfflineEvaluator:
             "model_version": settings.model_version,
             "seed": settings.seed,
             "k": self.k,
+            "provenance": {
+                "command": "python scripts/evaluate.py",
+                "python": platform.python_version(),
+                "config_sha256": file_sha256(settings.config_path),
+                "model_files": {p.name: file_sha256(p) for p in sorted(settings.models_dir.glob("*")) if p.is_file()},
+                "processed_files": {p.name: file_sha256(p) for p in sorted(settings.processed_dir.glob("*")) if p.is_file()},
+                "evaluation_code_sha256": file_sha256(settings.root_dir / "src/rasa/evaluation/runner.py"),
+                "optimizer_code_sha256": file_sha256(settings.root_dir / "src/rasa/optimization/basket.py"),
+                "basket_missions_sha256": hashlib.sha256(str([m.to_dict() for m in missions]).encode()).hexdigest(),
+                "population_note": "Main ranking uses eligible mission-scoped holdout users. Ablation uses a seeded random subset of those users with a paired baseline. No test-based configuration selection.",
+            },
             "test_set": {
                 "type": "temporal_holdout_per_user",
                 "n_users": len(self.relevant),

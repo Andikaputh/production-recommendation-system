@@ -20,6 +20,20 @@ from rasa.ranking.ranker import HybridRanker, simulate_mission_for_user
 from rasa.utils import iso_now
 
 
+def validation_order(frame: pd.DataFrame, weights: dict[str, float], n_interactions: int, min_interactions: int, k: int) -> list[str]:
+    """Mirror hybrid-mission inference, including cold start and stable candidate ties."""
+    effective = dict(weights)
+    effective["collaborative"] *= min(1.0, n_interactions / max(1, min_interactions))
+    total = sum(effective.values())
+    if total <= 0:
+        effective = {"content": 0.5, "mission": 0.5}
+    else:
+        effective = {key: value / total for key, value in effective.items()}
+    ordered = frame.sort_values("candidate_order")
+    score = sum(weight * ordered[f"component_{key}"].to_numpy() for key, weight in effective.items())
+    return ordered["product_id"].to_numpy()[np.argsort(-score, kind="stable")[:k]].tolist()
+
+
 def _weight_combinations() -> list[dict[str, float]]:
     grid = settings.get("ranking.weight_grid", {})
     keys = ["collaborative", "content", "mission", "quality", "affinity"]
@@ -92,12 +106,13 @@ def tune_weights(
         )
         if result.scored.empty:
             continue
-        frame = result.scored[["product_id", "component_collaborative", "component_content",
+        frame = result.scored[["product_id", "candidate_order", "component_collaborative", "component_content",
                                "component_mission", "component_quality", "component_affinity"]].copy()
         prepared.append({
             "user_id": user_id,
             "frame": frame,
             "relevant": relevant,
+            "n_interactions": result.diagnostics["cold_start"]["n_user_interactions"],
         })
 
     combinations = _weight_combinations()
@@ -106,15 +121,7 @@ def tune_weights(
         metric_rows: list[dict[str, float]] = []
         for item in prepared:
             frame = item["frame"]
-            score = (
-                weights["collaborative"] * frame["component_collaborative"].to_numpy()
-                + weights["content"] * frame["component_content"].to_numpy()
-                + weights["mission"] * frame["component_mission"].to_numpy()
-                + weights["quality"] * frame["component_quality"].to_numpy()
-                + weights["affinity"] * frame["component_affinity"].to_numpy()
-            )
-            order = np.argsort(-score, kind="stable")[:k]
-            recommended = frame["product_id"].to_numpy()[order].tolist()
+            recommended = validation_order(frame, weights, item["n_interactions"], int(ranker.config.get("min_interactions", 3)), k)
             metric_rows.append(evaluate_recommendation(recommended, item["relevant"], k=k))
         aggregated = aggregate_metrics(metric_rows, [f"ndcg@{k}", f"recall@{k}", f"precision@{k}"])
         scores.append({
@@ -128,15 +135,7 @@ def tune_weights(
     ndcg_values = []
     for item in prepared:
         frame = item["frame"]
-        score = (
-            best["weights"]["collaborative"] * frame["component_collaborative"].to_numpy()
-            + best["weights"]["content"] * frame["component_content"].to_numpy()
-            + best["weights"]["mission"] * frame["component_mission"].to_numpy()
-            + best["weights"]["quality"] * frame["component_quality"].to_numpy()
-            + best["weights"]["affinity"] * frame["component_affinity"].to_numpy()
-        )
-        order = np.argsort(-score, kind="stable")[:k]
-        recommended = frame["product_id"].to_numpy()[order].tolist()
+        recommended = validation_order(frame, best["weights"], item["n_interactions"], int(ranker.config.get("min_interactions", 3)), k)
         ndcg_values.append(evaluate_recommendation(recommended, item["relevant"], k=k)[f"ndcg@{k}"])
     confidence = bootstrap_ci(ndcg_values, seed=seed)
 
