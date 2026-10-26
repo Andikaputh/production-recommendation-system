@@ -22,3 +22,8 @@ The primary kit builder now defaults to English, with a persistent English / Bah
 ## Maximum budget validation fix
 
 The technical demo now accepts any positive whole-rupiah budget within its 50,000,000 IDR limit. Previously, `min=1` combined with `step=1000` rejected common scenario amounts such as 250000 with a browser step-mismatch warning. The step is now 1, consistent with the primary builder. Browser regression coverage checks preset and custom whole-rupiah values, invalid bounds/fractions, and submission of a 250000 budget to the live local API.
+
+
+## First-visit welcome and guided tutorial
+
+Added an English/Indonesian welcome popup and four-step spotlight guide covering scenarios, essential categories, whole-rupiah budgets, and reviewing/replacing/accepting a kit. Visitors can skip, close, press Escape, or finish; the browser remembers dismissal. A How to use / Cara pakai button reopens the guide. Modal keyboard focus is contained and restored, inputs are preserved, and the budget field remains visible beside/before the coaching card on desktop and mobile. No shopping action or order is submitted by the tutorial.

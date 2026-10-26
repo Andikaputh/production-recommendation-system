@@ -18,6 +18,7 @@ fs.mkdirSync(output, {recursive:true});
    const page = await context.newPage();
    const errors=[]; page.on('pageerror', e=>errors.push(e.message));
    await page.goto(process.env.RASA_TEST_URL || 'http://127.0.0.1:8000');
+   await page.getByRole('button',{name:'Skip tutorial',exact:true}).click();
    await page.getByRole('button',{name:'Build a kit',exact:true}).waitFor();
    assert.equal(await page.locator('html').getAttribute('lang'), 'en');
    await page.getByRole('textbox',{name:'Shopping goal',exact:true}).fill('My custom semester kit');
@@ -58,6 +59,7 @@ fs.mkdirSync(output, {recursive:true});
   const technicalContext = await browser.newContext();
   const technicalPage = await technicalContext.newPage();
   await technicalPage.goto(process.env.RASA_TEST_URL || 'http://127.0.0.1:8000');
+  await technicalPage.getByRole('button',{name:'Skip tutorial',exact:true}).click();
   await technicalPage.getByRole('button',{name:'Technical evidence & model demo',exact:true}).click();
   const maximumBudget = technicalPage.getByRole('spinbutton',{name:/^Maximum budget/});
   for (const value of ['1','1000','25000','250000','250001','750000','50000000']) {

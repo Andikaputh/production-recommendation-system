@@ -10,6 +10,7 @@ RASA focuses on college and boarding starter kits. The segment and merchant-as-p
 
 ## What is included
 
+- A skippable first-visit welcome and four-step spotlight tutorial, replayable through **How to use / Cara pakai**, with keyboard support and a mobile layout.
 - An English-first bilingual bundle builder (English / Bahasa Indonesia) and an optional English technical mission builder with built-in scenarios and a rule-based parser that always requires confirmation.
 - Global and category popularity, content-based TF-IDF, collaborative item similarity, hybrid ranking, and a cold-start fallback.
 - ILP basket optimization with beam-search fallback. Budget, required categories, inventory, and merchant limits are revalidated before a result is returned.

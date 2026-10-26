@@ -27,10 +27,11 @@
 | `python scripts/audit_candidate_pruning.py` | 120 misi: policy lama 117 layak, baru 119, seluruh retrieved 119 |
 | `python scripts/audit_validation_scoring.py` | 175 pengguna validation, 0 perbedaan urutan cache/inference, tidak memilih bobot baru |
 | `python scripts/sync_evaluation_docs.py --check` | Lulus, ringkasan sesuai JSON |
+| Onboarding browser smoke | Welcome kunjungan pertama, skip tersimpan, replay, empat langkah, navigasi kembali, English/Indonesia, Esc/tutup, fokus keyboard, input tetap, popup seluler dan budget tidak tertutup: lulus |
 | Maximum budget pada demo teknis | Nilai rupiah bulat termasuk 250000 valid; nol/negatif/pecahan/melebihi batas ditolak; submit 250000 mencapai API dan menampilkan hasil langsung |
 | Chrome headless lokal | Kedua bahasa: feasible, accept, ringkasan, infeasible, API gagal, pilihan bahasa tersimpan, input dan hasil terjaga saat berganti bahasa; 0 page errors; viewport 390 px tanpa horizontal overflow |
 | `python scripts/pilot_economics.py` | Kalkulasi dasar dan sensitivitas selesai; semua nilai asumsi ilustratif |
-| `python -m graphify update .` | AST diperbarui: 992 node, 2413 edge, 66 komunitas |
+| `python -m graphify update .` | AST diperbarui; statistik terbaru tersedia di graphify-out/GRAPH_REPORT.md |
 | Integritas graph | 0 dangling edge; 1 self-loop adalah rekursi `json_safe()` yang diekstrak |
 | `git diff --check` | Lulus; pemberitahuan konversi LF/CRLF pada Windows |
 
@@ -61,3 +62,6 @@ Misi layak memenuhi kebutuhan wajib dan budget barang. Budget tidak cukup member
 3. Sepakati satu merchant: izin katalog, update harga/stok, pemesanan manual, biaya, retensi, tanggung jawab, dan kriteria lanjut/berhenti.
 4. Impor katalog nyata yang diizinkan: dry run, perbaiki error, apply dan periksa kesiapan sebelum membuka sesi terbatas.
 5. Jalankan pilot formatif dan baca funnel source=pilot. Tinjau ringkasan bersama merchant. Uji harga dan eksperimen berdaya cukup hanya setelah manfaat serta kelayakan operasional didukung bukti.
+
+
+Bukti onboarding: `artifacts/reports/onboarding-smoke.json`; [welcome desktop](onboarding-desktop.png) dan [welcome mobile](onboarding-mobile.png). Pemeriksaan alur shopping dua bahasa dan regresi maximum budget juga dijalankan ulang setelah penambahan tutorial.

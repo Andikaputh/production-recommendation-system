@@ -2,6 +2,8 @@
 
 [Bahasa Indonesia](README.id.md). The product defaults to **English**. Use the persistent **English / Bahasa Indonesia** selector in the kit builder; language changes preserve your custom goal, budget, and current basket. Preset goals, labels, currency formatting, explanations, recovery suggestions, and local summary labels follow the selected language. Merchant product names and custom user text are preserved. The optional technical model demo remains in English.
 
+First-time visitors see a welcome popup and an optional four-step guide: scenario, required needs, budget, and results. Skip, close, Escape, or finish dismisses it and remembers the choice in this browser. Use **How to use / Cara pakai** to replay it. The guide can switch language, keeps keyboard focus inside the popup, restores focus when closed, and preserves shopping inputs. If browser storage is disabled, dismissal still works but cannot be remembered after a reload.
+
 Status: local portfolio and limited-pilot implementation, not a validated business. No merchant, interviews, transactions, or testimonials are claimed.
 
 ## Start in this order

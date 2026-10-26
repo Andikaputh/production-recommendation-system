@@ -363,9 +363,11 @@ function TechnicalApp() {
 
 export default function App() {
   const [technical, setTechnical] = useState(false)
-  const [language, setLanguage] = useState(() => localStorage.getItem('rasa-language') === 'id' ? 'id' : 'en')
+  const [language, setLanguage] = useState(() => {
+    try { return localStorage.getItem('rasa-language') === 'id' ? 'id' : 'en' } catch { return 'en' }
+  })
   useEffect(() => {
-    localStorage.setItem('rasa-language', language)
+    try { localStorage.setItem('rasa-language', language) } catch { /* Language switching still works without persistence. */ }
     document.documentElement.lang = technical ? 'en' : language
   }, [language, technical])
   return technical ? <div lang="en"><button className="secondary-button" onClick={() => setTechnical(false)}>{language === 'id' ? '← Kembali ke penyusunan paket' : '← Back to kit builder'}</button><TechnicalApp /></div> : <PilotBuilder language={language} onLanguageChange={setLanguage} onTechnical={() => setTechnical(true)} />

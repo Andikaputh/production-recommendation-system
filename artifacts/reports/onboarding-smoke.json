@@ -1,0 +1,15 @@
+{
+  "generated_at": "2026-10-26T02:20:16.792Z",
+  "first_visit_welcome": true,
+  "skip_persisted": true,
+  "replay": true,
+  "english_and_indonesian": true,
+  "all_four_steps": true,
+  "back_navigation": true,
+  "escape_and_close": true,
+  "focus_contained_and_restored": true,
+  "input_preserved": true,
+  "mobile_dialog_within_viewport": true,
+  "storage_unavailable_can_dismiss": true,
+  "page_errors": []
+}
