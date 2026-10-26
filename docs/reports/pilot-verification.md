@@ -27,6 +27,7 @@
 | `python scripts/audit_candidate_pruning.py` | 120 misi: policy lama 117 layak, baru 119, seluruh retrieved 119 |
 | `python scripts/audit_validation_scoring.py` | 175 pengguna validation, 0 perbedaan urutan cache/inference, tidak memilih bobot baru |
 | `python scripts/sync_evaluation_docs.py --check` | Lulus, ringkasan sesuai JSON |
+| Maximum budget pada demo teknis | Nilai rupiah bulat termasuk 250000 valid; nol/negatif/pecahan/melebihi batas ditolak; submit 250000 mencapai API dan menampilkan hasil langsung |
 | Chrome headless lokal | Kedua bahasa: feasible, accept, ringkasan, infeasible, API gagal, pilihan bahasa tersimpan, input dan hasil terjaga saat berganti bahasa; 0 page errors; viewport 390 px tanpa horizontal overflow |
 | `python scripts/pilot_economics.py` | Kalkulasi dasar dan sensitivitas selesai; semua nilai asumsi ilustratif |
 | `python -m graphify update .` | AST diperbarui: 992 node, 2413 edge, 66 komunitas |

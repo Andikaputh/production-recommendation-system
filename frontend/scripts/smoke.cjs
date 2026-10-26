@@ -55,6 +55,28 @@ fs.mkdirSync(output, {recursive:true});
    report.languages[locale]={feasible:true,acceptance:true,handoff:true,infeasible:true,api_failure:true,language_persisted:true,custom_input_preserved:true,result_preserved_on_language_switch:true,mobile_overflow:overflow,page_errors:errors};
    await context.close();
   }
+  const technicalContext = await browser.newContext();
+  const technicalPage = await technicalContext.newPage();
+  await technicalPage.goto(process.env.RASA_TEST_URL || 'http://127.0.0.1:8000');
+  await technicalPage.getByRole('button',{name:'Technical evidence & model demo',exact:true}).click();
+  const maximumBudget = technicalPage.getByRole('spinbutton',{name:/^Maximum budget/});
+  for (const value of ['1','1000','25000','250000','250001','750000','50000000']) {
+   await maximumBudget.fill(value);
+   assert.equal(await maximumBudget.evaluate(input=>input.checkValidity()),true,`Budget ${value} must be valid`);
+  }
+  for (const value of ['0','-1','1.5','50000001']) {
+   await maximumBudget.fill(value);
+   assert.equal(await maximumBudget.evaluate(input=>input.checkValidity()),false,`Budget ${value} must remain invalid`);
+  }
+  await maximumBudget.fill('250000');
+  const recommendationResponse = technicalPage.waitForResponse(response=>response.url().endsWith('/api/v1/recommendations') && response.request().method()==='POST');
+  await technicalPage.getByRole('button',{name:'Build recommendations',exact:false}).click();
+  const submitted = await recommendationResponse;
+  assert.equal(submitted.request().postDataJSON().mission.max_budget,250000);
+  assert.equal(submitted.status(),200);
+  await technicalPage.locator('.source-label.live').waitFor();
+  report.maximum_budget={valid_whole_rupiah:true,invalid_bounds_and_fractions_rejected:true,submitted_budget:250000,api_status:submitted.status(),live_result_rendered:true};
+  await technicalContext.close();
   fs.writeFileSync(path.join(root,'artifacts/reports/ui-smoke.json'),JSON.stringify(report,null,2)+'\n');
   console.log(JSON.stringify(report));
  } finally { await browser.close(); }

@@ -300,7 +300,7 @@ function TechnicalApp() {
             </div><div className="legend"><span><i className="required-dot" /> Required</span><span><i className="optional-dot" /> Optional</span></div></fieldset>
 
             <div className="field-row">
-              <label className="field"><span>Maximum budget</span><div className="input-prefix"><b>IDR</b><input type="number" min="1" max="50000000" step="1000" value={mission.max_budget} onChange={(event) => setMission({ ...mission, max_budget: event.target.value })} required /></div></label>
+              <label className="field"><span>Maximum budget</span><div className="input-prefix"><b>IDR</b><input type="number" min="1" max="50000000" step="1" value={mission.max_budget} onChange={(event) => setMission({ ...mission, max_budget: event.target.value })} required /></div></label>
               <label className="field"><span>Maximum merchants</span><input type="number" min="1" max="10" value={mission.max_merchants} onChange={(event) => setMission({ ...mission, max_merchants: event.target.value })} required /></label>
             </div>
             <div className="field-row">
